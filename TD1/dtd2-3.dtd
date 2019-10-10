@@ -1,0 +1,3 @@
+<!ELEMENT A (C+,B*)* >
+<!ELEMENT B EMPTY>
+<!ELEMENT C EMPTY>

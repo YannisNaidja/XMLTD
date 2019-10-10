@@ -1,0 +1,1 @@
+/tweeter/users/user[@id=/tweeter/tweets/tweet/@author_ref]/concat(first_name, ' ', last_name)

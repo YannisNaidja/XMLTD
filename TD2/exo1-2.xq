@@ -1,0 +1,1 @@
+/descendant::ANNEE[text() = '1990']/parent::FILM/child::TITRE/text()
