@@ -1,0 +1,25 @@
+<a>
+  <d>
+    ddd
+  </d>
+  <c>
+    <b>
+      <c>
+	<a>
+	  <child>child</child>
+	  aaa
+	</a>
+      </c>
+    </b>
+    <d>
+      abcd
+    </d>
+  </c>
+  <b>
+  </b>
+  <d>
+    abcdefkj
+  </d>
+  <c>
+  </c>
+</a>
