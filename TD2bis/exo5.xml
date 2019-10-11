@@ -1,7 +1,4 @@
 <root>
-  <b>
-    bbbb
-  </b>
   <a>
     abcdef
   </a>
@@ -24,10 +21,4 @@
       <b>hijklm</b>
     </a>
   </a>
-  <freresuivant>
-    abcdefkjkj
-    <b>
-      aaaaaaaaaaaaa
-    </b>
-  </freresuivant>
 </root>

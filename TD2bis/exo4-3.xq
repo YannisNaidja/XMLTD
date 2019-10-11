@@ -1,0 +1,1 @@
+/tweeter/tweets/tweet/body/hashtag[contains(text(), 'I<3XML')]/ancestor::tweet

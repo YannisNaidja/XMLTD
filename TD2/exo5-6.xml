@@ -1,0 +1,21 @@
+<!--
+    Egalité non transitive en XPath
+
+
+-->
+<root>
+  <x>
+    abc
+  </x>
+  <y>
+    <y1>
+      abc
+    </y1>
+    <y2>
+      def
+    </y2>
+  </y>
+  <z>
+    def
+  </z>
+</root>
