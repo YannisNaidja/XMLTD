@@ -1,0 +1,1 @@
+/recettes/recette[@nomCourt = "Chiffonnade"]/materiel/ingredient/text()

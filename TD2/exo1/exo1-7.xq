@@ -1,0 +1,1 @@
+/descendant::FILM[not(child::RESUME)]/child::TITRE/text()

@@ -1,1 +1,0 @@
-/descendant::RESUME/parent::FILM/child::TITRE/text()

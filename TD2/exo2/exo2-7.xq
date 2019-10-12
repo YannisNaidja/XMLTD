@@ -1,0 +1,1 @@
+/recettes/recette[last()]/@nom

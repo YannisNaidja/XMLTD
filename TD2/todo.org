@@ -1,0 +1,3 @@
+* To do
+* TODO Put tweet.xml in directory exo4/
+* TODO Check exo4/

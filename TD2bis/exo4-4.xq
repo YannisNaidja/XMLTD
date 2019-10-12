@@ -1,1 +1,0 @@
-/tweeter/tweets/tweet/header/date[text() = max(/tweeter/tweets/tweet/header/date)]/ancestor::tweet

@@ -1,1 +1,0 @@
-/tweeter/tweets/tweet/body[count(hashtag) = 0]/ancestor::tweet

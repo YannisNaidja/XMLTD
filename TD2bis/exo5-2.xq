@@ -1,1 +1,0 @@
- //c[following-sibling::a]

@@ -1,4 +1,0 @@
-<!ELEMENT B (C+|E+|B+)*>
-<!ELEMENT C EMPTY>
-<!ELEMENT E EMPTY>
-

@@ -1,0 +1,1 @@
+/descendant::ARTISTE[@id=/descendant::FILM[TITRE/text() = "Reservoir dogs"]/ROLES/ROLE/@idref and ACTNOM/text() != 'Keitel' and ACTPNOM/text() != 'Harvey']

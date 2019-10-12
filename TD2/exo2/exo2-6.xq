@@ -1,0 +1,1 @@
+/recettes/recette/materiel/ingredient[last() > 2 and contains(text(), "huile")]/parent::materiel/parent::recette/@nom

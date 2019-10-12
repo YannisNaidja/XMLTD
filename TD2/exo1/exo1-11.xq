@@ -1,0 +1,1 @@
+//TITRE[contains(text(),'V')]/text()

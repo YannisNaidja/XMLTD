@@ -1,1 +1,0 @@
-/descendant::RESUME[text() != '']/parent::FILM/child::TITRE/text()
