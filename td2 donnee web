@@ -1,0 +1,217 @@
+1.7) /descendant::FILM[not(boolean(RESUME/text()))]/TITRE/text()
+
+1.8) /descendant::ARTISTE[@id =/descendant::FILM[TITRE='Vertigo']/ROLES/ROLE/number(@idref)]/ACTNOM/text() 
+
+1.9) descendant::ARTISTE[@id=/descendant::FILM[TITRE='Vertigo']/MES/number(@idref)]/ACTNOM/text()
+
+1.10) descendant::MES[@idref=/descendant::FILM[TITRE='Vertigo']/MES/number(@idref)]/preceding-sibling::TITRE/text()
+
+1.11) //TITRE[contains(text(),'V')]/text()
+
+1.12) descendant::FILM/ROLES/ROLE[@idref=/descendant::ARTISTE/ACTNOM[text()='Willis']/parent::ARTISTE/number(@id)]
+
+1.13) descendant::FILM/ROLES/ROLE[@idref=/descendant::ARTISTE/ACTNOM[text()='Willis']/parent::ARTISTE/number(@id)]/parent::ROLES/preceding-sibling::TITRE/text()
+
+1.14) descendant::ARTISTE[@id=/descendant::FILM/TITRE[text()="Reservoir dogs"]/../ROLES/ROLE/number(@idref)]/ACTNOM[not(text()='Keitel')]/text()
+
+1.15) /descendant::*[count(*)=3]
+
+1.16) /descendant::text()[name() = 'TI'] 
+
+1.17) /descendant::FILM[TITRE='Shining']/preceding-sibling::FILM[position()=1]/TITRE/text()
+
+*****************************************************************************************
+
+EX2
+
+
+2.1) descendant::recettes/recette/@nom
+
+2.2) descendant::recettes/recette[@nomCourt="Chiffonnade"]/materiel/ingredient/text()
+
+2.3 //child::recette/child::materiel/ingredient[contains(text(),"persil")]/ancestor::recette/@nom
+
+2.4) /descendant::recettes/recette/materiel/ingredient[contains(text(),"persil")]/ancestor::recette/@nom
+
+
+2.5)//recette/materiel/ingredient[count(//recette/materiel/ingredient)>2 and contains(text(),"oeuf")]/ancestor::recette/@nom
+
+2.6) //recette/materiel/ingredient[last()>2 and contains(text(),"huile")]/ancestor::recette/@nom
+
+2.7) //recette[last()]/@nom
+
+
+********************************************************************************
+
+EX3
+
+3.1) descendant::train/voiture/bar/ancestor::train/@numero
+
+3.2)/descendant::gare/usager[@id=/descendant::gare/train/voiture/resa/@id]/concat(@nom," ",@prenom)
+
+3.3) /descendant::gare/train/voiture[count(resa)>1]/ancestor::train/@numero
+
+3.4) pas trouvé
+
+3.5) /descendant::gare/usager[not(@id=/descendant::gare/train/voiture/resa/@id)]/concat(@nom," ",@prenom)
+
+********************************************************************************************
+
+EX4
+
+********************************************************************************************
+
+EX5
+
+********************************************************************************************
+
+EX6
+
+
+1) for $auteur in /tweeter/users/user 
+   let  $tweet := /tweeter/tweets/tweet
+    where $auteur/@id = $tweet/@author_ref  
+    return
+<result>
+   <nom>
+   { $auteur/user_name}
+   </nom> 
+   <datetweet>
+   {$tweet/header/date}
+   </datetweet>
+
+</result>  
+
+
+2) for $auteur in /tweeter/users/user 
+   let  $tweet := /tweeter/tweets/tweet
+    where $auteur/@id = $tweet/@author_ref  
+    return
+<result>
+   <nom>
+   { $auteur/user_name}
+   </nom> 
+   <datetweet>
+   {$tweet/header/date}
+   </datetweet>
+
+</result> 
+
+3) for $auteur in /tweeter/users/user, 
+     $tweet in /tweeter/tweets/tweet
+    where $auteur/@id = $tweet/@author_ref 
+    return
+     if(count($tweet/header/retweets/retweet)> 1) then 
+<result>
+   <nom>
+   { $auteur/user_name}
+   </nom> 
+</result>  
+
+4 )  for $tweet in /tweeter/tweets/tweet
+    return
+<result>
+   <contenu>
+   { $tweet/body/text}
+   </contenu>
+   <date2firstresp>
+   { $tweet/header/answers/answer[1]/date }
+    { $tweet/header/answers/answer[2]/date } 
+   </date2firstresp> 
+</result>  
+
+
+5 )  for $user in tweeter/users/user
+   order by $user/last_name/text() ascending
+   return  
+   
+   <result>
+   
+   {$user/last_name}
+   
+   </result> for $user in tweeter/users/user
+   order by $user/last_name/text() ascending
+   return  
+   
+   <result>
+   
+   {$user/last_name}
+   
+   </result>
+
+
+6) for $tweet in /tweeter/tweets/tweet
+    return
+    if(contains($tweet/body/hashtags,"#I&lt;3XML")) then      
+<result>
+ <tweet>
+    { $tweet/body/text } 
+  </tweet>    
+</result>
+
+
+
+7) let $tweetdate := /tweeter/tweets/tweet/header/date
+      return
+<result>
+     <oldest>
+     { min($tweetdate)}
+     </oldest>
+     <mostrencent>
+     {max($tweetdate)}
+     </mostrencent>
+</result>
+
+8) for $tweet in /tweeter/tweets/tweet/body
+      return
+      if(boolean($tweet/hashtags/hashtag/text())) then
+<result>
+      <content>
+      {$tweet/text}
+      </content>
+
+     <hashtags>
+     {$tweet/hashtags/hashtag}
+     </hashtags>
+</result>
+
+
+9) for $tweet in /tweeter/tweets/tweet/body
+      return
+      if(boolean($tweet/user_ref/text())) then
+<result>
+      <content>
+      {$tweet/text}
+      </content>
+
+     <user_ref>
+     {$tweet/user_ref}
+     </user_ref>
+</result>
+
+10) declare function local:arepondu($tweet ){
+  for $ans in $tweet/header/answers/answer
+  where $ans/@userID = /tweeter/users/user/@id
+  return
+  <result>
+  <user>
+  {/tweeter/users/user}
+  </user>
+  </result>  
+};
+
+let $tweet := /tweeter/tweets/tweet
+return (local:arepondu($tweet))
+
+
+
+
+
+
+
+
+
+
+
+
+
