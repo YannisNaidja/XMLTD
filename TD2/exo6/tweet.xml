@@ -75,17 +75,12 @@
 	  Latin
 	</language>
 	<retweets>
-		<retweet ref="T04" />
-		<retweet ref="T05" />
+	  <retweet ref="T04" />
+	  <retweet ref="T05" />
 	  <retweet ref="T03" />
 	</retweets>
 	<answers>
-	  <answer ref="T02" >
-    <date>1778898387</date> 
-    </answer>
-    <answer ref="T09" >
-    <date>1778898390</date> 
-    </answer>
+	  <answer ref="T02" />
 	</answers>
 	<operating_system>
 	  Linux x86_64
@@ -111,7 +106,6 @@
 	<text>
 	  anim id est laborum
 	</text>
-  <hashtags/>
 	<image_ref ref="I01" />
 	<user_ref ref="U02">
 	  @Cicero
@@ -155,47 +149,31 @@
 	<retweets>
 	</retweets>
 	<answers>
-  <answer ref="T42" userID = "U43">
-     <date>
-      1858311999
-      </date>
-    </answer> 
-    <answer ref="T43" userID = "U41">
-     <date>
-      1858312693
-      </date>
-    </answer>
-    <answer ref="T44" userID ="U43" >
-     <date>
-      1858312699
-      </date>
-    </answer> 
-  </answers>
+	  <answer ref="T42" />
+	  <answer ref="T43" />
+	  <answer ref="T44" />
+	</answers>
 	<operating_system>
 	  Linux x86_64
 	</operating_system>
- </header>
+      </header>
       <body>
+	<hashtag>
+	  #mollit
+	</hashtag>
 	<text>
 	  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
 	</text>
-  
-  <hashtags>
-    <hashtag>
-      #mollit
-    </hashtag>
-    <hashtag>
-      #I&lt;3XML
-    </hashtag>
-  </hashtags>
-	
+	<hashtag>
+	  #I&lt;3XML
+	</hashtag>
 	<text>
 	  anim id est laborum
 	</text>
 	<video_ref ref="I01" />
       </body>
     </tweet>
-        <tweet id="T03" author_ref="U41" >
+    <tweet id="T03" author_ref="U41" >
       <header>
 	<date>
 	  1758312001
@@ -226,7 +204,6 @@
 	  Latin
 	</language>
 	<retweets>
-    <nonretwitted/>
 	</retweets>
 	<operating_system>
 	  Linux x86_64
@@ -236,14 +213,96 @@
 	<text>
 	  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
 	</text>
-  <hashtags>
-    <hashtag>
-    nofilter
-    </hashtag>
-    <hashtag>
-    xml
-    </hashtag>
-  </hashtags>
+	<hashtag>
+	  nofilter
+	</hashtag>
+	<hashtag>
+	  xml
+	</hashtag>
+      </body>
+    </tweet>   
+    <tweet id="T43" author_ref="U02" >
+      <header>
+	<date>
+	  1758312002
+	</date>
+	<timezone>
+	  <standard>
+	    UTC
+	  </standard>
+	  <offset>
+	    1
+	  </offset>
+	</timezone>
+	<location>
+	  <latitude>
+	    3.876716
+	  </latitude>
+	  <longitude>
+	    43.610769
+	  </longitude>
+	  <city>
+	    Montpellier
+	  </city>
+	  <country>
+	    France
+	  </country>
+	</location>
+	<language>
+	  Latin
+	</language>
+	<retweets>
+	</retweets>
+	<operating_system>
+	  Linux x86_64
+	</operating_system>
+      </header>
+      <body>
+	<text>
+	  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+	</text>
+      </body>
+    </tweet>   
+    <tweet id="T44" author_ref="U02" >
+      <header>
+	<date>
+	  1758312003
+	</date>
+	<timezone>
+	  <standard>
+	    UTC
+	  </standard>
+	  <offset>
+	    1
+	  </offset>
+	</timezone>
+	<location>
+	  <latitude>
+	    3.876716
+	  </latitude>
+	  <longitude>
+	    43.610769
+	  </longitude>
+	  <city>
+	    Montpellier
+	  </city>
+	  <country>
+	    France
+	  </country>
+	</location>
+	<language>
+	  Latin
+	</language>
+	<retweets>
+	</retweets>
+	<operating_system>
+	  Linux x86_64
+	</operating_system>
+      </header>
+      <body>
+	<text>
+	  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+	</text>
       </body>
     </tweet>   
   </tweets>

@@ -94,7 +94,6 @@ EX6
    <datetweet>
    {$tweet/header/date}
    </datetweet>
-
 </result> 
 
 3) for $auteur in /tweeter/users/user, 
