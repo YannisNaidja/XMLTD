@@ -202,6 +202,67 @@ EX6
 let $tweet := /tweeter/tweets/tweet
 return (local:arepondu($tweet))
 
+******************************************************************************
+
+EXO 7
+
+
+1) for $voiture in /gare/train/voiture
+return
+if (boolean($voiture/bar)) then
+<result>
+{$voiture/../@numero}
+</result>
+
+
+2) let $resa :=  /gare/train/voiture/resa
+for $user in /gare/usager
+where $user/@id = $resa/@id
+return
+<result>
+{$user}
+</result>
+
+3) for $resa in  /gare/train/voiture/resa
+order by $resa/@numero ascending
+return
+<result>
+{$resa}
+</result>
+
+
+4) for $voiture in /gare/train/voiture
+return
+if(count($voiture/resa)>=2) then
+<result>
+{$voiture/../@numero}
+</result>
+
+
+5) for $user in /gare/usager
+for $resa_id in /gare/train/voiture/resa/@id
+let $count := count(/gare/train/voiture/resa[@id=$resa_id])
+where $user/@id = $resa_id
+return
+if($count=2) then
+<result>
+<compteur>{$count}</compteur>
+<user>{$user}</user>
+</result>
+
+
+6) let $resa :=  /gare/train/voiture/resa
+for $user in /gare/usager
+where not($user/@id = $resa/@id)
+return
+<result>
+{$user}
+</result>
+
+
+
+
+
 
 
 
