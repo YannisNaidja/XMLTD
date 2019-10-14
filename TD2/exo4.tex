@@ -1,0 +1,41 @@
+\chapter{XPath : Tweets}
+
+Reprenez votre DTD pour les Tweets, et créez un document XML valide contenant au moins 3 utilisateurs et 5 tweets. Attention : pour le bon déroulement de l’exercice, il sera peut être nécessaire d’apporter des légèresmodifications à votre DTD afin qu’il soit possible d’interroger vos données !
+
+Donner  les  requêtes  XPath  correspondants  aux  expressions  suivantes  et  évaluer  ces  expressions  dans  ledocument XML crée pour les Tweets.
+
+\section{Les noms des auteurs des tweets.}
+\begin{minted}[linenos, breaklines]{xquery}
+  /tweeter/users/user[@id = /tweeter/tweets/tweet/@author_ref]/concat(first_name, ' ', last_name)
+\end{minted}
+
+\section{Les tweets de l’utilisateur dont l’id est "u41".}
+\begin{minted}[linenos, breaklines]{xquery}
+  /tweeter/users/user[@id = /tweeter/tweets/tweet/@author_ref]/concat(first_name, ' ', last_name)
+\end{minted}
+
+\section{Les tweets contenants l’hashtag “\#I<3XML”.}
+\begin{minted}[linenos, breaklines]{xquery}
+  /tweeter/tweets/tweet/body/hashtag[contains(text(), 'I<3XML')]/ancestor::tweet
+\end{minted}
+
+\section{Le tweet le plus recent.}
+\begin{minted}[linenos, breaklines]{xquery}
+  /tweeter/tweets/tweet/header/date[text() = max(/tweeter/tweets/tweet/header/date)]/ancestor::tweet
+\end{minted}
+
+\section{Les tweet sans hashtags.}
+\begin{minted}[linenos, breaklines]{xquery}
+/tweeter/tweets/tweet/body[count(hashtag) = 0]/ancestor::tweet
+\end{minted}
+
+\section{Les retweets du tweet dont l’id est "t42".}
+\begin{minted}[linenos, breaklines]{xquery}
+  /tweeter/tweets/tweet[@id = /tweeter/tweets/tweet[@id = "T42"]/header/retweets/retweet/@ref]
+\end{minted}
+
+\section{Les utilisateurs ayant répondu au tweet dont l’id est "t42".}
+\begin{minted}[linenos, breaklines]{xquery}
+  /tweeter/users/user[@id = /tweeter/tweets/tweet[@id=/tweeter/tweets/tweet[@id = 'T42']/header/answers/answer/@ref]/@author_ref]
+\end{minted}
+

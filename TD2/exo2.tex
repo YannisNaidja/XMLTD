@@ -1,4 +1,4 @@
-\chapter{XPath : films}
+\chapter{XPath : Recettes}
 
 \section{Le nom complet de toutes les recettes}
 \begin{minted}[linenos, breaklines]{xquery}
@@ -17,7 +17,7 @@
 
 \section{(Sans utiliser l’axechild) Le nom complet des recettes utilisant du “persil}
 \begin{minted}[linenos, breaklines]{xquery}
-/descendant::ingredient[contains(text(),"persil")]/ancestor::recette/@nom
+/descendant::ingredient[contains(text(), "persil")]/ancestor::recette/@nom
 \end{minted}
 
 \section{Le nom complet des recettes ayant plus de deux ingrédients, et contenant des oeuf}
