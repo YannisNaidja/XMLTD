@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+  \PYG{n+nt}{\PYGZlt{}results\PYGZgt{}}\PYG{l}{ }\PYG{p}{\PYGZob{}}
+    \PYG{k}{for} \PYG{n+nv}{\PYGZdl{}}\PYG{n}{voiture} \PYG{o+ow}{in} \PYG{p}{/}\PYG{n+nt}{gare}\PYG{p}{/}\PYG{n+nt}{train}\PYG{p}{/}\PYG{n+nt}{voiture}
+    \PYG{k}{return}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n+nf}{count}\PYG{p}{(}\PYG{n+nv}{\PYGZdl{}}\PYG{n}{voiture}\PYG{p}{/}\PYG{n+nt}{resa}\PYG{p}{)} \PYG{o}{\PYGZgt{}=} \PYG{l+m+mi}{2}\PYG{p}{)} \PYG{k}{then}
+    \PYG{n+nt}{\PYGZlt{}train\PYGZgt{}}
+\PYG{l}{    }\PYG{p}{\PYGZob{}} \PYG{n+nf}{string}\PYG{p}{(}\PYG{n+nv}{\PYGZdl{}}\PYG{n}{voiture}\PYG{p}{/}\PYG{k}{parent}\PYG{p}{::}\PYG{n+nt}{train}\PYG{p}{/}\PYG{n+na}{@numero}\PYG{p}{)} \PYG{p}{\PYGZcb{}}
+\PYG{l}{    }\PYG{n+nt}{\PYGZlt{}/train\PYGZgt{}}
+  \PYG{p}{\PYGZcb{}}
+\PYG{l}{  }\PYG{n+nt}{\PYGZlt{}/results\PYGZgt{}}
+\end{Verbatim}

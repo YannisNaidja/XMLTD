@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{p}{/}\PYG{k}{descendant}\PYG{p}{::}\PYG{n+nt}{ARTISTE}\PYG{p}{[}\PYG{n+na}{@id} \PYG{o}{=} \PYG{p}{/}\PYG{k}{descendant}\PYG{p}{::}\PYG{n+nt}{FILM}\PYG{p}{[}\PYG{n+nt}{TITRE}\PYG{p}{/}\PYG{n+nf}{text}\PYG{p}{()} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}Reservoir dogs\PYGZdq{}}\PYG{p}{]/}\PYG{n+nt}{ROLES}\PYG{p}{/}\PYG{n+nt}{ROLE}\PYG{p}{/}\PYG{n+na}{@idref} \PYG{o+ow}{and} \PYG{n+nt}{ACTNOM}\PYG{p}{/}\PYG{n+nf}{text}\PYG{p}{()} \PYG{o}{!=} \PYG{l+s+s1}{\PYGZsq{}Keitel\PYGZsq{}} \PYG{o+ow}{and} \PYG{n+nt}{ACTPNOM}\PYG{p}{/}\PYG{n+nf}{text}\PYG{p}{()} \PYG{o}{!=} \PYG{l+s+s1}{\PYGZsq{}Harvey\PYGZsq{}}\PYG{p}{]}
+\end{Verbatim}

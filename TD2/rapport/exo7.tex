@@ -40,29 +40,31 @@ Donner des expressions XQuery pour les requêtes suivantes.
 
 \section{Le numéro des trains dont au moins 2 places sont réservées.}
 \begin{minted}[linenos, breaklines]{xquery}
-  <results> {
-    for $voiture in /gare/train/voiture
-    return
-    if (count($voiture/resa) >= 2) then
+<results> {
+  for $voiture in /gare/train/voiture
+  where (count($voiture/resa) >= 2)
+  return
     <train>
     { string($voiture/parent::train/@numero) }
     </train>
-  }
-  </results>
+}
+</results>
 \end{minted}
 
 \section{Le nom des personnes ayant réservé exactement deux fois.}
 \begin{minted}[linenos, breaklines]{xquery}
-  <results> {
-    for $user in /gare/usager
-    let $count := count(/gare/train/voiture/resa[@id = $user/@id]) return
+<results> {
+  for $user in /gare/usager
+  let $count := count(/gare/train/voiture/resa[@id = $user/@id]) return
     if ($count = 2) then
     <usager>
-    { string($user/@nom) }
+      { string($user/@nom) }
     </usager>
-  }
-  </results>
+    else()
+}
+</results>
 \end{minted}
+
 \section{Les usagers n’ayant effectué aucune réservation.}
 \begin{minted}[linenos, breaklines]{xquery}
   <results> {

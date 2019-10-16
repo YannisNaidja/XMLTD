@@ -12,6 +12,7 @@
     {
       if (count($tweet/header/retweets/retweet) = 0) then
 	<nonRetwitted />
+      else()
     }
   </tweet>  
 }

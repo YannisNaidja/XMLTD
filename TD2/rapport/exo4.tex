@@ -21,12 +21,12 @@ Donner  les  requêtes  XPath  correspondants  aux  expressions  suivantes  et  
 
 \section{Le tweet le plus recent.}
 \begin{minted}[linenos, breaklines]{xquery}
-  /tweeter/tweets/tweet/header/date[text() = max(/tweeter/tweets/tweet/header/date)]/ancestor::tweet
+  /tweeter/tweets/tweet/header/date[text() = max(/tweeter/tweets/tweet/header/date)]/parent::header/parent::tweet
 \end{minted}
 
 \section{Les tweet sans hashtags.}
 \begin{minted}[linenos, breaklines]{xquery}
-/tweeter/tweets/tweet/body[count(hashtag) = 0]/ancestor::tweet
+  /tweeter/tweets/tweet/body[count(hashtag) = 0]/parent::tweet
 \end{minted}
 
 \section{Les retweets du tweet dont l’id est "t42".}

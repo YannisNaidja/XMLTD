@@ -5,5 +5,6 @@
     <usager>
       { string($user/@nom) }
     </usager>
+    else()
 }
 </results>

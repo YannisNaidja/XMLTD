@@ -63,6 +63,7 @@ Donner les requêtes XQuery correspondants aux expressions suivantes et évaluer
     {
       if (count($tweet/header/retweets/retweet) = 0) then
 	<nonRetwitted />
+      else()
     }
   </tweet>  
 }
@@ -82,10 +83,9 @@ Donner les requêtes XQuery correspondants aux expressions suivantes et évaluer
 \section{Listez les tweets contenants l’hashtag “\#I<3XML”.}
 \begin{minted}[linenos, breaklines]{xquery}
 <results> {
-  for $tweet in /tweeter/tweets/tweet
-  return
-  if(contains($tweet/body/hashtags, "#I&lt;3XML")) then      
-    $tweet
+for $tweet in /tweeter/tweets/tweet
+where $tweet/body/hashtag[contains(., "#I&lt;3XML")]
+return $tweet
 }
 </results>
 \end{minted}
@@ -106,8 +106,8 @@ Donner les requêtes XQuery correspondants aux expressions suivantes et évaluer
 \begin{minted}[linenos, breaklines]{xquery}
 <results> {
   for $tweet in /tweeter/tweets/tweet
+  where $tweet/body/hashtag
   return
-    if($tweet/body/hashtag) then
     <result>
       {$tweet}
       <hashtags>
@@ -122,8 +122,8 @@ Donner les requêtes XQuery correspondants aux expressions suivantes et évaluer
 \begin{minted}[linenos, breaklines]{xquery}
 <results> {
   for $tweet in /tweeter/tweets/tweet
+  where $tweet/body/user_ref
   return
-    if($tweet/body/user_ref) then
     <result>
       {$tweet}
       <user_references>

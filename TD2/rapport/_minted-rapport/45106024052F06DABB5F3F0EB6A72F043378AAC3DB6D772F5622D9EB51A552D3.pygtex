@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+  \PYG{p}{/}\PYG{n+nt}{tweeter}\PYG{p}{/}\PYG{n+nt}{users}\PYG{p}{/}\PYG{n+nt}{user}\PYG{p}{[}\PYG{n+na}{@id} \PYG{o}{=} \PYG{p}{/}\PYG{n+nt}{tweeter}\PYG{p}{/}\PYG{n+nt}{tweets}\PYG{p}{/}\PYG{n+nt}{tweet}\PYG{p}{[}\PYG{n+na}{@id}\PYG{o}{=}\PYG{p}{/}\PYG{n+nt}{tweeter}\PYG{p}{/}\PYG{n+nt}{tweets}\PYG{p}{/}\PYG{n+nt}{tweet}\PYG{p}{[}\PYG{n+na}{@id} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}T42\PYGZsq{}}\PYG{p}{]/}\PYG{n+nt}{header}\PYG{p}{/}\PYG{n+nt}{answers}\PYG{p}{/}\PYG{n+nt}{answer}\PYG{p}{/}\PYG{n+na}{@ref}\PYG{p}{]/}\PYG{n+na}{@author\PYGZus{}ref}\PYG{p}{]}
+\end{Verbatim}

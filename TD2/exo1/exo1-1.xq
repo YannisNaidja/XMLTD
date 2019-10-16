@@ -1,1 +1,1 @@
-/descendant::TITRE/text()
+/FILMS/FILM/TITRE/text()

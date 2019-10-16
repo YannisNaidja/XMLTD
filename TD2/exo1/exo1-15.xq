@@ -1,1 +1,1 @@
-/descendant::*[count(*)=3]
+descendant::*[count(*)=3]

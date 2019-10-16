@@ -1,1 +1,1 @@
-/descendant::TITRE[text() = 'Alien']/parent::FILM/child::RESUME/text()
+/FILMS/FILM/TITRE[text() = 'Alien']/parent::FILM/RESUME/text()

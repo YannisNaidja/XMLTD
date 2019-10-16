@@ -1,9 +1,9 @@
 <results> {
   for $voiture in /gare/train/voiture
+  where (count($voiture/resa) >= 2)
   return
-    if (count($voiture/resa) >= 2) then
-      <train>
-      { string($voiture/parent::train/@numero) }
-      </train>
-   }
+    <train>
+    { string($voiture/parent::train/@numero) }
+    </train>
+}
 </results>

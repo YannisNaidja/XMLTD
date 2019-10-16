@@ -1,1 +1,1 @@
-descendant::FILM/ROLES/ROLE[@idref=/descendant::ARTISTE[ACTNOM/text()='Willis' and ACTPNOM/text()='Bruce']/number(@id)]
+/FILMS/FILM/ROLES/ROLE[@idref=/descendant::ARTISTE[ACTNOM/text()='Willis' and ACTPNOM/text()='Bruce']/number(@id)]/parent::ROLES/parent::FILM/TITRE

@@ -1,1 +1,1 @@
-/descendant::ARTISTE[@id =/descendant::FILM[TITRE='Vertigo']/ROLES/ROLE/@idref]/ACTNOM/text() 
+/FILMS/ARTISTE[@id =/FILMS/FILM[TITRE='Vertigo']/ROLES/ROLE/@idref]/ACTNOM/text() 

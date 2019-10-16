@@ -1,1 +1,1 @@
-/descendant::FILM[not(child::RESUME)]/child::TITRE/text()
+/FILMS/FILM[not(RESUME)]/TITRE/text()

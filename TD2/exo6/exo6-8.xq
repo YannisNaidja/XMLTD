@@ -1,7 +1,7 @@
 <results> {
   for $tweet in /tweeter/tweets/tweet
+  where $tweet/body/hashtag
   return
-    if($tweet/body/hashtag) then
     <result>
       {$tweet}
       <hashtags>

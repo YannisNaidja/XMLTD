@@ -1,1 +1,1 @@
-/descendant::FILM[last()]
+/FILMS/FILM[last()]

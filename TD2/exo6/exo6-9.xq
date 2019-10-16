@@ -1,7 +1,7 @@
 <results> {
   for $tweet in /tweeter/tweets/tweet
+  where $tweet/body/user_ref
   return
-    if($tweet/body/user_ref) then
     <result>
       {$tweet}
       <user_references>

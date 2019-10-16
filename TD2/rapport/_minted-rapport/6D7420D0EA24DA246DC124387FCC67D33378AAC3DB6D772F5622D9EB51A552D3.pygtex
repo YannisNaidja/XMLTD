@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{descendant}\PYG{p}{::}\PYG{n+nt}{FILM}\PYG{p}{[}\PYG{n+nt}{TITRE} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}Reservoir dogs\PYGZsq{}}\PYG{p}{]/}\PYG{n+nt}{ROLES}\PYG{p}{/}\PYG{n+nt}{ROLE}\PYG{p}{[}\PYG{n+na}{@idref} \PYG{o}{=} \PYG{p}{/}\PYG{n+nt}{FILMS}\PYG{p}{/}\PYG{n+nt}{ARTISTE}\PYG{p}{[}\PYG{n+nt}{ACTNOM} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}Keitel\PYGZsq{}} \PYG{o+ow}{and} \PYG{n+nt}{ACTPNOM} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}Harvey\PYGZsq{}}\PYG{p}{]/}\PYG{n+na}{@id}\PYG{p}{]/}\PYG{n+nf}{text}\PYG{p}{()}
+\end{Verbatim}

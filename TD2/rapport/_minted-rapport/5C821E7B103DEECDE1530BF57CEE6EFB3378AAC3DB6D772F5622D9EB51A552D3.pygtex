@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{p}{//}\PYG{n+nt}{a}\PYG{p}{/}\PYG{k}{ancestor\PYGZhy{}or\PYGZhy{}self}\PYG{p}{::}\PYG{n+nf}{node}\PYG{p}{()/}\PYG{k}{following\PYGZhy{}sibling}\PYG{p}{::}\PYG{n+nf}{node}\PYG{p}{()/}\PYG{k}{descendant\PYGZhy{}or\PYGZhy{}self}\PYG{p}{::}\PYG{n+nt}{b}
+\end{Verbatim}
