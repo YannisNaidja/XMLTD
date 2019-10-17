@@ -1,3 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{p}{/}\PYG{k}{descendant}\PYG{p}{::}\PYG{n+nt}{FILM}\PYG{p}{[}\PYG{n+nf}{not}\PYG{p}{(}\PYG{k}{child}\PYG{p}{::}\PYG{n+nt}{RESUME}\PYG{p}{)]/}\PYG{k}{child}\PYG{p}{::}\PYG{n+nt}{TITRE}\PYG{p}{/}\PYG{n+nf}{text}\PYG{p}{()}
-\end{Verbatim}

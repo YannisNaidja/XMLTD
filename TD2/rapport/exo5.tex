@@ -87,7 +87,7 @@ devient
 
 
 \section{Pour chaque requête définie aux points 1 et 2, proposer un document XML pour lequel la réponse à la requête n’est pas vide, sinon expliquer pourquoi un tel document n’existe pas.}
-\subsection{Requete 1}
+\subsection{Requete 1 - exercice 1}
 \begin{minted}[linenos, breaklines]{xml}
 <r>
   <a>
@@ -97,7 +97,7 @@ devient
 </r>
 \end{minted}
 
-\subsection{Requete 2}
+\subsection{Requete 2 - exercice 1}
 \begin{minted}[linenos, breaklines]{xml}
 <r>
   <c>
@@ -107,7 +107,7 @@ devient
 </r>
 \end{minted}
 
-\subsection{Requete 3}
+\subsection{Requete 3 - exercice 1}
 \begin{minted}[linenos, breaklines]{xml}
 <r>
   <a>
@@ -119,7 +119,7 @@ devient
 </r>
 \end{minted}
 
-\subsection{Requete 4}
+\subsection{Requete 4 - exercice 1}
 \begin{minted}[linenos, breaklines]{xml}
   <r>
   <a>
@@ -135,7 +135,7 @@ devient
 </r>
 \end{minted}
 
-\subsection{Requete 5}
+\subsection{Requete 5 - exercice 1}
 \begin{minted}[linenos, breaklines]{xml}
   <r>
   <d>
@@ -147,12 +147,34 @@ devient
 </r>
 \end{minted}
 
-\subsection{Requete 6}
+\subsection{Requete 6 - exercice 1}
 Il n'y a aucun document XML correspondant car la fin de la requête est :
 \begin{minted}[linenos, breaklines]{xquery}
 c/child::d/parent::e
 \end{minted}
 Or un noeud de type c ne peut pas avoir d'enfant de type d qui ait un parent e car un noeud n'a qu'un seul parent.
+
+\subsection{Requete 1 - exercice 2}
+\begin{minted}[linenos, breaklines]{xml}
+<r>
+  <s>
+    <a></a>
+    <b>b1</b>
+  </s>
+  <b>b2</b>
+</r>
+\end{minted}
+
+\subsection{Requete 2 - exercice 2}
+\begin{minted}[linenos, breaklines]{xml}
+<r>
+  <b>b2</b>
+  <s>
+    <b>b1</b>
+    <a></a>
+  </s>
+</r>
+\end{minted}
 
 \section{Donner un document XML pour lequel la requête //r[a[1] = a[2]] n’est pas vide sans que les éléments comparés soient strictement identiques.}
 \begin{minted}[linenos, breaklines]{xml}

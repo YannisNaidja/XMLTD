@@ -1,9 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{n+nt}{\PYGZlt{}results\PYGZgt{}}\PYG{l}{ }\PYG{p}{\PYGZob{}}
-  \PYG{k}{for} \PYG{n+nv}{\PYGZdl{}}\PYG{n}{tweet} \PYG{o+ow}{in} \PYG{p}{/}\PYG{n+nt}{tweeter}\PYG{p}{/}\PYG{n+nt}{tweets}\PYG{p}{/}\PYG{n+nt}{tweet}
-  \PYG{k}{return}
-  \PYG{k}{if}\PYG{p}{(}\PYG{n+nf}{contains}\PYG{p}{(}\PYG{n+nv}{\PYGZdl{}}\PYG{n}{tweet}\PYG{p}{/}\PYG{n+nt}{body}\PYG{p}{/}\PYG{n+nt}{hashtags}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}\PYGZsh{}I\PYGZam{}lt;3XML\PYGZdq{}}\PYG{p}{))} \PYG{k}{then}
-    \PYG{n+nv}{\PYGZdl{}}\PYG{n}{tweet}
-\PYG{p}{\PYGZcb{}}
-\PYG{n+nt}{\PYGZlt{}/results\PYGZgt{}}
-\end{Verbatim}

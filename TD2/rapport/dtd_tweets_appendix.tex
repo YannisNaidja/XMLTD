@@ -1,3 +1,5 @@
+\chapter{DTD - Tweets}
+\begin{minted}[linenos, breaklines]{dtd}
 <!ELEMENT tweeter (users, tweets) >
 <!ELEMENT users (user*)>
 <!ELEMENT user (user_name, first_name, last_name, profile)>
@@ -44,3 +46,4 @@
 <!ATTLIST video_ref ref IDREF #REQUIRED >
 <!ELEMENT user_ref (#PCDATA)>
 <!ATTLIST user_ref ref IDREF #REQUIRED >
+\end{minted}
