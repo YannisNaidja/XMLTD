@@ -1,0 +1,38 @@
+
+
+
+<presse>
+	<journal>
+		<nom>
+			Cnews
+		</nom>
+		<directeur>
+			<nom>
+				Pepega
+			</nom>
+			<prenom>
+				Kekw
+			</prenom>
+		</directeur>
+		<article titre="fake" auteur="j1">
+			<corps>
+				Des fake news
+			</corps>
+		</article>
+		<article titre="news" auteur="j1">
+			<corps>
+				Encore des fake news
+			</corps>
+		</article>
+	</journal>
+	<journalistes>
+		<journaliste idJ="j1">
+			<nom>
+				vuillard
+			</nom>
+			<prenom>
+				eric
+			</prenom>
+		</journaliste>
+	</journalistes>
+	</presse>
