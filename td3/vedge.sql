@@ -154,7 +154,6 @@ INSERT INTO JOURNALISTEIDATT (Source, Target, txtval) VALUES ('journaliste2', 'i
 INSERT INTO NOM (Source, Target, Ordinal, txtval) VALUES ('journaliste2', 'nomjournaliste1', 1, 'Dupont');
 INSERT INTO PRENOM (Source, Target, Ordinal, txtval) VALUES ('journaliste2', 'prenomjournaliste1', 1, 'Jean');
 INSERT INTO ANONYMOUSATT(Source, Target, Ordinal, txtval) VALUES ('journaliste2', 'anonymisation1', 1, 'non');
-s
 
 
 

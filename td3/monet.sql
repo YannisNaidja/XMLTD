@@ -52,6 +52,17 @@ CREATE TABLE PRESSE_JOURNAL_ARTICLE_CORPS  {
 };
 
 
+CREATE TABLE PRESSE_JOURNAL_ARTICLE_TITRE  {
+	Node varchar(30),
+	txtval  varchar(30),
+	numval int
+};
+
+CREATE TABLE PRESSE_JOURNAL_ARTICLE_AUTEUR  {
+	Node varchar(30),
+	txtval  varchar(30),
+	numval int
+};
 
 CREATE TABLE PRESSE_JOURNALISTES {
 	Node varchar(30),
@@ -73,12 +84,18 @@ CREATE TABLE PRESSE_JOURNALISTES_JOURNALISTE_NOM {
 	numval int
 };
 
-
 CREATE TABLE PRESSE_JOURNALISTES_JOURNALISTE_PRENOM {
 	Node varchar(30),
 	txtval  varchar(30),
 	numval int
 };
+
+CREATE TABLE PRESSE_JOURNALISTES_JOURNALISTE_IDJ {
+	Node varchar(30),
+	txtval  varchar(30),
+	numval int
+};
+
 
 INSERT INTO PRESSE(Node) VALUES('presse');
 INSERT INTO PRESSE_JOURNAL(Node) VALUES('journal1');
@@ -95,12 +112,6 @@ INSERT INTO PRESSE_JOURNALISTES(Node) VALUES ('journalistes');
 INSERT INTO PRESSE_JOURNALISTES_JOURNALISTE(Node) VALUES ('journaliste1');
 INSERT INTO PRESSE_JOURNALISTES_JOURNALISTE_NOM(Node,txtval) VALUES ('nomjournaliste1','Vuillard');
 INSERT INTO PRESSE_JOURNALISTES_JOURNALISTE_PRENOM(Node,txtval) VALUES ('prenomjournaliste1','Eric');
-
-
-
-
-
-
 
 
 
