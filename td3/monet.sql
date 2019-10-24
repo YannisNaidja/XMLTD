@@ -1,5 +1,3 @@
-
-
 CREATE TABLE PRESSE {
 	Node varchar(30),
 	txtval  varchar(30),

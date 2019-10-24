@@ -15,4 +15,3 @@
 <!ELEMENT directeur (nom,prenom) > ]>
   
 
- target id = parent source = noeud attribut 
