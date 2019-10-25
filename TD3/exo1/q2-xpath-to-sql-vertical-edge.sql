@@ -54,18 +54,6 @@ FROM PRESSE  P,
 WHERE P.Target = J.Source
 AND   J.Target = A.Source;
 
--- le nombre de journaliste
--- /presse/journal/journalistes/count(journaliste)
-PROMPT le nombre de journaliste
-PROMPT /presse/journal/journalistes/count(journaliste)
-
-SELECT COUNT(J2.Target) nombre_de_journalistes
-FROM PRESSE       P,
-     JOURNALISTES J1,
-     JOURNALISTE  J2
-WHERE P.Target = J1.Source
-AND   J1.Target = J2.Source;
-
 -- Les identifiants des journalistes
 -- /presse/journal/journalistes/journaliste/@idJ
 PROMPT Les identifiants des journalistes

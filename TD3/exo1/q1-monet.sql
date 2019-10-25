@@ -17,119 +17,124 @@ DROP TABLE PRESSE_JOURNAL;
 DROP TABLE PRESSE;
 
 CREATE TABLE PRESSE (
-	Node varchar(30),
+	node varchar(30),
 	txtval  varchar(30),
 	numval int
 );
 CREATE TABLE PRESSE_JOURNAL (
-	Node varchar(30),
+	node varchar(30),
 	txtval  varchar(30),
 	numval int
 );
 
 CREATE TABLE PRESSE_JOURNAL_NOM (
-	Node varchar(30),
+	node varchar(30),
 	txtval  varchar(30),
 	numval int
 );
 CREATE TABLE PRESSE_JOURNAL_DIRECTEUR (
-	Node varchar(30),
+	node varchar(30),
 	txtval  varchar(30),
 	numval int
 );
 
 CREATE TABLE PRESSE_JOURNAL_DIRECTEUR_NOM (
-	Node varchar(30),
+	node varchar(30),
 	txtval  varchar(30),
 	numval int
 );
 
-
 CREATE TABLE PRESSE_JOURNAL_DIRECTEUR_PRENOM (
-	Node varchar(30),
+	node varchar(30),
 	txtval  varchar(30),
 	numval int
 );
 
 CREATE TABLE PRESSE_JOURNAL_ARTICLE  (
-	Node varchar(30),
+	node varchar(30),
 	txtval  varchar(30),
 	numval int
 );
+
 CREATE TABLE PRESSE_JOURNAL_ARTICLE_CORPS  (
-	Node varchar(30),
+	node varchar(30),
 	txtval  varchar(30),
 	numval int
 );
 
 CREATE TABLE PRESSE_JOURNAL_ARTICLE_TITRE  (
-	Node varchar(30),
+	node varchar(30),
 	txtval  varchar(30),
 	numval int
 );
+
 CREATE TABLE PRESSE_JOURNAL_ARTICLE_AUTEUR  (
-	Node varchar(30),
+	node varchar(30),
 	txtval  varchar(30),
 	numval int
 );
+
 CREATE TABLE PRESSE_JOURNALISTES (
-	Node varchar(30),
+	node varchar(30),
 	txtval  varchar(30),
 	numval int
 );
 
 CREATE TABLE PRESSE_JOURNALISTES_JOURNALISTE (
-	Node varchar(30),
+	node varchar(30),
 	txtval  varchar(30),
 	numval int
 );
 
 CREATE TABLE PRESSE_JOURNALISTES_JOURNALISTE_NOM (
-	Node varchar(30),
-	txtval  varchar(30),
-	numval int
-);
-CREATE TABLE PRESSE_JOURNALISTES_JOURNALISTE_PRENOM (
-	Node varchar(30),
-	txtval  varchar(30),
-	numval int
-);
-CREATE TABLE PRESSE_JOURNALISTES_JOURNALISTE_IDJ (
-	Node varchar(30),
-	txtval  varchar(30),
-	numval int
-);
-CREATE TABLE PRESSE_JOURNALISTES_JOURNALISTE_ANONYMISATION (
-	Node varchar(30),
+	node varchar(30),
 	txtval  varchar(30),
 	numval int
 );
 
-INSERT INTO PRESSE(Node) VALUES('presse');
-INSERT INTO PRESSE_JOURNAL(Node) VALUES('journal1');
-INSERT INTO PRESSE_JOURNAL_NOM(Node,txtval) VALUES('nomjournal','CNEWS');
-INSERT INTO PRESSE_JOURNAL_DIRECTEUR(Node) VALUES('directeur');
-INSERT INTO PRESSE_JOURNAL_DIRECTEUR_NOM(Node,txtval) VALUES('directeurnom','Pepega');
-INSERT INTO PRESSE_JOURNAL_DIRECTEUR_PRENOM(Node,txtval) VALUES('directeurprenom','KEKW');
-INSERT INTO PRESSE_JOURNAL_DIRECTEUR(Node,txtval) VALUES('directeurprenom','KEKW');
-INSERT INTO PRESSE_JOURNAL_ARTICLE(Node) VALUES('article1');
-INSERT INTO PRESSE_JOURNAL_ARTICLE_TITRE(Node, txtval) VALUES('titrearticle1', 'fake');
-INSERT INTO PRESSE_JOURNAL_ARTICLE_AUTEUR(Node, txtval) VALUES('auteurarticle1', 'j1');
-INSERT INTO PRESSE_JOURNAL_ARTICLE_CORPS(Node,txtval) VALUES ('corpsarticle1','fakenews');
-INSERT INTO PRESSE_JOURNAL_ARTICLE(Node) VALUES('article2');
-INSERT INTO PRESSE_JOURNAL_ARTICLE_TITRE(Node, txtval) VALUES('titrearticle2', 'news');
-INSERT INTO PRESSE_JOURNAL_ARTICLE_AUTEUR(Node, txtval) VALUES('auteurarticle2', 'j1');
-INSERT INTO PRESSE_JOURNAL_ARTICLE_CORPS(Node,txtval) VALUES ('corpsarticle2',' more fakenews');
-INSERT INTO PRESSE_JOURNALISTES(Node) VALUES ('journalistes');
-INSERT INTO PRESSE_JOURNALISTES_JOURNALISTE(Node) VALUES ('journaliste1');
-INSERT INTO PRESSE_JOURNALISTES_JOURNALISTE_NOM(Node,txtval) VALUES ('nomjournaliste1','Vuillard');
-INSERT INTO PRESSE_JOURNALISTES_JOURNALISTE_PRENOM(Node,txtval) VALUES ('prenomjournaliste1','Eric');
-INSERT INTO PRESSE_JOURNALISTES_JOURNALISTE_IDJ(Node,txtval) VALUES ('idjournaliste1', 'j1');
-INSERT INTO PRESSE_JOURNALISTES_JOURNALISTE(Node) VALUES ('journaliste2');
-INSERT INTO PRESSE_JOURNALISTES_JOURNALISTE_NOM(Node,txtval) VALUES ('nomjournaliste2','Dupont');
-INSERT INTO PRESSE_JOURNALISTES_JOURNALISTE_PRENOM(Node,txtval) VALUES ('prenomjournaliste2','Jean');
-INSERT INTO PRESSE_JOURNALISTES_JOURNALISTE_IDJ(Node,txtval) VALUES ('idjournaliste2', 'j2');
-INSERT INTO PRESSE_JOURNALISTES_JOURNALISTE_ANONYMISATION(Node,txtval) VALUES ('anonymisation', 'oui');
+CREATE TABLE PRESSE_JOURNALISTES_JOURNALISTE_PRENOM (
+	node varchar(30),
+	txtval  varchar(30),
+	numval int
+);
+
+CREATE TABLE PRESSE_JOURNALISTES_JOURNALISTE_IDJ (
+	node varchar(30),
+	txtval  varchar(30),
+	numval int
+);
+
+CREATE TABLE PRESSE_JOURNALISTES_JOURNALISTE_ANONYMISATION (
+	node varchar(30),
+	txtval  varchar(30),
+	numval int
+);
+
+INSERT INTO PRESSE(node) VALUES('presse');
+INSERT INTO PRESSE_JOURNAL(node) VALUES('journal1');
+INSERT INTO PRESSE_JOURNAL_NOM(node,txtval) VALUES('nomjournal','CNEWS');
+INSERT INTO PRESSE_JOURNAL_DIRECTEUR(node) VALUES('directeur');
+INSERT INTO PRESSE_JOURNAL_DIRECTEUR_NOM(node,txtval) VALUES('directeurnom','Pepega');
+INSERT INTO PRESSE_JOURNAL_DIRECTEUR_PRENOM(node,txtval) VALUES('directeurprenom','KEKW');
+INSERT INTO PRESSE_JOURNAL_DIRECTEUR(node,txtval) VALUES('directeurprenom','KEKW');
+INSERT INTO PRESSE_JOURNAL_ARTICLE(node) VALUES('article1');
+INSERT INTO PRESSE_JOURNAL_ARTICLE_TITRE(node, txtval) VALUES('titrearticle1', 'fake');
+INSERT INTO PRESSE_JOURNAL_ARTICLE_AUTEUR(node, txtval) VALUES('auteurarticle1', 'j1');
+INSERT INTO PRESSE_JOURNAL_ARTICLE_CORPS(node,txtval) VALUES ('corpsarticle1','fakenews');
+INSERT INTO PRESSE_JOURNAL_ARTICLE(node) VALUES('article2');
+INSERT INTO PRESSE_JOURNAL_ARTICLE_TITRE(node, txtval) VALUES('titrearticle2', 'news');
+INSERT INTO PRESSE_JOURNAL_ARTICLE_AUTEUR(node, txtval) VALUES('auteurarticle2', 'j1');
+INSERT INTO PRESSE_JOURNAL_ARTICLE_CORPS(node,txtval) VALUES ('corpsarticle2',' more fakenews');
+INSERT INTO PRESSE_JOURNALISTES(node) VALUES ('journalistes');
+INSERT INTO PRESSE_JOURNALISTES_JOURNALISTE(node) VALUES ('journaliste1');
+INSERT INTO PRESSE_JOURNALISTES_JOURNALISTE_NOM(node,txtval) VALUES ('nomjournaliste1','Vuillard');
+INSERT INTO PRESSE_JOURNALISTES_JOURNALISTE_PRENOM(node,txtval) VALUES ('prenomjournaliste1','Eric');
+INSERT INTO PRESSE_JOURNALISTES_JOURNALISTE_IDJ(node,txtval) VALUES ('idjournaliste1', 'j1');
+INSERT INTO PRESSE_JOURNALISTES_JOURNALISTE(node) VALUES ('journaliste2');
+INSERT INTO PRESSE_JOURNALISTES_JOURNALISTE_NOM(node,txtval) VALUES ('nomjournaliste2','Dupont');
+INSERT INTO PRESSE_JOURNALISTES_JOURNALISTE_PRENOM(node,txtval) VALUES ('prenomjournaliste2','Jean');
+INSERT INTO PRESSE_JOURNALISTES_JOURNALISTE_IDJ(node,txtval) VALUES ('idjournaliste2', 'j2');
+INSERT INTO PRESSE_JOURNALISTES_JOURNALISTE_ANONYMISATION(node,txtval) VALUES ('anonymisation', 'oui');
 
 
 
