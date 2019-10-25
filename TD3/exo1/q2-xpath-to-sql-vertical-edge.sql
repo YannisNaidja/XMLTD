@@ -5,7 +5,7 @@
 PROMPT Le nom du journal
 PROMPT /presse/journal/nom
 
-SELECT N.txtval
+SELECT N.txtval nom_journal
 FROM PRESSE  P,
      JOURNAL J,
      NOM     N
@@ -18,7 +18,7 @@ AND    J.Target = N.Source;
 PROMPT le nom du directeur
 PROMPT /presse/journal/directeur/nom
 
-SELECT N.txtval
+SELECT N.txtval nom_directeur
 FROM PRESSE    P,
      JOURNAL   J,
      DIRECTEUR D,
@@ -32,7 +32,8 @@ AND    D.Target = N.Source;
 -- /presse/journal/article/@titre
 PROMPT le titre de tout les articles 
 PROMPT /presse/journal/article/@titre
-SELECT T.txtval
+
+SELECT T.txtval titre_article
 FROM PRESSE  P,
      JOURNAL J,
      ARTICLE A,
@@ -41,20 +42,40 @@ WHERE P.Target = J.Source
 AND   J.Target = A.Source
 AND   A.Target = T.Source;
 
--- SELECT     T.txtval FROM 
--- TITREATT T 
+-- le nombre d'article 
+-- /presse/journal/count(article)
+PROMPT le nombre d article 
+PROMPT /presse/journal/count(article)
 
--- -- le nombre d'article 
+SELECT COUNT(A.Target) nombre_d_article
+FROM PRESSE  P,
+     JOURNAL J,
+     ARTICLE A
+WHERE P.Target = J.Source
+AND   J.Target = A.Source;
 
--- SELECT COUNT(J.target)
--- FROM JOURNAL J 
--- WHERE J.Ordinal > 2 
+-- le nombre de journaliste
+-- /presse/journal/journalistes/count(journaliste)
+PROMPT le nombre de journaliste
+PROMPT /presse/journal/journalistes/count(journaliste)
 
--- -- le nombre de journaliste
+SELECT COUNT(J2.Target) nombre_de_journalistes
+FROM PRESSE       P,
+     JOURNALISTES J1,
+     JOURNALISTE  J2
+WHERE P.Target = J1.Source
+AND   J1.Target = J2.Source;
 
+-- Les identifiants des journalistes
+-- /presse/journal/journalistes/journaliste/@idJ
+PROMPT Les identifiants des journalistes
+PROMPT /presse/journal/journalistes/journaliste/@idJ
 
--- SELECT COUNT(J.target)
--- FROM JOURNALISTES J 
-
--- -- Les identifiants des journalistes
--- --TODO: 
+SELECT J3.txtval identifiant_de_journaliste
+FROM PRESSE        P,
+     JOURNALISTES  J1,
+     JOURNALISTE   J2,
+     JOURNALISTEID J3
+WHERE P.Target = J1.Source
+AND   J1.Target = J2.Source
+AND   J2.Target = J3.Source;
