@@ -13,133 +13,135 @@ DROP TABLE TITRE;
 DROP TABLE ARTICLE;
 DROP TABLE JOURNAL;
 
+
 CREATE TABLE PRESSE (
-	Source varchar(30),
-	Target varchar(30),
-	Ordinal int,
+	source int,
+	target int NOT NULL PRIMARY KEY,
+	ordinal int,
 	txtval  varchar(30),
-	numval int
+	numval int,
 );
 
 CREATE TABLE JOURNAL (
-	Source varchar(30),
-	Target varchar(30),
-	Ordinal int,
+	source int,
+	target int NOT NULL PRIMARY KEY,
+	ordinal int,
 	txtval  varchar(30),
 	numval int
 );
 
 CREATE TABLE ARTICLE (
-	Source varchar(30),
-	Target varchar(30),
-	Ordinal int,
+	source int,
+	target int NOT NULL PRIMARY KEY,
+	ordinal int,
 	txtval  varchar(30),
 	numval int
 );
 CREATE TABLE TITRE (
-	Source varchar(30),
-	Target varchar(30),
-	Ordinal int,
+	source int,
+	target int NOT NULL PRIMARY KEY,
+	ordinal int,
 	txtval  varchar(30),
 	numval int
 );
 
 CREATE TABLE AUTEUR (
-	Source varchar(30),
-	Target varchar(30),
-	Ordinal int,
+	source int,
+	target int NOT NULL PRIMARY KEY,
+	ordinal int,
 	txtval  varchar(30),
 	numval int
 );
 
 CREATE TABLE CORPS (
-	Source varchar(30),
-	Target varchar(30),
-	Ordinal int,
+	source int,
+	target int NOT NULL PRIMARY KEY,
+	ordinal int,
 	txtval  varchar(30),
 	numval int
 );
 CREATE TABLE JOURNALISTES (
-	Source varchar(30),
-	Target varchar(30),
-	Ordinal int,
+	source int,
+	target int NOT NULL PRIMARY KEY,
+	ordinal int,
 	txtval  varchar(30),
 	numval int
 );
 CREATE TABLE JOURNALISTE (
-	Source varchar(30),
-	Target varchar(30),
-	Ordinal int,
+	source int,
+	target int NOT NULL PRIMARY KEY,
+	ordinal int,
 	txtval  varchar(30),
 	numval int
 );
 CREATE TABLE JOURNALISTEID (
-	Source varchar(30),
-	Target varchar(30),
-	Ordinal int,
+	source int,
+	target int NOT NULL PRIMARY KEY,
+	ordinal int,
 	txtval  varchar(30),
 	numval int
 );
 
 CREATE TABLE ANONYMOUS (
-	Source varchar(30),
-	Target varchar(30),
-	Ordinal int,
+	source int,
+	target int NOT NULL PRIMARY KEY,
+	ordinal int,
 	txtval  varchar(30),
 	numval int
 );
 CREATE TABLE PSEUDO (
-	Source varchar(30),
-	Target varchar(30),
-	Ordinal int,
+	source int,
+	target int NOT NULL PRIMARY KEY,
+	ordinal int,
 	txtval  varchar(30),
 	numval int
 );
 
 CREATE TABLE NOM (
-	Source varchar(30),
-	Target varchar(30),
-	Ordinal int,
+	source int,
+	target int NOT NULL PRIMARY KEY,
+	ordinal int,
 	txtval  varchar(30),
 	numval int
 );
 
 CREATE TABLE PRENOM (
-	Source varchar(30),
-	Target varchar(30),
-	Ordinal int,
+	source int,
+	target int NOT NULL PRIMARY KEY,
+	ordinal int,
 	txtval  varchar(30),
 	numval int
 );
 
 CREATE TABLE DIRECTEUR (
-	Source varchar(30),
-	Target varchar(30),
-	Ordinal int,
+	source int,
+	target int NOT NULL PRIMARY KEY,
+	ordinal int,
 	txtval  varchar(30),
 	numval int
 );
-INSERT INTO PRESSE (Target) VALUES ('presse');
-INSERT INTO JOURNAL (Source, Target, Ordinal) VALUES ('presse', 'journal1', 1);
-INSERT INTO NOM (Source, Target, Ordinal, txtval) VALUES ('journal1', 'nomjournal1', 1, 'CNEWS');
-INSERT INTO DIRECTEUR (Source, Target, Ordinal) VALUES ('journal1', 'directeur1', 1);
-INSERT INTO NOM (Source, Target, Ordinal, txtval) VALUES ('directeur1', 'directeur1nom', 1, 'Pepega');
-INSERT INTO PRENOM (Source, Target, Ordinal, txtval) VALUES ('directeur', 'directeur1prenom', 2, 'Kekw');
-INSERT INTO ARTICLE (Source, Target, Ordinal) VALUES ('journal1', 'article1', 1);
-INSERT INTO CORPS (Source, Target, Ordinal, txtval) VALUES ('article1', 'corpsarticle1', 1, 'Des fake news');
-INSERT INTO TITRE (Source, Target, txtval) VALUES ('article1', 'titrearticle1', 'fake');
-INSERT INTO AUTEUR(Source, Target, txtval) VALUES ('article1', 'auteur1', 'j1');
-INSERT INTO ARTICLE (Source, Target, Ordinal) VALUES ('journal1', 'article2', 1);
-INSERT INTO CORPS (Source, Target, Ordinal, txtval) VALUES ('article2', 'corpsarticle2', 1,' Encore des fake news');
-INSERT INTO TITRE (Source, Target, txtval) VALUES ('article1', 'titrearticle2', 'news');
-INSERT INTO AUTEUR(Source, Target, txtval) VALUES ('article2', 'auteur2', 'j1');
-INSERT INTO JOURNALISTES (Source, Target, Ordinal) VALUES ('presse', 'journalistes', 2);
-INSERT INTO JOURNALISTE (Source, Target, Ordinal) VALUES ('journalistes','journaliste1', 1);
-INSERT INTO JOURNALISTEID (Source, Target, txtval) VALUES ('journaliste1', 'idjournaliste1', 'j1');
-INSERT INTO NOM (Source, Target, Ordinal, txtval) VALUES ('journaliste1', 'nomjournaliste1', 1, 'Vuillard');
-INSERT INTO PRENOM (Source, Target, Ordinal, txtval) VALUES ('journaliste1', 'prenomjournaliste1', 1, 'Eric');
-INSERT INTO JOURNALISTE (Source, Target, Ordinal) VALUES ('journalistes','journaliste2', 2);
-INSERT INTO JOURNALISTEID (Source, Target, txtval) VALUES ('journaliste2', 'idjournaliste1', 'j2');
-INSERT INTO NOM (Source, Target, Ordinal, txtval) VALUES ('journaliste2', 'nomjournaliste1', 1, 'Dupont');
-INSERT INTO PRENOM (Source, Target, Ordinal, txtval) VALUES ('journaliste2', 'prenomjournaliste1', 1, 'Jean');
-INSERT INTO ANONYMOUS(Source, Target, Ordinal, txtval) VALUES ('journaliste2', 'anonymisation1', 1, 'non');
+
+INSERT INTO PRESSE (target)                            VALUES (0);
+INSERT INTO JOURNAL (source, target, ordinal)          VALUES (0, 1, 1);
+INSERT INTO NOM (source, target, ordinal, txtval)      VALUES (1, 2, 1, 'CNEWS');
+INSERT INTO DIRECTEUR (source, target, ordinal)        VALUES (1, 3, 1);
+INSERT INTO NOM (source, target, ordinal, txtval)      VALUES (3, 4, 1, 'Pepega');
+INSERT INTO PRENOM (source, target, ordinal, txtval)   VALUES (5, 6, 2, 'Kekw');
+INSERT INTO ARTICLE (source, target, ordinal)          VALUES (1, 7, 1);
+INSERT INTO CORPS (source, target, ordinal, txtval)    VALUES (7, 9, 1, 'Des fake news');
+INSERT INTO TITRE (source, target, txtval)             VALUES (7, 10, 'fake');
+INSERT INTO AUTEUR(source, target, txtval)             VALUES (7, 14, 'j1');
+INSERT INTO ARTICLE (source, target, ordinal)          VALUES (1, 8, 1);
+INSERT INTO CORPS (source, target, ordinal, txtval)    VALUES (8, 11, 1,' Encore des fake news');
+INSERT INTO TITRE (source, target, txtval)             VALUES (7, 12, 'news');
+INSERT INTO AUTEUR(source, target, txtval)             VALUES (8, 15, 'j1');
+INSERT INTO JOURNALISTES (source, target, ordinal)     VALUES (0, 13, 2);
+INSERT INTO JOURNALISTE (source, target, ordinal)      VALUES (13,14, 1);
+INSERT INTO JOURNALISTEID (source, target, txtval)     VALUES (14, 16, 'j1');
+INSERT INTO NOM (source, target, ordinal, txtval)      VALUES (14, 17, 1, 'Vuillard');
+INSERT INTO PRENOM (source, target, ordinal, txtval)   VALUES (14, 18, 1, 'Eric');
+INSERT INTO JOURNALISTE (source, target, ordinal)      VALUES (13,15, 2);
+INSERT INTO JOURNALISTEID (source, target, txtval)     VALUES (15, 20, 'j2');
+INSERT INTO NOM (source, target, ordinal, txtval)      VALUES (15, 20, 1, 'Dupont');
+INSERT INTO PRENOM (source, target, ordinal, txtval)   VALUES (15, 21, 1, 'Jean');
+INSERT INTO ANONYMOUS(source, target, ordinal, txtval) VALUES (15, 22, 1, 'non');
