@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{SELECT} \PYG{n}{txtval} \PYG{n}{identifiant\PYGZus{}de\PYGZus{}journaliste}
+\PYG{k}{FROM} \PYG{n}{PRESSE\PYGZus{}JOURNALISTES\PYGZus{}JOURNALISTE\PYGZus{}IDJ}\PYG{p}{;}
+\end{Verbatim}

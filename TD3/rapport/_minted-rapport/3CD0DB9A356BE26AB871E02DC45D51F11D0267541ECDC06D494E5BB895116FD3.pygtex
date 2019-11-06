@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{SELECT} \PYG{n}{txtval} \PYG{n}{titre\PYGZus{}article}
+\PYG{k}{FROM} \PYG{n}{PRESSE\PYGZus{}JOURNAL\PYGZus{}ARTICLE\PYGZus{}TITRE}\PYG{p}{;}
+\end{Verbatim}

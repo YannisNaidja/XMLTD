@@ -1,0 +1,66 @@
+\chapter{Stockage schema-aware : Verical-Edge vs Monet}
+\section{À partir de la DTD pour les bâtiments présentée dans l’énoncé du TD1, définir un schéma de stockagerelationnel suivant la méthode présentée en cours.}
+\subsection{DTD batiment}
+\begin{minted}[linenos, breaklines]{dtd}
+<!DOCTYPE batiment [ 
+<!ELEMENT batiment (etage)+ >
+<!ELEMENT etage (description,(bureau+|salle+)) >
+<!ELEMENT description (#PCDATA) >
+<!ELEMENT bureau (code, personne*) >
+<!ELEMENT code (#PCDATA) >
+<!ELEMENT personne (#PCDATA) >
+<!ELEMENT salle (nombrePlaces) >
+<!ELEMENT nombrePlaces (#PCDATA) >]>
+\end{minted}
+
+\subsection{Suppression des symboles +}
+\begin{minted}[linenos, breaklines]{dtd}
+<!DOCTYPE batiment [ 
+<!ELEMENT batiment (etage*,etage) >
+<!ELEMENT etage (description,((bureau*,bureau)|(salle*,salle)) >
+<!ELEMENT description (#PCDATA) >
+<!ELEMENT bureau (code, personne*) >
+<!ELEMENT code (#PCDATA) >
+<!ELEMENT personne (#PCDATA) >
+<!ELEMENT salle (nombrePlaces) >
+<!ELEMENT nombrePlaces (#PCDATA) >]>
+\end{minted}
+
+\subsection{Suppression de l'ordre et des correlations}
+\begin{minted}[linenos, breaklines]{dtd}
+<!DOCTYPE batiment [ 
+<!ELEMENT batiment (etage* | etage) >
+<!ELEMENT etage (description | bureau* | bureau | salle* | salle)) >
+<!ELEMENT description (#PCDATA) >
+<!ELEMENT bureau (code | personne*) >
+<!ELEMENT code (#PCDATA) >
+<!ELEMENT personne (#PCDATA) >
+<!ELEMENT salle (nombrePlaces) >
+<!ELEMENT nombrePlaces (#PCDATA) >]>
+\end{minted}
+
+\subsection{Simplifications}
+r|r* est équivalent à r*
+\begin{minted}[linenos, breaklines]{dtd}
+<!DOCTYPE batiment [ 
+<!ELEMENT batiment (etage*) >
+<!ELEMENT etage (description | bureau* | salle*) >
+<!ELEMENT description (#PCDATA) >
+<!ELEMENT bureau (code | personne*) >
+<!ELEMENT code (#PCDATA) >
+<!ELEMENT personne (#PCDATA) >
+<!ELEMENT salle (nombrePlaces) >
+<!ELEMENT nombrePlaces (#PCDATA) >]>
+\end{minted}
+
+\subsection{Représentation sous forme de graphe}
+Voir graphe en annexe
+
+\subsection{Relations}
+\begin{itemize}
+\item batiment(\underline{batimentID: integer}, flagRoot: integer)
+\item etage(\underline{etageID: integer}, batimentID: integer, description: string)
+\item bureau(\underline{bureauID: integer}, etageID: integer, code: string)
+\item personne(\underline{personneID: integer}, bureauID: integer)
+\item salle(\underline{salleID: integer}, etageID: integer, nombreDePlace: integer)
+\end{itemize}
