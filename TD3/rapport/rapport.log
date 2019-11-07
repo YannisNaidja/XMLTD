@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2019.11.6)  7 NOV 2019 06:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2019.11.6)  7 NOV 2019 06:53
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -279,7 +279,9 @@ runsystem(which pygmentize && touch rapport.aex)...executed.
 runsystem(rm rapport.aex)...executed.
 
  (./rapport.aux
-(./exo1.aux) (./exo2.aux) (./xml_presse.aux) (./graph_batiment.aux))
+(./exo1.aux) (./exo2.aux) (./exo3.aux) (./xml_presse.aux) (./graph_batiment.aux
+) (./tree_batiment_begin_end.aux) (./graph_batiment_begin_end.aux)
+(./tree_batiment_dewey.aux))
 \openout1 = `rapport.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
@@ -496,18 +498,10 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 61.
 \openout3 = `rapport.pyg'.
 
-runsystem(pygmentize -l sql -f latex -P commandprefix=PYG -F tokenmerge -o _min
-ted-rapport/7059E76F17FE99EBCC971179DBECE6E71D0267541ECDC06D494E5BB895116FD3.py
-gtex rapport.pyg)...executed.
-
 
 (./_minted-rapport/7059E76F17FE99EBCC971179DBECE6E71D0267541ECDC06D494E5BB89511
 6FD3.pygtex [12])
 \openout3 = `rapport.pyg'.
-
-runsystem(pygmentize -l sql -f latex -P commandprefix=PYG -F tokenmerge -o _min
-ted-rapport/453124715B6AC09E0FFB24EDE5F1B2901D0267541ECDC06D494E5BB895116FD3.py
-gtex rapport.pyg)...executed.
 
 
 (./_minted-rapport/453124715B6AC09E0FFB24EDE5F1B2901D0267541ECDC06D494E5BB89511
@@ -518,101 +512,62 @@ Overfull \hbox (25.18779pt too wide) in paragraph at lines 125--125
 
 \openout3 = `rapport.pyg'.
 
-runsystem(pygmentize -l xquery -f latex -P commandprefix=PYG -F tokenmerge -o _
-minted-rapport/7C4A66C243E5271CC6D6364FAF6BA1CC3378AAC3DB6D772F5622D9EB51A552D3
-.pygtex rapport.pyg)...executed.
-
 
 (./_minted-rapport/7C4A66C243E5271CC6D6364FAF6BA1CC3378AAC3DB6D772F5622D9EB51A5
 52D3.pygtex)
 \openout3 = `rapport.pyg'.
-
-runsystem(pygmentize -l sql -f latex -P commandprefix=PYG -F tokenmerge -o _min
-ted-rapport/9CC1881B98F17BC42323B17D195C08D11D0267541ECDC06D494E5BB895116FD3.py
-gtex rapport.pyg)...executed.
 
 
 (./_minted-rapport/9CC1881B98F17BC42323B17D195C08D11D0267541ECDC06D494E5BB89511
 6FD3.pygtex)
 \openout3 = `rapport.pyg'.
 
-runsystem(pygmentize -l xquery -f latex -P commandprefix=PYG -F tokenmerge -o _
-minted-rapport/9BBE0FC57AA226906E218B6DC13AB3143378AAC3DB6D772F5622D9EB51A552D3
-.pygtex rapport.pyg)...executed.
-
 
 (./_minted-rapport/9BBE0FC57AA226906E218B6DC13AB3143378AAC3DB6D772F5622D9EB51A5
 52D3.pygtex)
 \openout3 = `rapport.pyg'.
-
-runsystem(pygmentize -l sql -f latex -P commandprefix=PYG -F tokenmerge -o _min
-ted-rapport/642C8230922A2541D19CE9F9BB339E121D0267541ECDC06D494E5BB895116FD3.py
-gtex rapport.pyg)...executed.
 
 
 (./_minted-rapport/642C8230922A2541D19CE9F9BB339E121D0267541ECDC06D494E5BB89511
 6FD3.pygtex)
 \openout3 = `rapport.pyg'.
 
-runsystem(pygmentize -l xquery -f latex -P commandprefix=PYG -F tokenmerge -o _
-minted-rapport/00FFDF1BE37347669A8364C6EC3A93713378AAC3DB6D772F5622D9EB51A552D3
-.pygtex rapport.pyg)...executed.
-
 
 (./_minted-rapport/00FFDF1BE37347669A8364C6EC3A93713378AAC3DB6D772F5622D9EB51A5
 52D3.pygtex)
 \openout3 = `rapport.pyg'.
-
-runsystem(pygmentize -l sql -f latex -P commandprefix=PYG -F tokenmerge -o _min
-ted-rapport/E7702DE97792B7CA0800652672272E891D0267541ECDC06D494E5BB895116FD3.py
-gtex rapport.pyg)...executed.
 
 
 (./_minted-rapport/E7702DE97792B7CA0800652672272E891D0267541ECDC06D494E5BB89511
 6FD3.pygtex [14])
 \openout3 = `rapport.pyg'.
 
-runsystem(pygmentize -l xquery -f latex -P commandprefix=PYG -F tokenmerge -o _
-minted-rapport/1DADEF7DAC1E74D80701AA33DE40B7513378AAC3DB6D772F5622D9EB51A552D3
-.pygtex rapport.pyg)...executed.
-
 
 (./_minted-rapport/1DADEF7DAC1E74D80701AA33DE40B7513378AAC3DB6D772F5622D9EB51A5
 52D3.pygtex)
 \openout3 = `rapport.pyg'.
-
-runsystem(pygmentize -l sql -f latex -P commandprefix=PYG -F tokenmerge -o _min
-ted-rapport/105741FFC24968B5C4C63CC443D714C51D0267541ECDC06D494E5BB895116FD3.py
-gtex rapport.pyg)...executed.
 
 
 (./_minted-rapport/105741FFC24968B5C4C63CC443D714C51D0267541ECDC06D494E5BB89511
 6FD3.pygtex)
 \openout3 = `rapport.pyg'.
 
-runsystem(pygmentize -l xquery -f latex -P commandprefix=PYG -F tokenmerge -o _
-minted-rapport/105838F67EFC754E5932FC3245F099A03378AAC3DB6D772F5622D9EB51A552D3
-.pygtex rapport.pyg)...executed.
-
 
 (./_minted-rapport/105838F67EFC754E5932FC3245F099A03378AAC3DB6D772F5622D9EB51A5
 52D3.pygtex)
 \openout3 = `rapport.pyg'.
-
-runsystem(pygmentize -l sql -f latex -P commandprefix=PYG -F tokenmerge -o _min
-ted-rapport/EFF74201D80EEA2B0C5851B35CE9A89E1D0267541ECDC06D494E5BB895116FD3.py
-gtex rapport.pyg)...executed.
 
 
 (./_minted-rapport/EFF74201D80EEA2B0C5851B35CE9A89E1D0267541ECDC06D494E5BB89511
 6FD3.pygtex)) [15]
 \openout2 = `exo3.aux'.
 
- (./exo3.tex
+ (./exo3.tex [16
+
+
+]
 Chapitre 3.
-) [16
-
-
+) [17
 
 ]
 \openout2 = `xml_presse.aux'.
@@ -623,63 +578,78 @@ Annexe A.
 
 
 (./_minted-rapport/6CD2CA5BD62268AE5409ABAABFF444DBA36507FC8C184D098BF5587B4D6E
-A1A0.pygtex [17
+A1A0.pygtex [18
 
 
 
-])) [18]
+])) [19]
 \openout2 = `graph_batiment.aux'.
 
  (./graph_batiment.tex
 Annexe B.
-<graphe_dtd_to_rel.png, id=73, 154.176pt x 115.632pt>
+<graphe_dtd_to_rel.png, id=76, 154.176pt x 115.632pt>
 File: graphe_dtd_to_rel.png Graphic file (type png)
 <use graphe_dtd_to_rel.png>
 Package pdftex.def Info: graphe_dtd_to_rel.png  used on input line 3.
 (pdftex.def)             Requested size: 345.0pt x 258.781pt.
-) [19
+) [20
 
 
 
-] [20 <./graphe_dtd_to_rel.png>]
+] [21 <./graphe_dtd_to_rel.png>]
 \openout2 = `tree_batiment_begin_end.aux'.
 
  (./tree_batiment_begin_end.tex
 Annexe C.
-<batiment_begin_end_tree.png, id=82, 903.375pt x 485.815pt>
+<batiment_begin_end_tree.png, id=85, 903.375pt x 485.815pt>
 File: batiment_begin_end_tree.png Graphic file (type png)
 <use batiment_begin_end_tree.png>
 Package pdftex.def Info: batiment_begin_end_tree.png  used on input line 3.
 (pdftex.def)             Requested size: 345.0pt x 185.53822pt.
-) [21
+) [22
 
 
 
-] [22 <./batiment_begin_end_tree.png>]
+] [23 <./batiment_begin_end_tree.png>]
 \openout2 = `graph_batiment_begin_end.aux'.
 
  (./graph_batiment_begin_end.tex
 Annexe D.
-<batiment_begin_end_graph.png, id=90, 148.6353pt x 114.6684pt>
+<batiment_begin_end_graph.png, id=93, 148.6353pt x 114.6684pt>
 File: batiment_begin_end_graph.png Graphic file (type png)
 <use batiment_begin_end_graph.png>
 Package pdftex.def Info: batiment_begin_end_graph.png  used on input line 3.
 (pdftex.def)             Requested size: 345.0pt x 266.17606pt.
-) [23
+) [24
 
 
 
-] [24 <./batiment_begin_end_graph.png>] (./rapport.aux (./exo1.aux)
-(./exo2.aux) (./exo3.aux) (./xml_presse.aux) (./graph_batiment.aux)
-(./tree_batiment_begin_end.aux) (./graph_batiment_begin_end.aux))
+] [25 <./batiment_begin_end_graph.png>]
+\openout2 = `tree_batiment_dewey.aux'.
+
+ (./tree_batiment_dewey.tex
+Annexe E.
+<batiment_dewey_tree.png, id=102, 903.375pt x 485.815pt>
+File: batiment_dewey_tree.png Graphic file (type png)
+<use batiment_dewey_tree.png>
+Package pdftex.def Info: batiment_dewey_tree.png  used on input line 3.
+(pdftex.def)             Requested size: 345.0pt x 185.53822pt.
+) [26
+
+
+
+] [27 <./batiment_dewey_tree.png>] (./rapport.aux (./exo1.aux) (./exo2.aux) (./
+exo3.aux) (./xml_presse.aux) (./graph_batiment.aux)
+(./tree_batiment_begin_end.aux) (./graph_batiment_begin_end.aux)
+(./tree_batiment_dewey.aux))
 runsystem(rm rapport.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 6672 strings out of 492623
- 121010 string characters out of 6135669
- 249624 words of memory out of 5000000
- 10341 multiletter control sequences out of 15000+600000
+ 6694 strings out of 492623
+ 121521 string characters out of 6135669
+ 252043 words of memory out of 5000000
+ 10349 multiletter control sequences out of 15000+600000
  9144 words of font info for 33 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  40i,9n,40p,843b,523s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -692,10 +662,10 @@ hare/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmtt10.pfb>
-Output written on rapport.pdf (25 pages, 188906 bytes).
+Output written on rapport.pdf (28 pages, 211007 bytes).
 PDF statistics:
- 132 PDF objects out of 1000 (max. 8388607)
- 88 compressed objects within 1 object stream
+ 143 PDF objects out of 1000 (max. 8388607)
+ 94 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
