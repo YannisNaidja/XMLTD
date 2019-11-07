@@ -9,13 +9,13 @@ SELECT XMLQUERY('for $auteur in /tweeter/users/user
   <result>
   { $tweet }
   { $auteur }
-  </result>' PASSING xml_content RETURNING CONTENT)FROM tweet_BINARY;
+  </result>' PASSING xml_content RETURNING CONTENT)FROM tweet_CLOB;
 
 -- Listez les utilisateurs de la plateforme en ordre alphabétique.
 PROMPT Listez les utilisateurs de la plateforme en ordre alphabétique.
 SELECT XMLQUERY('for $user in tweeter/users/user
   order by upper-case($user/user_name/text()) ascending
-  return  $user' PASSING xml_content RETURNING CONTENT)FROM tweet_BINARY;
+  return  $user' PASSING xml_content RETURNING CONTENT)FROM tweet_CLOB;
 
 -- Pour chaque utilisateur, listez le nom de l’utilisateur et la date de tous ses tweets, le tout regroupé dansun élément result.
 PROMPT Pour chaque utilisateur, listez le nom de l’utilisateur et la date de tous ses tweets, le tout regroupé dansun élément result.
@@ -31,14 +31,14 @@ SELECT XMLQUERY('for $auteur in /tweeter/users/user
       where $auteur/@id = $tweet/@author_ref  
       return $tweet/header/date
     }
-  </result>' PASSING xml_content RETURNING CONTENT)FROM tweet_BINARY;
+  </result>' PASSING xml_content RETURNING CONTENT)FROM tweet_CLOB;
 
 -- Listez les utilisateurs qui ont publié un tweet qui a été retwitté au moins deux fois.
 PROMPT Listez les utilisateurs qui ont publié un tweet qui a été retwitté au moins deux fois.
 SELECT XMLQUERY('for $auteur in /tweeter/users/user
     for $tweet in /tweeter/tweets/tweet
     where $auteur/@id = $tweet/@author_ref and count($tweet/header/retweets/retweet) > 1
-    return $auteur' PASSING xml_content RETURNING CONTENT)FROM tweet_BINARY;
+    return $auteur' PASSING xml_content RETURNING CONTENT)FROM tweet_CLOB;
 
 -- Pour chaque tweet, listez son contenu et la date de ses deux premières réponses. Rajoutez un element vide \textless nonRetwitted/\textgreater s’il n’a pas été retwitté.
 PROMPT Pour chaque tweet, listez son contenu et la date de ses deux premières réponses. Rajoutez un element vide \textless nonRetwitted/\textgreater s’il n’a pas été retwitté.
@@ -57,7 +57,7 @@ SELECT XMLQUERY('for $tweet in /tweeter/tweets/tweet
 	<nonRetwitted />
       else()
     }
-  </tweet>' PASSING xml_content RETURNING CONTENT)FROM tweet_BINARY;
+  </tweet>' PASSING xml_content RETURNING CONTENT)FROM tweet_CLOB;
 
 
 

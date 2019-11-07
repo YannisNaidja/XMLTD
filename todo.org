@@ -1,3 +1,3 @@
 * To do :
-** TODO Replace node label from varchar to integer
-** TODO Remove uppercase in field name
+** DONE Replace node label from varchar to integer
+** TODO Ajouter tweets.xml en annexe
