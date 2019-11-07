@@ -1,42 +1,42 @@
 <!DOCTYPE batiment SYSTEM "dtd1-2.dtd">
-1<batiment>
-  2<etage>
-    3<description>
-      4 descriptionEtage1 5
-    6</description>
-    7<salle>
-      8<nombrePlaces>
-	9 25 10
-      11</nombrePlaces>
-    12</salle>
-    13<salle>
-      14<nombrePlaces>
-	15 50 16
-      17</nombrePlaces>
-    18</salle>
-  19</etage>
-  20<etage>
-    21<description>
-      22 descriptionEtage2 23
-    24</description>
-    25<bureau>
-      26<code>
-	27 B02 28
-      29</code>
-      30<personne>
-	31 Personne1 32
-      33</personne>
-    34</bureau>
-    35<bureau>
-      36<code>
-	37 B03 38
-      39</code>
-      40<personne>
-	41 Personne2 42
-      43</personne>
-      44<personne>
-	45 Personne3 46
-      47</personne>
-    48</bureau>
-  49</etage>
-50</batiment>
+<batiment>
+  <etage>
+     <description>
+       descriptionEtage1
+     </description>
+     <salle>
+       <nombrePlaces>
+ 	 25
+       </nombrePlaces>
+     </salle>
+     <salle>
+       <nombrePlaces>
+ 	50
+       </nombrePlaces>
+     </salle>
+   </etage>
+   <etage>
+     <description>
+       descriptionEtage2
+     </description>
+     <bureau>
+       <code>
+ 	B02
+       </code>
+       <personne>
+ 	Personne1
+       </personne>
+     </bureau>
+     <bureau>
+       <code>
+ 	 B03
+       </code>
+       <personne>
+ 	Personne2
+       </personne>
+       <personne>
+ 	Personne3
+       </personne>
+     </bureau>
+   </etage>
+</batiment>
