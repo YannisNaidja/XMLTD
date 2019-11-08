@@ -1,1 +1,0 @@
-/gare/train/voiture[count(resa) >= 2]/parent::train/@numero

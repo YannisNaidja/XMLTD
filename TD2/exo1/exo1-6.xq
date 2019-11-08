@@ -1,1 +1,0 @@
-/FILMS/FILM/RESUME[text() != '']/parent::FILM/TITRE/text()

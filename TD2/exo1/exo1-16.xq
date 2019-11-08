@@ -1,1 +1,0 @@
-descendant::*[contains(name(), 'TI')] 

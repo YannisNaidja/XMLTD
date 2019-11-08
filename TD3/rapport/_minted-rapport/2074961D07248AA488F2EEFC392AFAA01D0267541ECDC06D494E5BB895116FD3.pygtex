@@ -1,4 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{k}{SELECT} \PYG{n}{txtval} \PYG{n}{nom\PYGZus{}journal}
-\PYG{k}{FROM}   \PYG{n}{PRESSE\PYGZus{}JOURNAL\PYGZus{}NOM}\PYG{p}{;}
-\end{Verbatim}

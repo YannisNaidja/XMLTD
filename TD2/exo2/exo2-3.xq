@@ -1,1 +1,0 @@
-/recettes/recette/materiel/ingredient[contains(text(), "persil")]/parent::materiel/parent::recette/@nom

@@ -1,1 +1,0 @@
-//a/ancestor-or-self::node()/preceding-sibling::node()/descendant-or-self::b

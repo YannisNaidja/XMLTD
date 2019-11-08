@@ -1,3 +1,0 @@
-* Questions
-** TODO exo4-2: doit-il y avoir un type NUMBER?
-** exo4-1: doit on remplir des tableaux?

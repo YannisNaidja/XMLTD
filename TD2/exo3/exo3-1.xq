@@ -1,1 +1,0 @@
-/gare/train/voiture/bar/parent::voiture/parent::train/@numero

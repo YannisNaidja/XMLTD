@@ -1,1 +1,0 @@
-/FILMS/ARTISTE[@id=/FILMS/FILM[TITRE='Vertigo']/MES/@idref]/ACTNOM/text()

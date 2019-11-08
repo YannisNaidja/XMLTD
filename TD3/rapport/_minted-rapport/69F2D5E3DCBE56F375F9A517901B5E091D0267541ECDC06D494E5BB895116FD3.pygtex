@@ -1,8 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{k}{SELECT} \PYG{k}{COUNT}\PYG{p}{(}\PYG{n}{A}\PYG{p}{.}\PYG{n}{Target}\PYG{p}{)} \PYG{n}{nombre\PYGZus{}d\PYGZus{}article}
-\PYG{k}{FROM} \PYG{n}{PRESSE}  \PYG{n}{P}\PYG{p}{,}
-     \PYG{n}{JOURNAL} \PYG{n}{J}\PYG{p}{,}
-     \PYG{n}{ARTICLE} \PYG{n}{A}
-\PYG{k}{WHERE} \PYG{n}{P}\PYG{p}{.}\PYG{n}{Target} \PYG{o}{=} \PYG{n}{J}\PYG{p}{.}\PYG{k}{Source}
-\PYG{k}{AND}   \PYG{n}{J}\PYG{p}{.}\PYG{n}{Target} \PYG{o}{=} \PYG{n}{A}\PYG{p}{.}\PYG{k}{Source}\PYG{p}{;}
-\end{Verbatim}

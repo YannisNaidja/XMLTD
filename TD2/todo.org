@@ -1,4 +1,0 @@
-* To do
-** TODO Mettre DTD tweet en annexe
-** TODO Put tweet.xml in directory exo4/
-** TODO Check exo4/

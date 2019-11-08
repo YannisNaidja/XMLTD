@@ -1,1 +1,0 @@
-/FILMS/ARTISTE[@id=/FILMS/FILM[TITRE/text() = "Reservoir dogs"]/ROLES/ROLE/@idref and ACTNOM/text() != 'Keitel' and ACTPNOM/text() != 'Harvey']

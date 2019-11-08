@@ -1,1 +1,0 @@
-/tweeter/tweets/tweet[@author_ref='U41']

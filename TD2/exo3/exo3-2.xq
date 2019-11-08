@@ -1,1 +1,0 @@
-/gare/usager[@id = /gare/train/voiture/resa/@id]/@nom

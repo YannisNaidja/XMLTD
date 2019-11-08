@@ -1,1 +1,0 @@
-/recettes/recette[count(materiel/ingredient) > 2 and materiel/ingredient[contains(text(), "oeuf")]]/@nom

@@ -1,1 +1,0 @@
-//d[following::*[child::*]]

@@ -1,1 +1,0 @@
-/FILMS/FILM/TITRE[contains(text(),'V')]/text()

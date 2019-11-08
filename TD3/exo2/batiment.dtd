@@ -1,9 +1,0 @@
-<!DOCTYPE batiment [ 
-<!ELEMENT batiment (etage)+ >
-<!ELEMENT etage (description,(bureau+|salle+)) >
-<!ELEMENT description (#PCDATA) >
-<!ELEMENT bureau (code, personne*) >
-<!ELEMENT code (#PCDATA) >
-<!ELEMENT personne (#PCDATA) >
-<!ELEMENT salle (nombrePlaces) >
-<!ELEMENT nombrePlaces (#PCDATA) >]>

@@ -1,1 +1,0 @@
-/gare/usager[not(@id = /gare/train/voiture/resa/@id)]

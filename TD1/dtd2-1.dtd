@@ -1,5 +1,0 @@
-<!ELEMENT A (C+,B,B)? >
-<!ELEMENT C (A|D)* >
-<!ELEMENT B (A|E)? >
-<!ELEMENT D EMPTY >
-<!ELEMENT E EMPTY >

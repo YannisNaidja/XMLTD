@@ -1,1 +1,0 @@
-/FILMS/FILM/MES[@idref=/FILMS/FILM[TITRE='Vertigo']/MES/@idref]/preceding-sibling::TITRE/text()
