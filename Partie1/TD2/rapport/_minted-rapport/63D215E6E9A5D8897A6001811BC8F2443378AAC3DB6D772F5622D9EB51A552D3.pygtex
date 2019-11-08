@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+  \PYG{n+nt}{\PYGZlt{}results\PYGZgt{}}\PYG{l}{ }\PYG{p}{\PYGZob{}}
+    \PYG{p}{(}\PYG{k}{for} \PYG{n+nv}{\PYGZdl{}}\PYG{n}{resa} \PYG{o+ow}{in} \PYG{p}{/}\PYG{n+nt}{gare}\PYG{p}{/}\PYG{n+nt}{train}\PYG{p}{/}\PYG{n+nt}{voiture}\PYG{p}{/}\PYG{n+nt}{resa}
+    \PYG{k}{order by} \PYG{n+nv}{\PYGZdl{}}\PYG{n}{resa}\PYG{p}{/}\PYG{n+na}{@numero} \PYG{k}{descending}
+    \PYG{k}{return} \PYG{n+nv}{\PYGZdl{}}\PYG{n}{resa}\PYG{p}{)[}\PYG{l+m+mi}{1}\PYG{p}{]}
+  \PYG{p}{\PYGZcb{}}
+\PYG{l}{  }\PYG{n+nt}{\PYGZlt{}/results\PYGZgt{}}
+\end{Verbatim}

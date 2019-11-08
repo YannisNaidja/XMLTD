@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nt}{\PYGZlt{}results\PYGZgt{}}\PYG{l}{ }\PYG{p}{\PYGZob{}}
+  \PYG{k}{for} \PYG{n+nv}{\PYGZdl{}}\PYG{n}{auteur} \PYG{o+ow}{in} \PYG{p}{/}\PYG{n+nt}{tweeter}\PYG{p}{/}\PYG{n+nt}{users}\PYG{p}{/}\PYG{n+nt}{user}
+    \PYG{k}{for} \PYG{n+nv}{\PYGZdl{}}\PYG{n}{tweet} \PYG{o+ow}{in} \PYG{p}{/}\PYG{n+nt}{tweeter}\PYG{p}{/}\PYG{n+nt}{tweets}\PYG{p}{/}\PYG{n+nt}{tweet}
+    \PYG{k}{where} \PYG{n+nv}{\PYGZdl{}}\PYG{n}{auteur}\PYG{p}{/}\PYG{n+na}{@id} \PYG{o}{=} \PYG{n+nv}{\PYGZdl{}}\PYG{n}{tweet}\PYG{p}{/}\PYG{n+na}{@author\PYGZus{}ref} \PYG{o+ow}{and} \PYG{n+nf}{count}\PYG{p}{(}\PYG{n+nv}{\PYGZdl{}}\PYG{n}{tweet}\PYG{p}{/}\PYG{n+nt}{header}\PYG{p}{/}\PYG{n+nt}{retweets}\PYG{p}{/}\PYG{n+nt}{retweet}\PYG{p}{)} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{1}
+    \PYG{k}{return} \PYG{n+nv}{\PYGZdl{}}\PYG{n}{auteur}
+ \PYG{p}{\PYGZcb{}}
+\PYG{n+nt}{\PYGZlt{}/results\PYGZgt{}}
+\end{Verbatim}

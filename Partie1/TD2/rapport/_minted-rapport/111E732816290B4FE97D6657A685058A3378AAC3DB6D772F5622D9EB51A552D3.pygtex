@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+  \PYG{n+nt}{\PYGZlt{}results\PYGZgt{}}\PYG{l}{ }\PYG{p}{\PYGZob{}}
+    \PYG{k}{let} \PYG{n+nv}{\PYGZdl{}}\PYG{n}{resa} \PYG{o}{:=}  \PYG{p}{/}\PYG{n+nt}{gare}\PYG{p}{/}\PYG{n+nt}{train}\PYG{p}{/}\PYG{n+nt}{voiture}\PYG{p}{/}\PYG{n+nt}{resa}
+    \PYG{k}{for} \PYG{n+nv}{\PYGZdl{}}\PYG{n}{user} \PYG{o+ow}{in} \PYG{p}{/}\PYG{n+nt}{gare}\PYG{p}{/}\PYG{n+nt}{usager}
+    \PYG{k}{where} \PYG{n+nf}{not}\PYG{p}{(}\PYG{n+nv}{\PYGZdl{}}\PYG{n}{user}\PYG{p}{/}\PYG{n+na}{@id} \PYG{o}{=} \PYG{n+nv}{\PYGZdl{}}\PYG{n}{resa}\PYG{p}{/}\PYG{n+na}{@id}\PYG{p}{)}
+    \PYG{k}{return} \PYG{n+nv}{\PYGZdl{}}\PYG{n}{user}
+  \PYG{p}{\PYGZcb{}}
+\PYG{l}{  }\PYG{n+nt}{\PYGZlt{}/results\PYGZgt{}}
+\end{Verbatim}

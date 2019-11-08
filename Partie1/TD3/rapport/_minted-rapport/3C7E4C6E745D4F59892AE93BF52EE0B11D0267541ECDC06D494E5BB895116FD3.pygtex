@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{SELECT} \PYG{n}{N}\PYG{p}{.}\PYG{n}{txtval} \PYG{n}{nom\PYGZus{}journal}
+\PYG{k}{FROM} \PYG{n}{PRESSE}  \PYG{n}{P}\PYG{p}{,}
+     \PYG{n}{JOURNAL} \PYG{n}{J}\PYG{p}{,}
+     \PYG{n}{NOM}     \PYG{n}{N}
+\PYG{k}{WHERE}
+       \PYG{n}{P}\PYG{p}{.}\PYG{n}{Target} \PYG{o}{=} \PYG{n}{J}\PYG{p}{.}\PYG{k}{Source}
+\PYG{k}{AND}    \PYG{n}{J}\PYG{p}{.}\PYG{n}{Target} \PYG{o}{=} \PYG{n}{N}\PYG{p}{.}\PYG{k}{Source}\PYG{p}{;}
+\end{Verbatim}

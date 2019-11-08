@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+  \PYG{k}{SELECT} \PYG{n}{XMLQUERY}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}for \PYGZdl{}user in tweeter/users/user}
+\PYG{l+s+s1}{  order by upper\PYGZhy{}case(\PYGZdl{}user/user\PYGZus{}name/text()) ascending}
+\PYG{l+s+s1}{  return  \PYGZdl{}user\PYGZsq{}} \PYG{n}{PASSING} \PYG{n}{xml\PYGZus{}content} \PYG{n}{RETURNING} \PYG{n}{CONTENT}\PYG{p}{)}\PYG{k}{FROM} \PYG{n}{tweet\PYGZus{}BINARY}\PYG{p}{;}
+\end{Verbatim}

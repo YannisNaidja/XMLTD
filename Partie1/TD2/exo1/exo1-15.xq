@@ -1,0 +1,1 @@
+descendant::*[count(*)=3]

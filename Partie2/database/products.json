@@ -1,0 +1,42 @@
+[
+    {
+	"category_name" : "Boissons alcolisees",
+	"content" : [
+	    {
+		"code" : "X0192",
+		"product_name" : "Pack 6xBière belge 25cl",
+		"price" : 5.50,
+		"brand" : "Leffe",
+		"type" : "Biere blonde",
+		"extra" : {
+		    "alcohol_volume" : 6.5
+		}
+	    },
+	    {
+		"code" : "C0193",
+		"product_name" : "Pack 12xBière Pelforth Brune 25cl",
+		"price" : 10,
+		"alcohol_volume" : 6.5,
+		"brand" : "Pelforth",
+		"type" : "Biere brune",
+		"extra" : {
+		    "alcohol_volume" : 7.0
+		}
+	    }
+	]
+    },
+    {
+	"category_name" : "Sodas",
+	"content" : [
+	    {
+		"code" : "D1143",
+		"product_name" : "Coca-cola 1.5l",
+		"price" : 3.50,
+		"brand" : "Coca-Cola Company",
+		"type" : "Soda sucré",
+		"extra" : {}
+	    }
+	]
+    }
+]
+

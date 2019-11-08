@@ -1,0 +1,41 @@
+<!DOCTYPE presse SYSTEM "dtd1-1.dtd">
+<presse>
+  <journal>
+    <nom>
+      NomJournal
+    </nom>
+    <directeur>
+      <nom>
+	NomDirecteurJournal
+      </nom>
+      <prenom>
+	PrenomDirecteurJournal
+      </prenom>
+    </directeur>
+    <article titre="article1" auteur="j01">
+      <corps>
+	CorpsArticle1
+      </corps>
+    </article>
+    <article auteur="j02">
+      <corps>
+	CorpsArticle2
+      </corps>
+    </article>
+  </journal>
+  <journalistes>
+    <journaliste idJ="j01">
+      <nom>
+	NomJournaliste1
+      </nom>
+      <prenom>
+	PrenomJournaliste1
+      </prenom>
+    </journaliste>
+    <journaliste idJ="j02" anonymisation="oui">
+      <pseudonyme>
+	PseudoJournaliste2
+      </pseudonyme>
+    </journaliste>
+  </journalistes>
+</presse>

@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{SELECT} \PYG{n}{N4}\PYG{p}{.}\PYG{o}{*}
+\PYG{k}{FROM} \PYG{n}{NODE} \PYG{n}{N1}\PYG{p}{,} \PYG{n}{NODE} \PYG{n}{N2}\PYG{p}{,} \PYG{n}{NODE} \PYG{n}{N3}\PYG{p}{,} \PYG{n}{NODE} \PYG{n}{N4}
+\PYG{k}{WHERE} \PYG{n}{N1}\PYG{p}{.}\PYG{n}{tag} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}tweeter\PYGZsq{}}    \PYG{k}{AND}
+      \PYG{n}{N2}\PYG{p}{.}\PYG{n}{tag} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}users\PYGZsq{}}      \PYG{k}{AND}
+      \PYG{n}{N3}\PYG{p}{.}\PYG{n}{tag} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}user\PYGZsq{}}       \PYG{k}{AND}
+      \PYG{n}{N4}\PYG{p}{.}\PYG{n}{tag} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}first\PYGZus{}name\PYGZsq{}} \PYG{k}{AND}
+      \PYG{n}{N2}\PYG{p}{.}\PYG{n}{parent} \PYG{o}{=} \PYG{n}{N1}\PYG{p}{.}\PYG{k}{begin}  \PYG{k}{AND}
+      \PYG{n}{N3}\PYG{p}{.}\PYG{n}{parent} \PYG{o}{=} \PYG{n}{N2}\PYG{p}{.}\PYG{k}{begin}  \PYG{k}{AND}
+      \PYG{n}{N4}\PYG{p}{.}\PYG{n}{parent} \PYG{o}{=} \PYG{n}{N3}\PYG{p}{.}\PYG{k}{begin}\PYG{p}{;}
+\end{Verbatim}

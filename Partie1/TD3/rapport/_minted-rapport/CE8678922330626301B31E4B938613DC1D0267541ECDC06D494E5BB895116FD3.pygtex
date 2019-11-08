@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+  \PYG{k}{SELECT} \PYG{k}{EXTRACT}\PYG{p}{(}\PYG{n}{xml\PYGZus{}content}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}/tweeter/users/user[@id=/tweeter/tweets/tweet/@author\PYGZus{}ref]/user\PYGZus{}name\PYGZsq{}}\PYG{p}{)} \PYG{k}{AS} \PYG{n}{nom} \PYG{k}{FROM} \PYG{n}{tweet\PYGZus{}BINARY}\PYG{p}{;}
+\end{Verbatim}

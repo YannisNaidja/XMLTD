@@ -1,0 +1,1 @@
+/FILMS/FILM/TITRE[text() = 'Alien']/parent::FILM/RESUME/text()

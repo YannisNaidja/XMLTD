@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{SELECT} \PYG{n}{J3}\PYG{p}{.}\PYG{n}{txtval} \PYG{n}{identifiant\PYGZus{}de\PYGZus{}journaliste}
+\PYG{k}{FROM} \PYG{n}{PRESSE}        \PYG{n}{P}\PYG{p}{,}
+     \PYG{n}{JOURNALISTES}  \PYG{n}{J1}\PYG{p}{,}
+     \PYG{n}{JOURNALISTE}   \PYG{n}{J2}\PYG{p}{,}
+     \PYG{n}{JOURNALISTEID} \PYG{n}{J3}
+\PYG{k}{WHERE} \PYG{n}{P}\PYG{p}{.}\PYG{n}{Target} \PYG{o}{=} \PYG{n}{J1}\PYG{p}{.}\PYG{k}{Source}
+\PYG{k}{AND}   \PYG{n}{J1}\PYG{p}{.}\PYG{n}{Target} \PYG{o}{=} \PYG{n}{J2}\PYG{p}{.}\PYG{k}{Source}
+\PYG{k}{AND}   \PYG{n}{J2}\PYG{p}{.}\PYG{n}{Target} \PYG{o}{=} \PYG{n}{J3}\PYG{p}{.}\PYG{k}{Source}\PYG{p}{;}
+\end{Verbatim}

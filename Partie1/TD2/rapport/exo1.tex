@@ -1,0 +1,89 @@
+\chapter{XPath : Films}
+\section{Les titres des films}
+Donner les requêtes suivantes en XPath.
+(Voir DTD en annexe)
+
+\section{Les titres des films}
+\begin{minted}[linenos, breaklines]{xquery}
+  /FILMS/FILM/TITRE/text()
+\end{minted}
+
+\section{Les titres des films parus en 1990}
+\begin{minted}[linenos, breaklines]{xquery}
+  /FILMS/FILM/ANNEE[text() = '1990']/parent::FILM/TITRE/text()
+\end{minted}
+
+\section{Le resume d'Alien}
+\begin{minted}[linenos, breaklines]{xquery}
+  /FILMS/FILM/TITRE[text() = 'Alien']/parent::FILM/RESUME/text()
+\end{minted}
+
+\section{Quel est le dernier film du document?}
+\begin{minted}[linenos, breaklines]{xquery}
+  /FILMS/FILM[last()]
+\end{minted}
+
+\section{Quel est le dernier film du document paru en 1990?}
+\begin{minted}[linenos, breaklines]{xquery}
+  (/FILMS/FILM/ANNEE[text() = '1990'])[last()]/parent::FILM
+\end{minted}
+
+\section{Les titres des films qui ont un résumé}
+\begin{minted}[linenos, breaklines]{xquery}
+  /FILMS/FILM/RESUME[text() != '']/parent::FILM/TITRE/text()
+\end{minted}
+
+\section{Les titres des films dont l’élément résumé n’est pas présent.}
+\begin{minted}[linenos, breaklines]{xquery}
+  /FILMS/FILM[not(RESUME)]/TITRE/text()
+\end{minted}
+
+\section{Donnez les noms des acteurs qui ont joué dans Vertigo.}
+\begin{minted}[linenos, breaklines]{xquery}
+  /FILMS/ARTISTE[@id =/FILMS/FILM[TITRE='Vertigo']/ROLES/ROLE/@idref]/ACTNOM/text() 
+\end{minted}
+
+\section{Qui a mis en scène Vertigo ?}
+\begin{minted}[linenos, breaklines]{xquery}
+  /FILMS/ARTISTE[@id=/FILMS/FILM[TITRE='Vertigo']/MES/@idref]/ACTNOM/text()
+\end{minted}
+
+\section{Donnez tout les films du directeur de Vertigo.}
+\begin{minted}[linenos, breaklines]{xquery}
+  /FILMS/FILM/MES[@idref=/FILMS/FILM[TITRE='Vertigo']/MES/@idref]/preceding-sibling::TITRE/text()
+\end{minted}
+
+\section{Donnez les titres des films qui contiennent la lettre "V" (utiliser la fonctioncontains()).}
+\begin{minted}[linenos, breaklines]{xquery}
+  /FILMS/FILM/TITRE[contains(text(),'V')]/text()
+\end{minted}
+
+\section{Les titres des films où l’acteur Bruce Willis a joué.}
+\begin{minted}[linenos, breaklines]{xquery}
+  /FILMS/FILM/ROLES/ROLE[@idref=/descendant::ARTISTE[ACTNOM/text()='Willis' and ACTPNOM/text()='Bruce']/number(@id)]/parent::ROLES/parent::FILM/TITRE
+\end{minted}
+
+\section{Quel rôle joue Harvey Keitel dans Reservoir dogs ?}
+\begin{minted}[linenos, breaklines]{xquery}
+  /FILMS/FILM[TITRE = 'Reservoir dogs']/ROLES/ROLE[@idref = /FILMS/ARTISTE[ACTNOM = 'Keitel' and ACTPNOM = 'Harvey']/@id]/text()
+\end{minted}
+
+\section{Qui a joué avec Harvey Keitel dans Reservoir dogs ?}
+\begin{minted}[linenos, breaklines]{xquery}
+  /FILMS/ARTISTE[@id=/FILMS/FILM[TITRE/text() = "Reservoir dogs"]/ROLES/ROLE/@idref and ACTNOM/text() != 'Keitel' and ACTPNOM/text() != 'Harvey']
+\end{minted}
+
+\section{Donnez les nœuds qui ont exactement trois descendants (utiliser la fonctioncount()).}
+\begin{minted}[linenos, breaklines]{xquery}
+  descendant::*[count(*)=3]
+\end{minted}
+
+\section{Donnez les nœuds dont le nom contient la chaîne "TI" (utiliser la fonctionname()).}
+\begin{minted}[linenos, breaklines]{xquery}
+  descendant::*[contains(name(), 'TI')] 
+\end{minted}
+
+\section{Quel est le titre du film qui précède immédiatement Shining (dans l’ordre du document) ?}
+\begin{minted}[linenos, breaklines]{xquery}
+  /FILMS/FILM[TITRE = 'Shining']/preceding-sibling::FILM[1]/TITRE/text()
+\end{minted}

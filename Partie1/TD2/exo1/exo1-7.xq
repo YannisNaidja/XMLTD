@@ -1,0 +1,1 @@
+/FILMS/FILM[not(RESUME)]/TITRE/text()

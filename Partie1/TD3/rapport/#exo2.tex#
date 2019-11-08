@@ -1,0 +1,178 @@
+\chapter{Stockage schema-aware : Verical-Edge vs Monet}
+\section{A partir de la DTD pour les batiments presentee dans l’enonce du TD1, definir un schema de stockagerelationnel suivant la methode presentee en cours.}
+\subsection{DTD batiment}
+\begin{minted}[linenos, breaklines]{dtd}
+<!DOCTYPE batiment [ 
+<!ELEMENT batiment (etage)+ >
+<!ELEMENT etage (description,(bureau+|salle+)) >
+<!ELEMENT description (#PCDATA) >
+<!ELEMENT bureau (code, personne*) >
+<!ELEMENT code (#PCDATA) >
+<!ELEMENT personne (#PCDATA) >
+<!ELEMENT salle (nombrePlaces) >
+<!ELEMENT nombrePlaces (#PCDATA) >]>
+\end{minted}
+
+\subsection{Suppression des symboles +}
+\begin{minted}[linenos, breaklines]{dtd}
+<!DOCTYPE batiment [ 
+<!ELEMENT batiment (etage*,etage) >
+<!ELEMENT etage (description,((bureau*,bureau)|(salle*,salle)) >
+<!ELEMENT description (#PCDATA) >
+<!ELEMENT bureau (code, personne*) >
+<!ELEMENT code (#PCDATA) >
+<!ELEMENT personne (#PCDATA) >
+<!ELEMENT salle (nombrePlaces) >
+<!ELEMENT nombrePlaces (#PCDATA) >]>
+\end{minted}
+
+\subsection{Suppression de l'ordre et des correlations}
+\begin{minted}[linenos, breaklines]{dtd}
+<!DOCTYPE batiment [ 
+<!ELEMENT batiment (etage* | etage) >
+<!ELEMENT etage (description | bureau* | bureau | salle* | salle)) >
+<!ELEMENT description (#PCDATA) >
+<!ELEMENT bureau (code | personne*) >
+<!ELEMENT code (#PCDATA) >
+<!ELEMENT personne (#PCDATA) >
+<!ELEMENT salle (nombrePlaces) >
+<!ELEMENT nombrePlaces (#PCDATA) >]>
+\end{minted}
+
+\subsection{Simplifications}
+r \textbar r* est equivalent a r*
+\begin{minted}[linenos, breaklines]{dtd}
+<!DOCTYPE batiment [ 
+<!ELEMENT batiment (etage*) >
+<!ELEMENT etage (description | bureau* | salle*) >
+<!ELEMENT description (#PCDATA) >
+<!ELEMENT bureau (code | personne*) >
+<!ELEMENT code (#PCDATA) >
+<!ELEMENT personne (#PCDATA) >
+<!ELEMENT salle (nombrePlaces) >
+<!ELEMENT nombrePlaces (#PCDATA) >]>
+\end{minted}
+
+\subsection{Representation sous forme de graphe}
+Voir graphe en annexe
+
+\subsection{Relations}
+\begin{itemize}
+\item batiment(\underline{batimentID: integer}, flagRoot: integer)
+\item etage(\underline{etageID: integer}, batimentID: integer, description: string)
+\item bureau(\underline{bureauID: integer}, etageID: integer, code: string)
+\item personne(\underline{personneID: integer}, bureauID: integer)
+\item salle(\underline{salleID: integer}, etageID: integer, nombreDePlace: integer)
+\end{itemize}
+
+\subsection{Creation des tables}
+\begin{minted}[linenos, breaklines]{sql}
+CREATE TABLE BATIMENT (
+       batimentID int NOT NULL PRIMARY KEY,
+       flagRoot int NOT NULL
+);
+
+CREATE TABLE ETAGE (
+       etageID int NOT NULL PRIMARY KEY,
+       batimentID int NOT NULL,
+       description varchar(30),
+       CONSTRAINT fk_batimentID
+       FOREIGN KEY (batimentID)
+       REFERENCES BATIMENT (batimentID)
+);
+
+CREATE TABLE BUREAU (
+       bureauID int NOT NULL PRIMARY KEY,
+       etageID int NOT NULL,
+       code varchar(10),
+       CONSTRAINT fk_bureau_etageID
+       FOREIGN KEY (etageID)
+       REFERENCES ETAGE (etageID)
+);
+
+CREATE TABLE PERSONNE (
+       personneID int NOT NULL PRIMARY KEY,
+       bureauID int NOT NULL,
+       CONSTRAINT fk_bureauID
+       FOREIGN KEY (bureauID)
+       REFERENCES BUREAU (bureauID)
+);
+
+CREATE TABLE SALLE (
+       salleID int NOT NULL PRIMARY KEY,
+       etageID int NOT NULL,
+       nombreDePlace int,
+       CONSTRAINT fk_salle_etageID
+       FOREIGN KEY (etageID)
+       REFERENCES ETAGE (etageID)
+);
+\end{minted}
+
+\section{Peupler les tables avec des lignes correspondants au document XML que vous propose en reponse a laquestion 1 du TD1}
+\begin{minted}[linenos, breaklines]{sql}
+INSERT INTO BATIMENT (batimentID, flagRoot)          VALUES (0, 1);
+INSERT INTO ETAGE (etageID, batimentID, description) VALUES (0, 0, 'descriptionETAGE1');
+INSERT INTO ETAGE (etageID, batimentID, description) VALUES (1, 0, 'descriptionETAGE2');
+INSERT INTO SALLE (salleID, etageID, nombreDePlace)  VALUES (0, 0, 25);
+INSERT INTO SALLE (salleID, etageID, nombreDePlace)  VALUES (1, 0, 50);
+INSERT INTO BUREAU (bureauID, etageID, code)         VALUES (0, 1, 'B02');
+INSERT INTO PERSONNE (personneID, bureauID)          VALUES (0, 0);
+INSERT INTO BUREAU (bureauID, etageID, code)         VALUES (1, 1, 'B03');
+INSERT INTO PERSONNE (personneID, bureauID)          VALUES (1, 1);
+INSERT INTO PERSONNE (personneID, bureauID)          VALUES (2, 1);
+\end{minted}
+
+\section{A l’aide du langage SQL, exprimer cinq requêtes XPath de votre choix}
+\subsection {Les descriptions d'etage du batiment d'identifiant 0}
+\begin{minted}[linenos, breaklines]{xquery}
+//batiment[@id=0]/description/text()
+\end{minted}
+\subsubsection{Requête SQL}
+\begin{minted}[linenos, breaklines]{sql}
+SELECT DESCRIPTION 
+FROM ETAGE
+WHERE batimentID = 0;
+\end{minted}
+
+\subsection {Le nombre de place des salles de l etage d identifiant 0 du batiment d identifiant 0}
+\begin{minted}[linenos, breaklines]{xquery}
+//batiment[@id=0]/etage[@id=0]/salle/nombredeplace
+\end{minted}
+\subsubsection{Requête SQL}
+\begin{minted}[linenos, breaklines]{sql}
+SELECT S.NOMBREDEPLACE
+FROM SALLE S JOIN ETAGE E ON S.etageID = E.etageID
+WHERE E.batimentID = 0 AND E.etageID = 0;
+\end{minted}
+
+\subsection {Le nombre de personne travaillant dans des bureaux}
+\begin{minted}[linenos, breaklines]{xquery}
+count(//batiment/etage/bureau/personne)
+\end{minted}
+\subsubsection{Requête SQL}
+\begin{minted}[linenos, breaklines]{sql}
+SELECT count(*)
+FROM personne;
+\end{minted}
+
+\subsection {Le code des bureaux de l etage 1 du batiment 0}
+\begin{minted}[linenos, breaklines]{xquery}
+//batiment[@id=0]/etage[@id=1]/bureau/@code
+\end{minted}
+\subsubsection{Requête SQL}
+\begin{minted}[linenos, breaklines]{sql}
+SELECT B.code
+FROM BUREAU B JOIN ETAGE E ON B.etageID = E.etageID
+WHERE E.batimentID = 0 AND E.etageID = 1;
+\end{minted}
+
+\subsection {Le nombre d'etage du batiment 0}
+\begin{minted}[linenos, breaklines]{xquery}
+count(//batiment[@id=0]/etage)
+\end{minted}
+\subsubsection{Requête SQL}
+\begin{minted}[linenos, breaklines]{sql}
+SELECT COUNT(*)
+FROM ETAGE
+WHERE batimentID = 0;
+\end{minted}

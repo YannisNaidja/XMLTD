@@ -1,0 +1,41 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{CREATE} \PYG{k}{TABLE} \PYG{n}{BATIMENT} \PYG{p}{(}
+       \PYG{n}{batimentID} \PYG{n+nb}{int} \PYG{k}{NOT} \PYG{k}{NULL} \PYG{k}{PRIMARY} \PYG{k}{KEY}\PYG{p}{,}
+       \PYG{n}{flagRoot} \PYG{n+nb}{int} \PYG{k}{NOT} \PYG{k}{NULL}
+\PYG{p}{);}
+
+\PYG{k}{CREATE} \PYG{k}{TABLE} \PYG{n}{ETAGE} \PYG{p}{(}
+       \PYG{n}{etageID} \PYG{n+nb}{int} \PYG{k}{NOT} \PYG{k}{NULL} \PYG{k}{PRIMARY} \PYG{k}{KEY}\PYG{p}{,}
+       \PYG{n}{batimentID} \PYG{n+nb}{int} \PYG{k}{NOT} \PYG{k}{NULL}\PYG{p}{,}
+       \PYG{n}{description} \PYG{n+nb}{varchar}\PYG{p}{(}\PYG{l+m+mi}{30}\PYG{p}{),}
+       \PYG{k}{CONSTRAINT} \PYG{n}{fk\PYGZus{}batimentID}
+       \PYG{k}{FOREIGN} \PYG{k}{KEY} \PYG{p}{(}\PYG{n}{batimentID}\PYG{p}{)}
+       \PYG{k}{REFERENCES} \PYG{n}{BATIMENT} \PYG{p}{(}\PYG{n}{batimentID}\PYG{p}{)}
+\PYG{p}{);}
+
+\PYG{k}{CREATE} \PYG{k}{TABLE} \PYG{n}{BUREAU} \PYG{p}{(}
+       \PYG{n}{bureauID} \PYG{n+nb}{int} \PYG{k}{NOT} \PYG{k}{NULL} \PYG{k}{PRIMARY} \PYG{k}{KEY}\PYG{p}{,}
+       \PYG{n}{etageID} \PYG{n+nb}{int} \PYG{k}{NOT} \PYG{k}{NULL}\PYG{p}{,}
+       \PYG{n}{code} \PYG{n+nb}{varchar}\PYG{p}{(}\PYG{l+m+mi}{10}\PYG{p}{),}
+       \PYG{k}{CONSTRAINT} \PYG{n}{fk\PYGZus{}bureau\PYGZus{}etageID}
+       \PYG{k}{FOREIGN} \PYG{k}{KEY} \PYG{p}{(}\PYG{n}{etageID}\PYG{p}{)}
+       \PYG{k}{REFERENCES} \PYG{n}{ETAGE} \PYG{p}{(}\PYG{n}{etageID}\PYG{p}{)}
+\PYG{p}{);}
+
+\PYG{k}{CREATE} \PYG{k}{TABLE} \PYG{n}{PERSONNE} \PYG{p}{(}
+       \PYG{n}{personneID} \PYG{n+nb}{int} \PYG{k}{NOT} \PYG{k}{NULL} \PYG{k}{PRIMARY} \PYG{k}{KEY}\PYG{p}{,}
+       \PYG{n}{bureauID} \PYG{n+nb}{int} \PYG{k}{NOT} \PYG{k}{NULL}\PYG{p}{,}
+       \PYG{k}{CONSTRAINT} \PYG{n}{fk\PYGZus{}bureauID}
+       \PYG{k}{FOREIGN} \PYG{k}{KEY} \PYG{p}{(}\PYG{n}{bureauID}\PYG{p}{)}
+       \PYG{k}{REFERENCES} \PYG{n}{BUREAU} \PYG{p}{(}\PYG{n}{bureauID}\PYG{p}{)}
+\PYG{p}{);}
+
+\PYG{k}{CREATE} \PYG{k}{TABLE} \PYG{n}{SALLE} \PYG{p}{(}
+       \PYG{n}{salleID} \PYG{n+nb}{int} \PYG{k}{NOT} \PYG{k}{NULL} \PYG{k}{PRIMARY} \PYG{k}{KEY}\PYG{p}{,}
+       \PYG{n}{etageID} \PYG{n+nb}{int} \PYG{k}{NOT} \PYG{k}{NULL}\PYG{p}{,}
+       \PYG{n}{nombreDePlace} \PYG{n+nb}{int}\PYG{p}{,}
+       \PYG{k}{CONSTRAINT} \PYG{n}{fk\PYGZus{}salle\PYGZus{}etageID}
+       \PYG{k}{FOREIGN} \PYG{k}{KEY} \PYG{p}{(}\PYG{n}{etageID}\PYG{p}{)}
+       \PYG{k}{REFERENCES} \PYG{n}{ETAGE} \PYG{p}{(}\PYG{n}{etageID}\PYG{p}{)}
+\PYG{p}{);}
+\end{Verbatim}

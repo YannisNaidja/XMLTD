@@ -1,0 +1,1005 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2019.10.17)  17 OCT 2019 22:39
+entering extended mode
+ \write18 enabled.
+ %&-line parsing enabled.
+**rapport.tex
+(./rapport.tex
+LaTeX2e <2018-12-01>
+(/usr/share/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2018/09/03 v1.4i Standard LaTeX document class
+(/usr/share/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2018/09/03 v1.4i Standard LaTeX file (size option)
+)
+\c@part=\count80
+\c@chapter=\count81
+\c@section=\count82
+\c@subsection=\count83
+\c@subsubsection=\count84
+\c@paragraph=\count85
+\c@subparagraph=\count86
+\c@figure=\count87
+\c@table=\count88
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/share/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2019/04/03 3.29 The Babel package
+
+(/usr/share/texmf-dist/tex/generic/babel/switch.def
+File: switch.def 2019/04/03 3.29 Babel switching mechanism
+)
+(/usr/share/texmf-dist/tex/generic/babel-french/french.ldf
+Language: french 2019/03/30 v3.5e French support from the babel system
+
+(/usr/share/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2019/04/03 3.29 Babel common definitions
+\babel@savecnt=\count89
+\U@D=\dimen103
+
+(/usr/share/texmf-dist/tex/generic/babel/txtbabel.def)
+\bbl@dirlevel=\count90
+)
+\l@acadian = a dialect from \language\l@french 
+\FB@nonchar=\count91
+Package babel Info: Making : an active character on input line 414.
+Package babel Info: Making ; an active character on input line 415.
+Package babel Info: Making ! an active character on input line 416.
+Package babel Info: Making ? an active character on input line 417.
+\FBguill@level=\count92
+\FBold@everypar=\toks14
+\FB@Mht=\dimen104
+\mc@charclass=\count93
+\mc@charfam=\count94
+\mc@charslot=\count95
+\std@mcc=\count96
+\dec@mcc=\count97
+\c@FBcaption@count=\count98
+\listindentFB=\dimen105
+\descindentFB=\dimen106
+\labelindentFB=\dimen107
+\labelwidthFB=\dimen108
+\leftmarginFB=\dimen109
+\parindentFFN=\dimen110
+\FBfnindent=\dimen111
+))
+(/usr/share/texmf-dist/tex/latex/carlisle/scalefnt.sty)
+(/usr/share/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks15
+)
+(/usr/share/texmf/tex/latex/minted/minted.sty
+Package: minted 2017/07/19 v2.5 Yet another Pygments shim for LaTeX
+
+(/usr/share/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+
+(/usr/share/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)
+(/usr/share/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+(/usr/share/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+(/usr/share/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+
+(/usr/share/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+))))
+(/usr/share/texmf/tex/latex/fvextra/fvextra.sty
+Package: fvextra 2016/09/02 v1.2.1 fvextra - extensions and patches for fancyvr
+b
+
+(/usr/share/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/share/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2018/08/19 v2.5f e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count99
+)
+(/usr/share/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+Package: fancyvrb 2019/01/15
+
+Style option: `fancyvrb' v3.2a <2019/01/15> (tvz)
+\FV@CodeLineNo=\count100
+\FV@InFile=\read1
+\FV@TabBox=\box27
+\c@FancyVerbLine=\count101
+\FV@StepNumber=\count102
+\FV@OutFile=\write3
+)
+(/usr/share/texmf-dist/tex/latex/upquote/upquote.sty
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
+tim
+)
+(/usr/share/texmf-dist/tex/latex/lineno/lineno.sty
+Package: lineno 2005/11/02 line numbers on paragraphs v4.41
+\linenopenalty=\count103
+\output=\toks16
+\linenoprevgraf=\count104
+\linenumbersep=\dimen112
+\linenumberwidth=\dimen113
+\c@linenumber=\count105
+\c@pagewiselinenumber=\count106
+\c@LN@truepage=\count107
+\c@internallinenumber=\count108
+\c@internallinenumbers=\count109
+\quotelinenumbersep=\dimen114
+\bframerule=\dimen115
+\bframesep=\dimen116
+\bframebox=\box28
+LaTeX Info: Redefining \\ on input line 3056.
+)
+\c@FV@TrueTabGroupLevel=\count110
+\c@FV@TrueTabCounter=\count111
+\FV@TabBox@Group=\box29
+\FV@TmpLength=\skip43
+\c@FV@HighlightLinesStart=\count112
+\c@FV@HighlightLinesStop=\count113
+\FV@BreakIndent=\dimen117
+\FV@BreakSymbolSepLeft=\dimen118
+\FV@BreakSymbolSepRight=\dimen119
+\FV@BreakSymbolIndentLeft=\dimen120
+\FV@BreakSymbolIndentRight=\dimen121
+\c@FancyVerbLineBreakLast=\count114
+\FV@LineBox=\box30
+\FV@LineIndentBox=\box31
+)
+(/usr/share/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count115
+\calc@Bcount=\count116
+\calc@Adimen=\dimen122
+\calc@Bdimen=\dimen123
+\calc@Askip=\skip44
+\calc@Bskip=\skip45
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count117
+\calc@Cskip=\skip46
+)
+(/usr/share/texmf-dist/tex/latex/tools/shellesc.sty
+Package: shellesc 2016/06/07 v0.02a unified shell escape interface for LaTeX
+Package shellesc Info: Unrestricted shell escape enabled on input line 67.
+)
+(/usr/share/texmf-dist/tex/latex/ifplatform/ifplatform.sty
+Package: ifplatform 2017/10/13 v0.4a Testing for the operating system
+
+(/usr/share/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2018/09/10 v0.29 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/share/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/share/texmf-dist/tex/generic/oberdiek/catchfile.sty
+Package: catchfile 2016/05/16 v1.7 Catch the contents of a file (HO)
+)
+runsystem(uname -s > "rapport.w18")...executed.
+
+ (./rapport.w18)
+runsystem(rm -- "rapport.w18")...executed.
+
+)
+(/usr/share/texmf-dist/tex/generic/xstring/xstring.sty
+(/usr/share/texmf-dist/tex/generic/xstring/xstring.tex
+\integerpart=\count118
+\decimalpart=\count119
+)
+Package: xstring 2019/02/06 v1.83 String manipulations (CT)
+)
+(/usr/share/texmf-dist/tex/latex/framed/framed.sty
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip47
+\fb@frw=\dimen124
+\fb@frh=\dimen125
+\FrameRule=\dimen126
+\FrameSep=\dimen127
+)
+(/usr/share/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count120
+\float@exts=\toks17
+\float@box=\box32
+\@float@everytoks=\toks18
+\@floatcapt=\box33
+)
+\minted@appexistsfile=\read2
+\minted@bgbox=\box34
+\minted@code=\write4
+\c@minted@FancyVerbLineTemp=\count121
+\c@minted@pygmentizecounter=\count122
+\@float@every@listing=\toks19
+\c@listing=\count123
+)
+runsystem(mkdir -p _minted-rapport)...executed.
+
+
+(/usr/share/texmf-dist/tex/latex/appendix/appendix.sty
+Package: appendix 2009/09/02 v1.2b extra appendix facilities
+\c@@pps=\count124
+\c@@ppsavesec=\count125
+\c@@ppsaveapp=\count126
+)
+(/usr/share/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+(/usr/share/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+
+(/usr/share/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+)
+runsystem(which pygmentize && touch rapport.aex)...executed.
+
+runsystem(rm rapport.aex)...executed.
+
+ (./rapport.aux
+(./exo1.aux) (./exo2.aux) (./exo3.aux) (./exo4.aux) (./exo5.aux) (./exo6.aux)
+(./exo7.aux) (./dtd_films_appendix.aux) (./xml_recettes_appendix.aux)
+(./xml_trains_appendix.aux) (./dtd_tweets_appendix.aux)
+(./xml_tweets_appendix.aux))
+\openout1 = `rapport.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Info: Redefining \degres on input line 9.
+LaTeX Info: Redefining \dots on input line 9.
+LaTeX Info: Redefining \up on input line 9.
+
+
+Package french.ldf Warning: OT1 encoding should not be used for French.
+(french.ldf)                Add \usepackage[T1]{fontenc} to the preamble
+(french.ldf)                of your document; reported on input line 9.
+
+(/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count127
+\scratchdimen=\dimen128
+\scratchbox=\box35
+\nofMPsegments=\count128
+\nofMParguments=\count129
+\everyMPshowfont=\toks20
+\MPscratchCnt=\count130
+\MPscratchDim=\dimen129
+\MPnumerator=\count131
+\makeMPintoPDFobject=\count132
+\everyMPtoPDFconversion=\toks21
+)
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 10.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 10.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 10.
+ [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+\openout2 = `exo1.aux'.
+
+ (./exo1.tex
+Chapitre 1.
+\openout3 = `rapport.pyg'.
+
+(./_minted-rapport/default-pyg-prefix.pygstyle)
+(./_minted-rapport/default.pygstyle)
+(./_minted-rapport/7E810FDF33464B9DFB281EE76C6DAB1E3378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 2.
+)
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/E60926919965A81990B7BD636A341A2F3378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/64391D4E2F3B023EB895D70C5F9765C33378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/E06B586BB92054FA4ABC11F291F7C4413378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/1BFFD304348D788457CB7B94F0A8834B3378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/91DA450560B39EBB6B59E96C6C615E3E3378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex [1
+
+
+])
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/2729659F9FF2833CD46F29D797D7839B3378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/8BAB2ABF67799DCCC4B797682BD514663378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex
+Overfull \hbox (11.99689pt too wide) in paragraph at lines 2--2
+[]\OT1/cmtt/m/n/10 =[]/[]FILMS[]/[]FILM[][[]TITRE[][]=[][]^^MVertigo^^M[]]/[]RO
+LES[]/[]ROLE[]/[]@idref[]]/[]ACTNOM[]/[]text[]()|  
+ []
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 2.
+)
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/7F998F9F8048ABA59969F699ACE8EA0F3378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex
+Overfull \hbox (69.74638pt too wide) in paragraph at lines 2--2
+\OT1/cmtt/m/n/10 /[]FILMS[]/[]ARTISTE[][[]@id[][]=[]/[]FILMS[]/[]FILM[][[]TITRE
+[][]=[][]^^MVertigo^^M[]]/[]MES[]/[]@idref[]]/[]ACTNOM[]/[]text[]()|  
+ []
+
+)
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/21325BF07A439CDE11C6A906857DED143378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex
+Overfull \hbox (185.24538pt too wide) in paragraph at lines 2--2
+\OT1/cmtt/m/n/10 /[]FILMS[]/[]FILM[]/[]MES[][[]@idref[][]=[]/[]FILMS[]/[]FILM[]
+[[]TITRE[][]=[][]^^MVertigo^^M[]]/[]MES[]/[]@idref[]]/[]preceding-sibling[]::[]
+TITRE[]/[]text[]()|  
+ []
+
+)
+Overfull \hbox (4.17958pt too wide) in paragraph at lines 56--56
+\OT1/cmr/bx/n/14.4 la lettre "V" (uti-li-ser la fonc-tion-con-tains()). 
+ []
+
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/03119683C47EF58606E228C65628680E3378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/93531AA315C9C0D9211485A848F807B63378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex
+Overfull \hbox (69.74638pt too wide) in paragraph at lines 2--2
+\OT1/cmtt/m/n/10 /[]FILMS[]/[]FILM[]/[]ROLES[]/[]ROLE[][[]@idref[][]=[]/[]desce
+ndant[]::[]ARTISTE[][[]ACTNOM[]/[]text[]()[]=[][]^^MWillis^^M[] 
+ []
+
+
+Overfull \hbox (48.74657pt too wide) in paragraph at lines 2--2
+[]\OT1/cmtt/m/n/10 ACTPNOM[]/[]text[]()[]=[][]^^MBruce^^M[]]/[]number[]([]@id[]
+)]/[]parent[]::[]ROLES[]/[]parent[]::[]FILM[]/[]TITRE[]|  
+ []
+
+)
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/EE8EB98D4BE0D85EB276DD390F708D8E3378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex [2])
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/0836156DE2308FF903C51B4A9060B97F3378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/06217AB1043901A55223D324877816073378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/9476A5D0707924FD62036071B2A1F57A3378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)
+Overfull \hbox (55.6812pt too wide) in paragraph at lines 86--86
+[]\OT1/cmr/bx/n/14.4 Quel est le titre du film qui pr^^Sec^^Rede imm^^Sediateme
+nt
+ []
+
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/6C9BC8A9EBC3294E44B1B07D4DC34D343378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)) [3]
+\openout2 = `exo2.aux'.
+
+ (./exo2.tex
+Chapitre 2.
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/18C034F5E044BA500DC29EAAD0C52E083378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/BAD89B9FB6711E24BCAB7BA3818AF83D3378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/2AD5834FCCAD9D98FB0AFD8204E921533378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/DE6D5BBDE4907B1D8662EAC1BD02C2953378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/ADEE7CA5871735AF8E6437D598D445F63378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex [4
+
+
+
+])
+Overfull \hbox (10.76291pt too wide) in paragraph at lines 30--30
+[]\OT1/cmr/bx/n/14.4 (Sans uti-li-ser la fonc-tion-count()) Le nom com-
+ []
+
+
+Overfull \hbox (21.76793pt too wide) in paragraph at lines 30--30
+\OT1/cmr/bx/n/14.4 plet des re-cettes ayant plus de deux ingr^^Sedients,
+ []
+
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/E317C4A10C13D1C7E1CC84D0C98533A83378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/0CDF4240712CED335B35FB48A979833E3378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)) [5]
+\openout2 = `exo3.aux'.
+
+ (./exo3.tex
+Chapitre 3.
+
+Overfull \hbox (22.65964pt too wide) in paragraph at lines 5--5
+[]\OT1/cmr/bx/n/14.4 Le num^^Sero des trains qui poss^^Redent une voiture-
+ []
+
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/689842BDC14765FEBE1E08DBCD1423063378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/234FD11065F74E5F6F793DB998DC7AC13378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/A6646A601EAAE105A649421DE6C26A913378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)
+Overfull \hbox (18.35129pt too wide) in paragraph at lines 26--26
+[]\OT1/cmr/bx/n/14.4 Les usa-gers n'ayant ef-fectu^^Se au-cune r^^Seservation 
+ []
+
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/F422F3788C4DBB139CCBEB8DAC9D4C433378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex [6
+
+
+
+])) [7]
+\openout2 = `exo4.aux'.
+
+ (./exo4.tex
+Chapitre 4.
+
+Overfull \hbox (1.97278pt too wide) in paragraph at lines 3--4
+\OT1/cmr/m/n/10 conte-nant au moins 3 uti-li-sa-teurs et 5 tweets. At-ten-tion 
+: pour le bon d^^Seroulement
+ []
+
+
+Overfull \hbox (6.77829pt too wide) in paragraph at lines 5--6
+[]\OT1/cmr/m/n/10 Donner les requ^etes XPath cor-res-pon-dants aux ex-pres-sion
+s sui-vantes et ^^Sevaluer
+ []
+
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/FC40D69411543E625029C5764990B2043378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)
+Overfull \hbox (3.91794pt too wide) in paragraph at lines 14--14
+[]\OT1/cmr/bx/n/14.4 Les tweets de l'uti-li-sa-teur dont l'id est "u41". 
+ []
+
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/FC40D69411543E625029C5764990B2043378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)
+Overfull \hbox (4.26799pt too wide) in paragraph at lines 19--19
+[]\OT1/cmr/bx/n/14.4 Les tweets conte-nants l'ha-sh-tag \#I<3XML". 
+ []
+
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/74952A429E67D3710DAB81C7CE965A283378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/A4D2037AF94F490B7E13B89BB23D0E7F3378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex
+Overfull \hbox (43.49661pt too wide) in paragraph at lines 2--2
+[]\OT1/cmtt/m/n/10 max[](/[]tweeter[]/[]tweets[]/[]tweet[]/[]header[]/[]date[])
+]/[]parent[]::[]header[]/[]parent[]::[]tweet[]|  
+ []
+
+)
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/93B955A7F1DF0FC4315C549E2214EFCF3378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex [8
+
+
+
+])
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/8382968B993E891BF62BA647184BAB3F3378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/45106024052F06DABB5F3F0EB6A72F043378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)) [9]
+\openout2 = `exo5.aux'.
+
+ (./exo5.tex
+Chapitre 5.
+
+Overfull \hbox (18.96281pt too wide) in paragraph at lines 2--2
+\OT1/cmr/bx/n/14.4 dant, descendant-or-self, fol-lo-wing et following-
+ []
+
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/3DD39D5DE69A1F0F7406EBC8522D47693378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/2FF66AF7044FB87DC9C12F2CC7E290EA3378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/A2FB01AAD9E51C38E8E5026B6A353F0C3378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/C40428F012FD4115A3D21A57DC77DE963378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/30BFF848ACBD880A2F603BF2493B11393378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/18612E928B4136061923AD3725A9BDC03378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/C02C6185D68BB234E0781E4997864EEE3378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex [10
+
+
+
+])
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/A2D7C23F036885504E3427C4D34F5AFC3378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/963C4DD00B5D495DC4024697B0E6261B3378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/705B40A8D83908130EB4F305138389913378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/8F48AEEB3A9BC3E89843046E164A1A863378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)
+Overfull \hbox (8.20956pt too wide) in paragraph at lines 65--65
+\OT1/cmr/bx/n/14.4 descendant-or-self, an-ces-tor, following-sibling
+ []
+
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/C2E45137F7B110B198F604AC9CCCDD493378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/5C821E7B103DEECDE1530BF57CEE6EFB3378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex
+Overfull \hbox (53.99652pt too wide) in paragraph at lines 2--2
+| | | |\OT1/cmtt/m/n/10 //[]a[]/[]ancestor-or-self[]::[]node[]()/[]following-si
+bling[]::[]node[]()/[]descendant-or-self[]::[]b[]|  
+ []
+
+)
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/8C6CC58D4543C86428304D4881991A093378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/D9C132D9DA20E6EFA428D11F8B61F8083378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex
+Overfull \hbox (53.99652pt too wide) in paragraph at lines 2--2
+| | | |\OT1/cmtt/m/n/10 //[]a[]/[]ancestor-or-self[]::[]node[]()/[]preceding-si
+bling[]::[]node[]()/[]descendant-or-self[]::[]b[]|  
+ []
+
+)
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/CE5BA3A4A97DA49328918712A8851614A36507FC8C184D098BF5587B4D6E
+A1A0.pygtex [11])
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/D15E7256864796541FD17B04ABC46E2AA36507FC8C184D098BF5587B4D6E
+A1A0.pygtex)
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/87C4E030BA82F4352A736C0BC5045DE6A36507FC8C184D098BF5587B4D6E
+A1A0.pygtex)
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/8D80D54481BEB81BF1534C579D54AE40A36507FC8C184D098BF5587B4D6E
+A1A0.pygtex [12])
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/48B0D09121E81708AAFD35387D308E0DA36507FC8C184D098BF5587B4D6E
+A1A0.pygtex)
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/715E8C015E874B02E1AE7CC15B322CFF3378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/A5FD4B40597E20BCAD0DBA27EA2E469EA36507FC8C184D098BF5587B4D6E
+A1A0.pygtex)
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/EC2379944D26C171FE3B4595240660A9A36507FC8C184D098BF5587B4D6E
+A1A0.pygtex)
+Overfull \hbox (2.28302pt too wide) in paragraph at lines 179--179
+\OT1/cmr/bx/n/14.4 que les ^^Sel^^Sements com-par^^Ses soient stric-te-ment
+ []
+
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/4C5794F684A4D3D78DA8FA4117F672D1A36507FC8C184D098BF5587B4D6E
+A1A0.pygtex [13])
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/B7A6DA04ECC4EB62F92A6237DE1F1D333378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex [14])) [15]
+\openout2 = `exo6.aux'.
+
+ (./exo6.tex
+Chapitre 6.
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/E0FC29CB427BB88ED9EFEF4AECEEADC13378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)
+Overfull \hbox (6.2379pt too wide) in paragraph at lines 22--22
+[]\OT1/cmr/bx/n/14.4 Pour chaque uti-li-sa-teur, lis-tez le nom de l'uti-
+ []
+
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/5B2AE21CADC053396745BFBDADD8F9BB3378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex [16
+
+
+
+])
+Overfull \hbox (0.23459pt too wide) in paragraph at lines 41--41
+[]\OT1/cmr/bx/n/14.4 Listez les uti-li-sa-teurs qui ont pu-bli^^Se un tweet
+ []
+
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/A2070574776EF655071DF57A4776620E3378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 52.
+ (/usr/share/texmf-dist/tex/latex/base/omlcmr.fd
+File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OML/cmr/bx/n' in size <14.4> not available
+(Font)              Font shape `OML/cmm/b/it' tried instead on input line 52.
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/4405B0A146179BE1DAE5FF541A88AAE23378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex
+Overfull \hbox (69.74638pt too wide) in paragraph at lines 10--10
+\OT1/cmtt/m/n/10 /[]tweeter[]/[]tweets[]/[]tweet[][[]@id[][]=[][]$[]tweet/[]hea
+der[]/[]answers[]/[]answer[][[]1[]]/[]@ref[]]/[]header[]/[]date[] 
+ []
+
+
+Overfull \hbox (69.74638pt too wide) in paragraph at lines 11--11
+\OT1/cmtt/m/n/10 /[]tweeter[]/[]tweets[]/[]tweet[][[]@id[][]=[][]$[]tweet/[]hea
+der[]/[]answers[]/[]answer[][[]2[]]/[]@ref[]]/[]header[]/[]date[] 
+ []
+
+[17])
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/F29B46F9D882E5BA77278AC78CD68BDE3378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)
+Overfull \hbox (44.14963pt too wide) in paragraph at lines 85--85
+[]\OT1/cmr/bx/n/14.4 Listez les tweets conte-nants l'ha-sh-tag \#I<3XML". 
+ []
+
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/2D53BE2EDF0BCF56CBE7A65E34BD91563378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/EDC7BF710732349B75293B422F7F83753378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/F0EB4427801631EF2AB76ED6A53094A93378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex [18])
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/69B4F9A0A622598146A0DB97A464A7AA3378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/E15103B17FCBAEC4ACF51DB13277AD883378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex
+Overfull \hbox (11.99689pt too wide) in paragraph at lines 4--4
+[]\OT1/cmtt/m/n/10 $[]tweet/[]parent[]::[]tweets[]/[]parent[]::[]tweeter[]/[]ch
+ild[]::[]users[]/[]child[]::[]user[]|  
+ []
+
+[19])) [20]
+\openout2 = `exo7.aux'.
+
+ (./exo7.tex
+Chapitre 7.
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/A43BF5B0C3B4BFC7C75F3597D9D1DEDD3378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)
+Overfull \hbox (36.1913pt too wide) in paragraph at lines 19--19
+[]\OT1/cmr/bx/n/14.4 Le nom des usages ayant au moins une r^^Seservation 
+ []
+
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/208294E0858BE9EB1FE2315B3EC5C0413378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/63D215E6E9A5D8897A6001811BC8F2443378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex [21
+
+
+
+])
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/8620CF2B7278B8F6AAD123AAB7FBE2973378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/B6919240D9EA4019E4BCCD6D84016E3A3378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex)
+Overfull \hbox (22.85127pt too wide) in paragraph at lines 70--70
+[]\OT1/cmr/bx/n/14.4 Les usa-gers n'ayant ef-fectu^^Se au-cune r^^Seservation. 
+
+ []
+
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/111E732816290B4FE97D6657A685058A3378AAC3DB6D772F5622D9EB51A5
+52D3.pygtex [22])) [23]
+\openout2 = `dtd_films_appendix.aux'.
+
+ (./dtd_films_appendix.tex
+Annexe A.
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/7443141554D7A5DEE0A81766388BF1CF18FF79631F854B678032AF0317D4
+F230.pygtex)) [24
+
+
+
+]
+\openout2 = `xml_recettes_appendix.aux'.
+
+ (./xml_recettes_appendix.tex
+Annexe B.
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/8E5FBA420D1440A24A723118B1EC17E5A36507FC8C184D098BF5587B4D6E
+A1A0.pygtex [25
+
+
+
+])) [26]
+\openout2 = `xml_trains_appendix.aux'.
+
+ (./xml_trains_appendix.tex
+Annexe C.
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/9BEEDA5DF7599FCFDEFD19409BC9A29EA36507FC8C184D098BF5587B4D6E
+A1A0.pygtex)) [27
+
+
+
+]
+\openout2 = `dtd_tweets_appendix.aux'.
+
+ (./dtd_tweets_appendix.tex
+Annexe D.
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/39B3C79DB5022C2C78F62D1F5A76F7F918FF79631F854B678032AF0317D4
+F230.pygtex [28
+
+
+
+])) [29]
+\openout2 = `xml_tweets_appendix.aux'.
+
+ (./xml_tweets_appendix.tex
+Annexe E.
+\openout3 = `rapport.pyg'.
+
+
+(./_minted-rapport/4B6687182311C807218EEB5431013103A36507FC8C184D098BF5587B4D6E
+A1A0.pygtex [30
+
+
+
+] [31]
+Overfull \hbox (584.2419pt too wide) in paragraph at lines 91--91
+\OT1/cmtt/m/n/10 https://images2.minutemediacdn.com/image/upload/c_crop,h_1193,
+w_2121,x_0,y_64/f_auto,q_auto,w_1100/v1565279671/shape/mentalfloss/578211-getty
+images-542930526.jpg|  
+ []
+
+[32] [33] [34] [35] [36] [37] [38] [39])) [40] (./rapport.aux (./exo1.aux)
+(./exo2.aux) (./exo3.aux) (./exo4.aux) (./exo5.aux) (./exo6.aux) (./exo7.aux)
+(./dtd_films_appendix.aux) (./xml_recettes_appendix.aux)
+(./xml_trains_appendix.aux) (./dtd_tweets_appendix.aux)
+(./xml_tweets_appendix.aux))
+runsystem(rm rapport.pyg)...executed.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 6414 strings out of 492623
+ 127364 string characters out of 6135668
+ 254798 words of memory out of 5000000
+ 9930 multiletter control sequences out of 15000+600000
+ 9194 words of font info for 33 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 41i,9n,40p,966b,505s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-dist/font
+s/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/
+share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmtt10.pfb>
+Output written on rapport.pdf (41 pages, 154292 bytes).
+PDF statistics:
+ 174 PDF objects out of 1000 (max. 8388607)
+ 120 compressed objects within 2 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

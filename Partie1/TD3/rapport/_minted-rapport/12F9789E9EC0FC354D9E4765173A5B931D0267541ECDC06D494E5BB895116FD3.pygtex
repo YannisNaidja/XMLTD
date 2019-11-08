@@ -1,0 +1,123 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{INSERT} \PYG{k}{INTO} \PYG{n}{tweet\PYGZus{}BINARY}\PYG{p}{(}\PYG{n}{text\PYGZus{}content}\PYG{p}{,}\PYG{n}{xml\PYGZus{}content}\PYG{p}{)}\PYG{k}{VALUES}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}tweet.xml\PYGZsq{}}\PYG{p}{,} \PYG{n}{sys}\PYG{p}{.}\PYG{n}{xmltype}\PYG{p}{.}\PYG{n}{createxml}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}
+\PYG{l+s+s1}{\PYGZlt{}tweeter\PYGZgt{}}
+\PYG{l+s+s1}{  \PYGZlt{}users\PYGZgt{}}
+\PYG{l+s+s1}{    \PYGZlt{}user id=\PYGZdq{}U41\PYGZdq{}\PYGZgt{}}
+\PYG{l+s+s1}{      \PYGZlt{}user\PYGZus{}name\PYGZgt{}}
+\PYG{l+s+s1}{	basil\PYGZus{}dalie}
+\PYG{l+s+s1}{      \PYGZlt{}/user\PYGZus{}name\PYGZgt{}}
+\PYG{l+s+s1}{      \PYGZlt{}first\PYGZus{}name\PYGZgt{}}
+\PYG{l+s+s1}{	Basil}
+\PYG{l+s+s1}{      \PYGZlt{}/first\PYGZus{}name\PYGZgt{}}
+\PYG{l+s+s1}{      \PYGZlt{}last\PYGZus{}name\PYGZgt{}}
+\PYG{l+s+s1}{	Dalie}
+\PYG{l+s+s1}{      \PYGZlt{}/last\PYGZus{}name\PYGZgt{}}
+\PYG{l+s+s1}{      \PYGZlt{}profile\PYGZgt{}}
+\PYG{l+s+s1}{	https://twitter.com/basil\PYGZus{}dalie}
+\PYG{l+s+s1}{      \PYGZlt{}/profile\PYGZgt{}}
+\PYG{l+s+s1}{    \PYGZlt{}/user\PYGZgt{}}
+\PYG{l+s+s1}{    \PYGZlt{}user id=\PYGZdq{}U02\PYGZdq{}\PYGZgt{}}
+\PYG{l+s+s1}{      \PYGZlt{}user\PYGZus{}name\PYGZgt{}}
+\PYG{l+s+s1}{	Cicero}
+\PYG{l+s+s1}{      \PYGZlt{}/user\PYGZus{}name\PYGZgt{}}
+\PYG{l+s+s1}{      \PYGZlt{}first\PYGZus{}name\PYGZgt{}}
+\PYG{l+s+s1}{	Ci}
+\PYG{l+s+s1}{      \PYGZlt{}/first\PYGZus{}name\PYGZgt{}}
+\PYG{l+s+s1}{      \PYGZlt{}last\PYGZus{}name\PYGZgt{}}
+\PYG{l+s+s1}{	Cero}
+\PYG{l+s+s1}{      \PYGZlt{}/last\PYGZus{}name\PYGZgt{}}
+\PYG{l+s+s1}{      \PYGZlt{}profile\PYGZgt{}}
+\PYG{l+s+s1}{	https://twitter.com/Cicero}
+\PYG{l+s+s1}{      \PYGZlt{}/profile\PYGZgt{}}
+\PYG{l+s+s1}{    \PYGZlt{}/user\PYGZgt{}}
+\PYG{l+s+s1}{    \PYGZlt{}user id=\PYGZdq{}U43\PYGZdq{}\PYGZgt{}}
+\PYG{l+s+s1}{      \PYGZlt{}user\PYGZus{}name\PYGZgt{}}
+\PYG{l+s+s1}{	alex\PYGZus{}not}
+\PYG{l+s+s1}{      \PYGZlt{}/user\PYGZus{}name\PYGZgt{}}
+\PYG{l+s+s1}{      \PYGZlt{}first\PYGZus{}name\PYGZgt{}}
+\PYG{l+s+s1}{	Alex}
+\PYG{l+s+s1}{      \PYGZlt{}/first\PYGZus{}name\PYGZgt{}}
+\PYG{l+s+s1}{      \PYGZlt{}last\PYGZus{}name\PYGZgt{}}
+\PYG{l+s+s1}{	Not}
+\PYG{l+s+s1}{      \PYGZlt{}/last\PYGZus{}name\PYGZgt{}}
+\PYG{l+s+s1}{      \PYGZlt{}profile\PYGZgt{}}
+\PYG{l+s+s1}{	https://twitter.com/alex\PYGZus{}n}
+\PYG{l+s+s1}{      \PYGZlt{}/profile\PYGZgt{}}
+\PYG{l+s+s1}{    \PYGZlt{}/user\PYGZgt{}}
+\PYG{l+s+s1}{  \PYGZlt{}/users\PYGZgt{}}
+\PYG{l+s+s1}{  \PYGZlt{}tweets\PYGZgt{}}
+\PYG{l+s+s1}{    \PYGZlt{}tweet id=\PYGZdq{}T42\PYGZdq{} author\PYGZus{}ref=\PYGZdq{}U41\PYGZdq{}\PYGZgt{}}
+\PYG{l+s+s1}{      \PYGZlt{}header\PYGZgt{}}
+\PYG{l+s+s1}{	\PYGZlt{}date\PYGZgt{}}
+\PYG{l+s+s1}{	  1758312000}
+\PYG{l+s+s1}{	\PYGZlt{}/date\PYGZgt{}}
+\PYG{l+s+s1}{	\PYGZlt{}timezone\PYGZgt{}}
+\PYG{l+s+s1}{	  \PYGZlt{}standard\PYGZgt{}}
+\PYG{l+s+s1}{	    UTC}
+\PYG{l+s+s1}{	  \PYGZlt{}/standard\PYGZgt{}}
+\PYG{l+s+s1}{	  \PYGZlt{}offset\PYGZgt{}}
+\PYG{l+s+s1}{	    1}
+\PYG{l+s+s1}{	  \PYGZlt{}/offset\PYGZgt{}}
+\PYG{l+s+s1}{	\PYGZlt{}/timezone\PYGZgt{}}
+\PYG{l+s+s1}{	\PYGZlt{}location\PYGZgt{}}
+\PYG{l+s+s1}{	  \PYGZlt{}latitude\PYGZgt{}}
+\PYG{l+s+s1}{	    3.876716}
+\PYG{l+s+s1}{	  \PYGZlt{}/latitude\PYGZgt{}}
+\PYG{l+s+s1}{	  \PYGZlt{}longitude\PYGZgt{}}
+\PYG{l+s+s1}{	    43.610769}
+\PYG{l+s+s1}{	  \PYGZlt{}/longitude\PYGZgt{}}
+\PYG{l+s+s1}{	  \PYGZlt{}city\PYGZgt{}}
+\PYG{l+s+s1}{	    Montpellier}
+\PYG{l+s+s1}{	  \PYGZlt{}/city\PYGZgt{}}
+\PYG{l+s+s1}{	  \PYGZlt{}country\PYGZgt{}}
+\PYG{l+s+s1}{	    France}
+\PYG{l+s+s1}{	  \PYGZlt{}/country\PYGZgt{}}
+\PYG{l+s+s1}{	\PYGZlt{}/location\PYGZgt{}}
+\PYG{l+s+s1}{	\PYGZlt{}language\PYGZgt{}}
+\PYG{l+s+s1}{	  Latin}
+\PYG{l+s+s1}{	\PYGZlt{}/language\PYGZgt{}}
+\PYG{l+s+s1}{	\PYGZlt{}retweets\PYGZgt{}}
+\PYG{l+s+s1}{	  \PYGZlt{}retweet ref=\PYGZdq{}T04\PYGZdq{} /\PYGZgt{}}
+\PYG{l+s+s1}{	  \PYGZlt{}retweet ref=\PYGZdq{}T05\PYGZdq{} /\PYGZgt{}}
+\PYG{l+s+s1}{	  \PYGZlt{}retweet ref=\PYGZdq{}T03\PYGZdq{} /\PYGZgt{}}
+\PYG{l+s+s1}{	\PYGZlt{}/retweets\PYGZgt{}}
+\PYG{l+s+s1}{	\PYGZlt{}answers\PYGZgt{}}
+\PYG{l+s+s1}{	  \PYGZlt{}answer ref=\PYGZdq{}T02\PYGZdq{} /\PYGZgt{}}
+\PYG{l+s+s1}{	\PYGZlt{}/answers\PYGZgt{}}
+\PYG{l+s+s1}{	\PYGZlt{}operating\PYGZus{}system\PYGZgt{}}
+\PYG{l+s+s1}{	  Linux x86\PYGZus{}64}
+\PYG{l+s+s1}{	\PYGZlt{}/operating\PYGZus{}system\PYGZgt{}}
+\PYG{l+s+s1}{	\PYGZlt{}images\PYGZgt{}}
+\PYG{l+s+s1}{	  \PYGZlt{}image id=\PYGZdq{}I01\PYGZdq{}\PYGZgt{}}
+\PYG{l+s+s1}{	    https://images2.minutemediacdn.com/image/upload/c\PYGZus{}crop,h\PYGZus{}1193,w\PYGZus{}2121,x\PYGZus{}0,y\PYGZus{}64/f\PYGZus{}auto,q\PYGZus{}auto,w\PYGZus{}1100/v1565279671/shape/mentalfloss/578211\PYGZhy{}gettyimages\PYGZhy{}542930526.jpg}
+\PYG{l+s+s1}{	  \PYGZlt{}/image\PYGZgt{}}
+\PYG{l+s+s1}{	  \PYGZlt{}image id =\PYGZdq{}I02\PYGZdq{}\PYGZgt{}}
+\PYG{l+s+s1}{	    https://website.com/image.jpg}
+\PYG{l+s+s1}{	  \PYGZlt{}/image\PYGZgt{}}
+\PYG{l+s+s1}{	\PYGZlt{}/images\PYGZgt{}}
+\PYG{l+s+s1}{	\PYGZlt{}videos\PYGZgt{}}
+\PYG{l+s+s1}{	  \PYGZlt{}video id=\PYGZdq{}V01\PYGZdq{}\PYGZgt{}}
+\PYG{l+s+s1}{	    https://website.com/video.avi}
+\PYG{l+s+s1}{	  \PYGZlt{}/video\PYGZgt{}}
+\PYG{l+s+s1}{	\PYGZlt{}/videos\PYGZgt{}}
+\PYG{l+s+s1}{      \PYGZlt{}/header\PYGZgt{}}
+\PYG{l+s+s1}{      \PYGZlt{}body\PYGZgt{}}
+\PYG{l+s+s1}{	\PYGZlt{}text\PYGZgt{}}
+\PYG{l+s+s1}{	  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt}
+\PYG{l+s+s1}{	\PYGZlt{}/text\PYGZgt{}}
+\PYG{l+s+s1}{	\PYGZlt{}text\PYGZgt{}}
+\PYG{l+s+s1}{	  anim id est laborum}
+\PYG{l+s+s1}{	\PYGZlt{}/text\PYGZgt{}}
+\PYG{l+s+s1}{	\PYGZlt{}image\PYGZus{}ref ref=\PYGZdq{}I01\PYGZdq{} /\PYGZgt{}}
+\PYG{l+s+s1}{	\PYGZlt{}user\PYGZus{}ref ref=\PYGZdq{}U02\PYGZdq{}\PYGZgt{}}
+\PYG{l+s+s1}{	  \PYGZbs{}@Cicero}
+\PYG{l+s+s1}{	\PYGZlt{}/user\PYGZus{}ref\PYGZgt{}}
+\PYG{l+s+s1}{	\PYGZlt{}text\PYGZgt{}}
+\PYG{l+s+s1}{	  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?}
+\PYG{l+s+s1}{	\PYGZlt{}/text\PYGZgt{}}
+\PYG{l+s+s1}{	\PYGZlt{}video\PYGZus{}ref ref=\PYGZdq{}V01\PYGZdq{} /\PYGZgt{}}
+\PYG{l+s+s1}{      \PYGZlt{}/body\PYGZgt{}}
+\PYG{l+s+s1}{    \PYGZlt{}/tweet\PYGZgt{}}
+\PYG{l+s+s1}{  \PYGZlt{}/tweets\PYGZgt{}}
+\PYG{l+s+s1}{\PYGZlt{}/tweeter\PYGZgt{}\PYGZsq{}}\PYG{p}{));}
+\end{Verbatim}

@@ -1,0 +1,71 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{public} \PYG{k}{class} \PYG{n}{SaxParser} \PYG{n}{extends} \PYG{n}{DefaultHandler} \PYG{err}{\PYGZob{}}
+  \PYG{c+cm}{/** Constants used for JAXP 1.2 */}
+  \PYG{k}{static} \PYG{k}{final} \PYG{n}{String} \PYG{n}{JAXP\PYGZus{}SCHEMA\PYGZus{}LANGUAGE} \PYG{o}{=}
+      \PYG{l+s+ss}{\PYGZdq{}http://java.sun.com/xml/jaxp/properties/schemaLanguage\PYGZdq{}}\PYG{p}{;}
+  \PYG{k}{static} \PYG{k}{final} \PYG{n}{String} \PYG{n}{W3C\PYGZus{}XML\PYGZus{}SCHEMA} \PYG{o}{=}
+      \PYG{l+s+ss}{\PYGZdq{}http://www.w3.org/2001/XMLSchema\PYGZdq{}}\PYG{p}{;}
+  \PYG{k}{static} \PYG{k}{final} \PYG{n}{String} \PYG{n}{JAXP\PYGZus{}SCHEMA\PYGZus{}SOURCE} \PYG{o}{=}
+      \PYG{l+s+ss}{\PYGZdq{}http://java.sun.com/xml/jaxp/properties/schemaSource\PYGZdq{}}\PYG{p}{;}
+
+  \PYG{n}{private} \PYG{n}{Deque}\PYG{o}{\PYGZlt{}}\PYG{n+nb}{Integer}\PYG{o}{\PYGZgt{}} \PYG{n}{stackBegin}\PYG{p}{;}
+  \PYG{n}{private} \PYG{n+nb}{Integer} \PYG{n}{counter}\PYG{p}{;}
+
+  \PYG{o}{//} \PYG{n}{Parser} \PYG{n}{calls} \PYG{n}{this} \PYG{n}{once} \PYG{k}{at} \PYG{n}{the} \PYG{n}{beginning} \PYG{k}{of} \PYG{n}{a} \PYG{n}{document}
+  \PYG{k}{public} \PYG{n}{void} \PYG{n}{startDocument}\PYG{p}{()} \PYG{n}{throws} \PYG{n}{SAXException} \PYG{err}{\PYGZob{}}
+      \PYG{n}{stackBegin} \PYG{o}{=} \PYG{k}{new} \PYG{n}{ArrayDeque}\PYG{o}{\PYGZlt{}\PYGZgt{}}\PYG{p}{();}
+      \PYG{n}{counter} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+  \PYG{err}{\PYGZcb{}}
+
+  \PYG{o}{//} \PYG{n}{Parser} \PYG{n}{calls} \PYG{n}{this} \PYG{k}{for} \PYG{k}{each} \PYG{n}{opening} \PYG{k}{of} \PYG{n}{an} \PYG{n}{element} \PYG{k}{in} \PYG{n}{a} \PYG{n}{document}
+  \PYG{k}{public} \PYG{n}{void} \PYG{n}{startElement}\PYG{p}{(}\PYG{n}{String} \PYG{n}{namespaceURI}\PYG{p}{,} \PYG{n}{String} \PYG{n}{localName}\PYG{p}{,}
+                           \PYG{n}{String} \PYG{n}{qName}\PYG{p}{,} \PYG{n}{Attributes} \PYG{n}{atts}\PYG{p}{)}
+      \PYG{n}{throws} \PYG{n}{SAXException}
+  \PYG{err}{\PYGZob{}}
+      \PYG{n}{stackBegin}\PYG{p}{.}\PYG{n}{push}\PYG{p}{(}\PYG{o}{++}\PYG{n}{counter}\PYG{p}{);}
+  \PYG{err}{\PYGZcb{}}
+
+  \PYG{o}{//} \PYG{n}{Parser} \PYG{n}{calls} \PYG{n}{this} \PYG{k}{for} \PYG{k}{each} \PYG{k}{end} \PYG{k}{of} \PYG{n}{an} \PYG{n}{element} \PYG{k}{in} \PYG{n}{a} \PYG{n}{document}
+  \PYG{k}{public} \PYG{n}{void} \PYG{n}{endElement}\PYG{p}{(}\PYG{n}{String} \PYG{n}{namespaceURI}\PYG{p}{,} \PYG{n}{String} \PYG{n}{localName}\PYG{p}{,}
+                           \PYG{n}{String} \PYG{n}{qName}\PYG{p}{)}
+      \PYG{n}{throws} \PYG{n}{SAXException}
+  \PYG{err}{\PYGZob{}}
+      \PYG{n+nb}{int} \PYG{k}{begin} \PYG{o}{=} \PYG{n}{stackBegin}\PYG{p}{.}\PYG{n}{pop}\PYG{p}{();}
+      \PYG{n+nb}{int} \PYG{k}{end} \PYG{o}{=} \PYG{o}{++}\PYG{n}{counter}\PYG{p}{;}
+      \PYG{n+nb}{Integer} \PYG{n}{parent} \PYG{o}{=} \PYG{n}{stackBegin}\PYG{p}{.}\PYG{n}{peek}\PYG{p}{();}
+
+      \PYG{n}{String} \PYG{n}{parentStr}\PYG{p}{;}
+      \PYG{k}{if} \PYG{p}{(}\PYG{n}{parent} \PYG{o}{==} \PYG{k}{null}\PYG{p}{)} \PYG{err}{\PYGZob{}}
+          \PYG{n}{parentStr} \PYG{o}{=} \PYG{l+s+ss}{\PYGZdq{}NULL\PYGZdq{}}\PYG{p}{;}
+      \PYG{err}{\PYGZcb{}} \PYG{k}{else} \PYG{err}{\PYGZob{}}
+          \PYG{n}{parentStr} \PYG{o}{=} \PYG{n}{String}\PYG{p}{.}\PYG{n}{valueOf}\PYG{p}{(}\PYG{n}{parent}\PYG{p}{);}
+      \PYG{err}{\PYGZcb{}}
+
+      \PYG{n}{String} \PYG{k}{output} \PYG{o}{=} \PYG{l+s+ss}{\PYGZdq{}INSERT INTO NODE (begin, end, parent, tag, nodetype) VALUES(\PYGZdq{}}\PYG{p}{;}
+      \PYG{k}{output} \PYG{o}{+=} \PYG{k}{begin} \PYG{o}{+} \PYG{l+s+ss}{\PYGZdq{}, \PYGZdq{}} \PYG{o}{+} \PYG{k}{end} \PYG{o}{+} \PYG{l+s+ss}{\PYGZdq{}, \PYGZdq{}} \PYG{o}{+} \PYG{n}{parentStr} \PYG{o}{+} \PYG{l+s+ss}{\PYGZdq{}, \PYGZsq{}\PYGZdq{}} \PYG{o}{+} \PYG{n}{qName} \PYG{o}{+} \PYG{l+s+ss}{\PYGZdq{}\PYGZsq{}, \PYGZsq{}element\PYGZsq{});\PYGZdq{}}\PYG{p}{;}
+
+      \PYG{k}{System}\PYG{p}{.}\PYG{k}{out}\PYG{p}{.}\PYG{n}{println}\PYG{p}{(}\PYG{k}{output}\PYG{p}{);}
+  \PYG{err}{\PYGZcb{}}
+
+  \PYG{o}{//} \PYG{n}{Parser} \PYG{n}{calls} \PYG{n}{this} \PYG{n}{once} \PYG{k}{after} \PYG{n}{parsing} \PYG{n}{a} \PYG{n}{document}
+  \PYG{k}{public} \PYG{n}{void} \PYG{n}{endDocument}\PYG{p}{()} \PYG{n}{throws} \PYG{n}{SAXException} \PYG{err}{\PYGZob{}}
+  \PYG{err}{\PYGZcb{}}
+
+  \PYG{o}{//} \PYG{n}{Parser} \PYG{n}{calls} \PYG{k}{after} \PYG{n}{parsing} \PYG{n}{a} \PYG{n+nb}{text} \PYG{n}{node}
+  \PYG{k}{public} \PYG{n}{void} \PYG{n}{characters}\PYG{p}{(}\PYG{n+nb}{char}\PYG{p}{[]} \PYG{n}{ch}\PYG{p}{,} \PYG{n+nb}{int} \PYG{k}{start}\PYG{p}{,} \PYG{n+nb}{int} \PYG{k}{length}\PYG{p}{)} \PYG{n}{throws} \PYG{n}{SAXException}
+  \PYG{err}{\PYGZob{}}
+      \PYG{n}{String} \PYG{n}{str} \PYG{o}{=} \PYG{k}{new} \PYG{n}{String}\PYG{p}{(}\PYG{n}{ch}\PYG{p}{,} \PYG{k}{start}\PYG{p}{,} \PYG{k}{length}\PYG{p}{);}
+      \PYG{n}{str} \PYG{o}{=} \PYG{n}{str}\PYG{p}{.}\PYG{k}{replace}\PYG{p}{(}\PYG{l+s+ss}{\PYGZdq{} \PYGZdq{}}\PYG{p}{,} \PYG{l+s+ss}{\PYGZdq{}\PYGZdq{}}\PYG{p}{).}\PYG{k}{replace}\PYG{p}{(}\PYG{l+s+ss}{\PYGZdq{}\PYGZbs{}n\PYGZdq{}}\PYG{p}{,} \PYG{l+s+ss}{\PYGZdq{}\PYGZdq{}}\PYG{p}{);}
+      \PYG{o}{//} \PYG{k}{System}\PYG{p}{.}\PYG{k}{out}\PYG{p}{.}\PYG{n}{println}\PYG{p}{(}\PYG{n}{str}\PYG{p}{.}\PYG{k}{length}\PYG{p}{());}
+
+      \PYG{k}{if} \PYG{p}{(}\PYG{n}{str}\PYG{p}{.}\PYG{k}{length}\PYG{p}{()} \PYG{o}{!=} \PYG{l+m+mi}{0}\PYG{p}{)} \PYG{err}{\PYGZob{}}
+          \PYG{n+nb}{int} \PYG{k}{begin} \PYG{o}{=} \PYG{o}{++}\PYG{n}{counter}\PYG{p}{;}
+          \PYG{n+nb}{int} \PYG{k}{end} \PYG{o}{=} \PYG{o}{++}\PYG{n}{counter}\PYG{p}{;}
+          \PYG{n}{String} \PYG{k}{output} \PYG{o}{=} \PYG{l+s+ss}{\PYGZdq{}INSERT INTO NODE (begin, end, parent, tag, nodetype) VALUES(\PYGZdq{}}\PYG{p}{;}
+          \PYG{k}{output} \PYG{o}{+=} \PYG{k}{begin} \PYG{o}{+} \PYG{l+s+ss}{\PYGZdq{}, \PYGZdq{}} \PYG{o}{+} \PYG{k}{end} \PYG{o}{+} \PYG{l+s+ss}{\PYGZdq{}, \PYGZdq{}} \PYG{o}{+} \PYG{n}{stackBegin}\PYG{p}{.}\PYG{n}{peek}\PYG{p}{()} \PYG{o}{+} \PYG{l+s+ss}{\PYGZdq{}, NULL, \PYGZsq{}text\PYGZsq{});\PYGZdq{}}\PYG{p}{;}
+
+          \PYG{k}{System}\PYG{p}{.}\PYG{k}{out}\PYG{p}{.}\PYG{n}{println}\PYG{p}{(}\PYG{k}{output}\PYG{p}{);}
+      \PYG{err}{\PYGZcb{}}
+  \PYG{err}{\PYGZcb{}}
+\PYG{err}{\PYGZcb{}}
+\end{Verbatim}

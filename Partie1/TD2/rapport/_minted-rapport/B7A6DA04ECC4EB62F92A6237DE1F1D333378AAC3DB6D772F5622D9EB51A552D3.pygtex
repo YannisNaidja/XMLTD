@@ -1,0 +1,18 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nt}{\PYGZlt{}root\PYGZgt{}}
+\PYG{l}{  }\PYG{n+nt}{\PYGZlt{}x\PYGZgt{}}
+\PYG{l}{    abc}
+\PYG{l}{  }\PYG{n+nt}{\PYGZlt{}/x\PYGZgt{}}
+\PYG{l}{  }\PYG{n+nt}{\PYGZlt{}y\PYGZgt{}}
+\PYG{l}{    }\PYG{n+nt}{\PYGZlt{}y1\PYGZgt{}}
+\PYG{l}{      abc}
+\PYG{l}{    }\PYG{n+nt}{\PYGZlt{}/y1\PYGZgt{}}
+\PYG{l}{    }\PYG{n+nt}{\PYGZlt{}y2\PYGZgt{}}
+\PYG{l}{      def}
+\PYG{l}{    }\PYG{n+nt}{\PYGZlt{}/y2\PYGZgt{}}
+\PYG{l}{  }\PYG{n+nt}{\PYGZlt{}/y\PYGZgt{}}
+\PYG{l}{  }\PYG{n+nt}{\PYGZlt{}z\PYGZgt{}}
+\PYG{l}{    def}
+\PYG{l}{  }\PYG{n+nt}{\PYGZlt{}/z\PYGZgt{}}
+\PYG{n+nt}{\PYGZlt{}/root\PYGZgt{}}
+\end{Verbatim}

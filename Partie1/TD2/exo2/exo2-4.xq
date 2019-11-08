@@ -1,0 +1,1 @@
+/descendant::ingredient[contains(text(),"persil")]/ancestor::recette/@nom

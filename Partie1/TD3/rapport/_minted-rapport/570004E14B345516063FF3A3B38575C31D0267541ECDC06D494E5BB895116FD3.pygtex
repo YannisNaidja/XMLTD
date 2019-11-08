@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+  \PYG{k}{SELECT} \PYG{n}{XMLQUERY}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}for \PYGZdl{}auteur in /tweeter/users/user}
+\PYG{l+s+s1}{    for \PYGZdl{}tweet in /tweeter/tweets/tweet}
+\PYG{l+s+s1}{    where \PYGZdl{}auteur/@id = \PYGZdl{}tweet/@author\PYGZus{}ref and count(\PYGZdl{}tweet/header/retweets/retweet) \PYGZgt{} 1}
+\PYG{l+s+s1}{    return \PYGZdl{}auteur\PYGZsq{}} \PYG{n}{PASSING} \PYG{n}{xml\PYGZus{}content} \PYG{n}{RETURNING} \PYG{n}{CONTENT}\PYG{p}{)}\PYG{k}{FROM} \PYG{n}{tweet\PYGZus{}CLOB}\PYG{p}{;}
+\end{Verbatim}

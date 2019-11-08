@@ -1,0 +1,220 @@
+\chapter{Propriétés des requettes XPath}
+\section{Reformuler les requêtes suivantes en utilisant exclusivement les axes child, descendant, descendant-or-self, following et following-sibling}
+\subsection{Requete 1}
+\begin{minted}[linenos, breaklines]{xquery}
+//b[parent::a]
+\end{minted}
+
+devient
+
+\begin{minted}[linenos, breaklines]{xquery}
+//a/b
+\end{minted}
+
+\subsection{Requete 2}
+\begin{minted}[linenos, breaklines]{xquery}
+//a/preceding-sibling::c
+\end{minted}
+
+devient
+
+\begin{minted}[linenos, breaklines]{xquery}
+//c[following-sibling::a]
+\end{minted}
+
+\subsection{Requete 3}
+\begin{minted}[linenos, breaklines]{xquery}
+//c[preceding::d]
+\end{minted}
+
+devient
+
+\begin{minted}[linenos, breaklines]{xquery}
+//d/following::c
+\end{minted}
+
+\subsection{Requete 4}
+\begin{minted}[linenos, breaklines]{xquery}
+//b/a/preceding-sibling::c/preceding::d
+\end{minted}
+
+devient
+
+\begin{minted}[linenos, breaklines]{xquery}
+//d[following::c[following-sibling::a[child::b]]]
+\end{minted}
+
+\subsection{Requete 5}
+\begin{minted}[linenos, breaklines]{xquery}
+/a/b/..//*/./../preceding::d
+\end{minted}
+
+devient
+
+\begin{minted}[linenos, breaklines]{xquery}
+//d[following::*[child::*]]
+\end{minted}
+
+\subsection{Requete 6}
+\begin{minted}[linenos, breaklines]{xquery}
+//a/ancestor::b/parent::c/child::d/parent::e
+\end{minted}
+
+La requette est syntaxiquement correcte mais ne retourne de résultat pour aucun document XML. Voir explication dans la solution au troisième exercice.
+
+\section{Reformuler les requêtes //a/following::b et //a/preceding::b en utilisant les axes descendant-or-self, ancestor, following-sibling et preceding-sibling.}
+\subsection{Requete 1}
+\begin{minted}[linenos, breaklines]{xquery}
+//a/following::b
+\end{minted}
+
+devient
+
+\begin{minted}[linenos, breaklines]{xquery}
+//a/ancestor-or-self::node()/following-sibling::node()/descendant-or-self::b
+\end{minted}
+
+\subsection{Requete 2}
+\begin{minted}[linenos, breaklines]{xquery}
+//a/preceding::b
+\end{minted}
+
+devient
+
+\begin{minted}[linenos, breaklines]{xquery}
+//a/ancestor-or-self::node()/preceding-sibling::node()/descendant-or-self::b
+\end{minted}
+
+
+\section{Pour chaque requête définie aux points 1 et 2, proposer un document XML pour lequel la réponse à la requête n’est pas vide, sinon expliquer pourquoi un tel document n’existe pas.}
+\subsection{Requete 1 - exercice 1}
+\begin{minted}[linenos, breaklines]{xml}
+<r>
+  <a>
+    <b>
+    </b>
+  </a>
+</r>
+\end{minted}
+
+\subsection{Requete 2 - exercice 1}
+\begin{minted}[linenos, breaklines]{xml}
+<r>
+  <c>
+  </c>
+  <a>
+  </a>
+</r>
+\end{minted}
+
+\subsection{Requete 3 - exercice 1}
+\begin{minted}[linenos, breaklines]{xml}
+<r>
+  <a>
+    <d>
+    </d>
+  </a>
+  <c>
+  </c>
+</r>
+\end{minted}
+
+\subsection{Requete 4 - exercice 1}
+\begin{minted}[linenos, breaklines]{xml}
+  <r>
+  <a>
+    <d>
+    </d>
+  </a>
+  <c>
+  </c>
+  <a>
+    <b>
+    </b>
+  </a>
+</r>
+\end{minted}
+
+\subsection{Requete 5 - exercice 1}
+\begin{minted}[linenos, breaklines]{xml}
+  <r>
+  <d>
+  </d>
+  <a>
+    <b>
+    </b>
+  </a>
+</r>
+\end{minted}
+
+\subsection{Requete 6 - exercice 1}
+Il n'y a aucun document XML correspondant car la fin de la requête est :
+\begin{minted}[linenos, breaklines]{xquery}
+c/child::d/parent::e
+\end{minted}
+Or un noeud de type c ne peut pas avoir d'enfant de type d qui ait un parent e car un noeud n'a qu'un seul parent.
+
+\subsection{Requete 1 - exercice 2}
+\begin{minted}[linenos, breaklines]{xml}
+<r>
+  <s>
+    <a></a>
+    <b>b1</b>
+  </s>
+  <b>b2</b>
+</r>
+\end{minted}
+
+\subsection{Requete 2 - exercice 2}
+\begin{minted}[linenos, breaklines]{xml}
+<r>
+  <b>b2</b>
+  <s>
+    <b>b1</b>
+    <a></a>
+  </s>
+</r>
+\end{minted}
+
+\section{Donner un document XML pour lequel la requête //r[a[1] = a[2]] n’est pas vide sans que les éléments comparés soient strictement identiques.}
+\begin{minted}[linenos, breaklines]{xml}
+<r>
+  <a>
+    abcdef
+  </a>
+  <a>
+    <b>
+      abc
+    </b>
+    <b>
+      def
+    </b>
+  </a>
+</r>
+\end{minted}
+Les deux noeuds de type a sont égaux en XPath car ils partagent la sous-chaine abc, pourtant il n'y a pas isomorphisme entre les deux sous-arbres et les noeuds textes ne sont pas identiques.
+
+\section{Est il vrai que, dans le cadre du langage XPath, si X = Y et Y = Z alors X = Z?}
+Non, en XPath, l'égalité n'est pas transitive.
+
+Voici un contre exemple :
+\begin{minted}[linenos, breaklines]{xquery}
+<root>
+  <x>
+    abc
+  </x>
+  <y>
+    <y1>
+      abc
+    </y1>
+    <y2>
+      def
+    </y2>
+  </y>
+  <z>
+    def
+  </z>
+</root>
+\end{minted}
+
+Dans ce document XML, les égalités x = y et y = z sont vraie en XPath mais l'égalité x = z est fausse

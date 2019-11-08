@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{INSERT} \PYG{k}{INTO} \PYG{n}{BATIMENT} \PYG{p}{(}\PYG{n}{batimentID}\PYG{p}{,} \PYG{n}{flagRoot}\PYG{p}{)}          \PYG{k}{VALUES} \PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{);}
+\PYG{k}{INSERT} \PYG{k}{INTO} \PYG{n}{ETAGE} \PYG{p}{(}\PYG{n}{etageID}\PYG{p}{,} \PYG{n}{batimentID}\PYG{p}{,} \PYG{n}{description}\PYG{p}{)} \PYG{k}{VALUES} \PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}descriptionETAGE1\PYGZsq{}}\PYG{p}{);}
+\PYG{k}{INSERT} \PYG{k}{INTO} \PYG{n}{ETAGE} \PYG{p}{(}\PYG{n}{etageID}\PYG{p}{,} \PYG{n}{batimentID}\PYG{p}{,} \PYG{n}{description}\PYG{p}{)} \PYG{k}{VALUES} \PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}descriptionETAGE2\PYGZsq{}}\PYG{p}{);}
+\PYG{k}{INSERT} \PYG{k}{INTO} \PYG{n}{SALLE} \PYG{p}{(}\PYG{n}{salleID}\PYG{p}{,} \PYG{n}{etageID}\PYG{p}{,} \PYG{n}{nombreDePlace}\PYG{p}{)}  \PYG{k}{VALUES} \PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{25}\PYG{p}{);}
+\PYG{k}{INSERT} \PYG{k}{INTO} \PYG{n}{SALLE} \PYG{p}{(}\PYG{n}{salleID}\PYG{p}{,} \PYG{n}{etageID}\PYG{p}{,} \PYG{n}{nombreDePlace}\PYG{p}{)}  \PYG{k}{VALUES} \PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{50}\PYG{p}{);}
+\PYG{k}{INSERT} \PYG{k}{INTO} \PYG{n}{BUREAU} \PYG{p}{(}\PYG{n}{bureauID}\PYG{p}{,} \PYG{n}{etageID}\PYG{p}{,} \PYG{n}{code}\PYG{p}{)}         \PYG{k}{VALUES} \PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}B02\PYGZsq{}}\PYG{p}{);}
+\PYG{k}{INSERT} \PYG{k}{INTO} \PYG{n}{PERSONNE} \PYG{p}{(}\PYG{n}{personneID}\PYG{p}{,} \PYG{n}{bureauID}\PYG{p}{)}          \PYG{k}{VALUES} \PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{);}
+\PYG{k}{INSERT} \PYG{k}{INTO} \PYG{n}{BUREAU} \PYG{p}{(}\PYG{n}{bureauID}\PYG{p}{,} \PYG{n}{etageID}\PYG{p}{,} \PYG{n}{code}\PYG{p}{)}         \PYG{k}{VALUES} \PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}B03\PYGZsq{}}\PYG{p}{);}
+\PYG{k}{INSERT} \PYG{k}{INTO} \PYG{n}{PERSONNE} \PYG{p}{(}\PYG{n}{personneID}\PYG{p}{,} \PYG{n}{bureauID}\PYG{p}{)}          \PYG{k}{VALUES} \PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{);}
+\PYG{k}{INSERT} \PYG{k}{INTO} \PYG{n}{PERSONNE} \PYG{p}{(}\PYG{n}{personneID}\PYG{p}{,} \PYG{n}{bureauID}\PYG{p}{)}          \PYG{k}{VALUES} \PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{);}
+\end{Verbatim}

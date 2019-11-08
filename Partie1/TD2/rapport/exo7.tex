@@ -1,0 +1,79 @@
+\chapter{XQuery : Trains}
+Donner des expressions XQuery pour les requêtes suivantes.
+
+Voir document XML en annexe.
+
+\section{Le numéro des trains possédant une voiture-bar.}
+\begin{minted}[linenos, breaklines]{xquery}
+  <results> {
+    for $train in /gare/train
+    where $train/voiture/bar
+    return
+    <numero>
+    {$train/@numero}
+    </numero>
+  }
+  </results>
+\end{minted}
+
+\section{Le nom des usages ayant au moins une réservation}.
+\begin{minted}[linenos, breaklines]{xquery}
+  <results> {
+    let $resa :=  /gare/train/voiture/resa
+    for $user in /gare/usager
+    where $user/@id = $resa/@id
+    return
+    <usager>
+    { string($user/@nom) }
+    </usager>
+  }
+  </results>
+\end{minted}
+
+\section{La reservation avec le plus grand identifiant (dans l’ordre lexicographique).}
+\begin{minted}[linenos, breaklines]{xquery}
+  <results> {
+    (for $resa in /gare/train/voiture/resa
+    order by $resa/@numero descending
+    return $resa)[1]
+  }
+  </results>
+\end{minted}
+
+\section{Le numéro des trains dont au moins 2 places sont réservées.}
+\begin{minted}[linenos, breaklines]{xquery}
+<results> {
+  for $voiture in /gare/train/voiture
+  where (count($voiture/resa) >= 2)
+  return
+    <train>
+    { string($voiture/parent::train/@numero) }
+    </train>
+}
+</results>
+\end{minted}
+
+\section{Le nom des personnes ayant réservé exactement deux fois.}
+\begin{minted}[linenos, breaklines]{xquery}
+<results> {
+  for $user in /gare/usager
+  let $count := count(/gare/train/voiture/resa[@id = $user/@id]) return
+    if ($count = 2) then
+    <usager>
+      { string($user/@nom) }
+    </usager>
+    else()
+}
+</results>
+\end{minted}
+
+\section{Les usagers n’ayant effectué aucune réservation.}
+\begin{minted}[linenos, breaklines]{xquery}
+  <results> {
+    let $resa :=  /gare/train/voiture/resa
+    for $user in /gare/usager
+    where not($user/@id = $resa/@id)
+    return $user
+  }
+  </results>
+\end{minted}

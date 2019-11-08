@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{SELECT} \PYG{k}{COUNT}\PYG{p}{(}\PYG{n}{A}\PYG{p}{.}\PYG{n}{node}\PYG{p}{)} \PYG{n}{nombre\PYGZus{}d\PYGZus{}article}
+\PYG{k}{FROM} \PYG{n}{PRESSE\PYGZus{}JOURNAL\PYGZus{}ARTICLE} \PYG{n}{A}\PYG{p}{;}
+\end{Verbatim}

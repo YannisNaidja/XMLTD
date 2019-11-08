@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nf}{count}\PYG{p}{(//}\PYG{n+nt}{batiment}\PYG{p}{[}\PYG{n+na}{@id}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{]/}\PYG{n+nt}{etage}\PYG{p}{)}
+\end{Verbatim}

@@ -1,0 +1,18 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+  \PYG{k}{SELECT} \PYG{n}{XMLQUERY}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}for \PYGZdl{}tweet in /tweeter/tweets/tweet}
+\PYG{l+s+s1}{  return}
+\PYG{l+s+s1}{  \PYGZlt{}tweet\PYGZgt{}}
+\PYG{l+s+s1}{    \PYGZlt{}contenu\PYGZgt{}}
+\PYG{l+s+s1}{      \PYGZob{} \PYGZdl{}tweet/body/text\PYGZcb{}}
+\PYG{l+s+s1}{    \PYGZlt{}/contenu\PYGZgt{}}
+\PYG{l+s+s1}{    \PYGZlt{}premieres\PYGZhy{}reponses\PYGZgt{}}
+\PYG{l+s+s1}{      \PYGZob{} /tweeter/tweets/tweet[@id=\PYGZdl{}tweet/header/answers/answer[1]/@ref]/header/date \PYGZcb{}}
+\PYG{l+s+s1}{      \PYGZob{} /tweeter/tweets/tweet[@id=\PYGZdl{}tweet/header/answers/answer[2]/@ref]/header/date \PYGZcb{}}
+\PYG{l+s+s1}{    \PYGZlt{}/premieres\PYGZhy{}reponses\PYGZgt{}}
+\PYG{l+s+s1}{    \PYGZob{}}
+\PYG{l+s+s1}{      if (count(\PYGZdl{}tweet/header/retweets/retweet) = 0) then}
+\PYG{l+s+s1}{	\PYGZlt{}nonRetwitted /\PYGZgt{}}
+\PYG{l+s+s1}{      else()}
+\PYG{l+s+s1}{    \PYGZcb{}}
+\PYG{l+s+s1}{  \PYGZlt{}/tweet\PYGZgt{}\PYGZsq{}} \PYG{n}{PASSING} \PYG{n}{xml\PYGZus{}content} \PYG{n}{RETURNING} \PYG{n}{CONTENT}\PYG{p}{)}\PYG{k}{FROM} \PYG{n}{tweet\PYGZus{}CLOB}\PYG{p}{;}
+\end{Verbatim}

@@ -1,0 +1,117 @@
+
+
+EXERCICE 2
+
+Question 1)
+
+<!DOCTYPE batiment [ 
+<!ELEMENT batiment (etage)+ >
+<!ELEMENT etage (description,(bureau+|salle+)) >
+<!ELEMENT description (#PCDATA) >
+<!ELEMENT bureau (code, personne*) >
+<!ELEMENT code (#PCDATA) >
+<!ELEMENT personne (#PCDATA) >
+<!ELEMENT salle (nombrePlaces) >
+<!ELEMENT nombrePlaces (#PCDATA) >]>
+
+Step 1 ) 
+
+<!DOCTYPE batiment [ 
+<!ELEMENT batiment (etage)+ >
+<!ELEMENT etage (description | (bureau+|salle+)) >
+<!ELEMENT description (#PCDATA) >
+<!ELEMENT bureau (code | personne*) >
+<!ELEMENT code (#PCDATA) >
+<!ELEMENT personne (#PCDATA) >
+<!ELEMENT salle (nombrePlaces) >
+<!ELEMENT nombrePlaces (#PCDATA) >]>
+
+
+Step 2 ) 
+
+ Voir graphe_dtd_to_rel joint
+
+
+Step 3 )
+
+batiment(batID)
+etage(etageID,batID,description: string)
+salle(sallesID,etageID,nombredeplace: integer)
+bureau(bureauID,etageID,code: string)
+personne(personneID,bureauID)
+
+Question 2 ) 
+
+
+INSERT INTO batiment ("1");
+INSERT INTO etage ("1","1","descriptionEtage1");
+INSERT INTO etage ("2","1","descriptionEtage2");
+INSERT INTO salle ("0","1","25");
+INSERT INTO salle ("0","1","50");
+INSERT INTO bureau ("0","2","B02");
+INSERT INTO personne ("0","0");
+INSERT INTO bureau ("1","2","B03");
+INSERT INTO personne ("1","1");
+INSERT INTO personne ("2","1");
+
+Question 3)
+
+1) Xpath: Les descriptions d'étage du batiment 1 
+
+//batiment[@id="1"]/description/text()
+
+SQL :
+
+SELECT DESCRIPTION 
+FROM ETAGE
+WHERE BATID = 1;
+
+
+2) Xpath: Le nombre de place des salles de l'étage 1 du bâtiment 1
+
+   	number(//batiment[@id="1"]/etage[@id="1"]/salle/nombredeplace)
+
+SQL : 
+
+SELECT S.NOMBREDEPLACE
+FROM SALLE S, ETAGE E
+WHERE S.ETAGEID = 1 AND E.BATID = 1;
+
+3) Xpath: Le nombre de personne travaillant dans des bureaux
+
+   	count(//batiment/etage/bureau/personne)
+
+SQL:
+
+SELECT COUNT(*) 
+FROM PERSONNE;
+
+4) Xpath: le code des bureaux de l'étage 1 du bâtiment 1
+
+	//batiment[@id="1"]/etage[@id="1"]/bureau/@code
+
+SQL:
+
+SELECT B.CODE 
+FROM BUREAU B,ETAGE E
+WHERE B.ETAGEID = "1" AND E.BATID = "1";
+
+5) Xpath : Le nombre d'etage du bâtiment 1
+
+	count(//bâtiment[@id="1"]/etage)
+
+SQL:
+SELECT COUNT(*)
+FROM ETAGE 
+WHERE BATID="1";
+
+
+
+
+
+
+
+
+
+
+ 

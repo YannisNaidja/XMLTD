@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+  \PYG{k}{SELECT} \PYG{k}{EXTRACT}\PYG{p}{(}\PYG{n}{xml\PYGZus{}content}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}/tweeter/tweets/tweet/body[count(hashtag) = 0]/parent::tweet\PYGZsq{}}\PYG{p}{)} \PYG{k}{FROM} \PYG{n}{tweet\PYGZus{}BINARY}\PYG{p}{;}
+\end{Verbatim}

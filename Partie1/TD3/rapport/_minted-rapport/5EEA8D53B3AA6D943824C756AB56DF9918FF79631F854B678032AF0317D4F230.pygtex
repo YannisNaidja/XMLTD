@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{\PYGZlt{}!DOCTYPE} \PYG{n+nt}{batiment} \PYG{k}{[}
+\PYG{k}{\PYGZlt{}!ELEMENT} \PYG{n+nt}{batiment} \PYG{o}{(}\PYG{n+nt}{etage}\PYG{o}{*)} \PYG{k}{\PYGZgt{}}
+\PYG{k}{\PYGZlt{}!ELEMENT} \PYG{n+nt}{etage} \PYG{o}{(}\PYG{n+nt}{description} \PYG{o}{|} \PYG{n+nt}{bureau}\PYG{o}{*} \PYG{o}{|} \PYG{n+nt}{salle}\PYG{o}{*)} \PYG{k}{\PYGZgt{}}
+\PYG{k}{\PYGZlt{}!ELEMENT} \PYG{n+nt}{description} \PYG{o}{(}\PYG{k+kc}{\PYGZsh{}PCDATA}\PYG{o}{)} \PYG{k}{\PYGZgt{}}
+\PYG{k}{\PYGZlt{}!ELEMENT} \PYG{n+nt}{bureau} \PYG{o}{(}\PYG{n+nt}{code} \PYG{o}{|} \PYG{n+nt}{personne}\PYG{o}{*)} \PYG{k}{\PYGZgt{}}
+\PYG{k}{\PYGZlt{}!ELEMENT} \PYG{n+nt}{code} \PYG{o}{(}\PYG{k+kc}{\PYGZsh{}PCDATA}\PYG{o}{)} \PYG{k}{\PYGZgt{}}
+\PYG{k}{\PYGZlt{}!ELEMENT} \PYG{n+nt}{personne} \PYG{o}{(}\PYG{k+kc}{\PYGZsh{}PCDATA}\PYG{o}{)} \PYG{k}{\PYGZgt{}}
+\PYG{k}{\PYGZlt{}!ELEMENT} \PYG{n+nt}{salle} \PYG{o}{(}\PYG{n+nt}{nombrePlaces}\PYG{o}{)} \PYG{k}{\PYGZgt{}}
+\PYG{k}{\PYGZlt{}!ELEMENT} \PYG{n+nt}{nombrePlaces} \PYG{o}{(}\PYG{k+kc}{\PYGZsh{}PCDATA}\PYG{o}{)} \PYG{k}{\PYGZgt{}]\PYGZgt{}}
+\end{Verbatim}

@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{SELECT} \PYG{k}{count}\PYG{p}{(}\PYG{o}{*}\PYG{p}{)}
+\PYG{k}{FROM} \PYG{n}{personne}\PYG{p}{;}
+\end{Verbatim}

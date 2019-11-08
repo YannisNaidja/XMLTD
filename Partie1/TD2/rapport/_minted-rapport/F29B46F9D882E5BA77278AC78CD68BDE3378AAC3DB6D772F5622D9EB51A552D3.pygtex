@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nt}{\PYGZlt{}results\PYGZgt{}}\PYG{l}{ }\PYG{p}{\PYGZob{}}
+  \PYG{k}{for} \PYG{n+nv}{\PYGZdl{}}\PYG{n}{user} \PYG{o+ow}{in} \PYG{n+nt}{tweeter}\PYG{p}{/}\PYG{n+nt}{users}\PYG{p}{/}\PYG{n+nt}{user}
+  \PYG{k}{order by} \PYG{n+nf}{upper\PYGZhy{}case}\PYG{p}{(}\PYG{n+nv}{\PYGZdl{}}\PYG{n}{user}\PYG{p}{/}\PYG{n+nt}{user\PYGZus{}name}\PYG{p}{/}\PYG{n+nf}{text}\PYG{p}{())} \PYG{k}{as}\PYG{k+kt}{cending}
+  \PYG{k}{return}  \PYG{n+nv}{\PYGZdl{}}\PYG{n}{user}
+\PYG{p}{\PYGZcb{}}
+\PYG{n+nt}{\PYGZlt{}/results\PYGZgt{}}
+\end{Verbatim}

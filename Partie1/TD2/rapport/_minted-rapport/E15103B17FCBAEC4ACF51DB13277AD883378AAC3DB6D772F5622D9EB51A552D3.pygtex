@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{declare} \PYG{k+kd}{function} \PYG{n+nf}{local:aReponduAuTweet}\PYG{p}{(}\PYG{n+nv}{\PYGZdl{}}\PYG{n}{tweet}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+  \PYG{k}{for} \PYG{n+nv}{\PYGZdl{}}\PYG{n}{user} \PYG{o+ow}{in} \PYG{n+nv}{\PYGZdl{}}\PYG{n}{tweet}\PYG{p}{/}\PYG{k}{parent}\PYG{p}{::}\PYG{n+nt}{tweets}\PYG{p}{/}\PYG{k}{parent}\PYG{p}{::}\PYG{n+nt}{tweeter}\PYG{p}{/}\PYG{k}{child}\PYG{p}{::}\PYG{n+nt}{users}\PYG{p}{/}\PYG{k}{child}\PYG{p}{::}\PYG{n+nt}{user}
+    \PYG{k}{where} \PYG{n+nv}{\PYGZdl{}}\PYG{n}{user}\PYG{p}{/}\PYG{n+na}{@id} \PYG{o}{=} \PYG{n+nv}{\PYGZdl{}}\PYG{n}{tweet}\PYG{p}{/}\PYG{k}{parent}\PYG{p}{::}\PYG{n+nt}{tweets}\PYG{p}{/}\PYG{k}{child}\PYG{p}{::}\PYG{n+nt}{tweet}\PYG{p}{[}\PYG{n+na}{@id} \PYG{o}{=} \PYG{n+nv}{\PYGZdl{}}\PYG{n}{tweet}\PYG{p}{/}\PYG{n+nt}{header}\PYG{p}{/}\PYG{n+nt}{answers}\PYG{p}{/}\PYG{n+nt}{answer}\PYG{p}{/}\PYG{n+na}{@ref}\PYG{p}{]/}\PYG{n+na}{@author\PYGZus{}ref}
+    \PYG{k}{return} \PYG{n+nv}{\PYGZdl{}}\PYG{n}{user}
+\PYG{p}{\PYGZcb{};}
+\end{Verbatim}

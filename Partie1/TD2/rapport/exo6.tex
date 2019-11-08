@@ -1,0 +1,147 @@
+\chapter{XQuery : Tweets}
+Donner les requêtes XQuery correspondants aux expressions suivantes et évaluer ces expressions dans votre document XML contenant des Tweets.
+
+Voir DTD et document XML exemple en annexe.
+
+\section{Créez une liste de paires tweet-auteur, avec chaque paire contenue dans un element result.}
+\begin{minted}[linenos, breaklines]{xquery}
+<results> {
+  for $auteur in /tweeter/users/user 
+  for  $tweet in /tweeter/tweets/tweet
+  where $auteur/@id = $tweet/@author_ref  
+  return
+  <result>
+  { $tweet }
+  { $auteur }
+  </result>  
+}
+</results>
+\end{minted}
+
+
+\section{Pour chaque utilisateur, listez le nom de l’utilisateur et la date de tous ses tweets, le tout regroupé dansun élément result.}
+\begin{minted}[linenos, breaklines]{xquery}
+<results> {
+  for $auteur in /tweeter/users/user
+  return
+  <result>
+    <nom>
+      { $auteur/user_name/text()}
+    </nom> 
+    {
+      for $tweet in /tweeter/tweets/tweet
+      where $auteur/@id = $tweet/@author_ref  
+      return $tweet/header/date
+    }
+  </result>
+}
+</results>
+\end{minted}
+
+\section{Listez les utilisateurs qui ont publié un tweet qui a été retwitté au moins deux fois.}
+\begin{minted}[linenos, breaklines]{xquery}
+<results> {
+  for $auteur in /tweeter/users/user
+    for $tweet in /tweeter/tweets/tweet
+    where $auteur/@id = $tweet/@author_ref and count($tweet/header/retweets/retweet) > 1
+    return $auteur
+ }
+</results>
+\end{minted}
+
+\section{Pour chaque tweet, listez son contenu et la date de ses deux premières réponses. Rajoutez un element vide \textless nonRetwitted/\textgreater s’il n’a pas été retwitté.}
+\begin{minted}[linenos, breaklines]{xquery}
+<results> {
+  for $tweet in /tweeter/tweets/tweet
+  return
+  <tweet>
+    <contenu>
+      { $tweet/body/text}
+    </contenu>
+    <premieres-reponses>
+      { /tweeter/tweets/tweet[@id=$tweet/header/answers/answer[1]/@ref]/header/date }
+      { /tweeter/tweets/tweet[@id=$tweet/header/answers/answer[2]/@ref]/header/date }
+    </premieres-reponses>
+    {
+      if (count($tweet/header/retweets/retweet) = 0) then
+	<nonRetwitted />
+      else()
+    }
+  </tweet>  
+}
+</results>
+\end{minted}
+
+\section{Listez les utilisateurs de la plateforme en ordre alphabétique.}
+\begin{minted}[linenos, breaklines]{xquery}
+<results> {
+  for $user in tweeter/users/user
+  order by upper-case($user/user_name/text()) ascending
+  return  $user
+}
+</results>
+\end{minted}
+
+\section{Listez les tweets contenants l’hashtag “\#I<3XML”.}
+\begin{minted}[linenos, breaklines]{xquery}
+<results> {
+for $tweet in /tweeter/tweets/tweet
+where $tweet/body/hashtag[contains(., "#I&lt;3XML")]
+return $tweet
+}
+</results>
+\end{minted}
+
+\section{Trouvez le tweet le plus ancien ainsi que le plus recent.}
+\begin{minted}[linenos, breaklines]{xquery}
+<results> {
+  let $minDate := min(/tweeter/tweets/tweet/header/date)
+  let $maxDate := max(/tweeter/tweets/tweet/header/date)
+  for $tweet in /tweeter/tweets/tweet
+  where $tweet/header/date = $minDate or $tweet/header/date = $maxDate
+    return $tweet
+}
+</results>
+\end{minted}
+
+\section{Pour chaque tweet ayant des hashtags, retournez le tweet avec la liste de ses hashtag.}
+\begin{minted}[linenos, breaklines]{xquery}
+<results> {
+  for $tweet in /tweeter/tweets/tweet
+  where $tweet/body/hashtag
+  return
+    <result>
+      {$tweet}
+      <hashtags>
+	{$tweet/body/hashtag}
+      </hashtags>
+    </result>
+}
+</results>
+\end{minted}
+
+\section{Pour chaque tweet ayant des références utilisateur, retournez le tweet avec la liste des références utilisateur.}
+\begin{minted}[linenos, breaklines]{xquery}
+<results> {
+  for $tweet in /tweeter/tweets/tweet
+  where $tweet/body/user_ref
+  return
+    <result>
+      {$tweet}
+      <user_references>
+	{$tweet/body/user_ref}
+      </user_references>
+    </result>
+}
+</results>
+\end{minted}
+
+\section{Declarez la fonction local:aReponduAuTweet, qui, étant donné un tweet, retourne tous les utilisateurs qui ont répondu au Tweet.}
+\begin{minted}[linenos, breaklines]{xquery}
+declare function local:aReponduAuTweet($tweet)
+{
+  for $user in $tweet/parent::tweets/parent::tweeter/child::users/child::user
+    where $user/@id = $tweet/parent::tweets/child::tweet[@id = $tweet/header/answers/answer/@ref]/@author_ref
+    return $user
+};
+\end{minted}

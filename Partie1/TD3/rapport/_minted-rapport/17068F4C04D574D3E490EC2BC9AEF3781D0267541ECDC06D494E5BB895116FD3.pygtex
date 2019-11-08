@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{CREATE} \PYG{k}{TABLE} \PYG{n}{tweet\PYGZus{}CLOB} \PYG{p}{(}
+       \PYG{n}{text\PYGZus{}content} \PYG{n+nb}{varchar}\PYG{p}{(}\PYG{l+m+mi}{20}\PYG{p}{),}
+       \PYG{n}{xml\PYGZus{}content} \PYG{n}{XMLTYPE}\PYG{p}{)}
+       \PYG{n}{XMLTYPE} \PYG{n}{xml\PYGZus{}content} \PYG{n}{STORE} \PYG{k}{AS} \PYG{k}{CLOB}\PYG{p}{;}
+\end{Verbatim}

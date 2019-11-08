@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{SELECT} \PYG{n}{B}\PYG{p}{.}\PYG{n}{code}
+\PYG{k}{FROM} \PYG{n}{BUREAU} \PYG{n}{B} \PYG{k}{JOIN} \PYG{n}{ETAGE} \PYG{n}{E} \PYG{k}{ON} \PYG{n}{B}\PYG{p}{.}\PYG{n}{etageID} \PYG{o}{=} \PYG{n}{E}\PYG{p}{.}\PYG{n}{etageID}
+\PYG{k}{WHERE} \PYG{n}{E}\PYG{p}{.}\PYG{n}{batimentID} \PYG{o}{=} \PYG{l+m+mi}{0} \PYG{k}{AND} \PYG{n}{E}\PYG{p}{.}\PYG{n}{etageID} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;}
+\end{Verbatim}

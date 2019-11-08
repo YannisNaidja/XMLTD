@@ -1,0 +1,371 @@
+\chapter{Stockage schema-unaware : Verical-Edge vs Monet}
+\section{Considérons le document XML pour la presse que vous avez proposé en réponse à la question1du TD1}
+\section{À l’aide du langage SQL, implémenter les schémas de stockage Vertical-Edge et Monet associés au docu-ment. Ensuite, peupler les tables correspondantes}
+Voir document XML presse en annexe.
+
+\subsection{Vertical-Edge}
+\begin{minted}[linenos, breaklines]{sql}
+CREATE TABLE PRESSE (
+	source int,
+	target int NOT NULL PRIMARY KEY,
+	ordinal int,
+	txtval  varchar(30),
+	numval int
+);
+
+CREATE TABLE JOURNAL (
+	source int,
+	target int NOT NULL PRIMARY KEY,
+	ordinal int,
+	txtval  varchar(30),
+	numval int
+);
+
+CREATE TABLE ARTICLE (
+	source int,
+	target int NOT NULL PRIMARY KEY,
+	ordinal int,
+	txtval  varchar(30),
+	numval int
+);
+CREATE TABLE TITRE (
+	source int,
+	target int NOT NULL PRIMARY KEY,
+	ordinal int,
+	txtval  varchar(30),
+	numval int
+);
+
+CREATE TABLE AUTEUR (
+	source int,
+	target int NOT NULL PRIMARY KEY,
+	ordinal int,
+	txtval  varchar(30),
+	numval int
+);
+
+CREATE TABLE CORPS (
+	source int,
+	target int NOT NULL PRIMARY KEY,
+	ordinal int,
+	txtval  varchar(30),
+	numval int
+);
+CREATE TABLE JOURNALISTES (
+	source int,
+	target int NOT NULL PRIMARY KEY,
+	ordinal int,
+	txtval  varchar(30),
+	numval int
+);
+CREATE TABLE JOURNALISTE (
+	source int,
+	target int NOT NULL PRIMARY KEY,
+	ordinal int,
+	txtval  varchar(30),
+	numval int
+);
+CREATE TABLE JOURNALISTEID (
+	source int,
+	target int NOT NULL PRIMARY KEY,
+	ordinal int,
+	txtval  varchar(30),
+	numval int
+);
+
+CREATE TABLE ANONYMOUS (
+	source int,
+	target int NOT NULL PRIMARY KEY,
+	ordinal int,
+	txtval  varchar(30),
+	numval int
+);
+CREATE TABLE PSEUDO (
+	source int,
+	target int NOT NULL PRIMARY KEY,
+	ordinal int,
+	txtval  varchar(30),
+	numval int
+);
+
+CREATE TABLE NOM (
+	source int,
+	target int NOT NULL PRIMARY KEY,
+	ordinal int,
+	txtval  varchar(30),
+	numval int
+);
+
+CREATE TABLE PRENOM (
+	source int,
+	target int NOT NULL PRIMARY KEY,
+	ordinal int,
+	txtval  varchar(30),
+	numval int
+);
+
+CREATE TABLE DIRECTEUR (
+	source int,
+	target int NOT NULL PRIMARY KEY,
+	ordinal int,
+	txtval  varchar(30),
+	numval int
+);
+
+INSERT INTO PRESSE (target)                            VALUES (0);
+INSERT INTO JOURNAL (source, target, ordinal)          VALUES (0, 1, 1);
+INSERT INTO NOM (source, target, ordinal, txtval)      VALUES (1, 2, 1, 'CNEWS');
+INSERT INTO DIRECTEUR (source, target, ordinal)        VALUES (1, 3, 1);
+INSERT INTO NOM (source, target, ordinal, txtval)      VALUES (3, 4, 1, 'Pepega');
+INSERT INTO PRENOM (source, target, ordinal, txtval)   VALUES (3, 5, 2, 'Kekw');
+INSERT INTO ARTICLE (source, target, ordinal)          VALUES (1, 7, 1);
+INSERT INTO CORPS (source, target, ordinal, txtval)    VALUES (7, 10, 1, 'Des fake news');
+INSERT INTO TITRE (source, target, txtval)             VALUES (7, 8, 'fake');
+INSERT INTO AUTEUR(source, target, txtval)             VALUES (7, 9, 'j1');
+INSERT INTO ARTICLE (source, target, ordinal)          VALUES (1, 11, 1);
+INSERT INTO CORPS (source, target, ordinal, txtval)    VALUES (11, 14, 1,' Encore des fake news');
+INSERT INTO TITRE (source, target, txtval)             VALUES (11, 12, 'news');
+INSERT INTO AUTEUR(source, target, txtval)             VALUES (11, 13, 'j1');
+INSERT INTO JOURNALISTES (source, target, ordinal)     VALUES (0, 15, 2);
+INSERT INTO JOURNALISTE (source, target, ordinal)      VALUES (15, 16, 1);
+INSERT INTO JOURNALISTEID (source, target, txtval)     VALUES (16, 19, 'j1');
+INSERT INTO NOM (source, target, ordinal, txtval)      VALUES (16, 17, 1, 'Vuillard');
+INSERT INTO PRENOM (source, target, ordinal, txtval)   VALUES (16, 18, 1, 'Eric');
+INSERT INTO JOURNALISTE (source, target, ordinal)      VALUES (15, 20, 2);
+INSERT INTO JOURNALISTEID (source, target, txtval)     VALUES (20, 23, 'j2');
+INSERT INTO NOM (source, target, ordinal, txtval)      VALUES (20, 21, 1, 'Dupont');
+INSERT INTO PRENOM (source, target, ordinal, txtval)   VALUES (20, 22, 1, 'Jean');
+INSERT INTO ANONYMOUS(source, target, ordinal, txtval) VALUES (20, 24, 1, 'non');
+\end{minted}
+
+\subsection{Monet}
+\begin{minted}[linenos, breaklines]{sql}
+CREATE TABLE PRESSE (
+	node int,
+	txtval  varchar(30),
+	numval int
+);
+CREATE TABLE PRESSE_JOURNAL (
+	node int,
+	txtval  varchar(30),
+	numval int
+);
+
+CREATE TABLE PRESSE_JOURNAL_NOM (
+	node int,
+	txtval  varchar(30),
+	numval int
+);
+CREATE TABLE PRESSE_JOURNAL_DIRECTEUR (
+	node int,
+	txtval  varchar(30),
+	numval int
+);
+
+CREATE TABLE PRESSE_JOURNAL_DIRECTEUR_NOM (
+	node int,
+	txtval  varchar(30),
+	numval int
+);
+
+CREATE TABLE PRESSE_JOURNAL_DIRECTEUR_PRENOM (
+	node int,
+	txtval  varchar(30),
+	numval int
+);
+
+CREATE TABLE PRESSE_JOURNAL_ARTICLE  (
+	node int,
+	txtval  varchar(30),
+	numval int
+);
+
+CREATE TABLE PRESSE_JOURNAL_ARTICLE_CORPS  (
+	node int,
+	txtval  varchar(30),
+	numval int
+);
+
+CREATE TABLE PRESSE_JOURNAL_ARTICLE_TITRE  (
+	node int,
+	txtval  varchar(30),
+	numval int
+);
+
+CREATE TABLE PRESSE_JOURNAL_ARTICLE_AUTEUR  (
+	node int,
+	txtval  varchar(30),
+	numval int
+);
+
+CREATE TABLE PRESSE_JOURNALISTES (
+	node int,
+	txtval  varchar(30),
+	numval int
+);
+
+CREATE TABLE PRESSE_JOURNALISTES_JOURNALISTE (
+	node int,
+	txtval  varchar(30),
+	numval int
+);
+
+CREATE TABLE PRESSE_JOURNALISTES_JOURNALISTE_NOM (
+	node int,
+	txtval  varchar(30),
+	numval int
+);
+
+CREATE TABLE PRESSE_JOURNALISTES_JOURNALISTE_PRENOM (
+	node int,
+	txtval  varchar(30),
+	numval int
+);
+
+CREATE TABLE PRESSE_JOURNALISTES_JOURNALISTE_IDJ (
+	node int,
+	txtval  varchar(30),
+	numval int
+);
+
+CREATE TABLE PRESSE_JOURNALISTES_JOURNALISTE_ANONYMISATION (
+	node int,
+	txtval  varchar(30),
+	numval int
+);
+
+INSERT INTO PRESSE(node)                                               VALUES(0);
+INSERT INTO PRESSE_JOURNAL(node)                                       VALUES(1);
+INSERT INTO PRESSE_JOURNAL_NOM(node,txtval)                            VALUES(2,'CNEWS');
+INSERT INTO PRESSE_JOURNAL_DIRECTEUR(node)                             VALUES(3);
+INSERT INTO PRESSE_JOURNAL_DIRECTEUR_NOM(node,txtval)                  VALUES(4,'Pepega');
+INSERT INTO PRESSE_JOURNAL_DIRECTEUR_PRENOM(node,txtval)               VALUES(5,'KEKW');
+INSERT INTO PRESSE_JOURNAL_ARTICLE(node)                               VALUES(7);
+INSERT INTO PRESSE_JOURNAL_ARTICLE_TITRE(node, txtval)                 VALUES(8, 'fake');
+INSERT INTO PRESSE_JOURNAL_ARTICLE_AUTEUR(node, txtval)                VALUES(9, 'j1');
+INSERT INTO PRESSE_JOURNAL_ARTICLE_CORPS(node,txtval)                  VALUES (10,'fakenews');
+INSERT INTO PRESSE_JOURNAL_ARTICLE(node)                               VALUES(11);
+INSERT INTO PRESSE_JOURNAL_ARTICLE_TITRE(node, txtval)                 VALUES(12, 'news');
+INSERT INTO PRESSE_JOURNAL_ARTICLE_AUTEUR(node, txtval)                VALUES(13, 'j1');
+INSERT INTO PRESSE_JOURNAL_ARTICLE_CORPS(node,txtval)                  VALUES (14,' more fakenews');
+INSERT INTO PRESSE_JOURNALISTES(node)                                  VALUES (15);
+INSERT INTO PRESSE_JOURNALISTES_JOURNALISTE(node)                      VALUES (16);
+INSERT INTO PRESSE_JOURNALISTES_JOURNALISTE_NOM(node,txtval)           VALUES (17,'Vuillard');
+INSERT INTO PRESSE_JOURNALISTES_JOURNALISTE_PRENOM(node,txtval)        VALUES (18,'Eric');
+INSERT INTO PRESSE_JOURNALISTES_JOURNALISTE_IDJ(node,txtval)           VALUES (19, 'j1');
+INSERT INTO PRESSE_JOURNALISTES_JOURNALISTE(node)                      VALUES (20);
+INSERT INTO PRESSE_JOURNALISTES_JOURNALISTE_NOM(node,txtval)           VALUES (21,'Dupont');
+INSERT INTO PRESSE_JOURNALISTES_JOURNALISTE_PRENOM(node,txtval)        VALUES (22,'Jean');
+INSERT INTO PRESSE_JOURNALISTES_JOURNALISTE_IDJ(node,txtval)           VALUES (23, 'j2');
+INSERT INTO PRESSE_JOURNALISTES_JOURNALISTE_ANONYMISATION(node,txtval) VALUES (24, 'oui');
+\end{minted}
+
+\section{À l’aide du langage SQL, exprimer cinq requêtes XPath de votre choix sur chaque schéma}
+\subsection {Le nom du journal}
+\begin{minted}[linenos, breaklines]{xquery}
+/presse/journal/nom
+\end{minted}
+\subsubsection{Vertical-Edge}
+\begin{minted}[linenos, breaklines]{sql}
+SELECT N.txtval nom_journal
+FROM PRESSE  P,
+     JOURNAL J,
+     NOM     N
+WHERE
+       P.Target = J.Source
+AND    J.Target = N.Source;
+\end{minted}
+
+\subsubsection{Monet}
+\begin{minted}[linenos, breaklines]{sql}
+SELECT txtval nom_journal
+FROM   PRESSE_JOURNAL_NOM;
+\end{minted}
+
+\subsection {Le nom du directeur}
+\begin{minted}[linenos, breaklines]{xquery}
+/presse/journal/directeur/nom
+\end{minted}
+\subsubsection{Vertical-Edge}
+\begin{minted}[linenos, breaklines]{sql}
+SELECT N.txtval nom_directeur
+FROM PRESSE    P,
+     JOURNAL   J,
+     DIRECTEUR D,
+     NOM       N
+WHERE
+       P.Target = J.Source
+AND    J.Target = D.Source
+AND    D.Target = N.Source;
+\end{minted}
+
+\subsubsection{Monet}
+\begin{minted}[linenos, breaklines]{sql}
+SELECT txtval nom_directeur
+FROM PRESSE_JOURNAL_DIRECTEUR_NOM;
+\end{minted}
+
+\subsection {Le titre de tout les articles}
+\begin{minted}[linenos, breaklines]{xquery}
+/presse/journal/article/@titre
+\end{minted}
+\subsubsection{Vertical-Edge}
+\begin{minted}[linenos, breaklines]{sql}
+SELECT T.txtval titre_article
+FROM PRESSE  P,
+     JOURNAL J,
+     ARTICLE A,
+     TITRE   T
+WHERE P.Target = J.Source
+AND   J.Target = A.Source
+AND   A.Target = T.Source;
+\end{minted}
+
+\subsubsection{Monet}
+\begin{minted}[linenos, breaklines]{sql}
+SELECT txtval titre_article
+FROM PRESSE_JOURNAL_ARTICLE_TITRE;
+\end{minted}
+
+\subsection {Le nombre d article}
+\begin{minted}[linenos, breaklines]{xquery}
+/presse/journal/count(article)
+\end{minted}
+\subsubsection{Vertical-Edge}
+\begin{minted}[linenos, breaklines]{sql}
+SELECT COUNT(A.Target) nombre_d_article
+FROM PRESSE  P,
+     JOURNAL J,
+     ARTICLE A
+WHERE P.Target = J.Source
+AND   J.Target = A.Source;
+\end{minted}
+
+\subsubsection{Monet}
+\begin{minted}[linenos, breaklines]{sql}
+SELECT COUNT(A.node) nombre_d_article
+FROM PRESSE_JOURNAL_ARTICLE A;
+\end{minted}
+
+\subsection {Les identifiants des journalistes}
+\begin{minted}[linenos, breaklines]{xquery}
+/presse/journal/journalistes/journaliste/@idJ
+\end{minted}
+\subsubsection{Vertical-Edge}
+\begin{minted}[linenos, breaklines]{sql}
+SELECT J3.txtval identifiant_de_journaliste
+FROM PRESSE        P,
+     JOURNALISTES  J1,
+     JOURNALISTE   J2,
+     JOURNALISTEID J3
+WHERE P.Target = J1.Source
+AND   J1.Target = J2.Source
+AND   J2.Target = J3.Source;
+\end{minted}
+
+\subsubsection{Monet}
+\begin{minted}[linenos, breaklines]{sql}
+SELECT txtval identifiant_de_journaliste
+FROM PRESSE_JOURNALISTES_JOURNALISTE_IDJ;
+\end{minted}
+

@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{SELECT} \PYG{n}{N7}\PYG{p}{.}\PYG{o}{*}
+\PYG{k}{FROM} \PYG{n}{NODE} \PYG{n}{N1}\PYG{p}{,} \PYG{n}{NODE} \PYG{n}{N2}\PYG{p}{,} \PYG{n}{NODE} \PYG{n}{N3}\PYG{p}{,} \PYG{n}{NODE} \PYG{n}{N4}\PYG{p}{,} \PYG{n}{NODE} \PYG{n}{N5}\PYG{p}{,} \PYG{n}{NODE} \PYG{n}{N6}\PYG{p}{,} \PYG{n}{NODE} \PYG{n}{N7}
+\PYG{k}{WHERE} \PYG{n}{N1}\PYG{p}{.}\PYG{n}{tag} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}tweeter\PYGZsq{}}   \PYG{k}{AND}
+      \PYG{n}{N2}\PYG{p}{.}\PYG{n}{tag} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}tweets\PYGZsq{}}    \PYG{k}{AND}
+      \PYG{n}{N3}\PYG{p}{.}\PYG{n}{tag} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}tweet\PYGZsq{}}     \PYG{k}{AND}
+      \PYG{n}{N4}\PYG{p}{.}\PYG{n}{tag} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}header\PYGZsq{}}    \PYG{k}{AND}
+      \PYG{n}{N5}\PYG{p}{.}\PYG{n}{tag} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}timezone\PYGZsq{}}  \PYG{k}{AND}
+      \PYG{n}{N6}\PYG{p}{.}\PYG{n}{tag} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}offset\PYGZsq{}}    \PYG{k}{AND}
+      \PYG{n}{N2}\PYG{p}{.}\PYG{n}{parent} \PYG{o}{=} \PYG{n}{N1}\PYG{p}{.}\PYG{k}{begin} \PYG{k}{AND}
+      \PYG{n}{N3}\PYG{p}{.}\PYG{n}{parent} \PYG{o}{=} \PYG{n}{N2}\PYG{p}{.}\PYG{k}{begin} \PYG{k}{AND}
+      \PYG{n}{N4}\PYG{p}{.}\PYG{n}{parent} \PYG{o}{=} \PYG{n}{N3}\PYG{p}{.}\PYG{k}{begin} \PYG{k}{AND}
+      \PYG{n}{N5}\PYG{p}{.}\PYG{n}{parent} \PYG{o}{=} \PYG{n}{N4}\PYG{p}{.}\PYG{k}{begin} \PYG{k}{AND}
+      \PYG{n}{N6}\PYG{p}{.}\PYG{n}{parent} \PYG{o}{=} \PYG{n}{N5}\PYG{p}{.}\PYG{k}{begin} \PYG{k}{AND}
+      \PYG{n}{N7}\PYG{p}{.}\PYG{k}{begin}  \PYG{o}{=} \PYG{n}{N6}\PYG{p}{.}\PYG{n}{parent}\PYG{p}{;}
+\end{Verbatim}

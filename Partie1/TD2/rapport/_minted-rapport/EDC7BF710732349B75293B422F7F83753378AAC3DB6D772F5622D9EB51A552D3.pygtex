@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nt}{\PYGZlt{}results\PYGZgt{}}\PYG{l}{ }\PYG{p}{\PYGZob{}}
+  \PYG{k}{let} \PYG{n+nv}{\PYGZdl{}}\PYG{n}{minDate} \PYG{o}{:=} \PYG{n+nf}{min}\PYG{p}{(/}\PYG{n+nt}{tweeter}\PYG{p}{/}\PYG{n+nt}{tweets}\PYG{p}{/}\PYG{n+nt}{tweet}\PYG{p}{/}\PYG{n+nt}{header}\PYG{p}{/}\PYG{n+nt}{date}\PYG{p}{)}
+  \PYG{k}{let} \PYG{n+nv}{\PYGZdl{}}\PYG{n}{maxDate} \PYG{o}{:=} \PYG{n+nf}{max}\PYG{p}{(/}\PYG{n+nt}{tweeter}\PYG{p}{/}\PYG{n+nt}{tweets}\PYG{p}{/}\PYG{n+nt}{tweet}\PYG{p}{/}\PYG{n+nt}{header}\PYG{p}{/}\PYG{n+nt}{date}\PYG{p}{)}
+  \PYG{k}{for} \PYG{n+nv}{\PYGZdl{}}\PYG{n}{tweet} \PYG{o+ow}{in} \PYG{p}{/}\PYG{n+nt}{tweeter}\PYG{p}{/}\PYG{n+nt}{tweets}\PYG{p}{/}\PYG{n+nt}{tweet}
+  \PYG{k}{where} \PYG{n+nv}{\PYGZdl{}}\PYG{n}{tweet}\PYG{p}{/}\PYG{n+nt}{header}\PYG{p}{/}\PYG{n+nt}{date} \PYG{o}{=} \PYG{n+nv}{\PYGZdl{}}\PYG{n}{minDate} \PYG{o+ow}{or} \PYG{n+nv}{\PYGZdl{}}\PYG{n}{tweet}\PYG{p}{/}\PYG{n+nt}{header}\PYG{p}{/}\PYG{n+nt}{date} \PYG{o}{=} \PYG{n+nv}{\PYGZdl{}}\PYG{n}{maxDate}
+    \PYG{k}{return} \PYG{n+nv}{\PYGZdl{}}\PYG{n}{tweet}
+\PYG{p}{\PYGZcb{}}
+\PYG{n+nt}{\PYGZlt{}/results\PYGZgt{}}
+\end{Verbatim}

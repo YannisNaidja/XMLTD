@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{SELECT} \PYG{n}{N3}\PYG{p}{.}\PYG{o}{*}
+\PYG{k}{FROM} \PYG{n}{NODE} \PYG{n}{N1}\PYG{p}{,} \PYG{n}{NODE} \PYG{n}{N2}\PYG{p}{,} \PYG{n}{NODE} \PYG{n}{N3}
+\PYG{k}{WHERE} \PYG{n}{N1}\PYG{p}{.}\PYG{n}{tag} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}tweeter\PYGZsq{}}   \PYG{k}{AND}
+      \PYG{n}{N2}\PYG{p}{.}\PYG{n}{tag} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}tweets\PYGZsq{}}    \PYG{k}{AND}
+      \PYG{n}{N2}\PYG{p}{.}\PYG{n}{parent} \PYG{o}{=} \PYG{n}{N1}\PYG{p}{.}\PYG{k}{begin} \PYG{k}{AND}
+      \PYG{n}{N2}\PYG{p}{.}\PYG{k}{begin} \PYG{o}{\PYGZgt{}} \PYG{n}{N3}\PYG{p}{.}\PYG{k}{begin}  \PYG{k}{AND}
+      \PYG{n}{N2}\PYG{p}{.}\PYG{k}{end} \PYG{o}{\PYGZlt{}} \PYG{n}{N3}\PYG{p}{.}\PYG{k}{end}\PYG{p}{;}
+\end{Verbatim}

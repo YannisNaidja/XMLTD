@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+  \PYG{k}{SELECT} \PYG{n}{XMLQUERY}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}for \PYGZdl{}auteur in /tweeter/users/user}
+\PYG{l+s+s1}{  return}
+\PYG{l+s+s1}{  \PYGZlt{}result\PYGZgt{}}
+\PYG{l+s+s1}{    \PYGZlt{}nom\PYGZgt{}}
+\PYG{l+s+s1}{      \PYGZob{} \PYGZdl{}auteur/user\PYGZus{}name/text()\PYGZcb{}}
+\PYG{l+s+s1}{    \PYGZlt{}/nom\PYGZgt{}}
+\PYG{l+s+s1}{    \PYGZob{}}
+\PYG{l+s+s1}{      for \PYGZdl{}tweet in /tweeter/tweets/tweet}
+\PYG{l+s+s1}{      where \PYGZdl{}auteur/@id = \PYGZdl{}tweet/@author\PYGZus{}ref}
+\PYG{l+s+s1}{      return \PYGZdl{}tweet/header/date}
+\PYG{l+s+s1}{    \PYGZcb{}}
+\PYG{l+s+s1}{  \PYGZlt{}/result\PYGZgt{}\PYGZsq{}} \PYG{n}{PASSING} \PYG{n}{xml\PYGZus{}content} \PYG{n}{RETURNING} \PYG{n}{CONTENT}\PYG{p}{)}\PYG{k}{FROM} \PYG{n}{tweet\PYGZus{}BINARY}\PYG{p}{;}
+\end{Verbatim}

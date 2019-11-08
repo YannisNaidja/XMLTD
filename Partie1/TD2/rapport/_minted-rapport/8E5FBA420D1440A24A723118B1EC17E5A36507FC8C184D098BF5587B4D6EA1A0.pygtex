@@ -1,0 +1,24 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+  \PYG{n+nt}{\PYGZlt{}recettes\PYGZgt{}}
+  \PYG{n+nt}{\PYGZlt{}recette} \PYG{n+na}{nomCourt=}\PYG{l+s}{\PYGZdq{}Chiffonnade\PYGZdq{}} \PYG{n+na}{nom=}\PYG{l+s}{\PYGZdq{}Chiffonnade de jambon et d’asperges à la Flamande\PYGZdq{}} \PYG{n+na}{type=}\PYG{l+s}{\PYGZdq{}salee\PYGZdq{}}\PYG{n+nt}{\PYGZgt{}}
+    \PYG{n+nt}{\PYGZlt{}materiel\PYGZgt{}}
+      \PYG{n+nt}{\PYGZlt{}ingredient} \PYG{n+na}{quantite=}\PYG{l+s}{\PYGZdq{}8\PYGZdq{}}\PYG{n+nt}{\PYGZgt{}}asperge\PYG{n+nt}{\PYGZlt{}/ingredient\PYGZgt{}}
+      \PYG{n+nt}{\PYGZlt{}ingredient} \PYG{n+na}{quantite=}\PYG{l+s}{\PYGZdq{}150g\PYGZdq{}}\PYG{n+nt}{\PYGZgt{}}jambon fume\PYG{n+nt}{\PYGZlt{}/ingredient\PYGZgt{}}
+      \PYG{n+nt}{\PYGZlt{}ingredient} \PYG{n+na}{quantite=}\PYG{l+s}{\PYGZdq{}2\PYGZdq{}}\PYG{n+nt}{\PYGZgt{}}oeuf\PYG{n+nt}{\PYGZlt{}/ingredient\PYGZgt{}}
+      \PYG{n+nt}{\PYGZlt{}ingredient} \PYG{n+na}{quantite=}\PYG{l+s}{\PYGZdq{}6 cl\PYGZdq{}}\PYG{n+nt}{\PYGZgt{}}huile d’olive\PYG{n+nt}{\PYGZlt{}/ingredient\PYGZgt{}}
+      \PYG{n+nt}{\PYGZlt{}ingredient} \PYG{n+na}{quantite=}\PYG{l+s}{\PYGZdq{}1 c. à soupe\PYGZdq{}}\PYG{n+nt}{\PYGZgt{}}persil hache\PYG{n+nt}{\PYGZlt{}/ingredient\PYGZgt{}}
+      \PYG{n+nt}{\PYGZlt{}ingredient\PYGZgt{}}poivre\PYG{n+nt}{\PYGZlt{}/ingredient\PYGZgt{}}
+      \PYG{n+nt}{\PYGZlt{}ingredient\PYGZgt{}}sel\PYG{n+nt}{\PYGZlt{}/ingredient\PYGZgt{}}
+      \PYG{n+nt}{\PYGZlt{}ingredient\PYGZgt{}}noix de muscade\PYG{n+nt}{\PYGZlt{}/ingredient\PYGZgt{}} \PYG{n+nt}{\PYGZlt{}/materiel\PYGZgt{}}   \PYG{n+nt}{\PYGZlt{}methode\PYGZgt{}} A l’aide du hache\PYGZhy{}legumes, raper les asperges en lanières d’environ 1,5 mm d’epaisseur et les cuire dans l’eau salee. Couper egalement les tranches de jambon en longues lanières et les melanger aux asperges cuites et tiedies.
+    \PYG{n+nt}{\PYGZlt{}/methode\PYGZgt{}}
+  \PYG{n+nt}{\PYGZlt{}/recette\PYGZgt{}}
+  \PYG{n+nt}{\PYGZlt{}recette} \PYG{n+na}{nomCourt=}\PYG{l+s}{\PYGZdq{}Pain à l’huile\PYGZdq{}} \PYG{n+na}{nom=}\PYG{l+s}{\PYGZdq{}Presse d’olive sur lit de ble\PYGZdq{}} \PYG{n+na}{type=}\PYG{l+s}{\PYGZdq{}salee\PYGZdq{}}\PYG{n+nt}{\PYGZgt{}}
+    \PYG{n+nt}{\PYGZlt{}materiel\PYGZgt{}}
+      \PYG{n+nt}{\PYGZlt{}ingredient} \PYG{n+na}{quantite=}\PYG{l+s}{\PYGZdq{}1 baguette\PYGZdq{}}\PYG{n+nt}{\PYGZgt{}}pain\PYG{n+nt}{\PYGZlt{}/ingredient\PYGZgt{}}
+      \PYG{n+nt}{\PYGZlt{}ingredient} \PYG{n+na}{quantite=}\PYG{l+s}{\PYGZdq{}3 c. à soupe\PYGZdq{}}\PYG{n+nt}{\PYGZgt{}}huile d’olive\PYG{n+nt}{\PYGZlt{}/ingredient\PYGZgt{}}
+    \PYG{n+nt}{\PYGZlt{}/materiel\PYGZgt{}}
+    \PYG{n+nt}{\PYGZlt{}methode\PYGZgt{}} A l’aide d’un couteau effile, trancher la baguette sur toute sa longueur. Badigeonner delicatement chaque tranche avec l’huile, et servir immédiatement. Attention, ce plat constitue un repas complet, tout dessert est inutile.
+    \PYG{n+nt}{\PYGZlt{}/methode\PYGZgt{}}
+  \PYG{n+nt}{\PYGZlt{}/recette\PYGZgt{}}
+\PYG{n+nt}{\PYGZlt{}/recettes\PYGZgt{}}
+\end{Verbatim}

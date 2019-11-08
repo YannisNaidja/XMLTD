@@ -1,0 +1,20 @@
+<results>
+  <user id="U43">
+    <user_name>alex_not</user_name>
+    <first_name>Alex</first_name>
+    <last_name>Not</last_name>
+    <profile>https://twitter.com/alex_n</profile>
+  </user>
+  <user id="U41">
+    <user_name>basil_dalie</user_name>
+    <first_name>Basil</first_name>
+    <last_name>Dalie</last_name>
+    <profile>https://twitter.com/basil_dalie</profile>
+  </user>
+  <user id="U02">
+    <user_name>Cicero</user_name>
+    <first_name>Ci</first_name>
+    <last_name>Cero</last_name>
+    <profile>https://twitter.com/Cicero</profile>
+  </user>
+</results>
