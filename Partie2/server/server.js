@@ -25,13 +25,102 @@ MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
 	    let products = [];
 	    db.collection("products").find().toArray((err, documents) => {
 		for (let doc of documents) {
-	     	    products.push(doc.content);
+		    for (let content of doc.content) {
+	     		products.push(content);
+		    }
+	     	}
+
+		res.end(JSON.stringify(products));		
+	    });
+	} catch(e) {
+	    console.log("Error on /products : " + e);
+	    res.end(JSON.stringify([]));
+	}
+    });
+
+    app.get("/products/:category", (req,res) => {
+	console.log("/products/" + req.params.category);
+
+	try {
+	    let products = [];
+	    db.collection("products").find().toArray((err, documents) => {
+		for (let doc of documents) {
+		    if (doc.category_code === req.params.category) {
+			for (let content of doc.content) {
+	     		    products.push(content);
+			}
+		    }
 	     	}
 		console.log(products);
 		res.end(JSON.stringify(products));		
-	     });
+	    });
 	} catch(e) {
 	    console.log("Error on /products : " + e);
+	    res.end(JSON.stringify([]));
+	}
+    });
+
+    
+    app.get("/members", (req,res) => {
+	console.log("/members");
+
+	try {
+	    let products = [];
+	    db.collection("members").find().toArray((err, documents) => {
+		res.end(JSON.stringify(documents));
+	    });
+	} catch(e) {
+	    console.log("Error on /documents : " + e);
+	    res.end(JSON.stringify([]));
+	}
+    });
+
+    app.get("/members/:mail/:password", (req,res) => {
+	console.log("/members/" + req.params.mail + "/" + req.params.password);
+
+	try {
+	    let products = [];
+	    db.collection("members").find().toArray((err, documents) => {
+		for (let document of documents) {
+		    if (document.mail === req.params.mail && document.password === req.params.password) {
+			res.end(JSON.stringify(document));
+		    }
+		}
+	    });
+	} catch(e) {
+	    console.log("Error on /documents : " + e);
+	    res.end(JSON.stringify([]));
+	}
+    });
+
+    app.get("/basket", (req,res) => {
+	console.log("/basket");
+
+	try {
+	    let products = [];
+	    db.collection("basket").find().toArray((err, documents) => {
+		res.end(JSON.stringify(documents));
+	    });
+	} catch(e) {
+	    console.log("Error on /documents : " + e);
+	    res.end(JSON.stringify([]));
+	}
+    });
+
+    app.get("/basket/:mail", (req,res) => {
+	console.log("/basket/" + req.params.mail);
+
+	try {
+	    let products = [];
+	    db.collection("basket").find().toArray((err, documents) => {
+		for (let document of documents) {
+		    if (document.user_mail === req.params.mail) {
+			res.end(JSON.stringify(document.basket));
+		    }
+		}
+	    });
+	} catch(e) {
+	    console.log("Error on /documents : " + e);
 	    res.end(JSON.stringify([]));
 	}
     });

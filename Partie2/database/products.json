@@ -1,5 +1,6 @@
 [
     {
+	"category_code" : "ALC",
 	"category_name" : "Boissons alcolisees",
 	"content" : [
 	    {
@@ -26,6 +27,7 @@
 	]
     },
     {
+	"category_code" : "SOD",
 	"category_name" : "Sodas",
 	"content" : [
 	    {
