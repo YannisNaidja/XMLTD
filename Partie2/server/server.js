@@ -123,7 +123,20 @@ MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
 	    console.log("Error on /documents : " + e);
 	    res.end(JSON.stringify([]));
 	}
-    });
+	});
+	
+	app.post("/members" , (req,res) => { //check si pas deja inscrit
+		console.log(JSON.stringify(req.body));
+		if (db.collection("members").findOne({mail : req.body.mail}) === null){
+			db.collection("members").insertOne(req.body.mail);
+			res.end(JSON.stringify(req.body));
+		}
+		else{
+			res.status(400);
+			res.end(JSON.stringify({}));
+		}
+	});
+	
 });
 
 app.listen(8888);
