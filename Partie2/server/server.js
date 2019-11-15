@@ -126,7 +126,6 @@ MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
     });
 	
     app.post("/members" , (req,res) => { //check si pas deja inscrit
-	console.log();
 	db.collection("members").find({mail : req.body.mail})
 	    .count()
 	    .then(function(items) {
