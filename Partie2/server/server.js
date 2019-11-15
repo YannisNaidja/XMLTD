@@ -126,15 +126,22 @@ MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
 	});
 	
 	app.post("/members" , (req,res) => { //check si pas deja inscrit
-		console.log(JSON.stringify(req.body));
-		if (db.collection("members").findOne({mail : req.body.mail}) === null){
-			db.collection("members").insertOne(req.body.mail);
+		console.dir(req.body);
+		let doc = db.collection("members").findOne({mail:req.body.mail});
+		console.dir(doc);
+		
+		if (doc !== null)
+			{	console.log("client existe deja");
+				res.status(400);
+				res.end(JSON.stringify({}));
+			}
+			else{
+			console.log("client existe pas on lajoute");	
+			db.collection("members").insertOne(req.body);
 			res.end(JSON.stringify(req.body));
-		}
-		else{
-			res.status(400);
-			res.end(JSON.stringify({}));
-		}
+			}				
+		
+			
 	});
 	
 });
