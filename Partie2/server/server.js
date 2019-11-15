@@ -123,27 +123,25 @@ MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
 	    console.log("Error on /documents : " + e);
 	    res.end(JSON.stringify([]));
 	}
-	});
+    });
 	
-	app.post("/members" , (req,res) => { //check si pas deja inscrit
-		console.dir(req.body);
-		let doc = db.collection("members").findOne({mail:req.body.mail});
-		console.dir(doc);
-		
-		if (doc !== null)
-			{	console.log("client existe deja");
-				res.status(400);
-				res.end(JSON.stringify({}));
-			}
-			else{
-			console.log("client existe pas on lajoute");	
-			db.collection("members").insertOne(req.body);
-			res.end(JSON.stringify(req.body));
-			}				
-		
-			
-	});
-	
+    app.post("/members" , (req,res) => { //check si pas deja inscrit
+	console.log();
+	db.collection("members").find({mail : req.body.mail})
+	    .count()
+	    .then(function(items) {
+		if (items === 0) {
+		    console.log("client existe pas on lajoute");	
+		    db.collection("members").insertOne(req.body);
+		    res.end(JSON.stringify(req.body));
+		} else {
+		    console.log("client existe deja");
+		    res.status(400);
+		    res.end(JSON.stringify({}));
+		}
+	    });
+    });
+    
 });
 
 app.listen(8888);
