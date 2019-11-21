@@ -130,17 +130,43 @@ MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
 	    .count()
 	    .then(function(items) {
 		if (items === 0) {
-		    console.log("client existe pas on lajoute");	
-		    db.collection("members").insertOne(req.body);
+		    console.log("client existe pas on l'ajoute");	
+			db.collection("members").insertOne(req.body);
+			db.collection("basket").insertOne({ 'user_mail' : req.body.mail ,'basket' :  [] });
 		    res.end(JSON.stringify(req.body));
 		} else {
 		    console.log("client existe deja");
 		    res.status(400);
 		    res.end(JSON.stringify({}));
-		}
+			}
 	    });
-    });
+	});
+	
+	app.post("/addProductToBasket" , (req,res) => {
+
+		db.collection("basket").find({'user_mail' : req.body.mail})
+			.toArray((err, documents) => {
+		
+				let basket = documents[0].basket;
+				console.log(basket);
+				basket.push(req.body.product);
+				try {
+					db.collection("basket").updateOne(
+						{'user_mail' : req.body.mail},
+						{ $set : {'basket' : basket }});
+				} catch (error) {
+					print(error);
+					
+				}
+				
+			});	
+		
+	
+	});
     
 });
 
 app.listen(8888);
+
+
+
