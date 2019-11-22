@@ -26,6 +26,7 @@ MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
 	    db.collection("products").find().toArray((err, documents) => {
 		for (let doc of documents) {
 		    for (let content of doc.content) {
+			content['category_code'] = doc.category_code;
 	     		products.push(content);
 		    }
 	     	}
@@ -47,6 +48,7 @@ MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
 		for (let doc of documents) {
 		    if (doc.category_code === req.params.category) {
 			for (let content of doc.content) {
+			    content['category_code'] = doc.category_code;
 	     		    products.push(content);
 			}
 		    }
