@@ -1,5 +1,4 @@
 import { Product } from './product';
-import { AlcoholicBeverage } from './alcoholic-beverage';
 
 export class AbstractProduct implements Product {
     code: string;
@@ -20,15 +19,5 @@ export class AbstractProduct implements Product {
 
     getExtras() {
 	return [];
-    }
-
-    static createProduct(dbObject: any) {
-	switch(dbObject.category_code) {
-	case 'ALC':
-	    return new AlcoholicBeverage(dbObject);
-	    break;
-	default:
-	    return new AbstractProduct(dbObject);
-	}
     }
 }
