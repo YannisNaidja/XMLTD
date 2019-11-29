@@ -16,6 +16,7 @@ export class ProductsComponent implements OnInit {
   ngOnInit() {
       this.productsService.getProducts().subscribe(p => {
 	  this.products = p;
+	  console.log(this.products);
     });
   }
 }

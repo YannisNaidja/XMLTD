@@ -1,3 +1,17 @@
 <div *ngFor="let products of products">
-  {{products['product_name']}}
+  <div>
+    Nom : {{products['product_name']}}
+  </div>
+  <div>
+    Prix : {{products['price']}}
+  </div>
+  <div>
+    Marque : {{products['brand']}}
+  </div>
+  <div>
+    Type : {{products['type']}}
+  </div>
+  <div *ngFor="let extra of products.extra">
+    {{extra.key}} : {{extra.value}}
+  </div>
 </div>

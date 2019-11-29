@@ -14,7 +14,6 @@ const MongoClient = require('mongodb').MongoClient;
 const ObjectID = require('mongodb').ObjectId;
 const url = "mongodb://localhost:27017";
 
-
 MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
     let db = client.db("DRINKY");
 
@@ -23,16 +22,48 @@ MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
 
 	try {
 	    let products = [];
-	    db.collection("products").find().toArray((err, documents) => {
-		for (let doc of documents) {
-		    for (let content of doc.content) {
-			content['category_code'] = doc.category_code;
-	     		products.push(content);
-		    }
-	     	}
+	    let extras_wordings = [];
 
-		res.end(JSON.stringify(products));		
+	    db.collection("extras").find().toArray((err, extras) => {
+		for (extra of extras) {
+		    extras_wordings.push(extra);
+
+		    if (extras_wordings.length === extras.length) {
+			db.collection("products").find().toArray((err, documents) => {
+			    let num_document = 0;
+			    
+			    for (let category of documents) {
+				for (let product of category.content) {
+				    product['category_code'] = category.category_code;
+
+				    var extra_property = [];
+
+				    for (let key in product.extra) {
+					for (let extra_wording of extras_wordings) {
+					    if (extra_wording.extra_key === key) {
+						extra_property.push({
+						    'key' : extra.wording,
+						    'value' : product.extra[key]
+						});
+					    }
+					}
+
+					product['extra'] = extra_property;
+				    }
+				    
+	     			    products.push(product);
+				}
+	     		    }
+
+			    res.end(JSON.stringify(products));
+			});
+
+		    }
+		}
+
+
 	    });
+	    
 	} catch(e) {
 	    console.log("Error on /products : " + e);
 	    res.end(JSON.stringify([]));
