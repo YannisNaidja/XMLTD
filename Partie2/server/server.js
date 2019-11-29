@@ -167,19 +167,40 @@ MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
 	});
 
     app.get("/products/search/:category_code/:product_name/:pricemin/:pricemax/:brand/:type/:extra", (req, res) => {
-	let filter = {};
-	let price = {};
 	let results = [];
-	console.log('foo');
+
 	try {
 	    db.collection("products").find({ "category_code" : req.params.category_code }).toArray((err, documents) => {
 		for (let category of documents) {
 		    if (category.category_code === req.params.category_code) {
 			for (let product of category.content) {
-			    if (product.product_name === req.params.product_name &&
-				product.price > req.params.pricemin && product.price < req.params.pricemax &&
-				product.brand === req.params.brand &&
-				product.type === req.params.type) {
+			    let add = true;
+			    
+			    if (req.params.product_name !== '*') {
+				if (product.product_name.indexOf(req.params.product_name) === -1) {
+				    add = false;
+				}
+			    }
+
+			    if (req.params.pricemin !== '*' && req.params.pricemax !== '*') {
+				if (product.price < req.params.pricemin || product.price > req.params.pricemax) {
+				    add = false;
+				}
+			    }
+
+			    if (req.params.brand !== '*') {
+				if (req.params.brand !== product.brand) {
+				    add = false;
+				}
+			    }
+
+			    if (req.params.type !== '*') {
+				if (req.params.type !== product.type) {
+				    add = false;
+				}
+			    }
+			    
+			    if (add) {
 				results.push(product);
 			    }
 			}
