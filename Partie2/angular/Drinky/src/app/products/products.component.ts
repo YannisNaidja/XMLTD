@@ -10,6 +10,7 @@ import { ProductFactory } from '../product-factory';
 })
 export class ProductsComponent implements OnInit {
     private products : any[] = new Array();
+    private productsByCategory : any = {};
     
     constructor(private productsService : ProductsService) { }
     
@@ -29,6 +30,16 @@ export class ProductsComponent implements OnInit {
 		
 		return 0;
 	    });
+
+	    for (let product of this.products) {
+		if (! (product.category_code in this.productsByCategory)) {
+		    this.productsByCategory[product.category_code] = [];
+		}
+		
+		this.productsByCategory[product.category_code].push(product);
+	    }
+
+	    console.log(this.productsByCategory);
 	});
     }
 }
