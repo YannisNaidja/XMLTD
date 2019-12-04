@@ -14,6 +14,36 @@ const MongoClient = require('mongodb').MongoClient;
 const ObjectID = require('mongodb').ObjectId;
 const url = "mongodb://localhost:27017";
 
+function findProducts(categories, extras_wording, category) {
+    let products = [];
+    
+    for (let category of categories) {
+	for (let product of category.content) {
+	    product['category_code'] = category.category_code;
+	    product['extra'] = [];
+	    
+	    var extra_property = [];
+
+	    for (let key in product.extra) {
+		for (let extra_wording of extras_wordings) {
+		    if (extra_wording.extra_key === key) {
+			extra_property.push({
+			    'key' : extra.wording,
+			    'value' : product.extra[key]
+			});
+		    }
+		}
+
+		product['extra'] = extra_property;
+	    }
+	    
+	    products.push(product);
+	}
+    }
+
+    return products;
+}
+
 MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
     let db = client.db("DRINKY");
 
@@ -21,7 +51,6 @@ MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
 	console.log("/products");
 
 	try {
-	    let products = [];
 	    let extras_wordings = [];
 
 	    db.collection("extras").find().toArray((err, extras) => {
@@ -29,32 +58,9 @@ MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
 		    extras_wordings.push(extra);
 
 		    if (extras_wordings.length === extras.length) {
-			db.collection("products").find().toArray((err, documents) => {
-			    let num_document = 0;
+			db.collection("products").find().toArray((err, categories) => {
+			    let products = findProducts(categories, extras_wordings, undefined);
 			    
-			    for (let category of documents) {
-				for (let product of category.content) {
-				    product['category_code'] = category.category_code;
-
-				    var extra_property = [];
-
-				    for (let key in product.extra) {
-					for (let extra_wording of extras_wordings) {
-					    if (extra_wording.extra_key === key) {
-						extra_property.push({
-						    'key' : extra.wording,
-						    'value' : product.extra[key]
-						});
-					    }
-					}
-
-					product['extra'] = extra_property;
-				    }
-				    
-	     			    products.push(product);
-				}
-	     		    }
-
 			    res.end(JSON.stringify(products));
 			});
 
