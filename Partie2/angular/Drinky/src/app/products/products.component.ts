@@ -12,7 +12,7 @@ export class ProductsComponent implements OnInit {
     private products : any[] = new Array();
     private productsByCategory : any = {};
     private categories : any = [];
-    private currentCategory : string = false;
+    private currentCategory : any = false;
     
     constructor(private productsService : ProductsService) { }
     

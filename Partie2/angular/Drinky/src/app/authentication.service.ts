@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Subject, BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
     private dbUrl = 'http://localhost:8888/';
-    private member : any = undefined;
     private member : Subject<any> = new BehaviorSubject<any>(undefined);
     
     constructor(private http : HttpClient) { }
