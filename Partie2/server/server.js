@@ -126,6 +126,8 @@ MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
 			res.end(JSON.stringify(document));
 		    }
 		}
+
+		res.end(JSON.stringify({}));
 	    });
 	} catch(e) {
 	    console.log("Error on /members/:mail/:password : " + e);
