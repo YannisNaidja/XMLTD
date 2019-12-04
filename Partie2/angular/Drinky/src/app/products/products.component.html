@@ -8,7 +8,7 @@
 </div>
 
 <div *ngFor="let category of categories">
-  <div *ngIf="currentCategory === undefined || currentCategory === category.code">
+  <ng-container *ngIf="! currentCategory || currentCategory === category.code">
     <h1>{{ category.name }}</h1>
     <div *ngFor="let product of productsByCategory[category.code]">
       <div>
@@ -27,7 +27,7 @@
 	{{extra.key}} : {{extra.value}}
       </div>
     </div>
-  </div>
+  </ng-container>
 </div>
 
 
