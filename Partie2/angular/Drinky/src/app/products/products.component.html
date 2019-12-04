@@ -1,3 +1,9 @@
+<div *ngFor="let category of categories">
+  <button type="button" (click)="loadCategory(category.code)">
+    {{ category.name }}
+  </button>
+</div>
+
 <div *ngFor="let products of products">
   <div>
     Nom : {{products['product_name']}}

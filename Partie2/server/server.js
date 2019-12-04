@@ -20,6 +20,7 @@ function findProducts(categories, extras_wording, category) {
     for (let category of categories) {
 	for (let product of category.content) {
 	    product['category_code'] = category.category_code;
+	    product['category_name'] = category.category_name;
 	    product['extra'] = [];
 	    
 	    var extra_property = [];
