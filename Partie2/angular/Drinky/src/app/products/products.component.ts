@@ -12,6 +12,7 @@ export class ProductsComponent implements OnInit {
     private products : any[] = new Array();
     private productsByCategory : any = {};
     private categories : any = [];
+    private currentCategory : string = undefined;
     
     constructor(private productsService : ProductsService) { }
     
@@ -49,6 +50,6 @@ export class ProductsComponent implements OnInit {
     }
 
     loadCategory(categoryCode) {
-	console.log(categoryCode);
+	this.currentCategory = categoryCode;
     }
 }

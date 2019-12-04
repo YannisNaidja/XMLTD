@@ -1,23 +1,33 @@
+<button type="button" (click)="loadCategory()">
+  Toutes categories
+</button>
 <div *ngFor="let category of categories">
   <button type="button" (click)="loadCategory(category.code)">
     {{ category.name }}
   </button>
 </div>
 
-<div *ngFor="let products of products">
-  <div>
-    Nom : {{products['product_name']}}
-  </div>
-  <div>
-    Prix : {{products['price']}}
-  </div>
-  <div>
-    Marque : {{products['brand']}}
-  </div>
-  <div>
-    Type : {{products['type']}}
-  </div>
-  <div *ngFor="let extra of products.extra">
-    {{extra.key}} : {{extra.value}}
+<div *ngFor="let category of categories">
+  <div *ngIf="currentCategory === undefined || currentCategory === category.code">
+    <h1>{{ category.name }}</h1>
+    <div *ngFor="let product of productsByCategory[category.code]">
+      <div>
+	Nom : {{product['product_name']}}
+      </div>
+      <div>
+	Prix : {{product['price']}}
+      </div>
+      <div>
+	Marque : {{product['brand']}}
+      </div>
+      <div>
+	Type : {{product['type']}}
+      </div>
+      <div *ngFor="let extra of product.extra">
+	{{extra.key}} : {{extra.value}}
+      </div>
+    </div>
   </div>
 </div>
+
+
