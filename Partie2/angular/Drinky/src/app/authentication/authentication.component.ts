@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-authentication',
@@ -7,17 +8,26 @@ import { AuthenticationService } from '../authentication.service';
   styleUrls: ['./authentication.component.css']
 })
 export class AuthenticationComponent implements OnInit {
+  private password : string ="";
+  private email : string ="";
+  private wrongid : boolean = false;
+  private connected : boolean = false;
 
-  constructor(private authenticationService : AuthenticationService) {}
+  constructor(private authenticationService : AuthenticationService,private router: Router) {}
 
-    ngOnInit() {
-	this.authenticationService.checkExists('jean.pierre@mail.com', 'jp0102').subscribe(member => {
-	    if (Object.keys(member).length > 0) {
-		this.authenticationService.logIn(member);
-	    }
+  ngOnInit() {
+	}
 
-	    console.log(this.authenticationService.isLogged());
-	});
+  onSubmit(){
+    this.authenticationService.checkExists(this.email, this.password).subscribe(member => {
+      if (Object.keys(member).length > 0) {
+        this.wrongid = false;
+        this.authenticationService.logIn(member);
+        this.connected = true;
+      }
+      else{
+        this.wrongid = true;           
+      } 
+    });
   }
-
 }

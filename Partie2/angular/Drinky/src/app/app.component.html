@@ -1,1 +1,6 @@
+<ng-container *ngIf="! authenticationService.isLogged()">
+    <a  routerLink = "/login">Se Connecter</a>
+</ng-container>
+
+
 <router-outlet></router-outlet>
