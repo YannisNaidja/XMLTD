@@ -1,6 +1,14 @@
-<ng-container *ngIf="! authenticationService.isLogged()">
-    <a  routerLink = "/login">Se Connecter</a>
+<ng-container *ngIf="! (member | async)">
+    <a  routerLink="/login">Se Connecter</a>
 </ng-container>
 
+<ul id="menu">
+  <li>
+    <a routerLink="/">Accueil</a>
+  </li>
+  <li>
+    <a routerLink="/products">Produits</a>
+  </li>
+</ul>
 
 <router-outlet></router-outlet>

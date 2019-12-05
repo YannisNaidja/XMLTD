@@ -11,23 +11,25 @@
   <ng-container *ngIf="! currentCategory || currentCategory === category.code">
     <h1>{{ category.name }}</h1>
     <div *ngFor="let product of productsByCategory[category.code]">
-      <div>
-	Nom : {{product['product_name']}}
-      </div>
-      <div>
-	Prix : {{product['price']}}
-      </div>
-      <div>
-	Marque : {{product['brand']}}
-      </div>
-      <div>
-	Type : {{product['type']}}
-      </div>
-      <div *ngFor="let extra of product.extra">
-	{{extra.key}} : {{extra.value}}
-      </div>
+      {{product['product_name']}}
     </div>
   </ng-container>
 </div>
 
-
+<!-- <div *ngFor="let product of productsByCategory[category.code]"> -->
+<!--   <div> -->
+<!--     Nom : {{product['product_name']}} -->
+<!--   </div> -->
+<!--   <div> -->
+<!--     Prix : {{product['price']}} -->
+<!--   </div> -->
+<!--   <div> -->
+<!--     Marque : {{product['brand']}} -->
+<!--   </div> -->
+<!--   <div> -->
+<!--     Type : {{product['type']}} -->
+<!--   </div> -->
+<!--   <div *ngFor="let extra of product.extra"> -->
+<!--     {{extra.key}} : {{extra.value}} -->
+<!--   </div> -->
+<!-- </div> -->

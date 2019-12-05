@@ -17,7 +17,7 @@ export class AuthenticationService {
     }
 
     getMember() {
-	return this.member !== undefined;
+	return this.member;
     }
 
     logIn(member) {

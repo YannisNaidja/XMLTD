@@ -12,11 +12,15 @@ export class AuthenticationComponent implements OnInit {
   private email : string ="";
   private wrongid : boolean = false;
   private connected : boolean = false;
-
-  constructor(private authenticationService : AuthenticationService,private router: Router) {}
+  private member : Observable<any>;
+  
+  constructor(private authenticationService : AuthenticationService,private router: Router) {
+    this.member = this.authenticationService.getMember();
+  }
 
   ngOnInit() {
-	}
+    
+  }
 
   onSubmit(){
     this.authenticationService.checkExists(this.email, this.password).subscribe(member => {

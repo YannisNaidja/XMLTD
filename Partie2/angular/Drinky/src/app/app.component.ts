@@ -9,8 +9,11 @@ import { AuthenticationService } from './authentication.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
-  constructor(private authenticationService : AuthenticationService) {}
+  private member : Observable<any>;
+  
+  constructor(private authenticationService : AuthenticationService) {
+    this.member = this.authenticationService.getMember();
+  }
 
   title = 'Drinky';
 }
