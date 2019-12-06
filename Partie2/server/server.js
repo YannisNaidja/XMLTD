@@ -211,85 +211,87 @@ MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
 	    });
 	});
 
-	app.post("/basket" , (req,res) => {
-
-		db.collection("basket").find({'user_mail' : req.body.user_mail})
-			.toArray((err, documents) => {
+    app.post("/basket" , (req,res) => {
+	console.dir(req.body);
+	db.collection("basket").find({'user_mail' : req.body.user_mail})
+	    .toArray((err, documents) => {
 		
-				let basket = documents[0].basket;
-				console.log(basket);
-				basket.push(req.body.product);
-				try {
-					db.collection("basket").updateOne(
-						{'user_mail' : req.body.user_mail},
-						{ $set : {'basket' : basket }});
-				} catch (error) {
-					print(error);
-				}
-			});	
-	});	
+		let basket = documents[0].basket;
+		console.log(basket);
+		basket.push(req.body.product);
+		try {
+		    db.collection("basket").updateOne(
+			{'user_mail' : req.body.user_mail},
+			{ $set : {'basket' : basket }});
+
+		    res.end(JSON.stringify({"message" : "Success"}));
+		} catch (error) {
+		    print(error);
+		}
+	    });	
+    });	
 
 
-	app.post("/supprProduct" , (req,res) => {
+    app.post("/supprProduct" , (req,res) => {
 
-		db.collection("basket").find({'user_mail' : req.body.user_mail})
-			.toArray((err, documents) => {
-				let newbasket = { "user_mail" : req.body.user_mail , basket :[]  }
-				let basket = documents[0].basket;
-				for(let items of basket){
-					if(req.body.product_code !== items.product_code){
-						newbasket.basket.push(items);
-					}
-				}
-				console.log(JSON.stringify(newbasket));
-				try {
-					db.collection("basket").updateOne(
-						{'user_mail' : req.body.user_mail},
-						{ $set : {'basket' : newbasket }});
-				} catch (error) {
-					print(error);
-				}
-			});	
-	});	
+	db.collection("basket").find({'user_mail' : req.body.user_mail})
+	    .toArray((err, documents) => {
+		let newbasket = { "user_mail" : req.body.user_mail , basket :[]  }
+		let basket = documents[0].basket;
+		for(let items of basket){
+		    if(req.body.product_code !== items.product_code){
+			newbasket.basket.push(items);
+		    }
+		}
+		console.log(JSON.stringify(newbasket));
+		try {
+		    db.collection("basket").updateOne(
+			{'user_mail' : req.body.user_mail},
+			{ $set : {'basket' : newbasket }});
+		} catch (error) {
+		    print(error);
+		}
+	    });	
+    });	
 
-	app.post("/emptyBasket" , (req,res) => {
+    app.post("/emptyBasket" , (req,res) => {
 
-		db.collection("basket").find({'user_mail' : req.body.user_mail})
-			.toArray((err, documents) => {
-				let newbasket = { "user_mail" : req.body.user_mail , basket :[]  }
-				try {
-					db.collection("basket").updateOne(
-						{'user_mail' : req.body.user_mail},
-						{ $set : {'basket' : newbasket }});
-				} catch (error) {
-					print(error);
-				}
-			});	
-	});	
+	db.collection("basket").find({'user_mail' : req.body.user_mail})
+	    .toArray((err, documents) => {
+		let newbasket = { "user_mail" : req.body.user_mail , basket :[]  }
+		try {
+		    db.collection("basket").updateOne(
+			{'user_mail' : req.body.user_mail},
+			{ $set : {'basket' : newbasket }});
+		} catch (error) {
+		    print(error);
+		}
+	    });	
+    });	
 
-		app.post("/modifBasket" , (req,res) => {
-			//marche
-				db.collection("basket").find({'user_mail' : req.body.user_mail})
-					.toArray((err, documents) => {
-						let basket = documents[0].basket;
-						for(let items of basket){
-							if (req.body.product_code === items.product_code )	{						
-								items.quantity = req.body.quantity;
-								console.log("la quantity vaut"+JSON.stringify(items.quantity));
-								console.log("le basket vaut" +JSON.stringify(basket));
-								try {
-							db.collection("basket").updateOne(
-								{'user_mail' : req.body.user_mail },
-								{ $set : {'basket' : basket }});
-						} catch (error) {
-							print(error);
-							
-						}
-					}	
-				}
-					
-			});
-	});
+    app.post("/modifBasket" , (req,res) => {
+	//marche
+	db.collection("basket").find({'user_mail' : req.body.user_mail})
+	    .toArray((err, documents) => {
+		let basket = documents[0].basket;
+		for(let items of basket){
+		    if (req.body.product_code === items.product_code )	{						
+			items.quantity = req.body.quantity;
+			console.log("la quantity vaut"+JSON.stringify(items.quantity));
+			console.log("le basket vaut" +JSON.stringify(basket));
+			try {
+			    db.collection("basket").updateOne(
+				{'user_mail' : req.body.user_mail },
+				{ $set : {'basket' : basket }});
+			} catch (error) {
+			    print(error);
+			    
+			}
+		    }	
+		}
+		
+	    });
+    });
 
     app.get("/products/search/:category_code/:product_name/:pricemin/:pricemax/:brand/:type/:extra", (req, res) => {
 	let results = [];

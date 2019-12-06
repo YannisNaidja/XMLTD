@@ -12,9 +12,19 @@
   <li *ngFor="let extra of product.extra">
     {{extra.key}} : {{extra.value}}
   </li>
-  <label for="add-to-basket-field">
-    Ajouter au panier
-  </label>
-  <input type="number" name="add-to-basket-field" id="add-to-basket-field" placeholder="Quantité" />
-  <input type="button" value="Valider" />
+  <div id="add-to-basket-form" *ngIf="quantityInBasket(product.code) === 0">
+    <form (ngSubmit)="onAddToBasketFormSubmit()">
+      <label for="add-to-basket-field">
+	Ajouter au panier
+      </label>
+      <input type="number" name="add-to-basket-field" id="add-to-basket-field" placeholder="Quantité" [(ngModel)]="newQuantity" />
+      <button type="submit">
+	Valider
+      </button>
+    </form>
+  </div>
+  <div *ngIf="quantityInBasket(product.code) > 0" id="display-basket-product">
+    <span>{{ quantityInBasket(product.code) }} produit(s) aux paniers</span>
+    <button>Modifier</button>
+  </div>
 </ul>

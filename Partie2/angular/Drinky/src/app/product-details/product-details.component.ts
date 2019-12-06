@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ActivatedRoute, Params } from '@angular/router';
 import { ProductsService } from '../products.service';
+import { BasketService } from '../basket.service';
+import { AuthenticationService } from '../authentication.service';
 
 @Component({
     selector: 'app-product-details',
@@ -17,12 +19,18 @@ export class ProductDetailsComponent implements OnInit {
 	extra : []
     };
 
+    private member : any;
     private basket : any = [];
+    private newQuantity : number = 0;
     
     constructor(private route : ActivatedRoute,
-		private productsService : ProductsService) { }
+		private productsService : ProductsService,
+		private basketService : BasketService,
+		private authenticationService : AuthenticationService) { }
 
     ngOnInit() {
+	this.member = this.authenticationService.getMember();
+	
 	this.route.params.subscribe((params : Params) => {
 	    this.productsService.findByCode(params.code).subscribe(res => {
 		this.product = res;
@@ -31,12 +39,18 @@ export class ProductDetailsComponent implements OnInit {
     }
 
     quantityInBasket(productCode) {
-	for (let item of basket) {
+	for (let item of this.basket) {
 	    if (item.product_code === productCode) {
 		return item.quantity;
 	    }
 	}
 
 	return 0;
+    }
+
+    onAddToBasketFormSubmit(productCode) {
+	this.basketService.addBasket(this.member.mail, productCode, this.newQuantity).subscribe(res => {
+	    console.log(res);
+	});
     }
 }
