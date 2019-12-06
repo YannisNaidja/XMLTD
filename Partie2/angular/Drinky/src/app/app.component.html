@@ -1,5 +1,10 @@
 <ng-container *ngIf="! (member | async)">
     <a  routerLink="/login">Se Connecter</a>
+   <div> <a routerLink="registration">S'inscrire</a> </div>
+</ng-container>
+
+<ng-container *ngIf="(member | async)">
+  <a (click) = "authenticationService.logOut(member)" routerLink="/">Se Deconnecter</a>
 </ng-container>
 
 <ul id="menu">

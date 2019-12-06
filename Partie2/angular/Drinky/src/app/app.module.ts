@@ -9,6 +9,9 @@ import { ProductsComponent } from './products/products.component';
 import { ProductsService } from './products.service';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { BasketComponent } from './basket/basket.component';
+import { AuthenticationService } from './authentication.service';
+import { BasketService } from './basket.service';
 
 @NgModule({
   declarations: [
@@ -16,6 +19,7 @@ import { RegistrationComponent } from './registration/registration.component';
       ProductsComponent,
       AuthenticationComponent,
       RegistrationComponent,
+      BasketComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +28,9 @@ import { RegistrationComponent } from './registration/registration.component';
     FormsModule
   ],
   providers: [
-    ProductsService
+    ProductsService,
+    AuthenticationService,
+    BasketService
   ],
   bootstrap: [AppComponent]
 })

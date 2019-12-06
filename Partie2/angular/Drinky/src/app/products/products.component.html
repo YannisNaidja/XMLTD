@@ -1,3 +1,7 @@
+<ng-container *ngIf="(member | async)">
+  <a  routerLink="/">Se Deconnecter</a>
+</ng-container>
+
 <button type="button" (click)="loadCategory()">
   Toutes categories
 </button>
