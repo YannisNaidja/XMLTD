@@ -11,7 +11,7 @@ export class BasketService {
 
   constructor(private http : HttpClient) { }
 
-  getBasket(userid){
+  getBasket(userid) : Observable<any>{
     return this.http.get(this.dbUrl+ 'basket/'+ userid);
   }
   AddBasket(user_mail,id_product,quantity) : Observable<any> {

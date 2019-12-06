@@ -1,1 +1,10 @@
+
+<div><h1>Panier</h1></div>
 <button type="button" (click) = "loadBasket()">Consulter Votre Panier</button>
+
+<div *ngFor="let item of basket">
+  <ng-container *ngIf="! currentCategory || currentCategory === category.code">
+    <h1>{{ item.product_code }}</h1>
+    <h1> {{item.quantity}}</h1>
+  </ng-container>
+

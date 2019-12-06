@@ -5,6 +5,10 @@
 
 <ng-container *ngIf="(member | async)">
   <a (click) = "authenticationService.logOut(member)" routerLink="/">Se Deconnecter</a>
+  
+  <basket>
+  </basket>
+  
 </ng-container>
 
 <ul id="menu">
