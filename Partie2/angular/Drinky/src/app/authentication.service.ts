@@ -27,4 +27,9 @@ export class AuthenticationService {
     isLogged() : boolean {
 	return typeof this.member.value !== 'undefined';
     }
+
+    logOut(member){
+        this.member.next(undefined);
+    }
+
 }

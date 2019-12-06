@@ -9,7 +9,15 @@ import { ProductsService } from '../products.service';
     styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit {
-    private product : any;
+    private product : any = {
+	product_name : '',
+	price : 0,
+	brand : '',
+	type : '',
+	extra : []
+    };
+
+    private basket : any = [];
     
     constructor(private route : ActivatedRoute,
 		private productsService : ProductsService) { }
@@ -17,9 +25,18 @@ export class ProductDetailsComponent implements OnInit {
     ngOnInit() {
 	this.route.params.subscribe((params : Params) => {
 	    this.productsService.findByCode(params.code).subscribe(res => {
-		console.log(res);
 		this.product = res;
 	    });
 	});
+    }
+
+    quantityInBasket(productCode) {
+	for (let item of basket) {
+	    if (item.product_code === productCode) {
+		return item.quantity;
+	    }
+	}
+
+	return 0;
     }
 }

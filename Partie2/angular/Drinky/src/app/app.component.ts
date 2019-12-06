@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthenticationService } from './authentication.service';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs' ;
 
 @Component({
   selector: 'app-root',
@@ -15,4 +15,6 @@ export class AppComponent {
   }
 
   title = 'Drinky';
+
+  
 }

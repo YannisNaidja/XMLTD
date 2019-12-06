@@ -1,4 +1,4 @@
-<h1>{{product['product_name']}}</h1>
+<h1>{{product.product_name}}</h1>
 <ul>
   <li>
     Prix : {{product['price']}}
@@ -12,4 +12,9 @@
   <li *ngFor="let extra of product.extra">
     {{extra.key}} : {{extra.value}}
   </li>
+  <label for="add-to-basket-field">
+    Ajouter au panier
+  </label>
+  <input type="number" name="add-to-basket-field" id="add-to-basket-field" placeholder="Quantité" />
+  <input type="button" value="Valider" />
 </ul>
