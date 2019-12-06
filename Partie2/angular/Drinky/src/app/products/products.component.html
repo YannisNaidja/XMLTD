@@ -15,25 +15,8 @@
   <ng-container *ngIf="! currentCategory || currentCategory === category.code">
     <h1>{{ category.name }}</h1>
     <div *ngFor="let product of productsByCategory[category.code]">
-      {{product['product_name']}}
+      <span>{{product['product_name']}}</span>
+      <input *ngIf="member | async" type="button" (click)="viewDetails(product.code)" value="Consulter" />
     </div>
   </ng-container>
 </div>
-
-<!-- <div *ngFor="let product of productsByCategory[category.code]"> -->
-<!--   <div> -->
-<!--     Nom : {{product['product_name']}} -->
-<!--   </div> -->
-<!--   <div> -->
-<!--     Prix : {{product['price']}} -->
-<!--   </div> -->
-<!--   <div> -->
-<!--     Marque : {{product['brand']}} -->
-<!--   </div> -->
-<!--   <div> -->
-<!--     Type : {{product['type']}} -->
-<!--   </div> -->
-<!--   <div *ngFor="let extra of product.extra"> -->
-<!--     {{extra.key}} : {{extra.value}} -->
-<!--   </div> -->
-<!-- </div> -->

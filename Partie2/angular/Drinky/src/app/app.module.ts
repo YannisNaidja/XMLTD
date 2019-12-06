@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductsComponent } from './products/products.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProductsService } from './products.service';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { RegistrationComponent } from './registration/registration.component';
@@ -19,6 +20,7 @@ import { BasketService } from './basket.service';
       ProductsComponent,
       AuthenticationComponent,
       RegistrationComponent,
+      ProductDetailsComponent,
       BasketComponent,
   ],
   imports: [
