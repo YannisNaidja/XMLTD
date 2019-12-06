@@ -184,7 +184,7 @@ MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
 	    });
 	});
 
-	app.post("/addProductToBasket" , (req,res) => {
+	app.post("/basket" , (req,res) => {
 
 		db.collection("basket").find({'user_mail' : req.body.user_mail})
 			.toArray((err, documents) => {
