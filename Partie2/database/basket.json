@@ -1,23 +1,23 @@
 [
     {
-	'user_mail' : 'jean.pierre@mail.com',
-	'basket' : [
+	"user_mail" : "jean.pierre@mail.com",
+	"basket" : [
 	    {
-		'product_code' : 'X019',
-		'quantity' : 1
+		"product_code" : "X019",
+		"quantity" : "1"
 	    },
 	    {
-		'product_code' : 'D1143',
-		'quantity' : 2
+		"product_code" : "D1143",
+		"quantity" : "2"
 	    }
 	]
     },
     {
-	'user_mail' : 'carole.dupont@mail.com',
-	'basket' : [
+	"user_mail" : "carole.dupont@mail.com",
+	"basket" : [
 	    {
-		'product_code' : 'C0193',
-		'quantity' : 1
+		"product_code" : "C0193",
+		"quantity" : "1"
 	    }
 	]
     }

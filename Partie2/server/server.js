@@ -207,7 +207,6 @@ MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
 	    db.collection("basket").find().toArray((err, documents) => {
 		for (let document of documents) {
 		    if (document.user_mail === req.params.mail) {
-			res.status(500);
 			res.end(JSON.stringify(document.basket));
 		    }
 		}

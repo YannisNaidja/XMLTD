@@ -11,20 +11,23 @@ import { AuthenticationService } from '../authentication.service';
 export class BasketComponent implements OnInit {
 
   private basket : any[] = new Array();
-  private member : Observable<any>;
+  private member : any;
   
   
 
   constructor(private  basketservice : BasketService, authentication : AuthenticationService) { 
-   // this.member = authentication.getMember();
+   this.member = authentication.getMember();
+   console.log(this.member);
   }
 
   ngOnInit() {
 
   }
 loadBasket(){
+  console.log(this.member.value.mail);
   this.basketservice.getBasket(this.member.value.mail).subscribe(b => {
     this.basket = b;
+    
     });
   }
 }
