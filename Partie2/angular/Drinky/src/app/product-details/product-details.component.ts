@@ -19,7 +19,7 @@ export class ProductDetailsComponent implements OnInit {
 	extra : []
     };
 
-    private member : any;
+    private member : Observable<any>;
     private basket : any = [];
     private newQuantity : number = 0;
     
@@ -36,6 +36,10 @@ export class ProductDetailsComponent implements OnInit {
 		this.product = res;
 	    });
 	});
+
+	this.basketService.getBasket(this.member.value.mail).subscribe(res => {
+	    this.basket = res;
+	});
     }
 
     quantityInBasket(productCode) {
@@ -49,8 +53,13 @@ export class ProductDetailsComponent implements OnInit {
     }
 
     onAddToBasketFormSubmit(productCode) {
-	this.basketService.addBasket(this.member.mail, productCode, this.newQuantity).subscribe(res => {
+	console.log(this.product.code);
+	this.basketService.addBasket(/*this.member.value.mail*/ "jean.pierre@mail.com", this.product.code, this.newQuantity).subscribe(res => {
 	    console.log(res);
+	    this.basketService.getBasket(/*this.member.value.mail*/ "jean.pierre@mail.com").subscribe(res => {
+		this.basket = res;
+		console.log(this.basket);
+	    });
 	});
     }
 }

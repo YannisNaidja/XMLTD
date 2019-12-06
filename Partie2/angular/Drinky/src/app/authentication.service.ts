@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class AuthenticationService {
     private dbUrl = 'http://localhost:8888/';
-    private member : Subject<any> = new BehaviorSubject<any>(undefined);
+    private member : BehaviorSubject<any> = new BehaviorSubject<any>(undefined);
     
     constructor(private http : HttpClient) { }
 
