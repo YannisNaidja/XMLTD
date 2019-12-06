@@ -19,14 +19,17 @@ export class BasketService {
       "user_mail" : user_mail,
       "product " : id_product,
       "quantity" : quantity
-    }); // le suscribe doit etre dans le composant
+    }); 
   }
-  ModifiyBasket(quantity) : Observable<any>{
+  ModifiyBasket(user_mail,quantity) : Observable<any>{
     return this.http.post(this.dbUrl + 'modifBasket', {
       "user_mail" : user_mail,
-      "product " : id_product,
       "quantity" : quantity
     });
-
+  }
+  emptyBasket(user_mail) : Observable<any>{
+    return this.http.post(this.dbUrl + 'emptyBasket', {
+      "user_mail" : user_mail
+    });
   }
 }

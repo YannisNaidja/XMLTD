@@ -191,7 +191,8 @@ MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
 		
 				let basket = documents[0].basket;
 				console.log(basket);
-				basket.push(req.body.product);
+				let product = {"product_code" : req.body.product_code , "quantity" : req.body.quantity};
+				basket.push(product);
 				try {
 					db.collection("basket").updateOne(
 						{'user_mail' : req.body.user_mail},
