@@ -1,0 +1,15 @@
+<h1>{{product['product_name']}}</h1>
+<ul>
+  <li>
+    Prix : {{product['price']}}
+  </li>
+  <li>
+    Marque : {{product['brand']}}
+  </li>
+  <li>
+    Type : {{product['type']}}
+  </li>
+  <li *ngFor="let extra of product.extra">
+    {{extra.key}} : {{extra.value}}
+  </li>
+</ul>

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../products.service';
-import { Product } from '../product';
-import { ProductFactory } from '../product-factory';
+import { Router } from '@angular/router';
+import { AuthenticationService } from '../authentication.service';
+import { Observable } from 'rxjs';
 
 @Component({
     selector: 'app-products',
@@ -13,8 +14,13 @@ export class ProductsComponent implements OnInit {
     private productsByCategory : any = {};
     private categories : any = [];
     private currentCategory : any = false;
+    private member : Observable<any>;
     
-    constructor(private productsService : ProductsService) { }
+    constructor(private productsService : ProductsService,
+		private authenticationService : AuthenticationService,
+		private router : Router) {
+    	this.member = this.authenticationService.getMember();
+    }
     
     ngOnInit() {
 	this.productsService.getProducts().subscribe(p => {
@@ -49,11 +55,15 @@ export class ProductsComponent implements OnInit {
 	});
     }
 
-    loadCategory(categoryCode) {
+    loadCategory(categoryCode : any) {
 	if (typeof categoryCode === 'undefined') {
 	    categoryCode = false;
 	}
 	
 	this.currentCategory = categoryCode;
+    }
+
+    viewDetails(code : string) {
+	this.router.navigate(['/products/' + code ]);
     }
 }

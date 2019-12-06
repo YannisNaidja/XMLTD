@@ -13,4 +13,8 @@ export class ProductsService {
     getProducts(): Observable<any> {
 	return this.http.get(this.dbUrl + 'products');
     }
+
+    findByCode(code : string): Observable<any> {
+	return this.http.get(this.dbUrl + "products/" + code);
+    }
 }

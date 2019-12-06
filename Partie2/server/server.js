@@ -14,31 +14,31 @@ const MongoClient = require('mongodb').MongoClient;
 const ObjectID = require('mongodb').ObjectId;
 const url = "mongodb://localhost:27017";
 
-function findProducts(categories, extras_wording, category) {
+function findProducts(categories, extras_wordings, product_id) {
     let products = [];
     
     for (let category of categories) {
 	for (let product of category.content) {
-	    product['category_code'] = category.category_code;
-	    product['category_name'] = category.category_name;
-	    product['extra'] = [];
-	    
-	    var extra_property = [];
-
-	    for (let key in product.extra) {
-		for (let extra_wording of extras_wordings) {
-		    if (extra_wording.extra_key === key) {
-			extra_property.push({
-			    'key' : extra.wording,
-			    'value' : product.extra[key]
-			});
+	    if (typeof product_id === 'undefined' || product.code === product_id) {
+		product['category_code'] = category.category_code;
+		product['category_name'] = category.category_name;
+		
+		var extra_property = [];
+		
+		for (let key in product.extra) {
+		    for (let extra_wording of extras_wordings) {
+			if (extra_wording.extra_key === key) {
+			    extra_property.push({
+				'key' : extra.wording,
+				'value' : product.extra[key]
+			    });
+			}
 		    }
 		}
 
 		product['extra'] = extra_property;
+		products.push(product);
 	    }
-	    
-	    products.push(product);
 	}
     }
 
@@ -60,17 +60,44 @@ MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
 
 		    if (extras_wordings.length === extras.length) {
 			db.collection("products").find().toArray((err, categories) => {
-			    let products = findProducts(categories, extras_wordings, undefined);
+			    let products = findProducts(categories, extras_wordings);
 			    
 			    res.end(JSON.stringify(products));
 			});
 
 		    }
 		}
-
-
 	    });
 	    
+	} catch(e) {
+	    console.log("Error on /products : " + e);
+	    res.end(JSON.stringify([]));
+	}
+    });
+
+    app.get("/products/:product_id", (req,res) => {
+	console.log("/products/" + req.params.product_id);
+
+	try {
+	    let extras_wordings = [];
+	    let found = false;
+
+	    db.collection("extras").find().toArray((err, extras) => {
+		for (extra of extras) {
+		    extras_wordings.push(extra);
+		    if (extras_wordings.length === extras.length) {
+			db.collection("products").find().toArray((err, categories) => {
+			    let products = findProducts(categories, extras_wordings, req.params.product_id);
+			    
+			    if (products.length > 0) {
+				res.end(JSON.stringify(products[0]));
+			    } else {
+				res.end(JSON.stringify([]));
+			    }
+			});
+		    }
+		}
+	    });
 	} catch(e) {
 	    console.log("Error on /products : " + e);
 	    res.end(JSON.stringify([]));
