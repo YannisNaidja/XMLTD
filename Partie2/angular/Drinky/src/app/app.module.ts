@@ -13,6 +13,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { BasketComponent } from './basket/basket.component';
 import { AuthenticationService } from './authentication.service';
 import { BasketService } from './basket.service';
+import { RegistrationService } from './registration.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { BasketService } from './basket.service';
   providers: [
     ProductsService,
     AuthenticationService,
-    BasketService
+    BasketService,
+    RegistrationService
   ],
   bootstrap: [AppComponent]
 })

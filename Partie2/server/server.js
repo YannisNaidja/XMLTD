@@ -180,15 +180,12 @@ MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
 	console.dir(req.body);
 	db.collection("basket").find({'user_mail' : req.body.user_mail})
 	    .toArray((err, documents) => {
-		
-		 let basket = documents[0].basket;
-		console.log("lancien panier vaut"+ JSON.stringify(basket));
+		console.log("le doc vaut" + documents);
+		let basket = documents[0].basket;
 		var newbasket = Object.values(basket);
-		console.log("le nouveau panier vaut :"+ newbasket);
 		let product = {"product_code" : req.body.product_code , "quantity" : req.body.quantity};
 		newbasket.push(product);
-		console.log(newbasket);
-		//basket.push(product);
+		
 		try {
 		    db.collection("basket").updateOne(
 			{'user_mail' : req.body.user_mail},
@@ -210,6 +207,7 @@ MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
 	    db.collection("basket").find().toArray((err, documents) => {
 		for (let document of documents) {
 		    if (document.user_mail === req.params.mail) {
+			console.log("le serveur envoi"+ document.basket);
 			res.end(JSON.stringify(document.basket));
 		    }
 		}
@@ -237,14 +235,15 @@ MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
 	    });
 	});
 
-    app.post("/supprProduct" , (req,res) => {
+    app.post("/removeProduct" , (req,res) => {
 	db.collection("basket").find({'user_mail' : req.body.user_mail})
 	    .toArray((err, documents) => {
-		let newbasket = { "user_mail" : req.body.user_mail , basket :[]  }
+		let newbasket = [];
 		let basket = documents[0].basket;
+		console.log("basket vaut" +JSON.stringify(basket));
 		for(let items of basket){
 		    if(req.body.product_code !== items.product_code){
-			newbasket.basket.push(items);
+			newbasket.push(items);
 		    }
 		}
 		console.log(JSON.stringify(newbasket));

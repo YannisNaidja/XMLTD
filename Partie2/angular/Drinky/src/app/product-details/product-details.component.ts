@@ -5,6 +5,7 @@ import { ProductsService } from '../products.service';
 import { BasketService } from '../basket.service';
 import { AuthenticationService } from '../authentication.service';
 import {Observable} from 'rxjs';
+import { BasketComponent } from '../basket/basket.component';
 
 @Component({
     selector: 'app-product-details',
@@ -39,7 +40,8 @@ export class ProductDetailsComponent implements OnInit {
 	});
 
 	this.basketService.getBasket(this.member).subscribe(res => {
-	    this.basket = res;
+		this.basket = res;
+		console.log(this.basket);
 	});
     }
 
@@ -55,9 +57,9 @@ export class ProductDetailsComponent implements OnInit {
 
     onAddToBasketFormSubmit(productCode) {
 	console.log(this.product.code);
-	this.basketService.AddBasket(/*this.member.value.mail*/ "jean.pierre@mail.com", this.product.code, this.newQuantity).subscribe(res => {
+	this.basketService.AddBasket(this.member.value.mail, this.product.code, this.newQuantity).subscribe(res => {
 	    console.log(res);
-	    this.basketService.getBasket(/*this.member.value.mail*/ "jean.pierre@mail.com").subscribe(res => {
+	    this.basketService.getBasket(this.member.value.mail).subscribe(res => {
 		this.basket = res;
 		console.log(this.basket);
 	    });

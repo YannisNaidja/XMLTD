@@ -33,5 +33,11 @@ export class BasketService {
       "user_mail" : user_mail
     });
   }
+  removeItem(user_mail,id_product): Observable <any>{
+    return this.http.post(this.dbUrl+ 'removeProduct',{
+      "user_mail" : user_mail,
+      "product_code" : id_product
+    });
+  }
 
 }
