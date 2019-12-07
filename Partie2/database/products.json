@@ -2,6 +2,7 @@
     {
 	"category_code" : "ALC",
 	"category_name" : "Boissons alcolisees",
+	"category_img" : "assets/alc.jpeg",
 	"content" : [
 	    {
 		"code" : "X0192",
@@ -29,6 +30,7 @@
     {
 	"category_code" : "SOD",
 	"category_name" : "Sodas",
+	"category_img" : "assets/sod.jpeg",
 	"content" : [
 	    {
 		"code" : "D1143",

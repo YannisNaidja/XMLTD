@@ -1,6 +1,10 @@
 
 
-<h1 class ="text-center">Welcome To Drinky!</h1>
+<div class="text-center">
+  <img src="assets/ez.jpg" class="rounded" alt="image">
+  <h1 >Welcome To Drinky!</h1>
+</div>
+
 <nav class="navbar navbar-dark bg-dark text-light">
   <ng-container  *ngIf="! (member | async)">
     <a routerLink="/login">Se Connecter</a>
@@ -14,19 +18,19 @@
 </nav>
 
 
+
 <div style="margin-top:50px;" class="container-fluid">
     <div class="row">
         <div class="col-sm text-center">
             <router-outlet></router-outlet>
         </div>
-        <div class="col-sm text-right">
+        <div style="margin-right:50px;" class="col-sm text-right">
             <router-outlet name ="basket">
                 <ng-container  *ngIf="(member | async)">
                   <basket></basket>
                 </ng-container>
             </router-outlet>
-        </div>
-        
+        </div>    
     </div>
 </div>
 

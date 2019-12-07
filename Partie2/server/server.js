@@ -22,6 +22,7 @@ function findProducts(categories, extras_wordings, product_id) {
 	    if (typeof product_id === 'undefined' || product.code === product_id) {
 		product['category_code'] = category.category_code;
 		product['category_name'] = category.category_name;
+		product['category_img'] = category.category_img;
 		
 		var extra_property = [];
 		
@@ -45,7 +46,7 @@ function findProducts(categories, extras_wordings, product_id) {
     return products;
 }
 
-MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
+MongoClient.connect(url, {useNewUrlParser: true , useUnifiedTopology: true }, (err, client) => {
     let db = client.db("DRINKY");
 
     app.get("/products", (req,res) => {
@@ -181,10 +182,18 @@ MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
 	db.collection("basket").find({'user_mail' : req.body.user_mail})
 	    .toArray((err, documents) => {
 		console.log("le doc vaut" + documents);
+		var dejapresent = false;
 		let basket = documents[0].basket;
 		var newbasket = Object.values(basket);
-		let product = {"product_code" : req.body.product_code , "quantity" : req.body.quantity};
-		newbasket.push(product);
+		console.log("new basket vaut"+JSON.stringify(newbasket));
+		let product = {"product_code" : req.body.product_code ,"product_name" : req.body.product_name, "quantity" : req.body.quantity};
+		for(let items of newbasket)
+			if(items.product_code=== product.product_code){
+				dejapresent = true;
+				items.quantity+=req.body.quantity;
+			}
+		if(!dejapresent)	
+			newbasket.push(product);
 		
 		try {
 		    db.collection("basket").updateOne(

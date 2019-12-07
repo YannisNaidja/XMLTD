@@ -15,10 +15,11 @@ export class BasketService {
     console.log("lid vaut "+ "basket/"+userid);
     return this.http.get(this.dbUrl+'basket/'+userid);
   }
-  AddBasket(user_mail,id_product,quantity) : Observable<any> {
+  AddBasket(user_mail,id_product,name,quantity) : Observable<any> {
     return this.http.post(this.dbUrl + 'basket', {
       "user_mail" : user_mail,
       "product_code" : id_product,
+      "product_name" : name,
       "quantity" : quantity
     }); 
   }

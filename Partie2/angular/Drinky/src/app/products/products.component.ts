@@ -24,7 +24,8 @@ export class ProductsComponent implements OnInit {
     
     ngOnInit() {
 	this.productsService.getProducts().subscribe(p => {
-	    this.products = p;
+		this.products = p;
+		console.log("les produit sonts"+JSON.stringify(this.products));
 	    
 	    this.products.sort(function(a, b) {
 		let initialA = a.product_name.toLowerCase()[0];
@@ -44,14 +45,15 @@ export class ProductsComponent implements OnInit {
 		    this.productsByCategory[product.category_code] = [];
 		    this.categories.push({
 			code : product.category_code,
-			name : product.category_name
+			name : product.category_name,
+			img : product.category_img
 		    });
 		}
 		
 		this.productsByCategory[product.category_code].push(product);
 	    }
 
-	    console.log(this.categories);
+	    console.log("la categorie vaut" +JSON.stringify(this.categories));
 	});
     }
 

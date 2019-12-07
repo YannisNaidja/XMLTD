@@ -59,7 +59,7 @@ export class ProductDetailsComponent implements OnInit {
 
     onAddToBasketFormSubmit(productCode) {
 	console.log(this.product.code);
-	this.basketService.AddBasket(this.member.value.mail, this.product.code, this.newQuantity).subscribe(res => {
+	this.basketService.AddBasket(this.member.value.mail, this.product.code,this.product.product_name, this.newQuantity).subscribe(res => {
 	    console.log(res);
 	    this.basketService.getBasket(this.member.value.mail).subscribe(res => {
 		this.basket = res;

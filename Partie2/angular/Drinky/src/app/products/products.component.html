@@ -13,6 +13,7 @@
 <div style ="margin-top : 50px;" *ngFor="let category of categories">
   <ng-container *ngIf="! currentCategory || currentCategory === category.code">
     <h1>{{ category.name }}</h1>
+    <img src="{{ category.img }}">
     <div *ngFor="let product of productsByCategory[category.code]">
       <span>{{product['product_name']}}</span>
       <input *ngIf="member | async" type="button" (click)="viewDetails(product.code)" value="Consulter" />
