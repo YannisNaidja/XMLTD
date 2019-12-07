@@ -65,5 +65,8 @@ export class ProductsComponent implements OnInit {
 
     viewDetails(code : string) {
 	this.router.navigate(['/products/' + code ]);
-    }
+	}
+	connect(){
+		this.router.navigate(['/login']);
+	}
 }

@@ -1,22 +1,22 @@
-<ng-container *ngIf="(member | async)">
-  <a  routerLink="/">Se Deconnecter</a>
-</ng-container>
 
-<button type="button" (click)="loadCategory()">
+<div class="btn-group" role="group">
+<button type="button" class="btn btn-secondary" (click)="loadCategory()">
   Toutes categories
 </button>
 <div *ngFor="let category of categories">
-  <button type="button" (click)="loadCategory(category.code)">
+  <button type="button" class="btn btn-secondary"  (click)="loadCategory(category.code)">
     {{ category.name }}
   </button>
 </div>
+</div>
 
-<div *ngFor="let category of categories">
+<div style ="margin-top : 50px;" *ngFor="let category of categories">
   <ng-container *ngIf="! currentCategory || currentCategory === category.code">
     <h1>{{ category.name }}</h1>
     <div *ngFor="let product of productsByCategory[category.code]">
       <span>{{product['product_name']}}</span>
       <input *ngIf="member | async" type="button" (click)="viewDetails(product.code)" value="Consulter" />
+      <input *ngIf="!(member | async)" type="button" (click)="connect()" value="Connecter-vous pour commander" />
     </div>
   </ng-container>
 </div>

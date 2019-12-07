@@ -1,23 +1,33 @@
-<ng-container *ngIf="! (member | async)">
-    <a  routerLink="/login">Se Connecter</a>
-   <div> <a routerLink="registration">S'inscrire</a> </div>
-</ng-container>
 
-<ng-container *ngIf="(member | async)">
-  <a (click) = "authenticationService.logOut(member)" routerLink="/">Se Deconnecter</a>
-  
-  <basket>
-  </basket>
-  
-</ng-container>
 
-<ul id="menu">
-  <li>
+<h1 class ="text-center">Welcome To Drinky!</h1>
+<nav class="navbar navbar-dark bg-dark text-light">
+  <ng-container  *ngIf="! (member | async)">
+    <a routerLink="/login">Se Connecter</a>
+    <a routerLink="registration">S'inscrire</a> 
+  </ng-container>
+    <ng-container class='text-light' *ngIf="(member | async)">
+      <a (click) = "authenticationService.logOut(member)" routerLink="/">Se Deconnecter</a>
+    </ng-container>
     <a routerLink="/">Accueil</a>
-  </li>
-  <li>
     <a routerLink="/products">Produits</a>
-  </li>
-</ul>
+</nav>
 
-<router-outlet></router-outlet>
+
+<div style="margin-top:50px;" class="container-fluid">
+    <div class="row">
+        <div class="col-sm text-center">
+            <router-outlet></router-outlet>
+        </div>
+        <div class="col-sm text-right">
+            <router-outlet name ="basket">
+                <ng-container  *ngIf="(member | async)">
+                  <basket></basket>
+                </ng-container>
+            </router-outlet>
+        </div>
+        
+    </div>
+</div>
+
+  

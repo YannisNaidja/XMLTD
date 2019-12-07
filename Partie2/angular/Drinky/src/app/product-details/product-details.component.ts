@@ -6,6 +6,7 @@ import { BasketService } from '../basket.service';
 import { AuthenticationService } from '../authentication.service';
 import {Observable} from 'rxjs';
 import { BasketComponent } from '../basket/basket.component';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-product-details',
@@ -28,7 +29,8 @@ export class ProductDetailsComponent implements OnInit {
     constructor(private route : ActivatedRoute,
 		private productsService : ProductsService,
 		private basketService : BasketService,
-		private authenticationService : AuthenticationService) { }
+		private authenticationService : AuthenticationService,
+		private router : Router) { }
 
     ngOnInit() {
 	this.member = this.authenticationService.getMember();
@@ -64,5 +66,8 @@ export class ProductDetailsComponent implements OnInit {
 		console.log(this.basket);
 	    });
 	});
-    }
+	}
+	backtolist(){
+		this.router.navigate(['/products']);
+	}
 }

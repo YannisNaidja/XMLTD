@@ -20,7 +20,8 @@ const routes: Routes = [{
     component : RegistrationComponent
 },
 {   path : 'basket',
-    component : BasketComponent
+    component : BasketComponent,
+    outlet : 'basket'
 }];
 
 @NgModule({

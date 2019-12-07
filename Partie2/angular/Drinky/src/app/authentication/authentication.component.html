@@ -1,17 +1,16 @@
-<form *ngIf="! (member | async)" (ngSubmit) = "onSubmit()" >
-
-  <label for="email">E-mail</label>
+<div class="form-group" style="width:50%"> 
+  <form *ngIf="! (member | async)" (ngSubmit) = "onSubmit()" >
+  <div class ="input-group input-group-sm">
+  <label for="email">E-mail></label>
   <input type="text" class="form-control" id="email" name = "email" required [(ngModel)]="email">>
-  
   <label for="password">Password</label>
   <input type="text"  class="form-control" id="password" name = "password" required [(ngModel)]="password" >
-  
-  
+</div>
   <button type ="submit">Connexion</button> 
-</form>
-
+</form> 
+</div>
 <p *ngIf="wrongid">id incorrect</p>
-<p *ngIf="member | async">Bravo vous êtes connecté</p>
+
 
 
 

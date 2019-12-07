@@ -15,7 +15,8 @@ export class AuthenticationComponent implements OnInit {
   private connected : boolean = false;
   private member : Observable<any>;
   
-  constructor(private authenticationService : AuthenticationService,private router: Router) {
+  constructor(private authenticationService : AuthenticationService,
+              private router: Router) {
     this.member = this.authenticationService.getMember();
   }
 
@@ -29,6 +30,7 @@ export class AuthenticationComponent implements OnInit {
         this.wrongid = false;
         this.authenticationService.logIn(member);
         this.connected = true;
+        this.router.navigate(['/products']);
       }
       else{
         this.wrongid = true;           

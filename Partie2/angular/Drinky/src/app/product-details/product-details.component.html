@@ -1,5 +1,7 @@
+
+
 <h1>{{product.product_name}}</h1>
-<ul>
+<ul style ="list-style-type:none">
   <li>
     Prix : {{product['price']}}
   </li>
@@ -25,6 +27,7 @@
   </div>
   <div *ngIf="quantityInBasket(product.code) > 0" id="display-basket-product">
     <span>{{ quantityInBasket(product.code) }} produit(s) aux paniers</span>
-    <button>Modifier</button>
+    <button (click) = "backtolist()">Revenir à la liste</button>
   </div>
+  
 </ul>
