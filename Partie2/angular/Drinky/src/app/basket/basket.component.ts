@@ -24,10 +24,14 @@ export class BasketComponent implements OnInit {
 
   }
 loadBasket(){
-  console.log(this.member.value.mail);
+  
   this.basketservice.getBasket(this.member.value.mail).subscribe(b => {
-    this.basket = b;
-    
+    this.basket = b
+    console.log("le basket vaut"+this.basket);
     });
+  }
+  cleanBasket(){
+
+    this.basketservice.emptyBasket(this.member.value.mail).subscribe();this.basketservice.emptyBasket(this.member.value.mail).subscribe();
   }
 }

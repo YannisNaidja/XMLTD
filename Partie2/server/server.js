@@ -181,15 +181,18 @@ MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
 	db.collection("basket").find({'user_mail' : req.body.user_mail})
 	    .toArray((err, documents) => {
 		
-		let basket = documents[0].basket;
+		 let basket = documents[0].basket;
+		console.log("lancien panier vaut"+ JSON.stringify(basket));
+		var newbasket = Object.values(basket);
+		console.log("le nouveau panier vaut :"+ newbasket);
 		let product = {"product_code" : req.body.product_code , "quantity" : req.body.quantity};
-		basket.push(product);
+		newbasket.push(product);
+		console.log(newbasket);
+		//basket.push(product);
 		try {
 		    db.collection("basket").updateOne(
 			{'user_mail' : req.body.user_mail},
-			{ $set : {'basket' : basket }});
-		    console.log('Error on GET /basket');
-		    res.status(500);
+			{ $set : {'basket' : newbasket }});
 		    res.end(JSON.stringify([{ "message" : "Success"}]));
 		} catch (error) {
 		    console.log('Error on GET /basket');
@@ -249,6 +252,7 @@ MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
 		    db.collection("basket").updateOne(
 			{'user_mail' : req.body.user_mail},
 			{ $set : {'basket' : newbasket }});
+			res.end(JSON.stringify("produit suppr"));
 		} catch (error) {
 		    console.log('Error on POST /basket');
 		    res.status(400);
@@ -261,11 +265,12 @@ MongoClient.connect(url, {useNewUrlParser: true}, (err, client) => {
 
 	db.collection("basket").find({'user_mail' : req.body.user_mail})
 	    .toArray((err, documents) => {
-		let newbasket = { "user_mail" : req.body.user_mail , basket :[]  }
+		var basket = new Array(); 	
 		try {
 		    db.collection("basket").updateOne(
 			{'user_mail' : req.body.user_mail},
-			{ $set : {'basket' : newbasket }});
+			{ $set : {'basket' : basket }});
+			res.end(JSON.stringify("suppression faite"));
 		} catch (error) {
 		    print(error);
 		}
