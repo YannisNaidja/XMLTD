@@ -7,3 +7,11 @@ color: white
     margin-right: auto;
     width: 50%;
   }
+
+  .navbar-text1{
+      width: 100%;
+      left: 0;
+      top: 0;
+      text-align: center;
+  
+  }

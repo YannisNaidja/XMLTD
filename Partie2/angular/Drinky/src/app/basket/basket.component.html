@@ -6,7 +6,7 @@
   </div>
   <button class="btn btn-info" type="button" (click) = "loadBasket()">Consulter Votre Panier</button>
   <button class="btn btn-danger"type="button" (click) = "cleanBasket()">Vider votre panier</button>
-
+ 
   <div *ngIf="empty === true">
     <h1>Votre Panier est vide</h1>
   </div>
@@ -14,13 +14,12 @@
     <div *ngIf="empty ===false ">
       <div *ngFor="let item of basket">
         <ng-container *ngIf="! currentCategory || currentCategory === category.code">
-          <h1>{{ item.product_code }}</h1>
           <h1>{{ item.product_name }}</h1>
           <h1>Quantité :{{item.quantity}}</h1>
-          <button type="button" (click) = "removeitem(item.product_code)">Supprimer du Panier</button>
+          <button class="btn btn-danger" style="margin-bottom:10px;" type="button" (click) = "removeitem(item.product_code)">Supprimer du Panier</button>
           </ng-container>
       </div>   
     </div>
-    <button style="margin-top:10px;" class="btn btn-success"type="button" (click) = "cleanBasket()">Valider votre commande</button>
+    <button class="btn btn-success"type="button" (click) = "cleanBasket()">Valider votre commande</button>
 </div>
 

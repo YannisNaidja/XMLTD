@@ -1,23 +1,24 @@
 
 <div class="btn-group" role="group">
-<button type="button" class="btn btn-secondary" (click)="loadCategory()">
+<button type="button" class="btn btn-dark" (click)="loadCategory()">
   Toutes categories
 </button>
 <div *ngFor="let category of categories">
-  <button type="button" class="btn btn-secondary"  (click)="loadCategory(category.code)">
+  <button type="button" class="btn btn-dark"  (click)="loadCategory(category.code)">
     {{ category.name }}
   </button>
 </div>
 </div>
-
-<div style ="margin-top : 50px;" *ngFor="let category of categories">
-  <ng-container *ngIf="! currentCategory || currentCategory === category.code">
-    <h1>{{ category.name }}</h1>
-    <img src="{{ category.img }}">
-    <div *ngFor="let product of productsByCategory[category.code]">
-      <span>{{product['product_name']}}</span>
-      <input *ngIf="member | async" type="button" (click)="viewDetails(product.code)" value="Consulter" />
-      <input *ngIf="!(member | async)" type="button" (click)="connect()" value="Connecter-vous pour commander" />
-    </div>
-  </ng-container>
+<div class="row">
+  <div class="col-sm text-center" style ="margin-top : 50px;" *ngFor="let category of categories">
+    <ng-container *ngIf="! currentCategory || currentCategory === category.code">
+      <h1>{{ category.name }}</h1>
+      <img src="{{ category.img }}">
+      <div *ngFor="let product of productsByCategory[category.code]">
+        <span style ="margin-right: 5px;">{{product['product_name']}}</span>
+        <button class="btn btn-success" *ngIf="member | async" type="button" (click)="viewDetails(product.code)">Détails</button>
+        <button class="btn btn-success" *ngIf="!(member | async)" type="button" (click)="connect()">Connecter-vous pour commander</button>
+      </div>
+    </ng-container>
+  </div>
 </div>

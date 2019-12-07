@@ -1,10 +1,4 @@
 
-
-<div class="text-center">
-  <img src="assets/ez.jpg" class="rounded" alt="image">
-  <h1 >Welcome To Drinky!</h1>
-</div>
-
 <nav class="navbar navbar-dark bg-dark text-light">
   <ng-container  *ngIf="! (member | async)">
     <a routerLink="/login">Se Connecter</a>
@@ -16,6 +10,12 @@
     <a routerLink="/">Accueil</a>
     <a routerLink="/products">Produits</a>
 </nav>
+
+<div class="text-center">
+    <h1 style= "margin-bottom:10px;margin-top:10px;">Drink easy with Drinky!</h1>
+    <img src="assets/ez.jpg" class="rounded" alt="image">
+    
+  </div>
 
 
 
@@ -34,4 +34,11 @@
     </div>
 </div>
 
-  
+<!--
+  <nav style="margin-top: 10px;" class="navbar navbar-dark bg-dark text-light fixed-bottom ">
+  <span class="navbar-text1">
+   Copyright 2019 - Fait par: Yannis Naidja et Basile Dalié pour l'UE Données du Web enseignée par monsieur Pierre Pompidor en M1 aigle à la faculté des sciences de Montpellier
+    </span>
+  </nav>
+-->
+
