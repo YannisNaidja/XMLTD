@@ -45,7 +45,11 @@ export class ProductDetailsComponent implements OnInit {
 		this.basket = res;
 		console.log(this.basket);
 	});
-    }
+	
+	/*this.basketService.currentbasket.subscribe( b => {
+		this.basket = b
+	});*/
+}
 
     quantityInBasket(productCode) {
 	for (let item of this.basket) {
@@ -64,6 +68,7 @@ export class ProductDetailsComponent implements OnInit {
 	    this.basketService.getBasket(this.member.value.mail).subscribe(res => {
 		this.basket = res;
 		console.log(this.basket);
+		this.basketService.changebasket(this.basket);
 	    });
 	});
 	}

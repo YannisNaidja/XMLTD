@@ -14,6 +14,7 @@ import { BasketComponent } from './basket/basket.component';
 import { AuthenticationService } from './authentication.service';
 import { BasketService } from './basket.service';
 import { RegistrationService } from './registration.service';
+import { ProductMenuComponent } from './product-menu/product-menu.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { RegistrationService } from './registration.service';
       RegistrationComponent,
       ProductDetailsComponent,
       BasketComponent,
+      ProductMenuComponent,
   ],
   imports: [
     BrowserModule,

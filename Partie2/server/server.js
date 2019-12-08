@@ -116,9 +116,9 @@ MongoClient.connect(url, {useNewUrlParser: true , useUnifiedTopology: true }, (e
 			for (let content of doc.content) {
 			    content['category_code'] = doc.category_code;
 	     		    products.push(content);
-			}
+				}
 		    }
-	     	}
+	    }
 		console.log(products);
 		res.end(JSON.stringify(products));		
 	    });
@@ -199,7 +199,7 @@ MongoClient.connect(url, {useNewUrlParser: true , useUnifiedTopology: true }, (e
 		    db.collection("basket").updateOne(
 			{'user_mail' : req.body.user_mail},
 			{ $set : {'basket' : newbasket }});
-		    res.end(JSON.stringify([{ "message" : "Success"}]));
+		    res.end(JSON.stringify(newbasket));
 		} catch (error) {
 		    console.log('Error on GET /basket');
 		    res.status(400);
@@ -260,7 +260,7 @@ MongoClient.connect(url, {useNewUrlParser: true , useUnifiedTopology: true }, (e
 		    db.collection("basket").updateOne(
 			{'user_mail' : req.body.user_mail},
 			{ $set : {'basket' : newbasket }});
-			res.end(JSON.stringify("produit suppr"));
+			res.end(JSON.stringify(newbasket));
 		} catch (error) {
 		    console.log('Error on POST /basket');
 		    res.status(400);
@@ -278,7 +278,7 @@ MongoClient.connect(url, {useNewUrlParser: true , useUnifiedTopology: true }, (e
 		    db.collection("basket").updateOne(
 			{'user_mail' : req.body.user_mail},
 			{ $set : {'basket' : basket }});
-			res.end(JSON.stringify("suppression faite"));
+			res.end(JSON.stringify(basket));
 		} catch (error) {
 		    print(error);
 		}
@@ -299,13 +299,14 @@ MongoClient.connect(url, {useNewUrlParser: true , useUnifiedTopology: true }, (e
 			    db.collection("basket").updateOne(
 				{'user_mail' : req.body.user_mail },
 				{ $set : {'basket' : basket }});
+				res.end(JSON.stringify(basket));
 			} catch (error) {
-			    print(error);
-			    
-			}
+				console.log('Error on POST /modifBasket');
+				res.status(400);
+				res.end(JSON.stringify([]));
+					}
 		    }	
 		}
-		
 	    });
     });
 

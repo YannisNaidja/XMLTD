@@ -15,10 +15,10 @@ export class RegistrationService {
 	       mailAddress : string,
 	       password : string): Observable<any> {
     return this.http.post(this.dbUrl + 'members', {
-      name : name,
-      first_name : firstName,
-      mail : mailAddress,
-      password : password
+      "name" : name,
+      "first_name" : firstName,
+      "mail" : mailAddress,
+      "password" : password
     });
   }
 }

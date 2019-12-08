@@ -9,6 +9,7 @@
     <input type="text"  class="form-control" id="password" name = "password" required [(ngModel)]="password" >
   </div>
   <button class="btn btn-success" type ="submit">Connexion</button> 
+  <a routerLink="/registration">Pas encore inscrit? Creez un compte!</a>
 </form> 
 
 <p *ngIf="wrongid">id incorrect</p>

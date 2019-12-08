@@ -24,7 +24,37 @@
 		"extra" : {
 		    "alcohol_volume" : 7.0
 		}
-	    }
+	    },{
+		"code" : "W0100",
+		"product_name" : "Nikka From The Barrel",
+		"price" : 50,
+		"alcohol_volume" : 40,
+		"brand" : "Nikka",
+		"type" : "Whisky",
+		"extra" : {
+		    "alcohol_volume" : 40
+			}
+		},{
+		"code" : "V0193",
+		"product_name" : "Grey Goose 70cl",
+		"price" : 70,
+		"alcohol_volume" : 42,
+		"brand" : "Grey Goose",
+		"type" : "Vodka",
+		"extra" : {
+		    "alcohol_volume" : 42
+		}
+	},{
+		"code" : "V0193",
+		"product_name" : "Armagnac Laubade 1937 50cl",
+		"price" : 1070,
+		"alcohol_volume" : 49,
+		"brand" : "Laubade",
+		"type" : "Armagnac",
+		"extra" : {
+		    "alcohol_volume" : 49
+		}
+	}
 	]
     },
     {
@@ -39,7 +69,28 @@
 		"brand" : "Coca-Cola Company",
 		"type" : "Soda sucré",
 		"extra" : {}
-	    }
+	    },{
+		"code" : "D1144",
+		"product_name" : "Fanta 1.5l",
+		"price" : 3.50,
+		"brand" : "Coca-Cola Company",
+		"type" : "Soda sucré",
+		"extra" : {}
+			},{
+		"code" : "D1145",
+		"product_name" : "Orangina 1.5l",
+		"price" : 3.50,
+		"brand" : "Coca-Cola Company",
+		"type" : "Soda sucré",
+		"extra" : {}
+			},{
+		"code" : "D1146",
+		"product_name" : "Perrier 1.5l",
+		"price" : 3.50,
+		"brand" : "Pierrier Inc",
+		"type" : "Eau gazeuse",
+		"extra" : {}
+			}
 	]
     }
 ]

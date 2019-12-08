@@ -13,10 +13,12 @@ import { Router } from '@angular/router';
 export class BasketComponent implements OnInit {
 
   private basket : any[] = new Array();
+  private updatedbasket : any[] = new Array();
   private member : any;
   private empty : boolean;
-  private trigger : boolean;
+  private displaymodify : boolean = false;
   private mail : any;
+  private newQuantity : number = 0;
   
   
 
@@ -29,13 +31,27 @@ export class BasketComponent implements OnInit {
   }
 
   ngOnInit() {
-   
+
+    this.empty = true;
+    this.basketservice.currentbasket.subscribe(b =>{
+      if(b !== undefined){
+        this.basket =b;
+        this.empty = false;
+        }           
+    });
+
+    /*this.basketservice.getBasket(this.member.value.mail).subscribe(b => {
+      console.log("le serveur envoi : "+b);
+      this.basket = b;
+      });*/
+    
   }
-loadBasket(){
-  
+/*loadBasket(){
+
   this.basketservice.getBasket(this.member.value.mail).subscribe(b => {
     console.log("le serveur envoi : "+b);
     this.basket = b;
+    });
 
     console.log("le mail vaut"+this.mail);
     console.log("le basket vaut"+this.basket);
@@ -46,19 +62,28 @@ loadBasket(){
     else{
       this.empty= false;
     } 
-    
-    });
-  }
+      
+  }*/
+ 
   cleanBasket(){
-    this.basketservice.emptyBasket(this.mail).subscribe(data => {
-      this.loadBasket();
+    this.basketservice.emptyBasket(this.mail).subscribe(b => {
+      this.basket = b;
     });
        
   }
   removeitem(product_code){
-    this.basketservice.removeItem(this.mail,product_code).subscribe(data=>{
-      this.loadBasket();
+    this.basketservice.removeItem(this.mail,product_code).subscribe(b=>{
+      this.basket = b;
+    });   
+  }
+
+  triggerformModify(){
+    this.displaymodify = true;
+  }
+  modifyquantity(product_code){
+    this.basketservice.ModifiyBasket(this.mail,product_code,this.newQuantity).subscribe(b=>{
+      this.displaymodify = false;
+      this.basket = b;
     });
-     
   }
 }

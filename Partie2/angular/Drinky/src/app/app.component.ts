@@ -4,6 +4,8 @@ import { Observable } from 'rxjs' ;
 import { Router } from '@angular/router';
 
 
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -14,6 +16,7 @@ export class AppComponent {
   
   constructor(private authenticationService : AuthenticationService,
     private router : Router) {
+   
     this.member = this.authenticationService.getMember();
     this.router.navigate(['/products']);
   }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ProductsService } from '../products.service';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../authentication.service';
@@ -53,17 +53,19 @@ export class ProductsComponent implements OnInit {
 		this.productsByCategory[product.category_code].push(product);
 	    }
 
-	    console.log("la categorie vaut" +JSON.stringify(this.categories));
+		console.log("la categorie vaut" +JSON.stringify(this.categories));
+		this.productsService.currentcategory.subscribe(cat => this.currentCategory = cat);
+
 	});
     }
 
-    loadCategory(categoryCode : any) {
+    /*loadCategory(categoryCode : any) {
 	if (typeof categoryCode === 'undefined') {
 	    categoryCode = false;
 	}
 	
 	this.currentCategory = categoryCode;
-    }
+    }*/
 
     viewDetails(code : string) {
 	this.router.navigate(['/products/' + code ]);

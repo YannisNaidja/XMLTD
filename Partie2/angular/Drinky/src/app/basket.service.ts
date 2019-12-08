@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Subject, BehaviorSubject } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -8,8 +9,14 @@ import { Observable } from 'rxjs';
 export class BasketService {
     private dbUrl = 'http://localhost:8888/';
 
+    private basketchecker = new BehaviorSubject(undefined);
+    currentbasket = this.basketchecker.asObservable();
+
     constructor(private http : HttpClient) { }
 
+    changebasket(basket: any) {
+      this.basketchecker.next(basket);
+    }
     
   getBasket(userid) : Observable<any>{
     console.log("lid vaut "+ "basket/"+userid);
@@ -23,9 +30,10 @@ export class BasketService {
       "quantity" : quantity
     }); 
   }
-  ModifiyBasket(user_mail,quantity) : Observable<any>{
+  ModifiyBasket(user_mail,id_product,quantity) : Observable<any>{
     return this.http.post(this.dbUrl + 'modifBasket', {
       "user_mail" : user_mail,
+      "product_code" : id_product,
       "quantity" : quantity
     });
   }

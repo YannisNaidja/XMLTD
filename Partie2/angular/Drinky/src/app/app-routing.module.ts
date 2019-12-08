@@ -22,6 +22,10 @@ const routes: Routes = [{
 {   path : 'basket',
     component : BasketComponent,
     outlet : 'basket'
+},{
+    path : 'menu',
+    component : ProductsComponent,
+    outlet : 'not'
 }];
 
 @NgModule({

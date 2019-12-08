@@ -1,24 +1,19 @@
 
-<div class="btn-group" role="group">
-<button type="button" class="btn btn-dark" (click)="loadCategory()">
-  Toutes categories
-</button>
-<div *ngFor="let category of categories">
-  <button type="button" class="btn btn-dark"  (click)="loadCategory(category.code)">
-    {{ category.name }}
-  </button>
-</div>
-</div>
+
 <div class="row">
   <div class="col-sm text-center" style ="margin-top : 50px;" *ngFor="let category of categories">
-    <ng-container *ngIf="! currentCategory || currentCategory === category.code">
+    <ng-container *ngIf="! currentCategory || currentCategory  === category.code">
       <h1>{{ category.name }}</h1>
       <img src="{{ category.img }}">
-      <div *ngFor="let product of productsByCategory[category.code]">
+    <div style="text-align: center;">
+      <div style="display:block;" *ngFor="let product of productsByCategory[category.code]">
         <span style ="margin-right: 5px;">{{product['product_name']}}</span>
+        <div>
         <button class="btn btn-success" *ngIf="member | async" type="button" (click)="viewDetails(product.code)">Détails</button>
+      </div>
         <button class="btn btn-success" *ngIf="!(member | async)" type="button" (click)="connect()">Connecter-vous pour commander</button>
       </div>
+    </div>
     </ng-container>
   </div>
 </div>
