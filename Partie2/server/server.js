@@ -312,6 +312,7 @@ MongoClient.connect(url, {useNewUrlParser: true , useUnifiedTopology: true }, (e
 
     app.get("/products/search/:category_code/:product_name/:pricemin/:pricemax/:brand/:type/:extra", (req, res) => {
 	let results = [];
+	var PrixMinMaxPresent = false;
 
 	try {
 	    db.collection("products").find({ "category_code" : req.params.category_code }).toArray((err, documents) => {
@@ -326,11 +327,23 @@ MongoClient.connect(url, {useNewUrlParser: true , useUnifiedTopology: true }, (e
 				}
 			    }
 
-			    if (req.params.pricemin !== '*' && req.params.pricemax !== '*') {
-				if (product.price < req.params.pricemin || product.price > req.params.pricemax) {
-				    add = false;
+				if (req.params.pricemin !== '*' ){
+					if(req.params.pricemax!=='*'){ 
+						PrixMinMaxPresent = true
+						if (product.price < req.params.pricemin || product.price > req.params.pricemax) {
+							add = false;
+						}
+					}
+					else if(product.price < req.params.pricemin){ //seulement prix min
+						add = false; 
+					}
 				}
-			    }
+				if(PrixMinMaxPresent === false){
+					if(req.params.pricemax !=='*'){
+						if(product.price > req.params.pricemax)
+							add = false;
+					}
+				}
 
 			    if (req.params.brand !== '*') {
 				if (req.params.brand !== product.brand) {
@@ -356,9 +369,9 @@ MongoClient.connect(url, {useNewUrlParser: true , useUnifiedTopology: true }, (e
 	} catch(e) {
 	    console.log("Error on ");
 	}
-    });
-    
-});
+	});
+	   
+});// fin classe 
 
 app.listen(8888);
 

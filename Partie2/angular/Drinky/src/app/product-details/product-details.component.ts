@@ -46,9 +46,6 @@ export class ProductDetailsComponent implements OnInit {
 		console.log(this.basket);
 	});
 	
-	/*this.basketService.currentbasket.subscribe( b => {
-		this.basket = b
-	});*/
 }
 
     quantityInBasket(productCode) {
@@ -72,6 +69,7 @@ export class ProductDetailsComponent implements OnInit {
 	    });
 	});
 	}
+	
 	backtolist(){
 		this.router.navigate(['/products']);
 	}
