@@ -4,8 +4,10 @@
     <form (ngSubmit)="toggleDisplay()">
       <h2>Selectionner une catégorie</h2>
       <select class="browser-default custom-select" name ="category" [(ngModel)]="fields.category">
-        <option value="SOD">Soda</option>
-        <option value="ALC">Boissons Alcoolisées</option>
+	<!-- TODO : automatic categories fetching -->
+	<option name="ALL" value="ALL">Toutes catégories</option>
+        <option name="SOD" value="SOD">Soda</option>
+        <option name="ALC" value="ALC">Boissons Alcoolisées</option>
       </select>
       <button class="btn btn-success" type="submit">
         Valider

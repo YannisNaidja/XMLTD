@@ -24,7 +24,7 @@ export class ProductSearchComponent implements OnInit {
 
   reset(){
     this.fields = {
-      category : '',
+      category : 'ALL',
       name : '',
       pricemin : 0,
       pricemax : undefined,
@@ -36,8 +36,8 @@ export class ProductSearchComponent implements OnInit {
 
   searchProducts(){
     let category = this.fields.category;
-    
-    if (category.length === 0) {
+
+    if (category === 'ALL' || category.length === 0) {
       category = '*';
     }
 
