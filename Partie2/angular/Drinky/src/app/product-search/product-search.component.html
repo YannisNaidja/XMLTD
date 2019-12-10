@@ -1,0 +1,28 @@
+<div style="text-align: center" class="container-fluid">
+    <ng-container *ngIf="Displayfullbar === false">
+    <form (ngSubmit)="DisplaySearch()">
+        <select class="browser-default custom-select" [(ngModel)]="Category">
+            <option selected>Sélectionnez la catégorie sur laquelle appliquer la recherche</option>
+            <option value="1" >Soda</option>
+            <option value="2" >Boissons Alcoolisées</option>
+        </select>
+        <button class="btn btn-success" type="submit">
+        Valider
+        </button>
+      </form>
+    </ng-container>
+    <ng-container *ngIf="Displayfullbar === true">
+        <form (ngSubmit)="Research">
+                <input type="text" placeholder="Nom du produit" [(ngModel)]="Productname" />
+                <input type="number" placeholder="Prix Min" [(ngModel)]="Prixmin" />
+                <input type="number"  placeholder="Prix Max" [(ngModel)]="Prixmax" />
+                <input type="text"  placeholder="Marque" [(ngModel)]="Brand" />
+                <input type="text"  placeholder="Type" [(ngModel)]="Type" />
+                <input type="text"  placeholder="Extra : (Volume d'alcool)" [(ngModel)]="Extra" />
+            <button class="btn btn-success" type="submit">
+                Valider
+            </button>
+        </form>
+    </ng-container>
+    
+</div>
