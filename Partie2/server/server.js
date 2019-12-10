@@ -310,6 +310,7 @@ MongoClient.connect(url, {useNewUrlParser: true , useUnifiedTopology: true }, (e
 	    });
     });
 
+    // TODO: Add extras in products
     app.get("/products/search/:category_code/:product_name/:pricemin/:pricemax/:brand/:type/:extra", (req, res) => {
 	let results = [];
 	var PrixMinMaxPresent = false;
@@ -365,6 +366,10 @@ MongoClient.connect(url, {useNewUrlParser: true , useUnifiedTopology: true }, (e
 			    }
 			    
 			    if (add) {
+				product.category_code = category.category_code;
+				product.category_name = category.category_name;
+				product.category_img = category.category_img;
+				
 				results.push(product);
 			    }
 			}

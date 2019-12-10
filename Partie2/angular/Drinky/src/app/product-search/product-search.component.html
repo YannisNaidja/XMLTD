@@ -1,44 +1,41 @@
 <div style="text-align: center" class="container-fluid">
-
-    <ng-container *ngIf="Displayfullbar === false">
+  <ng-container *ngIf="Displayfullbar === false">
     <form (ngSubmit)="DisplaySearch()">
-        <select name="category" class="browser-default custom-select" [(ngModel)]="Category">
-            <option selected>Sélectionnez la catégorie sur laquelle appliquer la recherche</option>
-            <option value="1" >Soda</option>
-            <option value="2" >Boissons Alcoolisées</option>
-        </select>
-        <button class="btn btn-success" type="submit">
+      <select class="browser-default custom-select" name ="Category" [(ngModel)]="Category">
+        <option value="SOD">Soda</option>
+        <option value="ALC">Boissons Alcoolisées</option>
+      </select>
+      <button class="btn btn-success" type="submit">
         Valider
+      </button>
+    </form>
+  </ng-container>
+  <ng-container *ngIf="Displayfullbar === true">
+    <div class="text-align:center">
+      <form (ngSubmit)="Research()">
+        <input type="text" name="product-name" placeholder="Nom du produit" [(ngModel)]="product.name" />
+        <input type="number" name ="pricemin" placeholder="Prix Min" [(ngModel)]="product.pricemin" />
+        <input type="number" name="pricemax"  placeholder="Prix Max" [(ngModel)]="product.pricemax" />
+        <input type="text" name ="brand"  placeholder="Marque" [(ngModel)]="product.brand" />
+        <input type="text" name ="type" placeholder="type" [(ngModel)]="product.type" />
+        <input type="text" name="extra"  placeholder="extra : (Volume d'alcool)" [(ngModel)]="product.extra" />
+        <button class="btn btn-success" type="submit">
+          Valider
         </button>
       </form>
-    </ng-container>
-
-    <ng-container *ngIf="Displayfullbar === true">
-        <form (ngSubmit)="Research()">
-                <input type="text" name="name" placeholder="Nom du produit" [(ngModel)]="Productname" />
-                <input type="number" name="prixmin" placeholder="Prix Min" [(ngModel)]="Prixmin" />
-                <input type="number" name="prixmax"  placeholder="Prix Max" [(ngModel)]="Prixmax" />
-                <input type="text" name="brand" placeholder="Marque" [(ngModel)]="Brand" />
-                <input type="text" name="type" placeholder="Type" [(ngModel)]="Type" />
-                <input type="text" name="alcoholvolume" placeholder="Extra : (Volume d'alcool)" [(ngModel)]="Extra" />
-		<button class="btn btn-success" type="submit">
-                  Valider
-		</button>
-        </form>
-    </ng-container>
-
-    <ng-container *ngIf ="EmptyResults === true">
-        <p>Désolé, la recherche ne donne aucun résultat</p>
-    </ng-container>
-
-    <ng-container *ngIf ="EmptyResults === false && DisplayResults === true">
-        <div style="text-align: center;">
-            <div style="display:block;" *ngFor="let product of product">
-                <span style ="margin-right: 5px;">{{product['product_name']}}</span>
-            </div> 
-                  </div>
-    </ng-container>
-    <button class="btn btn-success" (click)="reset()">
-        Revenir a le selection de categorie
-    </button>   
+    </div>
+  </ng-container>
+  <ng-container *ngIf ="EmptyResults === true">
+    <p>Désolé, la recherche ne donne aucun résultat</p>
+  </ng-container>
+  <ng-container *ngIf ="EmptyResults === false && DisplayResults === true">
+    <div style="text-align: center;">
+      <div style="display:block;" *ngFor="let product of product">
+        <span style ="margin-right: 5px;">{{product['product_name']}}</span>
+      </div> 
+    </div>
+  </ng-container>
+  <button class="btn btn-success" (click)="reset()">
+    Revenir a le selection de categorie
+  </button>   
 </div>
