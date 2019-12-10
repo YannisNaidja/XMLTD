@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ProductsService } from '../products.service';
 import { ProductsComponent } from '../products/products.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'product-menu',
@@ -8,13 +9,13 @@ import { ProductsComponent } from '../products/products.component';
   styleUrls: ['./product-menu.component.css']
 })
 export class ProductMenuComponent implements OnInit {
- 
   private productsByCategory : any = {};
   private products : any[] = new Array();
   private categories : any = [];
   private currentCategory : any = false;
 
-  constructor( private productservice : ProductsService) { }
+  constructor(private productservice : ProductsService,
+	      private router : Router) { }
 
   ngOnInit() {
     this.productservice.getProducts().subscribe(p => {
@@ -34,7 +35,8 @@ export class ProductMenuComponent implements OnInit {
       return 0;
         });
   
-        for (let product of this.products) {
+      for (let product of this.products) {
+	console.log(product);
       if (! (product.category_code in this.productsByCategory)) {
           this.productsByCategory[product.category_code] = [];
           this.categories.push({

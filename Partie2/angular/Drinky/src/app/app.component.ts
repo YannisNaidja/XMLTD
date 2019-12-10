@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthenticationService } from './authentication.service';
 import { Observable } from 'rxjs' ;
-import { Router } from '@angular/router';
-
-
-
 
 @Component({
   selector: 'app-root',
@@ -13,12 +9,10 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   private member : Observable<any>;
+  private currentUrl : string;
   
-  constructor(private authenticationService : AuthenticationService,
-    private router : Router) {
-   
+  constructor(private authenticationService : AuthenticationService) {
     this.member = this.authenticationService.getMember();
-    this.router.navigate(['/products']);
   }
 
   title = 'Drinky';

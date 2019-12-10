@@ -26,6 +26,10 @@ const routes: Routes = [{
     path : 'menu',
     component : ProductsComponent,
     outlet : 'not'
+},{
+    path : '',
+    redirectTo : '/products',
+    pathMatch : 'full'
 }];
 
 @NgModule({

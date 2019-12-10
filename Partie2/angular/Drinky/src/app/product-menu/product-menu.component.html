@@ -1,13 +1,13 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-           <div class="container-fluid"> <a (click)="loadCategory()">
-                    Toutes categories
-                </a>
-            </div>   
+<nav class="navbar navbar-expand-lg navbar-light bg-light" *ngIf="router.url === '/products'">
+  <div class="container-fluid"> <a (click)="loadCategory()">
+      Toutes categories
+    </a>
+  </div>   
 
-        <ng-container *ngFor="let category of categories">
-            <div class ="container-fluid"><a (click)="loadCategory(category.code)">
-                    {{ category.name }}
-                </a>
-            </div>    
-        </ng-container>
+  <ng-container *ngFor="let category of categories">
+    <div class ="container-fluid"><a (click)="loadCategory(category.code)">
+        {{ category.name }}
+      </a>
+    </div>    
+  </ng-container>
 </nav>
