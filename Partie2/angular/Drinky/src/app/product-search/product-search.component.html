@@ -31,7 +31,12 @@
 	  </ng-container>
 	</select>
 	<label for="type">Type : </label>
-        <input type="text" id="type" name="type" [(ngModel)]="fields.type" />
+	<select class="browser-default custom-select" name="type" [(ngModel)]="fields.type">
+	  <option name="ALL" value="ALL">Tous types</option>
+	  <ng-container *ngFor = "let type of types">
+	    <option value="{{type.type_key}}">{{ type.wording }}</option>
+	  </ng-container>
+	</select>
 	<label for="extra">Volume d'alcool : </label>
         <input type="text" id="extra" name="extra" [(ngModel)]="fields.extra" />
         <button class="btn btn-success" type="submit">

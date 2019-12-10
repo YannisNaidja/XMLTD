@@ -9,7 +9,7 @@
 		"product_name" : "Pack 6xBière belge 25cl",
 		"price" : 5.50,
 		"brand" : "LEF",
-		"type" : "Biere blonde",
+		"type" : "BBL",
 		"extra" : {
 		    "alcohol_volume" : 6.5
 		}
@@ -20,7 +20,7 @@
 		"price" : 10,
 		"alcohol_volume" : 6.5,
 		"brand" : "PEL",
-		"type" : "Biere brune",
+		"type" : "BBR",
 		"extra" : {
 		    "alcohol_volume" : 7.0
 		}
@@ -30,7 +30,7 @@
 		"price" : 50,
 		"alcohol_volume" : 40,
 		"brand" : "NIK",
-		"type" : "Whisky",
+		"type" : "WHI",
 		"extra" : {
 		    "alcohol_volume" : 40
 			}
@@ -40,7 +40,7 @@
 		"price" : 70,
 		"alcohol_volume" : 42,
 		"brand" : "GRE",
-		"type" : "Vodka",
+		"type" : "VOD",
 		"extra" : {
 		    "alcohol_volume" : 42
 		}
@@ -50,7 +50,7 @@
 		"price" : 1070,
 		"alcohol_volume" : 49,
 		"brand" : "LAU",
-		"type" : "Armagnac",
+		"type" : "ARM",
 		"extra" : {
 		    "alcohol_volume" : 49
 		}
@@ -67,28 +67,28 @@
 		"product_name" : "Coca-cola 1.5l",
 		"price" : 3.50,
 		"brand" : "COC",
-		"type" : "Soda sucré",
+		"type" : "SOD",
 		"extra" : {}
 	    },{
 		"code" : "D1144",
 		"product_name" : "Fanta 1.5l",
 		"price" : 3.50,
 		"brand" : "COC",
-		"type" : "Soda sucré",
+		"type" : "SOD",
 		"extra" : {}
 			},{
 		"code" : "D1145",
 		"product_name" : "Orangina 1.5l",
 		"price" : 3.50,
 		"brand" : "COC",
-		"type" : "Soda sucré",
+		"type" : "SOD",
 		"extra" : {}
 			},{
 		"code" : "D1146",
 		"product_name" : "Perrier 1.5l",
 		"price" : 3.50,
 		"brand" : "PER",
-		"type" : "Eau gazeuse",
+		"type" : "EGAZ",
 		"extra" : {}
 			}
 	]

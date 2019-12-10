@@ -14,7 +14,7 @@ const MongoClient = require('mongodb').MongoClient;
 const ObjectID = require('mongodb').ObjectId;
 const url = "mongodb://localhost:27017";
 
-function findProducts(categories, extras_wordings, product_id, brands_list) {
+function findProducts(categories, extras_wordings, product_id, brands_list, types_list) {
     let products = [];
     
     for (let category of categories) {
@@ -45,6 +45,13 @@ function findProducts(categories, extras_wordings, product_id, brands_list) {
 		    }
 		}
 
+		for (let type of types_list) {
+		    console.log(type);
+		    if (type.type_key === product.type) {
+			product.type = type.wording;
+		    }
+		}
+
 		product['extra'] = extra_property;
 		products.push(product);
 	    }
@@ -61,33 +68,43 @@ MongoClient.connect(url, {useNewUrlParser: true , useUnifiedTopology: true }, (e
 	console.log("/products");
 
 	try {
-	    let brands_list = [];
+	    let types_list = [];
 
-	    db.collection("brands").find().toArray((err, brands) => {
-		for (brand of brands) {
-		    brands_list.push(brand);
+	    db.collection("types").find().toArray((err, types) => {
+		for (type of types) {
+		    types_list.push(type);
 
-		    if (brands_list.length === brands.length) {
-			let extras_wordings = [];
-			
-			db.collection("extras").find().toArray((err, extras) => {
-			    for (extra of extras) {
-				extras_wordings.push(extra);
+		    if (types_list.length === types.length) {
+			let brands_list = [];
 
-				if (extras_wordings.length === extras.length) {
-				    db.collection("products").find().toArray((err, categories) => {
-					let products = findProducts(categories, extras_wordings, undefined, brands_list);
-					
-					res.end(JSON.stringify(products));
+			db.collection("brands").find().toArray((err, brands) => {
+			    for (brand of brands) {
+				brands_list.push(brand);
+
+				if (brands_list.length === brands.length) {
+				    let extras_wordings = [];
+				    
+				    db.collection("extras").find().toArray((err, extras) => {
+					for (extra of extras) {
+					    extras_wordings.push(extra);
+
+					    if (extras_wordings.length === extras.length) {
+						db.collection("products").find().toArray((err, categories) => {
+						    let products = findProducts(categories, extras_wordings, undefined, brands_list, types_list);
+						    
+						    res.end(JSON.stringify(products));
+						});
+
+					    }
+					}
 				    });
-
 				}
 			    }
 			});
 		    }
 		}
 	    });
-	    
+			
 	} catch(e) {
 	    console.log("Error on /products : " + e);
 	    res.end(JSON.stringify([]));
@@ -364,6 +381,7 @@ MongoClient.connect(url, {useNewUrlParser: true , useUnifiedTopology: true }, (e
 	    });
     });
 
+    // TODO: Remove db id in /brands and types
     app.get('/brands', (req, res) => {
 	console.log('/brands');
 	
@@ -374,6 +392,20 @@ MongoClient.connect(url, {useNewUrlParser: true , useUnifiedTopology: true }, (e
 	    });
 	} catch (error) {
 	    console.log("Error on /brands : " + error);
+	    res.end(JSON.stringify([]));
+	}
+    });
+
+    app.get('/types', (req, res) => {
+	console.log('/types');
+	
+	try {
+	    db.collection("types").find().toArray((err, documents) => {
+		console.log(documents);
+		res.end(JSON.stringify(documents));
+	    });
+	} catch (error) {
+	    console.log("Error on /types : " + error);
 	    res.end(JSON.stringify([]));
 	}
     });

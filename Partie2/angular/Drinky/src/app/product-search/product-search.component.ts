@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { ProductsService } from '../products.service';
 import { BrandsServiceService } from '../brands-service.service';
+import { TypesService } from '../types.service';
 
 @Component({
   selector: 'product-search',
@@ -13,20 +14,25 @@ export class ProductSearchComponent implements OnInit {
   private fields : any = {};
   private emptyResultsState : boolean = false;
   private brands : any = [];
+  private types : any = [];
   
   @Output() private searchPerformed : EventEmitter<any> = new EventEmitter();
   
   constructor(private productService : ProductsService,
-	      private brandsService : BrandsServiceService) {
+	      private brandsService : BrandsServiceService,
+	      private typesService : TypesService) {
     this.reset();
   }
 
   ngOnInit() {
     this.brandsService.getBrands().subscribe(brands => {
-      console.log(brands);
       this.brands = brands;
     });
-  }
+
+    this.typesService.getTypes().subscribe(types => {
+      this.types = types;
+    });
+}
 
   reset(){
     this.fields = {
@@ -35,7 +41,7 @@ export class ProductSearchComponent implements OnInit {
       pricemin : 0,
       pricemax : undefined,
       brand : 'ALL',
-      type : '',
+      type : 'ALL',
       extra : '',
     };
   }
@@ -61,13 +67,13 @@ export class ProductSearchComponent implements OnInit {
 
     let brand = this.fields.brand;
     
-    if (brand.length === 0) {
+    if (brand === 'ALL') {
       brand = '*';
     }
 
     let type = this.fields.type;
     
-    if (type.length === 0) {
+    if (type === 'ALL') {
       type = '*';
     }
 

@@ -1,0 +1,27 @@
+[
+    {
+	"type_key" : "BBL",
+	"wording" : "Biere blonde"
+    }, {
+	"type_key" : "BBR",
+	"wording" : "Biere brune"
+    }, {
+	"type_key" : "WHI",
+	"wording" : "Whisky"
+    }, {
+	"type_key" : "VOD",
+	"wording" : "Vodka"
+    }, {
+	"type_key" : "LAU",
+	"wording" : "Laubade"
+    }, {
+	"type_key" : "ARM",
+	"wording" : "Armagnac"
+    }, {
+	"type_key" : "SOD",
+	"wording" : "Soda sucré"
+    }, {
+	"type_key" : "EGAZ",
+	"wording" : "Eau gazeuse"
+    }
+]
