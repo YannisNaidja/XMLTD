@@ -38,7 +38,7 @@ function findProducts(categories, extras_wordings, product_id, brands_list, type
 			}
 		    }
 		}
-		
+
 		for (let brand of brands_list) {
 		    if (brand.brand_key === product.brand) {
 			product.brand = brand.wording;
@@ -50,7 +50,7 @@ function findProducts(categories, extras_wordings, product_id, brands_list, type
 			product.type = type.wording;
 		    }
 		}
-
+		    
 		product['extra'] = extra_property;
 		products.push(product);
 	    }
@@ -110,24 +110,46 @@ MongoClient.connect(url, {useNewUrlParser: true , useUnifiedTopology: true }, (e
 	}
     });
 
+    // TODO: Add extra and types support
     app.get("/products/:product_id", (req,res) => {
 	console.log("/products/" + req.params.product_id);
 
 	try {
-	    let extras_wordings = [];
-	    let found = false;
+	    let types_list = [];
+	    
+	    db.collection("types").find().toArray((err, types) => {
+		for (type of types) {
+		    types_list.push(type);
 
-	    db.collection("extras").find().toArray((err, extras) => {
-		for (extra of extras) {
-		    extras_wordings.push(extra);
-		    if (extras_wordings.length === extras.length) {
-			db.collection("products").find().toArray((err, categories) => {
-			    let products = findProducts(categories, extras_wordings, req.params.product_id);
-			    
-			    if (products.length > 0) {
-				res.end(JSON.stringify(products[0]));
-			    } else {
-				res.end(JSON.stringify([]));
+		    if (types_list.length === types.length) {
+			let brands_list = [];
+
+			db.collection("brands").find().toArray((err, brands) => {
+			    for (brand of brands) {
+				brands_list.push(brand);
+
+				if (brands_list.length === brands.length) {
+
+				    let extras_wordings = [];
+				    let found = false;
+
+				    db.collection("extras").find().toArray((err, extras) => {
+					for (extra of extras) {
+					    extras_wordings.push(extra);
+					    if (extras_wordings.length === extras.length) {
+						db.collection("products").find().toArray((err, categories) => {
+						    let products = findProducts(categories, extras_wordings, req.params.product_id, brands_list, types_list);
+						    
+						    if (products.length > 0) {
+							res.end(JSON.stringify(products[0]));
+						    } else {
+							res.end(JSON.stringify([]));
+						    }
+						});
+					    }
+					}
+				    });
+				}
 			    }
 			});
 		    }

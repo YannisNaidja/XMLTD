@@ -18,6 +18,7 @@ export class BasketService {
   }
   
   getBasket(userid : string) : Observable<any>{
+    console.log(userid);
     return this.http.get(this.dbUrl + 'basket/' + userid);
   }
   

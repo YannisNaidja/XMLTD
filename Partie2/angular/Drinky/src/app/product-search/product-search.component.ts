@@ -77,7 +77,6 @@ export class ProductSearchComponent implements OnInit {
     }
 
     this.productService.searchProducts(category, name, this.fields.pricemin, pricemax, brand, type).subscribe(products => {
-      console.log(brand);
       this.emptyResultsState = false;
       
       if (products.length === 0) {
