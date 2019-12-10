@@ -310,10 +310,18 @@ MongoClient.connect(url, {useNewUrlParser: true , useUnifiedTopology: true }, (e
 	    });
     });
 
+    // TODO: Add extras in products
     app.get("/products/search/:category_code/:product_name/:pricemin/:pricemax/:brand/:type/:extra", (req, res) => {
 	let results = [];
 	var PrixMinMaxPresent = false;
 
+	console.log('category : ' + req.params.category_code);
+	console.log('name : ' + req.params.name);
+	console.log('min : ' + req.params.pricemin);
+	console.log('max : ' + req.params.pricemax);
+	console.log('brand : ' + req.params.brand);
+	console.log('extra : ' + req.params.brand);
+	
 	try {
 	    db.collection("products").find({ "category_code" : req.params.category_code }).toArray((err, documents) => {
 		for (let category of documents) {
@@ -358,6 +366,10 @@ MongoClient.connect(url, {useNewUrlParser: true , useUnifiedTopology: true }, (e
 			    }
 			    
 			    if (add) {
+				product.category_code = category.category_code;
+				product.category_name = category.category_name;
+				product.category_img = category.category_img;
+				
 				results.push(product);
 			    }
 			}

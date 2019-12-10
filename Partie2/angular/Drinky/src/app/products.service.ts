@@ -24,4 +24,13 @@ export class ProductsService {
     changecategory(category: any) {
         this.categorychecker.next(category);
       }
+
+    Research(category : string , productname : string , prixmin : string , 
+            prixmax : string, brand : string
+            , type : string, extra : string ){
+
+        return this.http.get(this.dbUrl + 'products/'+'search/'
+            +category+'/'+productname+'/'+prixmin+'/'+prixmax
+            +'/'+brand+'/'+type+'/'+extra);
+    }
 }

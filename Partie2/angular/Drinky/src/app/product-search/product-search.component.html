@@ -1,0 +1,43 @@
+<div style="text-align: center" class="container-fluid">
+  <h1>Recherche</h1>
+  <ng-container *ngIf="selectCategoryState === false">
+    <form (ngSubmit)="toggleDisplay()">
+      <h2>Selectionner une catégorie</h2>
+      <select class="browser-default custom-select" name ="category" [(ngModel)]="product.category">
+        <option value="SOD">Soda</option>
+        <option value="ALC">Boissons Alcoolisées</option>
+      </select>
+      <button class="btn btn-success" type="submit">
+        Valider
+      </button>
+    </form>
+  </ng-container>
+  <ng-container *ngIf="selectCategoryState === true">
+    <div class="text-align:center">
+      <form (ngSubmit)="Research()">
+        <input type="text" name="product-name" placeholder="Nom du produit" [(ngModel)]="product.name" />
+        <input type="number" name ="pricemin" placeholder="Prix Min" [(ngModel)]="product.pricemin" />
+        <input type="number" name="pricemax"  placeholder="Prix Max" [(ngModel)]="product.pricemax" />
+        <input type="text" name ="brand"  placeholder="Marque" [(ngModel)]="product.brand" />
+        <input type="text" name ="type" placeholder="type" [(ngModel)]="product.type" />
+        <input type="text" name="extra"  placeholder="extra : (Volume d'alcool)" [(ngModel)]="product.extra" />
+        <button class="btn btn-success" type="submit">
+          Valider
+        </button>
+      </form>
+    </div>
+  </ng-container>
+  <ng-container *ngIf ="EmptyResults === true">
+    <p>Désolé, la recherche ne donne aucun résultat</p>
+  </ng-container>
+  <ng-container *ngIf ="EmptyResults === false && DisplayResults === true">
+    <div style="text-align: center;">
+      <div style="display:block;" *ngFor="let product of product">
+        <span style ="margin-right: 5px;">{{product['product_name']}}</span>
+      </div> 
+    </div>
+  </ng-container>
+  <button class="btn btn-success" (click)="toggleDisplay()">
+    Revenir a le selection de categorie
+  </button>   
+</div>
