@@ -1,8 +1,8 @@
 
 <form *ngIf="! (member | async)" (ngSubmit) = "onSubmit()" >
   <div class="form-group"> 
-      <label for="email">E-mail</label>
-      <input type="text" class="form-control" id="email" name = "email" required [(ngModel)]="email">
+    <label for="email">E-mail</label>
+    <input type="text" class="form-control" id="email" name = "email" required [(ngModel)]="email">
   </div>
   <div class="form-group"> 
     <label for="password">Password</label>
@@ -13,12 +13,3 @@
 </form> 
 
 <p *ngIf="wrongid">id incorrect</p>
-
-
-
-
-
-    
-
-
-

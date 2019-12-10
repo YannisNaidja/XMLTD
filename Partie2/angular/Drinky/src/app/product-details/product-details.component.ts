@@ -9,64 +9,65 @@ import { BasketComponent } from '../basket/basket.component';
 import { Router } from '@angular/router';
 
 @Component({
-    selector: 'app-product-details',
-    templateUrl: './product-details.component.html',
-    styleUrls: ['./product-details.component.css']
+  selector: 'app-product-details',
+  templateUrl: './product-details.component.html',
+  styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit {
-    private product : any = {
-	product_name : '',
-	price : 0,
-	brand : '',
-	type : '',
-	extra : []
-    };
+  private product : any = {
+    product_name : '',
+    price : 0,
+    brand : '',
+    type : '',
+    extra : []
+  };
 
-    private member : any;
-    private basket : any = [];
-    private newQuantity : number = 0;
+  private member : any;
+  private basket : any = [];
+  private newQuantity : number = 0;
+  
+  constructor(private route : ActivatedRoute,
+	      private productsService : ProductsService,
+	      private basketService : BasketService,
+	      private authenticationService : AuthenticationService,
+	      private router : Router) {
+    // Does nothing on object construction
+  }
+
+  ngOnInit() {
+    this.member = this.authenticationService.getMember();
     
-    constructor(private route : ActivatedRoute,
-		private productsService : ProductsService,
-		private basketService : BasketService,
-		private authenticationService : AuthenticationService,
-		private router : Router) { }
+    this.route.params.subscribe((params : Params) => {
+      this.productsService.findByCode(params.code).subscribe(res => {
+	this.product = res;
+      });
+    });
 
-    ngOnInit() {
-	this.member = this.authenticationService.getMember();
-	
-	this.route.params.subscribe((params : Params) => {
-	    this.productsService.findByCode(params.code).subscribe(res => {
-		this.product = res;
-	    });
-	});
+    this.basketService.getBasket(this.member).subscribe(res => {
+      this.basket = res;
+    });
+  }
 
-	this.basketService.getBasket(this.member).subscribe(res => {
-		this.basket = res;
-	});
-	
-}
-
-    quantityInBasket(productCode) {
-	for (let item of this.basket) {
-	    if (item.product_code === productCode) {
-		return item.quantity;
-	    }
-	}
-
-	return 0;
+  quantityInBasket(productCode : string) {
+    for (let item of this.basket) {
+      if (item.product_code === productCode) {
+	return item.quantity;
+      }
     }
 
-    onAddToBasketFormSubmit(productCode) {
-	this.basketService.AddBasket(this.member.value.mail, this.product.code,this.product.product_name, this.newQuantity).subscribe(res => {
-	    this.basketService.getBasket(this.member.value.mail).subscribe(res => {
-		this.basket = res;
-		this.basketService.changebasket(this.basket);
-	    });
-	});
-	}
-	
-	backtolist(){
-		this.router.navigate(['/products']);
-	}
+    return 0;
+  }
+
+  onAddToBasketFormSubmit(productCode : string) {
+    this.basketService.AddBasket(this.member.value.mail, this.product.code,this.product.product_name, this.newQuantity).subscribe(res => {
+      this.basketService.getBasket(this.member.value.mail).subscribe(res => {
+	this.basket = res;
+	this.basketService.changebasket(this.basket);
+      });
+    });
+  }
+  
+  backtolist(){
+    this.router.navigate(['/products']);
+  }
 }

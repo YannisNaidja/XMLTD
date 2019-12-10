@@ -1,5 +1,3 @@
-
-
 <h1>{{product.product_name}}</h1>
 <ul style ="list-style-type:none">
   <li>
@@ -17,11 +15,11 @@
   <div id="add-to-basket-form" *ngIf="quantityInBasket(product.code) === 0">
     <form (ngSubmit)="onAddToBasketFormSubmit()">
       <label style="margin-right: 5px;" for="add-to-basket-field">
-	    Quantité à ajouter au panier: 
+	Quantité à ajouter au panier: 
       </label>
       <input type="number" name="add-to-basket-field" id="add-to-basket-field" placeholder="Quantité" [(ngModel)]="newQuantity" />
       <button class="btn btn-success" type="submit">
-	      Valider
+	Valider
       </button>
     </form>
   </div>
@@ -29,5 +27,4 @@
     <span style ="margin-right:5px;">{{ quantityInBasket(product.code) }} exemplaires de ce produit ont été ajouté aux panier</span>
     <button class="btn btn-success" (click) = "backtolist()">Revenir à la liste</button>
   </div>
-  
 </ul>

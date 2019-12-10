@@ -6,47 +6,33 @@
   </div>
   <button class="btn btn-info" type="button" (click) = "loadBasket()">Consulter Votre Panier</button>
   <button class="btn btn-danger"type="button" (click) = "cleanBasket()">Vider votre panier</button>
- 
+  
   <div *ngIf="empty === true">
     <h1>Votre Panier est vide</h1>
   </div>
 
-    <div *ngIf="empty ===false ">
-      <div *ngFor="let item of basket">
-        <ng-container *ngIf="! currentCategory || currentCategory === category.code">
-          <h1>{{ item.product_name }}</h1>
-          <h1>Quantité :{{item.quantity}}</h1>
-          <button class="btn btn-warning" style="margin-bottom:10px;" type="button" (click) = "triggerformModify()">Modifier Quantité</button>
+  <div *ngIf="empty ===false ">
+    <div *ngFor="let item of basket">
+      <ng-container *ngIf="! currentCategory || currentCategory === category.code">
+        <h1>{{ item.product_name }}</h1>
+        <h1>Quantité :{{item.quantity}}</h1>
+        <button class="btn btn-warning" style="margin-bottom:10px;" type="button" (click) = "triggerformModify()">Modifier Quantité</button>
 
-          <ng-container *ngIf="displaymodify === true">
+        <ng-container *ngIf="displaymodify === true">
           <form (ngSubmit)="modifyquantity(item.product_code)">
-              <label style="margin-right: 5px;" for="add-to-basket-field">
+            <label style="margin-right: 5px;" for="add-to-basket-field">
               Nouvelle quantité:
-              </label>
-              <input type="number" name="add-to-basket-field" id="add-to-basket-field" placeholder="Quantité" [(ngModel)]="newQuantity" />
-              <button class="btn btn-success" type="submit">
-                Valider
-              </button>
-            </form>
-          </ng-container>
+            </label>
+            <input type="number" name="add-to-basket-field" id="add-to-basket-field" placeholder="Quantité" [(ngModel)]="newQuantity" />
+            <button class="btn btn-success" type="submit">
+              Valider
+            </button>
+          </form>
+        </ng-container>
 
-          <button class="btn btn-danger" style="margin-bottom:10px;" type="button" (click) = "removeitem(item.product_code)">Supprimer du Panier</button>
-          </ng-container>
-      </div>   
-    </div>
-    <button class="btn btn-success"type="button" (click) = "cleanBasket()">Valider votre commande</button>
+        <button class="btn btn-danger" style="margin-bottom:10px;" type="button" (click) = "removeitem(item.product_code)">Supprimer du Panier</button>
+      </ng-container>
+    </div>   
+  </div>
+  <button class="btn btn-success"type="button" (click) = "cleanBasket()">Valider votre commande</button>
 </div>
-
-<!--
-  <ng-container *ngIf="displaymodify === true"
-  <form (ngSubmit)="modifiyQuantity(item.product_code)">
-      <label style="margin-right: 5px;" for="add-to-basket-field">
-	    Quantité à ajouter au panier: 
-      </label>
-      <input type="number" name="add-to-basket-field" id="add-to-basket-field" placeholder="Quantité" [(ngModel)]="newQuantity" />
-      <button class="btn btn-success" type="submit">
-	      Valider
-      </button>
-    </form>
-    <ng-container>
--->

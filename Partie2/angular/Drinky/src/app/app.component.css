@@ -1,21 +1,22 @@
 a {
 color: white
 }
+
 .center {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 50%;
-  }
+}
 
-  .navbar-text1{
-      width: 100%;
-      left: 0;
-      top: 0;
-      text-align: center;
-  
-  }
-  .page-header-container {
+.navbar-text1{
+    width: 100%;
+    left: 0;
+    top: 0;
+    text-align: center;
+}
+
+.page-header-container {
     width: 1060px;
     margin: 0 auto;
     padding: 0 30px;

@@ -20,7 +20,7 @@ export class ProductMenuComponent implements OnInit {
   ngOnInit() {
     this.productservice.getProducts().subscribe(p => {
       this.products = p;
-        
+      
       this.products.sort(function(a, b) {
 	let initialA = a.product_name.toLowerCase()[0];
 	let initialB = b.product_name.toLowerCase()[0];
@@ -49,10 +49,10 @@ export class ProductMenuComponent implements OnInit {
     });
   }
 
-loadCategory(categoryCode : any) {
+  loadCategory(categoryCode : any) {
     if (typeof categoryCode === 'undefined') {
-        categoryCode = false;
-      }
-    this.productservice.changecategory(categoryCode); 
+      categoryCode = false;
     }
+    this.productservice.changecategory(categoryCode); 
+  }
 }

@@ -9,10 +9,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./authentication.component.css']
 })
 export class AuthenticationComponent implements OnInit {
-  private password : string ="";
-  private email : string ="";
   private wrongid : boolean = false;
-  private connected : boolean = false;
   private member : Observable<any>;
   
   constructor(private authenticationService : AuthenticationService,
@@ -21,7 +18,7 @@ export class AuthenticationComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+    // Does nothing on init
   }
 
   onSubmit(){
@@ -29,17 +26,11 @@ export class AuthenticationComponent implements OnInit {
       if (Object.keys(member).length > 0) {
         this.wrongid = false;
         this.authenticationService.logIn(member);
-        this.connected = true;
         this.router.navigate(['/products']);
       }
       else{
         this.wrongid = true;           
       } 
     });
-  }
-  getEmail(){
-    if(this.email !== ""){
-      return this.email;
-    }
   }
 }

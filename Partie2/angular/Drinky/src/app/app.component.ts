@@ -9,13 +9,10 @@ import { Observable } from 'rxjs' ;
 })
 export class AppComponent {
   private member : Observable<any>;
-  private currentUrl : string;
   
   constructor(private authenticationService : AuthenticationService) {
     this.member = this.authenticationService.getMember();
   }
 
   title = 'Drinky';
-
-  
 }

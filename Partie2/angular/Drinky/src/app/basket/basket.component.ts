@@ -11,7 +11,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./basket.component.css']
 })
 export class BasketComponent implements OnInit {
-
   private basket : any[] = new Array();
   private updatedbasket : any[] = new Array();
   private member : any;
@@ -19,24 +18,22 @@ export class BasketComponent implements OnInit {
   private displaymodify : boolean = false;
   private mail : any;
   private newQuantity : number = 0;
-  
-  
 
   constructor(private  basketservice : BasketService, 
-              authentication : AuthenticationService,
+              private authentication : AuthenticationService,
               private router : Router) { 
-   this.member = authentication.getMember();
-   this.mail = this.member.value.mail;
+    this.member = authentication.getMember();
+    this.mail = this.member.value.mail;
   }
 
   ngOnInit() {
-
     this.empty = true;
-    this.basketservice.currentbasket.subscribe(b =>{
+    
+    this.basketservice.currentbasket.subscribe(b => {
       if(b !== undefined){
         this.basket =b;
         this.empty = false;
-        }           
+      }           
     });
   }
   
@@ -44,19 +41,20 @@ export class BasketComponent implements OnInit {
     this.basketservice.emptyBasket(this.mail).subscribe(b => {
       this.basket = b;
     });
-       
   }
+  
   removeitem(product_code){
-    this.basketservice.removeItem(this.mail,product_code).subscribe(b=>{
+    this.basketservice.removeItem(this.mail,product_code).subscribe(b => {
       this.basket = b;
     });   
   }
 
-  triggerformModify(){
+  triggerformModify() {
     this.displaymodify = true;
   }
+  
   modifyquantity(product_code){
-    this.basketservice.ModifiyBasket(this.mail,product_code,this.newQuantity).subscribe(b=>{
+    this.basketservice.ModifiyBasket(this.mail,product_code,this.newQuantity).subscribe(b => {
       this.displaymodify = false;
       this.basket = b;
     });

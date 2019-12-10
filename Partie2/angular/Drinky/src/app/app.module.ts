@@ -20,13 +20,13 @@ import { ProductSearchComponent } from './product-search/product-search.componen
 @NgModule({
   declarations: [
     AppComponent,
-      ProductsComponent,
-      AuthenticationComponent,
-      RegistrationComponent,
-      ProductDetailsComponent,
-      BasketComponent,
-      ProductMenuComponent,
-      ProductSearchComponent,
+    ProductsComponent,
+    AuthenticationComponent,
+    RegistrationComponent,
+    ProductDetailsComponent,
+    BasketComponent,
+    ProductMenuComponent,
+    ProductSearchComponent,
   ],
   imports: [
     BrowserModule,

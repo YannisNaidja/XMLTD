@@ -5,31 +5,31 @@ import { AuthenticationService } from '../authentication.service';
 import { Observable } from 'rxjs';
 
 @Component({
-    selector: 'app-products',
-    templateUrl: './products.component.html',
-    styleUrls: ['./products.component.css']
+  selector: 'app-products',
+  templateUrl: './products.component.html',
+  styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-    private products : any[] = new Array();
-    private productsByCategory : any = {};
-    private categories : any = [];
-    private currentCategory : any = false;
+  private products : any[] = new Array();
+  private productsByCategory : any = {};
+  private categories : any = [];
+  private currentCategory : any = false;
   private member : Observable<any>;
   private filter : any[] = new Array();
-    
-    constructor(private productsService : ProductsService,
-		private authenticationService : AuthenticationService,
-		private router : Router) {
-    	this.member = this.authenticationService.getMember();
-    }
-    
-    ngOnInit() {
-	this.productsService.getProducts().subscribe(p => {
-	  this.products = p;
-	  this.sortAlphabetically();
-	  this.sortByCategories();
-	});
-    }
+  
+  constructor(private productsService : ProductsService,
+	      private authenticationService : AuthenticationService,
+	      private router : Router) {
+    this.member = this.authenticationService.getMember();
+  }
+  
+  ngOnInit() {
+    this.productsService.getProducts().subscribe(p => {
+      this.products = p;
+      this.sortAlphabetically();
+      this.sortByCategories();
+    });
+  }
 
   sortAlphabetically() {
     this.products.sort(function(a, b) {
@@ -75,7 +75,6 @@ export class ProductsComponent implements OnInit {
   }
 
   onSearchPerformed(products : any) {
-    console.log(products);
     this.products = products;
     this.sortAlphabetically();
     this.sortByCategories();

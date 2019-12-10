@@ -18,7 +18,9 @@ export class RegistrationComponent implements OnInit {
               private router : Router) { }
 
   ngOnInit() {
+    // Does nothing on init
   }
+  
   checkinput(){
     if(this.mailAddress !== "" && this.password !== ""){
       this.wrongInput = false;
@@ -30,9 +32,9 @@ export class RegistrationComponent implements OnInit {
 
   onSubmit() {
     this.checkinput();
-    if(!this.wrongInput){
-    this.registrationService.createMember(this.firstName, this.name, this.mailAddress, this.password).subscribe(p => {
-      this.router.navigate(['/products']);
+    if(! this.wrongInput){
+      this.registrationService.createMember(this.firstName, this.name, this.mailAddress, this.password).subscribe(p => {
+	this.router.navigate(['/products']);
       });
     }
   }
