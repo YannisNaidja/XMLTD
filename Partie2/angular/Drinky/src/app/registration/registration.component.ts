@@ -20,21 +20,18 @@ export class RegistrationComponent implements OnInit {
   ngOnInit() {
   }
   checkinput(){
-    console.log("mail entre :" +this.mailAddress + "password entre: "+ this.password );
     if(this.mailAddress !== "" && this.password !== ""){
       this.wrongInput = false;
     }
     else{
       this.wrongInput = true;
     }
-    console.log("le wronginput vaut "+ this.wrongInput);
   }
 
   onSubmit() {
     this.checkinput();
     if(!this.wrongInput){
     this.registrationService.createMember(this.firstName, this.name, this.mailAddress, this.password).subscribe(p => {
-      console.log(p);
       this.router.navigate(['/products']);
       });
     }

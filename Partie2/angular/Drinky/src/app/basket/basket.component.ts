@@ -27,7 +27,6 @@ export class BasketComponent implements OnInit {
               private router : Router) { 
    this.member = authentication.getMember();
    this.mail = this.member.value.mail;
-   console.log(this.member);
   }
 
   ngOnInit() {
@@ -39,32 +38,8 @@ export class BasketComponent implements OnInit {
         this.empty = false;
         }           
     });
-
-    /*this.basketservice.getBasket(this.member.value.mail).subscribe(b => {
-      console.log("le serveur envoi : "+b);
-      this.basket = b;
-      });*/
-    
   }
-/*loadBasket(){
-
-  this.basketservice.getBasket(this.member.value.mail).subscribe(b => {
-    console.log("le serveur envoi : "+b);
-    this.basket = b;
-    });
-
-    console.log("le mail vaut"+this.mail);
-    console.log("le basket vaut"+this.basket);
-    if(this.basket.length === 0 ){
-      console.log("panier vide");
-      this.empty = true;
-    }
-    else{
-      this.empty= false;
-    } 
-      
-  }*/
- 
+  
   cleanBasket(){
     this.basketservice.emptyBasket(this.mail).subscribe(b => {
       this.basket = b;

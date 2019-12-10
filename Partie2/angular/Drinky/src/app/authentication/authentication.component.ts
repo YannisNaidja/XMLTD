@@ -39,7 +39,6 @@ export class AuthenticationComponent implements OnInit {
   }
   getEmail(){
     if(this.email !== ""){
-      console.log("renvoi");
       return this.email;
     }
   }

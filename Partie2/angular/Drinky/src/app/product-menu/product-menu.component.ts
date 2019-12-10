@@ -20,37 +20,33 @@ export class ProductMenuComponent implements OnInit {
   ngOnInit() {
     this.productservice.getProducts().subscribe(p => {
       this.products = p;
-      console.log("les produit sonts"+JSON.stringify(this.products));
         
-        this.products.sort(function(a, b) {
-      let initialA = a.product_name.toLowerCase()[0];
-      let initialB = b.product_name.toLowerCase()[0];
-      
-      if (initialA < initialB) {
+      this.products.sort(function(a, b) {
+	let initialA = a.product_name.toLowerCase()[0];
+	let initialB = b.product_name.toLowerCase()[0];
+	
+	if (initialA < initialB) {
           return -1;
-      } else if (initialB < initialA) {
+	} else if (initialB < initialA) {
           return 1;
-      }
+	}
+	
+	return 0;
+      });
       
-      return 0;
-        });
-  
       for (let product of this.products) {
-	console.log(product);
-      if (! (product.category_code in this.productsByCategory)) {
+	if (! (product.category_code in this.productsByCategory)) {
           this.productsByCategory[product.category_code] = [];
           this.categories.push({
-        code : product.category_code,
-        name : product.category_name,
-        img : product.category_img
+            code : product.category_code,
+            name : product.category_name,
+            img : product.category_img
           });
+	}
+	
+	this.productsByCategory[product.category_code].push(product);
       }
-      
-      this.productsByCategory[product.category_code].push(product);
-        }
     });
-    
-    //this.productservice.currentcategory.subscribe(cat => this.currentCategory = cat);
   }
 
 loadCategory(categoryCode : any) {

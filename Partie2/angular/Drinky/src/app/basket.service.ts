@@ -19,7 +19,6 @@ export class BasketService {
     }
     
   getBasket(userid) : Observable<any>{
-    console.log("lid vaut "+ "basket/"+userid);
     return this.http.get(this.dbUrl+'basket/'+userid);
   }
   AddBasket(user_mail,id_product,name,quantity) : Observable<any> {

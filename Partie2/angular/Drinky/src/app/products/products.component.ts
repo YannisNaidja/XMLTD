@@ -26,8 +26,6 @@ export class ProductsComponent implements OnInit {
     ngOnInit() {
 	this.productsService.getProducts().subscribe(p => {
 	  this.products = p;
-	  console.log("les produit sonts"+JSON.stringify(this.products));
-	    
 	  this.sortAlphabetically();
 	  this.sortByCategories();
 	});
@@ -53,7 +51,6 @@ export class ProductsComponent implements OnInit {
     this.categories = [];
     
     for (let product of this.products) {
-      console.log(product.category_code);
       if (! (product.category_code in this.productsByCategory)) {
 	this.productsByCategory[product.category_code] = [];
 	this.categories.push({
@@ -66,7 +63,6 @@ export class ProductsComponent implements OnInit {
       this.productsByCategory[product.category_code].push(product);
     }
 
-    console.log("la categorie vaut" +JSON.stringify(this.categories));
     this.productsService.currentcategory.subscribe(cat => this.currentCategory = cat);
   }
   
@@ -79,11 +75,9 @@ export class ProductsComponent implements OnInit {
   }
 
   onSearchPerformed(products : any) {
+    console.log(products);
     this.products = products;
-    console.log(this.products);
     this.sortAlphabetically();
     this.sortByCategories();
-
-    console.log(this.productsByCategory);
   }
 }
