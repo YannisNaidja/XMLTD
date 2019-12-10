@@ -316,7 +316,7 @@ MongoClient.connect(url, {useNewUrlParser: true , useUnifiedTopology: true }, (e
 	var PrixMinMaxPresent = false;
 
 	console.log('category : ' + req.params.category_code);
-	console.log('name : ' + req.params.name);
+	console.log('name : ' + req.params.product_name);
 	console.log('min : ' + req.params.pricemin);
 	console.log('max : ' + req.params.pricemax);
 	console.log('brand : ' + req.params.brand);

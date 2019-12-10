@@ -9,6 +9,8 @@ import { Observable } from 'rxjs';
   styleUrls: ['./authentication.component.css']
 })
 export class AuthenticationComponent implements OnInit {
+  private email : string = "";
+  private password : string = "";
   private wrongid : boolean = false;
   private member : Observable<any>;
   

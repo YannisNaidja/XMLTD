@@ -8,13 +8,13 @@ import { Subject, BehaviorSubject } from 'rxjs';
 })
 export class BasketService {
   private dbUrl = 'http://localhost:8888/';
-  private basketchecker = new BehaviorSubject(undefined);
-  private currentbasket = this.basketchecker.asObservable();
+  private basketChecker = new BehaviorSubject(undefined);
+  private currentBasket = this.basketChecker.asObservable();
 
   constructor(private http : HttpClient) { }
 
   changebasket(basket : any) {
-    this.basketchecker.next(basket);
+    this.basketChecker.next(basket);
   }
   
   getBasket(userid : string) : Observable<any>{
@@ -49,5 +49,9 @@ export class BasketService {
       "user_mail" : user_mail,
       "product_code" : id_product
     });
+  }
+
+  getCurrentBasket() : Observable<any> {
+    return this.currentBasket;
   }
 }

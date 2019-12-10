@@ -9,11 +9,12 @@ import { ProductsService } from '../products.service';
 export class ProductSearchComponent implements OnInit {
   private selectCategoryState : boolean = false;
   private searchState = false;
-  private product : any = {};
-
+  private fields : any = {};
+  private emptyResultsState : boolean = false;
+  
   @Output() private searchPerformed : EventEmitter<any> = new EventEmitter();
   
-  constructor(private productservice : ProductsService) {
+  constructor(private productService : ProductsService) {
     this.reset();
   }
 
@@ -22,7 +23,7 @@ export class ProductSearchComponent implements OnInit {
   }
 
   reset(){
-    this.product = {
+    this.fields = {
       category : '',
       name : '',
       pricemin : 0,
@@ -33,48 +34,53 @@ export class ProductSearchComponent implements OnInit {
     };
   }
 
-  Research(){
-    let category = this.product.category;
+  searchProducts(){
+    let category = this.fields.category;
     
     if (category.length === 0) {
       category = '*';
     }
 
-    let name = this.product.name;
+    let name = this.fields.name;
 
     if (name.length === 0) {
       name = '*';
     }
-
-    let pricemax = this.product.pricemax;
+    
+    let pricemax = this.fields.pricemax;
 
     if (pricemax === undefined) {
       pricemax = '*';
     }
 
-    let brand = this.product.brand;
+    let brand = this.fields.brand;
     
     if (brand.length === 0) {
       brand = '*';
     }
 
-    let type = this.product.type;
+    let type = this.fields.type;
     
     if (type.length === 0) {
       type = '*';
     }
 
-    let extra = this.product.extra;
+    let extra = this.fields.extra;
     
     if (extra.length === 0) {
       extra = '*';
     }
-    
-    this.productservice.Research(category, name, this.product.pricemin, pricemax, brand, type, extra).subscribe(product => {
-      this.product = product;
-      this.searchPerformed.emit(this.product);
-      this.toggleDisplay();
-      this.searchState = true;
+
+    this.productService.searchProducts(category, name, this.fields.pricemin, pricemax, brand, type, extra).subscribe(products => {
+      this.emptyResultsState = false;
+      
+      if (products.length === 0) {
+	this.emptyResultsState = true;
+      } else {
+	this.searchPerformed.emit(products);
+	this.toggleDisplay();
+	this.searchState = true;
+      }
     });
   }
 
@@ -89,5 +95,6 @@ export class ProductSearchComponent implements OnInit {
   removeFilters() {
     this.searchPerformed.emit(undefined);
     this.searchState = false;
+    this.emptyResultsState = false;
   }
 }

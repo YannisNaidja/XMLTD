@@ -29,7 +29,7 @@ export class BasketComponent implements OnInit {
   ngOnInit() {
     this.empty = true;
     
-    this.basketservice.currentbasket.subscribe(b => {
+    this.basketservice.getCurrentBasket().subscribe(b => {
       if(b !== undefined){
         this.basket =b;
         this.empty = false;

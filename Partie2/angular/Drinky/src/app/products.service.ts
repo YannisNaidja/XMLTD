@@ -8,8 +8,8 @@ import { Subject, BehaviorSubject } from 'rxjs';
 })
 export class ProductsService {
   private dbUrl = 'http://localhost:8888/';
-  private categorychecker = new BehaviorSubject(undefined);
-  private currentcategory = this.categorychecker.asObservable();
+  private categoryChecker = new BehaviorSubject(undefined);
+  private currentCategory = this.categoryChecker.asObservable();
   
   constructor(private http : HttpClient) { }
 
@@ -22,18 +22,22 @@ export class ProductsService {
   }
 
   changecategory(category: any) {
-    this.categorychecker.next(category);
+    this.categoryChecker.next(category);
   }
 
-  Research(category : string,
-	   productname : string,
-	   prixmin : string, 
-           prixmax : string,
-	   brand : string,
-           type : string,
-	   extra : string){
-    return this.http.get(this.dbUrl + 'products/'+'search/'
-			 +category+'/'+productname+'/'+prixmin+'/'+prixmax
-			 +'/'+brand+'/'+type+'/'+extra);
+  searchProducts(category : string,
+		 productname : string,
+		 prixmin : string, 
+		 prixmax : string,
+		 brand : string,
+		 type : string,
+		 extra : string) : Observable<any> {
+    return this.http.get(this.dbUrl + 'products/' + 'search/'
+			 + category + '/' + productname + '/' + prixmin + '/' + prixmax
+			 +'/'+ brand + '/' + type + '/'+ extra);
+  }
+
+  getCurrentCategory() : Observable<any> {
+    return this.currentCategory;
   }
 }

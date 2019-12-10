@@ -64,7 +64,7 @@ export class ProductsComponent implements OnInit {
       this.productsByCategory[product.category_code].push(product);
     }
 
-    this.productsService.currentcategory.subscribe(cat => this.currentCategory = cat);
+    this.productsService.getCurrentCategory().subscribe(cat => this.currentCategory = cat);
   }
   
   viewDetails(code : string) {
@@ -76,6 +76,7 @@ export class ProductsComponent implements OnInit {
   }
 
   onSearchPerformed(products : any) {
+
     if (typeof products === 'undefined') {
       this.products = this.productsBackup;
     } else {
