@@ -28,6 +28,13 @@ export class ProductSearchComponent implements OnInit {
 
   reset(){
     this.Category = "";
+    this.Productname ="*";
+    this.Prixmin = "*";
+    this.Prixmax ="*";
+    this.Brand ="*";
+    this.Type ="*";
+    this.Extra ="*";
+    
     this.Displayfullbar = false;
     this.DisplayResults = false;
   }
@@ -36,7 +43,8 @@ export class ProductSearchComponent implements OnInit {
   
     this.DisplayResults = false;
     this.Displayfullbar = true;
-
+    console.log("la categorie dans displaysearch vaut"+this.Category);
+    
   }
   Research(){
     this.EmptyResults = false;
@@ -47,13 +55,13 @@ export class ProductSearchComponent implements OnInit {
       console.log("empty result:" +this.EmptyResults+"fullbar:"+this.Displayfullbar+"result:" +this.DisplayResults);
       this.productservice.Research(this.Category,this.Productname,this.Prixmin,this.Prixmax,
         this.Brand,this.Type,this.Extra).subscribe(product => {
+          console.log("recu du serveur :"+product);
           this.product = product;
           if(this.product.length === 0){
             this.EmptyResults = true;
           }
           this.Displayfullbar = false;
-          this.DisplayResults = true;
-            
+          this.DisplayResults = true;    
         });
       
     }
