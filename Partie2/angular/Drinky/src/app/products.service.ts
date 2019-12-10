@@ -32,11 +32,10 @@ export class ProductsService {
 		 prixmin : string, 
 		 prixmax : string,
 		 brand : string,
-		 type : string,
-		 extra : string) : Observable<any> {
+		 type : string) : Observable<any> {
     return this.http.get(this.dbUrl + 'products/' + 'search/'
 			 + category + '/' + productname + '/' + prixmin + '/' + prixmax
-			 +'/'+ brand + '/' + type + '/'+ extra);
+			 +'/'+ brand + '/' + type);
   }
 
   getCurrentCategory() : Observable<any> {

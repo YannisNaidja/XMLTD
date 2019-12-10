@@ -41,8 +41,7 @@ export class ProductSearchComponent implements OnInit {
       pricemin : 0,
       pricemax : undefined,
       brand : 'ALL',
-      type : 'ALL',
-      extra : '',
+      type : 'ALL'
     };
   }
 
@@ -77,13 +76,7 @@ export class ProductSearchComponent implements OnInit {
       type = '*';
     }
 
-    let extra = this.fields.extra;
-    
-    if (extra.length === 0) {
-      extra = '*';
-    }
-
-    this.productService.searchProducts(category, name, this.fields.pricemin, pricemax, brand, type, extra).subscribe(products => {
+    this.productService.searchProducts(category, name, this.fields.pricemin, pricemax, brand, type).subscribe(products => {
       console.log(brand);
       this.emptyResultsState = false;
       

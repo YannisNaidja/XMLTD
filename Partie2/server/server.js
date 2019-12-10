@@ -46,7 +46,6 @@ function findProducts(categories, extras_wordings, product_id, brands_list, type
 		}
 
 		for (let type of types_list) {
-		    console.log(type);
 		    if (type.type_key === product.type) {
 			product.type = type.wording;
 		    }
@@ -141,7 +140,7 @@ MongoClient.connect(url, {useNewUrlParser: true , useUnifiedTopology: true }, (e
     });
     
     // TODO: Add extras in products
-    app.get("/products/search/:category_code/:product_name/:pricemin/:pricemax/:brand/:type/:extra", (req, res) => {
+    app.get("/products/search/:category_code/:product_name/:pricemin/:pricemax/:brand/:type", (req, res) => {
 	let results = [];
 	var PrixMinMaxPresent = false;
 	
