@@ -1,4 +1,5 @@
 <div style="text-align: center" class="container-fluid">
+
     <ng-container *ngIf="Displayfullbar === false">
     <form (ngSubmit)="DisplaySearch()">
         <select class="browser-default custom-select" [(ngModel)]="Category">
@@ -11,8 +12,9 @@
         </button>
       </form>
     </ng-container>
+
     <ng-container *ngIf="Displayfullbar === true">
-        <form (ngSubmit)="Research">
+        <form (ngSubmit)="Research()">
                 <input type="text" placeholder="Nom du produit" [(ngModel)]="Productname" />
                 <input type="number" placeholder="Prix Min" [(ngModel)]="Prixmin" />
                 <input type="number"  placeholder="Prix Max" [(ngModel)]="Prixmax" />
@@ -24,5 +26,19 @@
             </button>
         </form>
     </ng-container>
-    
+
+    <ng-container *ngIf ="EmptyResults === true">
+        <p>Désolé, la recherche ne donne aucun résultat</p>
+    </ng-container>
+
+    <ng-container *ngIf ="EmptyResults === false && DisplayResults === true">
+        <div style="text-align: center;">
+            <div style="display:block;" *ngFor="let product of product">
+                <span style ="margin-right: 5px;">{{product['product_name']}}</span>
+            </div> 
+                  </div>
+    </ng-container>
+    <button class="btn btn-success" (click)="reset()">
+        Revenir a le selection de categorie
+    </button>   
 </div>

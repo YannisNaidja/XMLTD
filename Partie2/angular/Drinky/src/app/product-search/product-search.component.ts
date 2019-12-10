@@ -2,13 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../products.service';
 
 @Component({
-  selector: 'app-product-search',
+  selector: 'product-search',
   templateUrl: './product-search.component.html',
   styleUrls: ['./product-search.component.css']
 })
 export class ProductSearchComponent implements OnInit {
 
-  private DisplayCatchoice : boolean = true;
   private Displayfullbar : boolean = false;
   private EmptyResults : boolean = false;
   private DisplayResults : boolean = false;
@@ -19,7 +18,7 @@ export class ProductSearchComponent implements OnInit {
    private Brand : string ="*";
    private Type : string ="*";
    private Extra : string ="*";
-   private Product : any = [] ;
+   private product : any = [] ;
      
    
   constructor(private productservice : ProductsService) { }
@@ -27,8 +26,15 @@ export class ProductSearchComponent implements OnInit {
   ngOnInit() {
   }
 
+  reset(){
+    this.Category = "";
+    this.Displayfullbar = false;
+    this.DisplayResults = false;
+  }
+
   DisplaySearch(){
-    this.DisplayCatchoice = false;
+  
+    this.DisplayResults = false;
     this.Displayfullbar = true;
 
   }
@@ -38,14 +44,16 @@ export class ProductSearchComponent implements OnInit {
       console.log("categorie vide");
     }
     else{
+      console.log("empty result:" +this.EmptyResults+"fullbar:"+this.Displayfullbar+"result:" +this.DisplayResults);
       this.productservice.Research(this.Category,this.Productname,this.Prixmin,this.Prixmax,
         this.Brand,this.Type,this.Extra).subscribe(product => {
-          this.Product = product;
-          if(this.Product.length === 0){
+          this.product = product;
+          if(this.product.length === 0){
             this.EmptyResults = true;
           }
           this.Displayfullbar = false;
-          this.DisplayCatchoice = true;
+          this.DisplayResults = true;
+            
         });
       
     }
