@@ -1,7 +1,9 @@
 <div style="text-align: center" class="container-fluid">
-  <ng-container *ngIf="Displayfullbar === false">
-    <form (ngSubmit)="DisplaySearch()">
-      <select class="browser-default custom-select" name ="Category" [(ngModel)]="Category">
+  <h1>Recherche</h1>
+  <ng-container *ngIf="selectCategoryState === false">
+    <form (ngSubmit)="toggleDisplay()">
+      <h2>Selectionner une catégorie</h2>
+      <select class="browser-default custom-select" name ="category" [(ngModel)]="product.category">
         <option value="SOD">Soda</option>
         <option value="ALC">Boissons Alcoolisées</option>
       </select>
@@ -10,7 +12,7 @@
       </button>
     </form>
   </ng-container>
-  <ng-container *ngIf="Displayfullbar === true">
+  <ng-container *ngIf="selectCategoryState === true">
     <div class="text-align:center">
       <form (ngSubmit)="Research()">
         <input type="text" name="product-name" placeholder="Nom du produit" [(ngModel)]="product.name" />
@@ -35,7 +37,7 @@
       </div> 
     </div>
   </ng-container>
-  <button class="btn btn-success" (click)="reset()">
+  <button class="btn btn-success" (click)="toggleDisplay()">
     Revenir a le selection de categorie
   </button>   
 </div>
