@@ -11,6 +11,7 @@ import { Observable } from 'rxjs';
 })
 export class ProductsComponent implements OnInit {
   private products : any[] = new Array();
+  private productsBackup : any = {};
   private productsByCategory : any = {};
   private categories : any = [];
   private currentCategory : any = false;
@@ -75,7 +76,13 @@ export class ProductsComponent implements OnInit {
   }
 
   onSearchPerformed(products : any) {
-    this.products = products;
+    if (typeof products === 'undefined') {
+      this.products = this.productsBackup;
+    } else {
+      this.productsBackup = this.products;
+      this.products = products;
+    }
+
     this.sortAlphabetically();
     this.sortByCategories();
   }

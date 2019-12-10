@@ -21,10 +21,10 @@
 
   <div class="container-fluid">
     <div class="row">
-      <div class="col-sm text-center">
+      <div class="col-sm-9 text-center">
         <router-outlet></router-outlet>
       </div>
-      <div style="margin-right:50px;" class="col-sm text-right">
+      <div class="col-sm-3 text-right">
         <ng-container  *ngIf="(member | async)">
           <basket></basket>
         </ng-container>

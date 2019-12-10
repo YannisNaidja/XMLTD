@@ -8,6 +8,7 @@ import { ProductsService } from '../products.service';
 })
 export class ProductSearchComponent implements OnInit {
   private selectCategoryState : boolean = false;
+  private searchState = false;
   private product : any = {};
 
   @Output() private searchPerformed : EventEmitter<any> = new EventEmitter();
@@ -72,6 +73,8 @@ export class ProductSearchComponent implements OnInit {
     this.productservice.Research(category, name, this.product.pricemin, pricemax, brand, type, extra).subscribe(product => {
       this.product = product;
       this.searchPerformed.emit(this.product);
+      this.toggleDisplay();
+      this.searchState = true;
     });
   }
 
@@ -81,5 +84,10 @@ export class ProductSearchComponent implements OnInit {
     }
     
     this.selectCategoryState = ! this.selectCategoryState;
+  }
+
+  removeFilters() {
+    this.searchPerformed.emit(undefined);
+    this.searchState = false;
   }
 }

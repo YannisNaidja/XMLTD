@@ -37,7 +37,14 @@
       </div> 
     </div>
   </ng-container>
-  <button class="btn btn-success" (click)="toggleDisplay()">
-    Revenir a le selection de categorie
-  </button>   
+  <div>
+    <button class="btn btn-success" (click)="toggleDisplay()" *ngIf="selectCategoryState === true">
+      Revenir a le selection de categorie
+    </button>
+  </div>
+  <div>
+    <button class="btn btn-success" (click)="removeFilters()" *ngIf="searchState === true">
+      Effacer les filtres
+    </button>
+  </div>
 </div>

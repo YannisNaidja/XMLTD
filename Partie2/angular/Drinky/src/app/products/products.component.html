@@ -3,7 +3,7 @@
     <product-search (searchPerformed)="onSearchPerformed($event)">
     </product-search>
   </div>
-  <div class="col-sm text-center" style ="margin-top : 50px;" *ngFor="let category of categories">
+  <div class="col-sm text-center" *ngFor="let category of categories">
     <ng-container *ngIf="! currentCategory || currentCategory  === category.code">
       <h1>{{ category.name }}</h1>
       <img src="{{ category.img }}">
