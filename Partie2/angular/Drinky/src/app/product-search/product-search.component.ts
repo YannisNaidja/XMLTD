@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { ProductsService } from '../products.service';
 
 @Component({
@@ -11,15 +11,15 @@ export class ProductSearchComponent implements OnInit {
   private Displayfullbar : boolean = false;
   private EmptyResults : boolean = false;
   private DisplayResults : boolean = false;
-   private Category : string = "";
-   private Productname : string = "*"
-   private Prixmin : string ="*";
-   private Prixmax : string ="*";
-   private Brand : string ="*";
-   private Type : string ="*";
-   private Extra : string ="*";
-   private product : any = [] ;
-     
+  private Category : string = "";
+  private Productname : string = "*"
+  private Prixmin : string ="*";
+  private Prixmax : string ="*";
+  private Brand : string ="*";
+  private Type : string ="*";
+  private Extra : string ="*";
+  private product : any = [] ;
+  @Output() private searchPerformed : EventEmitter<any> = new EventEmitter();
    
   constructor(private productservice : ProductsService) { }
 
@@ -46,14 +46,15 @@ export class ProductSearchComponent implements OnInit {
     else{
       console.log("empty result:" +this.EmptyResults+"fullbar:"+this.Displayfullbar+"result:" +this.DisplayResults);
       this.productservice.Research(this.Category,this.Productname,this.Prixmin,this.Prixmax,
-        this.Brand,this.Type,this.Extra).subscribe(product => {
+				   this.Brand,this.Type,this.Extra).subscribe(product => {
+				     
           this.product = product;
           if(this.product.length === 0){
             this.EmptyResults = true;
           }
           this.Displayfullbar = false;
           this.DisplayResults = true;
-            
+          this.searchPerformed.emit(this.product);
         });
       
     }

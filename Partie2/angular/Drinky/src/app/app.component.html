@@ -21,25 +21,16 @@
 
   <div class="container-fluid">
     <div class="row">
-        <div class="col-sm text-center">
-            <product-search>
-            </product-search>
-        </div>
-        <div class="col-sm text-center">
-            <router-outlet></router-outlet>
-        </div>
-        <div class="col-sm text-center">
-            <router-outlet></router-outlet>
-        </div>
-        <div style="margin-right:50px;" class="col-sm text-right">
-            <router-outlet name ="basket">
-                <ng-container  *ngIf="(member | async)">
-                  <basket></basket>
-                </ng-container>
-            </router-outlet>
-        </div>    
+      <div class="col-sm text-center">
+        <router-outlet></router-outlet>
+      </div>
+      <div style="margin-right:50px;" class="col-sm text-right">
+        <ng-container  *ngIf="(member | async)">
+          <basket></basket>
+        </ng-container>
+      </div>    
     </div>
-</div>
+  </div>
 
   <nav style="text-align: center; margin-top: 50px;" class =" navbar-nav bg-dark text-light ">
     <p>Fait Par Yannis Naidja et Basile Dalié pour l'UE Données du Web dirigée Par Mr Pierre Pompidor. Année 2019-2020</p>

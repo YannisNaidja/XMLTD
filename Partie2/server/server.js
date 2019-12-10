@@ -314,6 +314,13 @@ MongoClient.connect(url, {useNewUrlParser: true , useUnifiedTopology: true }, (e
 	let results = [];
 	var PrixMinMaxPresent = false;
 
+	console.log('category : ' + req.params.category_code);
+	console.log('name : ' + req.params.name);
+	console.log('min : ' + req.params.pricemin);
+	console.log('max : ' + req.params.pricemax);
+	console.log('brand : ' + req.params.brand);
+	console.log('extra : ' + req.params.brand);
+	
 	try {
 	    db.collection("products").find({ "category_code" : req.params.category_code }).toArray((err, documents) => {
 		for (let category of documents) {

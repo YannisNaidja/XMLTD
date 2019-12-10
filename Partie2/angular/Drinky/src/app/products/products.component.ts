@@ -67,10 +67,15 @@ export class ProductsComponent implements OnInit {
 	this.currentCategory = categoryCode;
     }*/
 
-    viewDetails(code : string) {
-	this.router.navigate(['/products/' + code ]);
-	}
-	connect(){
-		this.router.navigate(['/login']);
-	}
+  viewDetails(code : string) {
+    this.router.navigate(['/products/' + code ]);
+  }
+  
+  connect(){
+    this.router.navigate(['/login']);
+  }
+
+  onSearchPerformed(products : any) {
+    console.log(products);
+  }
 }
