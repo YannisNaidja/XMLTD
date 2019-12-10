@@ -8,7 +8,7 @@
 		"code" : "X0192",
 		"product_name" : "Pack 6xBière belge 25cl",
 		"price" : 5.50,
-		"brand" : "Leffe",
+		"brand" : "LEF",
 		"type" : "Biere blonde",
 		"extra" : {
 		    "alcohol_volume" : 6.5
@@ -19,7 +19,7 @@
 		"product_name" : "Pack 12xBière Pelforth Brune 25cl",
 		"price" : 10,
 		"alcohol_volume" : 6.5,
-		"brand" : "Pelforth",
+		"brand" : "PEL",
 		"type" : "Biere brune",
 		"extra" : {
 		    "alcohol_volume" : 7.0
@@ -29,7 +29,7 @@
 		"product_name" : "Nikka From The Barrel",
 		"price" : 50,
 		"alcohol_volume" : 40,
-		"brand" : "Nikka",
+		"brand" : "NIK",
 		"type" : "Whisky",
 		"extra" : {
 		    "alcohol_volume" : 40
@@ -39,7 +39,7 @@
 		"product_name" : "Grey Goose 70cl",
 		"price" : 70,
 		"alcohol_volume" : 42,
-		"brand" : "Grey Goose",
+		"brand" : "GRE",
 		"type" : "Vodka",
 		"extra" : {
 		    "alcohol_volume" : 42
@@ -49,7 +49,7 @@
 		"product_name" : "Armagnac Laubade 1937 50cl",
 		"price" : 1070,
 		"alcohol_volume" : 49,
-		"brand" : "Laubade",
+		"brand" : "LAU",
 		"type" : "Armagnac",
 		"extra" : {
 		    "alcohol_volume" : 49
@@ -66,28 +66,28 @@
 		"code" : "D1143",
 		"product_name" : "Coca-cola 1.5l",
 		"price" : 3.50,
-		"brand" : "Coca-Cola Company",
+		"brand" : "COC",
 		"type" : "Soda sucré",
 		"extra" : {}
 	    },{
 		"code" : "D1144",
 		"product_name" : "Fanta 1.5l",
 		"price" : 3.50,
-		"brand" : "Coca-Cola Company",
+		"brand" : "COC",
 		"type" : "Soda sucré",
 		"extra" : {}
 			},{
 		"code" : "D1145",
 		"product_name" : "Orangina 1.5l",
 		"price" : 3.50,
-		"brand" : "Coca-Cola Company",
+		"brand" : "COC",
 		"type" : "Soda sucré",
 		"extra" : {}
 			},{
 		"code" : "D1146",
 		"product_name" : "Perrier 1.5l",
 		"price" : 3.50,
-		"brand" : "Pierrier Inc",
+		"brand" : "PER",
 		"type" : "Eau gazeuse",
 		"extra" : {}
 			}

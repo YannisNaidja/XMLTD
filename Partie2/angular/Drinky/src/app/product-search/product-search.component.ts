@@ -1,5 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { ProductsService } from '../products.service';
+import { BrandsServiceService } from '../brands-service.service';
 
 @Component({
   selector: 'product-search',
@@ -11,15 +12,20 @@ export class ProductSearchComponent implements OnInit {
   private searchState = false;
   private fields : any = {};
   private emptyResultsState : boolean = false;
+  private brands : any = [];
   
   @Output() private searchPerformed : EventEmitter<any> = new EventEmitter();
   
-  constructor(private productService : ProductsService) {
+  constructor(private productService : ProductsService,
+	      private brandsService : BrandsServiceService) {
     this.reset();
   }
 
   ngOnInit() {
-    // Does nothing on init
+    this.brandsService.getBrands().subscribe(brands => {
+      console.log(brands);
+      this.brands = brands;
+    });
   }
 
   reset(){
@@ -28,7 +34,7 @@ export class ProductSearchComponent implements OnInit {
       name : '',
       pricemin : 0,
       pricemax : undefined,
-      brand : '',
+      brand : 'ALL',
       type : '',
       extra : '',
     };
@@ -72,6 +78,7 @@ export class ProductSearchComponent implements OnInit {
     }
 
     this.productService.searchProducts(category, name, this.fields.pricemin, pricemax, brand, type, extra).subscribe(products => {
+      console.log(brand);
       this.emptyResultsState = false;
       
       if (products.length === 0) {

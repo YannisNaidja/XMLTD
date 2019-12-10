@@ -14,7 +14,7 @@ const MongoClient = require('mongodb').MongoClient;
 const ObjectID = require('mongodb').ObjectId;
 const url = "mongodb://localhost:27017";
 
-function findProducts(categories, extras_wordings, product_id) {
+function findProducts(categories, extras_wordings, product_id, brands_list) {
     let products = [];
     
     for (let category of categories) {
@@ -23,17 +23,25 @@ function findProducts(categories, extras_wordings, product_id) {
 		product['category_code'] = category.category_code;
 		product['category_name'] = category.category_name;
 		product['category_img'] = category.category_img;
-		
-		var extra_property = [];
-		
+
+		var extra_property = [], brand_property = [];
+
+		// TODO: Simplify
 		for (let key in product.extra) {
 		    for (let extra_wording of extras_wordings) {
 			if (extra_wording.extra_key === key) {
 			    extra_property.push({
 				'key' : extra.wording,
+				// TODO: Check why?
 				'value' : product.extra[key]
 			    });
 			}
+		    }
+		}
+		
+		for (let brand of brands_list) {
+		    if (brand.brand_key === product.brand) {
+			product.brand = brand.wording;
 		    }
 		}
 
@@ -42,7 +50,7 @@ function findProducts(categories, extras_wordings, product_id) {
 	    }
 	}
     }
-
+    
     return products;
 }
 
@@ -53,19 +61,29 @@ MongoClient.connect(url, {useNewUrlParser: true , useUnifiedTopology: true }, (e
 	console.log("/products");
 
 	try {
-	    let extras_wordings = [];
+	    let brands_list = [];
 
-	    db.collection("extras").find().toArray((err, extras) => {
-		for (extra of extras) {
-		    extras_wordings.push(extra);
+	    db.collection("brands").find().toArray((err, brands) => {
+		for (brand of brands) {
+		    brands_list.push(brand);
 
-		    if (extras_wordings.length === extras.length) {
-			db.collection("products").find().toArray((err, categories) => {
-			    let products = findProducts(categories, extras_wordings);
-			    
-			    res.end(JSON.stringify(products));
+		    if (brands_list.length === brands.length) {
+			let extras_wordings = [];
+			
+			db.collection("extras").find().toArray((err, extras) => {
+			    for (extra of extras) {
+				extras_wordings.push(extra);
+
+				if (extras_wordings.length === extras.length) {
+				    db.collection("products").find().toArray((err, categories) => {
+					let products = findProducts(categories, extras_wordings, undefined, brands_list);
+					
+					res.end(JSON.stringify(products));
+				    });
+
+				}
+			    }
 			});
-
 		    }
 		}
 	    });
@@ -104,31 +122,65 @@ MongoClient.connect(url, {useNewUrlParser: true , useUnifiedTopology: true }, (e
 	    res.end(JSON.stringify([]));
 	}
     });
-
-    app.get("/products/:category", (req,res) => {
-	console.log("/products/" + req.params.category);
-
+    
+    // TODO: Add extras in products
+    app.get("/products/search/:category_code/:product_name/:pricemin/:pricemax/:brand/:type/:extra", (req, res) => {
+	let results = [];
+	var PrixMinMaxPresent = false;
+	
 	try {
-	    let products = [];
 	    db.collection("products").find().toArray((err, documents) => {
-		for (let doc of documents) {
-		    if (doc.category_code === req.params.category) {
-			for (let content of doc.content) {
-			    content['category_code'] = doc.category_code;
-	     		    products.push(content);
+		for (let category of documents) {
+		    if (req.params.category_code === '*' || category.category_code === req.params.category_code) {
+			for (let product of category.content) {
+			    let add = true;
+			    
+			    if (req.params.product_name !== '*') {
+				if (product.product_name.indexOf(req.params.product_name) === -1) {
+				    add = false;
 				}
+			    }
+
+			    if (product.price < req.params.pricemin) {
+				add=false;
+			    }
+			    
+			    if(req.params.pricemax !== '*'){ 
+				if (product.price > req.params.pricemax) {
+				    add = false;
+				}
+			    }
+
+			    if (req.params.brand !== '*') {
+				if (req.params.brand !== product.brand) {
+				    add = false;
+				}
+			    }
+
+			    if (req.params.type !== '*') {
+				if (req.params.type !== product.type) {
+				    add = false;
+				}
+			    }
+			    
+			    if (add) {
+				product.category_code = category.category_code;
+				product.category_name = category.category_name;
+				product.category_img = category.category_img;
+				
+				results.push(product);
+			    }
+			}
 		    }
-	    }
-		console.log(products);
-		res.end(JSON.stringify(products));		
+		}
+
+		res.end(JSON.stringify(results));
 	    });
 	} catch(e) {
-	    console.log("Error on /products/:category : " + e);
-	    res.end(JSON.stringify([]));
+	    console.log("Error on /products/search");
 	}
     });
 
-    
     app.get("/members", (req,res) => {
 	console.log("/members");
 
@@ -269,6 +321,7 @@ MongoClient.connect(url, {useNewUrlParser: true , useUnifiedTopology: true }, (e
 	    });	
     });	
 
+    // TODO: printerror )-:
     app.post("/emptyBasket" , (req,res) => {
 
 	db.collection("basket").find({'user_mail' : req.body.user_mail})
@@ -285,6 +338,7 @@ MongoClient.connect(url, {useNewUrlParser: true , useUnifiedTopology: true }, (e
 	    });	
     });	
 
+    // TODO: Add try/catch
     app.post("/modifBasket" , (req,res) => {
 	//marche
 	db.collection("basket").find({'user_mail' : req.body.user_mail})
@@ -310,74 +364,22 @@ MongoClient.connect(url, {useNewUrlParser: true , useUnifiedTopology: true }, (e
 	    });
     });
 
-    // TODO: Add extras in products
-    app.get("/products/search/:category_code/:product_name/:pricemin/:pricemax/:brand/:type/:extra", (req, res) => {
-	let results = [];
-	var PrixMinMaxPresent = false;
+    app.get('/brands', (req, res) => {
+	console.log('/brands');
 	
 	try {
-	    db.collection("products").find().toArray((err, documents) => {
-		for (let category of documents) {
-		    if (req.params.category_code === '*' || category.category_code === req.params.category_code) {
-			for (let product of category.content) {
-			    let add = true;
-			    
-			    if (req.params.product_name !== '*') {
-				if (product.product_name.indexOf(req.params.product_name) === -1) {
-				    add = false;
-				}
-			    }
-
-				if (req.params.pricemin !== '*' ){
-					if(req.params.pricemax!=='*'){ 
-						PrixMinMaxPresent = true
-						if (product.price < req.params.pricemin || product.price > req.params.pricemax) {
-							add = false;
-						}
-					}
-					else if(product.price < req.params.pricemin){ //seulement prix min
-						add = false; 
-					}
-				}
-				if(PrixMinMaxPresent === false){
-					if(req.params.pricemax !=='*'){
-						if(product.price > req.params.pricemax)
-							add = false;
-					}
-				}
-
-			    if (req.params.brand !== '*') {
-				if (req.params.brand !== product.brand) {
-				    add = false;
-				}
-			    }
-
-			    if (req.params.type !== '*') {
-				if (req.params.type !== product.type) {
-				    add = false;
-				}
-			    }
-			    
-			    if (add) {
-				product.category_code = category.category_code;
-				product.category_name = category.category_name;
-				product.category_img = category.category_img;
-				
-				results.push(product);
-			    }
-			}
-		    }
-		}
-
-		res.end(JSON.stringify(results));
+	    db.collection("brands").find().toArray((err, documents) => {
+		console.log(documents);
+		res.end(JSON.stringify(documents));
 	    });
-	} catch(e) {
-	    console.log("Error on ");
+	} catch (error) {
+	    console.log("Error on /brands : " + error);
+	    res.end(JSON.stringify([]));
 	}
-	});
-	   
+    });
 });// fin classe 
 
 app.listen(8888);
+
 
 

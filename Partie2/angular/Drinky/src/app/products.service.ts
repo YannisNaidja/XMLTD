@@ -11,7 +11,9 @@ export class ProductsService {
   private categoryChecker = new BehaviorSubject(undefined);
   private currentCategory = this.categoryChecker.asObservable();
   
-  constructor(private http : HttpClient) { }
+  constructor(private http : HttpClient) {
+    // Does nothing on construction
+  }
 
   getProducts(): Observable<any> {
     return this.http.get(this.dbUrl + 'products');

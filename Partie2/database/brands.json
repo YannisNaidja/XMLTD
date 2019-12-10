@@ -1,0 +1,24 @@
+[
+    {
+	"brand_key" : "LEF",
+	"wording" : "Leffe"
+    }, {
+	"brand_key" : "PEL",
+	"wording" : "Pelforth"
+    }, {
+	"brand_key" : "NIK",
+	"wording" : "Nikka"
+    }, {
+	"brand_key" : "GRE",
+	"wording" : "Grey Goose"
+    }, {
+	"brand_key" : "LAU",
+	"wording" : "Laubade"
+    }, {
+	"brand_key" : "COC",
+	"wording" : "Coca-Cola Company"
+    }, {
+	"brand_key" : "PER",
+	"wording" : "Pierrier Inc"
+    }
+]

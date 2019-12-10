@@ -16,13 +16,24 @@
   </ng-container>
   <ng-container *ngIf="selectCategoryState === true">
     <div class="text-align:center">
-      <form (ngSubmit)="searchProducts()">
-        <input type="text" name="product-name" placeholder="Nom du produit" [(ngModel)]="fields.name" />
-        <input type="number" name ="pricemin" placeholder="Prix Min" [(ngModel)]="fields.pricemin" />
-        <input type="number" name="pricemax"  placeholder="Prix Max" [(ngModel)]="fields.pricemax" />
-        <input type="text" name ="brand"  placeholder="Marque" [(ngModel)]="fields.brand" />
-        <input type="text" name ="type" placeholder="type" [(ngModel)]="fields.type" />
-        <input type="text" name="extra"  placeholder="extra : (Volume d'alcool)" [(ngModel)]="fields.extra" />
+      <form id="search-form" (ngSubmit)="searchProducts()">
+	<label for="product-name">Nom : </label>
+        <input type="text" id="product-name" name="product-name" [(ngModel)]="fields.name" />
+	<label for="pricemin">Prix minimum : </label>
+        <input type="number" id="pricemin" name="pricemin" [(ngModel)]="fields.pricemin" />
+	<label for="pricemax">Prix maximum : </label>
+        <input type="number" id="pricemax" name="pricemax" [(ngModel)]="fields.pricemax" />
+	<label for="brand">Marque : </label>
+	<select class="browser-default custom-select" name="brand" [(ngModel)]="fields.brand">
+	  <option name="ALL" value="ALL">Toutes marques</option>
+	  <ng-container *ngFor = "let brand of brands">
+	    <option value="{{brand.brand_key}}">{{ brand.wording }}</option>
+	  </ng-container>
+	</select>
+	<label for="type">Type : </label>
+        <input type="text" id="type" name="type" [(ngModel)]="fields.type" />
+	<label for="extra">Volume d'alcool : </label>
+        <input type="text" id="extra" name="extra" [(ngModel)]="fields.extra" />
         <button class="btn btn-success" type="submit">
           Valider
         </button>
