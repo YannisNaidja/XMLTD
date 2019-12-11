@@ -8,35 +8,34 @@ import { Subject, BehaviorSubject } from 'rxjs';
 })
 export class BasketService {
   private dbUrl = 'http://localhost:8888/';
-  private basketChecker = new BehaviorSubject(undefined);
-  private currentBasket = this.basketChecker.asObservable();
+  private basket = new BehaviorSubject<any>(undefined);
 
   constructor(private http : HttpClient) { }
 
-  changebasket(basket : any) {
-    this.basketChecker.next(basket);
+  updateBasket(user_mail : string) {
+    this.findById(user_mail).subscribe(res => {
+      this.basket.next(res);
+    });
+  }
+
+  getBasket() {
+    return this.basket;
   }
   
-  getBasket(userid : string) : Observable<any>{
-    console.log(userid);
+  findById(userid : string) : Observable<any>{
     return this.http.get(this.dbUrl + 'basket/' + userid);
   }
   
-  AddBasket(user_mail : string, id_product : string, name : string, quantity : number) : Observable<any> {
-    return this.http.post(this.dbUrl + 'basket', {
-      "user_mail" : user_mail,
-      "product_code" : id_product,
-      "product_name" : name,
+  insert(user_mail : string, id_product : string, name : string, quantity : number) : Observable<any> {
+    return this.http.post(this.dbUrl + 'basket/' + user_mail + "/" + id_product + "/quantity", {
       "quantity" : quantity
     }); 
   }
   
-  ModifiyBasket(user_mail : string, id_product : string, quantity : number) : Observable<any>{
-    return this.http.post(this.dbUrl + 'modifBasket', {
-      "user_mail" : user_mail,
-      "product_code" : id_product,
+  update(user_mail : string, id_product : string, quantity : number) : Observable<any>{
+    return this.http.post(this.dbUrl + 'basket/' + user_mail + "/" + id_product + "/quantity", {
       "quantity" : quantity
-    });
+    }); 
   }
   
   emptyBasket(user_mail : string) : Observable<any>{
@@ -45,14 +44,10 @@ export class BasketService {
     });
   }
   
-  removeItem(user_mail : string, id_product : string): Observable <any>{
+  delete(user_mail : string, id_product : string): Observable <any>{
     return this.http.post(this.dbUrl + 'removeProduct',{
       "user_mail" : user_mail,
       "product_code" : id_product
     });
-  }
-
-  getCurrentBasket() : Observable<any> {
-    return this.currentBasket;
   }
 }

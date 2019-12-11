@@ -24,7 +24,7 @@ export class ProductDetailsComponent implements OnInit {
 
   private member : any;
   private basket : any = [];
-  private newQuantity : number = 0;
+  private quantity : number = 0;
   
   constructor(private route : ActivatedRoute,
 	      private productsService : ProductsService,
@@ -43,13 +43,12 @@ export class ProductDetailsComponent implements OnInit {
       });
     });
 
-    this.basketService.getBasket(this.member).subscribe(res => {
-      this.basket = res;
-    });
+    this.basketService.updateBasket(this.member.value.mail);
+    this.basket = this.basketService.getBasket();
   }
 
   quantityInBasket(productCode : string) {
-    for (let item of this.basket) {
+    for (let item of this.basket.value) {
       if (item.product_code === productCode) {
 	return item.quantity;
       }
@@ -59,11 +58,8 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   onAddToBasketFormSubmit(productCode : string) {
-    this.basketService.AddBasket(this.member.value.mail, this.product.code,this.product.product_name, this.newQuantity).subscribe(res => {
-      this.basketService.getBasket(this.member.value.mail).subscribe(res => {
-	this.basket = res;
-	this.basketService.changebasket(this.basket);
-      });
+    this.basketService.update(this.member.value.mail, this.product.code, this.quantity).subscribe(res => {
+      this.basketService.updateBasket(this.member.value.mail);
     });
   }
   

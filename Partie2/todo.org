@@ -1,0 +1,4 @@
+* To do
+** Check quantity 0 basket
+** Utilisateur déjà inscrit
+** Prevent route details if not connected

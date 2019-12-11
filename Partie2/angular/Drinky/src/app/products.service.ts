@@ -41,4 +41,8 @@ export class ProductsService {
   getCurrentCategory() : Observable<any> {
     return this.currentCategory;
   }
+
+  getProductNames() : Observable<any> {
+    return this.http.get(this.dbUrl + 'product/names');
+  }
 }

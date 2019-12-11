@@ -3,13 +3,10 @@
 	"user_mail" : "jean.pierre@mail.com",
 	"basket" : [
 	    {
-		"product_code" : "X019",
-		"product_name" : "Pack 6xBière belge 25cl",
+		"product_code" : "X0192",
 		"quantity" : "1"
-	    },
-	    {
+	    }, {
 		"product_code" : "D1143",
-		"product_name" : "Coca-cola 1.5l",
 		"quantity" : "2"
 	    }
 	]
@@ -19,7 +16,6 @@
 	"basket" : [
 	    {
 		"product_code" : "C0193",
-		"product_name" : "Pack 12xBière Pelforth Brune 25cl",
 		"quantity" : "1"
 	    }
 	]

@@ -76,7 +76,6 @@ export class ProductsComponent implements OnInit {
   }
 
   onSearchPerformed(products : any) {
-
     if (typeof products === 'undefined') {
       this.products = this.productsBackup;
     } else {

@@ -111,7 +111,7 @@ MongoClient.connect(url, {useNewUrlParser: true , useUnifiedTopology: true }, (e
     });
 
     // TODO: Add extra and types support
-    app.get("/products/:product_id", (req,res) => {
+    app.get("/products/:product_id", (req, res) => {
 	console.log("/products/" + req.params.product_id);
 
 	try {
@@ -160,7 +160,33 @@ MongoClient.connect(url, {useNewUrlParser: true , useUnifiedTopology: true }, (e
 	    res.end(JSON.stringify([]));
 	}
     });
-    
+
+    app.get("/product/names", (req, res) => {
+	console.log('/products/name/');
+
+	try {
+	    let products = [];
+	    
+	    db.collection("products").find().toArray((err, categories) => {
+		let result = [];
+		
+		for (let category of categories) {
+		    for (let product of category.content) {
+			result.push({
+			    "code" : product.code,
+			    "name" : product.product_name
+			});
+		    }
+		}
+
+		res.end(JSON.stringify(result));
+	    }); 
+	} catch(e) {
+	    console.log("Error on /products/name/" + req.params.code + " : " + e);
+	    res.end(JSON.stringify([]));
+	}
+    });
+
     // TODO: Add extras in products
     app.get("/products/search/:category_code/:product_name/:pricemin/:pricemax/:brand/:type", (req, res) => {
 	let results = [];
@@ -219,7 +245,7 @@ MongoClient.connect(url, {useNewUrlParser: true , useUnifiedTopology: true }, (e
 	}
     });
 
-    app.get("/members", (req,res) => {
+    app.get("/members", (req, res) => {
 	console.log("/members");
 
 	try {
@@ -233,7 +259,7 @@ MongoClient.connect(url, {useNewUrlParser: true , useUnifiedTopology: true }, (e
 	}
     });
 
-    app.get("/members/:mail/:password", (req,res) => {
+    app.get("/members/:mail/:password", (req, res) => {
 	console.log("/members/" + req.params.mail + "/" + req.params.password);
 
 	try {
@@ -253,7 +279,7 @@ MongoClient.connect(url, {useNewUrlParser: true , useUnifiedTopology: true }, (e
 	}
     });
 
-    app.get("/basket", (req,res) => {
+    app.get("/basket", (req, res) => {
 	console.log("/basket");
 
 	try {
@@ -267,38 +293,64 @@ MongoClient.connect(url, {useNewUrlParser: true , useUnifiedTopology: true }, (e
 	}
     });
 
-    app.post("/basket" , (req,res) => {
-	console.dir(req.body);
-	db.collection("basket").find({'user_mail' : req.body.user_mail})
-	    .toArray((err, documents) => {
-		console.log("le doc vaut" + documents);
-		var dejapresent = false;
-		let basket = documents[0].basket;
-		var newbasket = Object.values(basket);
-		console.log("new basket vaut"+JSON.stringify(newbasket));
-		let product = {"product_code" : req.body.product_code ,"product_name" : req.body.product_name, "quantity" : req.body.quantity};
-		for(let items of newbasket)
-			if(items.product_code=== product.product_code){
-				dejapresent = true;
-				items.quantity+=req.body.quantity;
-			}
-		if(!dejapresent)	
-			newbasket.push(product);
-		
-		try {
-		    db.collection("basket").updateOne(
-			{'user_mail' : req.body.user_mail},
-			{ $set : {'basket' : newbasket }});
-		    res.end(JSON.stringify(newbasket));
-		} catch (error) {
-		    console.log('Error on GET /basket');
-		    res.status(400);
-		    res.end(JSON.stringify([]));
-		}
-	    });	
-    });	
+    app.post("/basket/:mail/:product/quantity", (req, res) => {
+    	console.log('/basket/' + req.params.mail + "/" + req.params.product + "/quantity");
+	console.log(req.params.mail);
+	try {
+	    let found = false;
+    	    db.collection("basket").find()
+    		.toArray((err, users) => {
+		    let userFound = false;
+    		    let result = [];
 
-    app.get("/basket/:mail", (req,res) => {
+		    for (let user of users) {
+			if (user.user_mail === req.params.mail) {
+			    userFound = true;
+
+			    let productFound = false;
+    			    for (let product of user.basket) {
+    				if (product.product_code === req.params.product) {
+				    productFound = true;
+    				    product.quantity = req.body.quantity;
+    				}
+				
+    				result.push(product);
+    			    }
+
+			    if (! productFound) {
+				result.push({
+    				    'product_code' : req.params.product,
+				    'quantity' : req.body.quantity
+    				});
+			    }
+			}
+		    }
+
+		    console.log(userFound);
+		    if (userFound) {
+			db.collection("basket").updateOne({'user_mail' : req.params.mail}, { $set : {'basket' : result }});
+		    } else {
+			result.push({
+    			    'product_code' : req.params.product,
+			    'quantity' : req.body.quantity
+    			});
+
+			db.collection("basket").insert({
+			    'user_mail' : req.params.mail,
+			    'basket' : result
+			});
+		    }
+		    
+		    res.end(JSON.stringify(result));
+		});
+	} catch (error) {
+	    console.log('Error on GET /basket/:mail/:product/quantity');
+	    res.status(400);
+	    res.end(JSON.stringify([]));
+	}
+    });
+    
+    app.get("/basket/:mail", (req, res) => {
 	console.log("/basket/" + req.params.mail);
 
 	try {
@@ -306,7 +358,7 @@ MongoClient.connect(url, {useNewUrlParser: true , useUnifiedTopology: true }, (e
 	    db.collection("basket").find().toArray((err, documents) => {
 		for (let document of documents) {
 		    if (document.user_mail === req.params.mail) {
-			console.log("le serveur envoi"+ document.basket);
+			console.log("le serveur envoi" + document.basket);
 			res.end(JSON.stringify(document.basket));
 		    }
 		}
@@ -317,7 +369,7 @@ MongoClient.connect(url, {useNewUrlParser: true , useUnifiedTopology: true }, (e
 	}
     });
 	
-    app.post("/members" , (req,res) => { //check si pas deja inscrit
+    app.post("/members" , (req, res) => { //check si pas deja inscrit
 	db.collection("members").find({mail : req.body.mail})
 	    .count()
 	    .then(function(items) {
@@ -334,7 +386,7 @@ MongoClient.connect(url, {useNewUrlParser: true , useUnifiedTopology: true }, (e
 	    });
 	});
 
-    app.post("/removeProduct" , (req,res) => {
+    app.post("/removeProduct" , (req, res) => {
 	db.collection("basket").find({'user_mail' : req.body.user_mail})
 	    .toArray((err, documents) => {
 		let newbasket = [];
@@ -360,7 +412,7 @@ MongoClient.connect(url, {useNewUrlParser: true , useUnifiedTopology: true }, (e
     });	
 
     // TODO: printerror )-:
-    app.post("/emptyBasket" , (req,res) => {
+    app.post("/emptyBasket" , (req, res) => {
 
 	db.collection("basket").find({'user_mail' : req.body.user_mail})
 	    .toArray((err, documents) => {
@@ -377,7 +429,7 @@ MongoClient.connect(url, {useNewUrlParser: true , useUnifiedTopology: true }, (e
     });	
 
     // TODO: Add try/catch
-    app.post("/modifBasket" , (req,res) => {
+    app.post("/modifBasket" , (req, res) => {
 	//marche
 	db.collection("basket").find({'user_mail' : req.body.user_mail})
 	    .toArray((err, documents) => {

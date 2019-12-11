@@ -21,6 +21,7 @@ export class AuthenticationService {
   }
 
   logIn(member) {
+    console.log(member);
     this.member.next(member);
   }
 
