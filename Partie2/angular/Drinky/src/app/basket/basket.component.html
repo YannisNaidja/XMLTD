@@ -24,7 +24,7 @@
               <label style="margin-right: 5px;" for="add-to-basket-field">
 		Nouvelle quantité:
               </label>
-              <input type="number" name="add-to-basket-field" id="add-to-basket-field" placeholder="Quantité" [(ngModel)]="newQuantity" />
+              <input type="number" name="add-to-basket-field" id="add-to-basket-field" placeholder="Quantité" min="1" [(ngModel)]="newQuantity" />
               <button class="btn btn-success" type="submit">
 		Valider
               </button>

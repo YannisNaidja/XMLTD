@@ -17,7 +17,7 @@ export class BasketComponent implements OnInit {
   private member : any;
   private displaymodify : boolean = false;
   private mail : any;
-  private newQuantity : number = 0;
+  private newQuantity : number = 1;
   private productNames : any[] = new Array();
   
   constructor(private basketService : BasketService,

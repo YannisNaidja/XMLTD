@@ -20,9 +20,9 @@
 	<label for="product-name">Nom : </label>
         <input type="text" id="product-name" name="product-name" [(ngModel)]="fields.name" />
 	<label for="pricemin">Prix minimum : </label>
-        <input type="number" id="pricemin" name="pricemin" [(ngModel)]="fields.pricemin" />
+        <input type="number" id="pricemin" name="pricemin" min="0" [(ngModel)]="fields.pricemin" />
 	<label for="pricemax">Prix maximum : </label>
-        <input type="number" id="pricemax" name="pricemax" [(ngModel)]="fields.pricemax" />
+        <input type="number" id="pricemax" name="pricemax" min="0" [(ngModel)]="fields.pricemax" />
 	<label for="brand">Marque : </label>
 	<select class="browser-default custom-select" name="brand" [(ngModel)]="fields.brand">
 	  <option name="ALL" value="ALL">Toutes marques</option>

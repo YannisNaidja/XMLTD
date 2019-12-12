@@ -1,4 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ProductsService } from '../products.service';
 import { BrandsServiceService } from '../brands-service.service';
 import { TypesService } from '../types.service';
@@ -32,7 +33,7 @@ export class ProductSearchComponent implements OnInit {
     this.typesService.getTypes().subscribe(types => {
       this.types = types;
     });
-}
+  }
 
   reset(){
     this.fields = {

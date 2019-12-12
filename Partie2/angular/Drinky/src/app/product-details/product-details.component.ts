@@ -24,7 +24,7 @@ export class ProductDetailsComponent implements OnInit {
 
   private member : any;
   private basket : any = [];
-  private quantity : number = 0;
+  private quantity : number = 1;
   
   constructor(private route : ActivatedRoute,
 	      private productsService : ProductsService,
