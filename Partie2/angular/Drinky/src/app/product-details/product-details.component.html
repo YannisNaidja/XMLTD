@@ -1,30 +1,37 @@
-<h1>{{product.product_name}}</h1>
-<ul style ="list-style-type:none">
-  <li>
-    Prix : {{product['price']}}
-  </li>
-  <li>
-    Marque : {{product['brand']}}
-  </li>
-  <li>
-    Type : {{product['type']}}
-  </li>
-  <li *ngFor="let extra of product.extra">
-    {{extra.key}} : {{extra.value}}
-  </li>
-  <div id="add-to-basket-form" *ngIf="quantityInBasket(product.code) === 0">
-    <form (ngSubmit)="onAddToBasketFormSubmit()">
-      <label style="margin-right: 5px;" for="add-to-basket-field">
-	Quantité à ajouter au panier: 
-      </label>
-      <input type="number" name="add-to-basket-field" id="add-to-basket-field" placeholder="Quantité" [(ngModel)]="quantity" />
-      <button class="btn btn-success" type="submit">
-	Valider
-      </button>
-    </form>
-  </div>
-  <div *ngIf="quantityInBasket(product.code) > 0" id="display-basket-product">
-    <span style ="margin-right:5px;">{{ quantityInBasket(product.code) }} exemplaires de ce produit ont été ajouté aux panier</span>
-  </div>
-  <button class="btn btn-success" (click) = "backtolist()">Revenir à la liste</button>
-</ul>
+<div *ngIf="member | async">
+  <h1>{{product.product_name}}</h1>
+  <ul style ="list-style-type:none">
+    <li>
+      Prix : {{product['price']}}
+    </li>
+    <li>
+      Marque : {{product['brand']}}
+    </li>
+    <li>
+      Type : {{product['type']}}
+    </li>
+    <li *ngFor="let extra of product.extra">
+      {{extra.key}} : {{extra.value}}
+    </li>
+    <div id="add-to-basket-form" *ngIf="quantityInBasket(product.code) === 0">
+      <form (ngSubmit)="onAddToBasketFormSubmit()">
+	<label style="margin-right: 5px;" for="add-to-basket-field">
+	  Quantité à ajouter au panier: 
+	</label>
+	<input type="number" name="add-to-basket-field" id="add-to-basket-field" placeholder="Quantité" [(ngModel)]="quantity" />
+	<button class="btn btn-success" type="submit">
+	  Valider
+	</button>
+      </form>
+    </div>
+    <div *ngIf="quantityInBasket(product.code) > 0" id="display-basket-product">
+      <span style ="margin-right:5px;">{{ quantityInBasket(product.code) }} exemplaires de ce produit ont été ajouté aux panier</span>
+    </div>
+    <button class="btn btn-success" (click) = "backtolist()">Revenir à la liste</button>
+  </ul>
+</div>
+<div id="forbidden" *ngIf="! (member | async)">
+  <h1>Contenu reservé aux membres</h1>
+  <a routerLink="/login">Se Connecter</a>
+  <a routerLink="registration">S'inscrire</a>
+</div>
