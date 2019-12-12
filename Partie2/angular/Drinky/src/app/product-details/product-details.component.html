@@ -25,6 +25,6 @@
   </div>
   <div *ngIf="quantityInBasket(product.code) > 0" id="display-basket-product">
     <span style ="margin-right:5px;">{{ quantityInBasket(product.code) }} exemplaires de ce produit ont été ajouté aux panier</span>
-    <button class="btn btn-success" (click) = "backtolist()">Revenir à la liste</button>
   </div>
+  <button class="btn btn-success" (click) = "backtolist()">Revenir à la liste</button>
 </ul>
