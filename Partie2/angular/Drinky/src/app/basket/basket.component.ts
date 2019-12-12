@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./basket.component.css']
 })
 export class BasketComponent implements OnInit {
-  private basket : any[] = new Array();
+  private basket : Observable<any>;
   private updatedbasket : any[] = new Array();
   private member : any;
   private displaymodify : boolean = false;
