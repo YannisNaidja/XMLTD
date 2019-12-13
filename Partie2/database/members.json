@@ -1,13 +1,13 @@
 [
     {
-	"name" : "Jean",
-	"first_name" : "Pierre",
+	"name" : "Pierre",
+	"first_name" : "Jean",
 	"mail" : "jean.pierre@mail.com",
 	"password" : "jp0102"
     },
     {
-	"name" : "Carole",
-	"first_name" : "Dupont",
+	"name" : "Dupont",
+	"first_name" : "Carole",
 	"mail" : "carole.dupont@mail.com",
 	"password" : "cdcd01"
     }

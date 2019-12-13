@@ -12,7 +12,10 @@
 	<a routerLink="registration">S'inscrire</a> 
       </ng-container>
       <ng-container class='text-light' *ngIf="(member | async)">
-	<a (click) = "authenticationService.logOut(member)" routerLink="/products">Se Deconnecter</a>
+        <a (click) = "authenticationService.logOut(member)" routerLink="/products">Se Deconnecter</a>
+      </ng-container>
+      <ng-container class='text-light' *ngIf="(member | async)">
+          <span> Bienvenue, {{ this.member.value.first_name }} {{ this.member.value.name }} </span>
       </ng-container>
       <a routerLink="/products">Produits</a>
     </nav>
