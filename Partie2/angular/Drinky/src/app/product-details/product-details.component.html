@@ -13,7 +13,7 @@
     <li *ngFor="let extra of product.extra">
       {{extra.key}} : {{extra.value}}
     </li>
-    <div id="add-to-basket-form" *ngIf="quantityInBasket(product.code) === 0">
+    <div id="add-to-basket-form">
       <form (ngSubmit)="onAddToBasketFormSubmit()">
 	<label style="margin-right: 5px;" for="add-to-basket-field">
 	  Quantité à ajouter au panier: 
@@ -24,7 +24,7 @@
 	</button>
       </form>
     </div>
-    <div *ngIf="quantityInBasket(product.code) > 0" id="display-basket-product">
+    <div *ngIf="quantityInBasket(product.code) > 0"  id="display-basket-product">
       <span style ="margin-right:5px;">{{ quantityInBasket(product.code) }} exemplaires de ce produit ont été ajouté aux panier</span>
     </div>
     <button class="btn btn-success" (click) = "backtolist()">Revenir à la liste</button>

@@ -26,13 +26,12 @@ function findProducts(categories, extras_wordings, product_id, brands_list, type
 
 		var extra_property = [], brand_property = [];
 
-		// TODO: Simplify
+	
 		for (let key in product.extra) {
 		    for (let extra_wording of extras_wordings) {
 			if (extra_wording.extra_key === key) {
 			    extra_property.push({
 				'key' : extra.wording,
-				// TODO: Check why?
 				'value' : product.extra[key]
 			    });
 			}
@@ -110,7 +109,6 @@ MongoClient.connect(url, {useNewUrlParser: true , useUnifiedTopology: true }, (e
 	}
     });
 
-    // TODO: Add extra and types support
     app.get("/products/:product_id", (req, res) => {
 	console.log("/products/" + req.params.product_id);
 
@@ -187,7 +185,7 @@ MongoClient.connect(url, {useNewUrlParser: true , useUnifiedTopology: true }, (e
 	}
     });
 
-    // TODO: Add extras in products
+   
     app.get("/products/search/:category_code/:product_name/:pricemin/:pricemax/:brand/:type", (req, res) => {
 	let results = [];
 	var PrixMinMaxPresent = false;
@@ -311,7 +309,7 @@ MongoClient.connect(url, {useNewUrlParser: true , useUnifiedTopology: true }, (e
     			    for (let product of user.basket) {
     				if (product.product_code === req.params.product) {
 				    productFound = true;
-    				    product.quantity = req.body.quantity;
+    				    product.quantity += req.body.quantity;
     				}
 				
     				result.push(product);
@@ -411,7 +409,7 @@ MongoClient.connect(url, {useNewUrlParser: true , useUnifiedTopology: true }, (e
 	    });	
     });	
 
-    // TODO: printerror )-:
+   
     app.post("/emptyBasket" , (req, res) => {
 
 	db.collection("basket").find({'user_mail' : req.body.user_mail})
